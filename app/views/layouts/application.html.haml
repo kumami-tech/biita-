@@ -21,13 +21,14 @@
               .Menu
                 %ul
                   %li.Menu__post
-                    %a{href: new_posts_g_path} ツアーゲストとして投稿する
+                    %a.Text{href: new_posts_g_path} ツアーゲストとして投稿する
                   %li.Menu__post
-                    %a{href: new_posts_c_path} ツアーキャストとして投稿する
+                    %a.Text{href: new_posts_c_path} ツアーキャストとして投稿する
             = link_to "マイページ", "/", class: "Header__bar__btns__btn"
             = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "Header__bar__btns__btn"
         - else
           .Header__bar__btns
             = link_to "新規登録", new_user_registration_path, class: "Header__bar__btns__btn"
             = link_to "ログイン", new_user_session_path, class: "Header__bar__btns__btn"
-    = yield
+    .Wrapper
+      = yield
