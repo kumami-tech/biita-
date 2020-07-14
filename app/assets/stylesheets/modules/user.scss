@@ -1,0 +1,29 @@
+$orange: #ffa500;
+
+.Form {
+  width: 350px;
+  margin: 50px auto;
+  &__Content {
+    margin-bottom: 40px;
+    &__Field {
+      height: 40px;
+      width: 350px;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.Btn {
+  width: 100px;
+  background-color: $orange;
+  color: black;
+  padding: 10px 15px;
+  border-style: none;
+  display: block;
+  margin: 50px auto 30px;
+  cursor: pointer;
+}
+
+.Text {
+  font-size: 14px;
+}
