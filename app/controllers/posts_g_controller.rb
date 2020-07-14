@@ -1,5 +1,5 @@
 class PostsGController < ApplicationController
-  before_action :set_tweet, only: [:edit]
+  before_action :set_post, only: [:edit]
   before_action :move_to_index, except: [:index]
 
   def index
@@ -10,10 +10,23 @@ class PostsGController < ApplicationController
     @post = PostG.new
   end
 
+  def create
+    @post = PostG.create(post_params)
+    if @post.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
 
   private
+  def post_params
+    params.require(:post_g).permit(:region, :datetime, :content, :charge).merge(user_id: current_user.id)
+  end
+
   def set_post
-    @post = Tweet.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def move_to_index
