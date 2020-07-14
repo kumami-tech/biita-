@@ -1,0 +1,60 @@
+$yellow: #ffff80;
+$gray: #f5f5f5;
+$orange: #FFC882;
+
+.Header {
+  background-color: $yellow;
+  &__bar {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    &__title {
+      color: black;
+      font-size: 40px;
+      font-weight: bold;
+      line-height: 80px;
+      margin-left: 150px;
+    }
+    &__btns {
+      width: 500px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-right: 150px;
+      &__btn {
+        width: 120px;
+        color: black;
+        font-size: 17px;
+        border: solid 1px black;
+        border-radius: 20px;
+        padding: 5px 10px;
+        text-align: center;
+      }
+      .Menu {
+        display: none;
+        position: absolute;
+        &__post:hover {
+          background-color: $orange;
+          color: white;
+        }
+        > ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          width: 240px;
+          text-align: center;
+          background-color: $gray;
+          > li  {
+            > a {
+              text-decoration: none;
+              color: black;
+            }
+          }
+        }
+      }
+      .Menu_box:hover .Menu {
+        display: inline-block;
+      }
+    }
+  }
+}
