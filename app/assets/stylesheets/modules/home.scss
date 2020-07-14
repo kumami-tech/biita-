@@ -1,0 +1,44 @@
+$orange: #ffa500;
+
+.Wrapper {
+  margin: 0 150px 0;
+  .Btns {
+    display: flex;
+    justify-content: center;
+    &__btn {
+      height: 60px;
+      width: 250px;
+      text-decoration: none;
+      color: $orange;
+      font-weight: bold;
+      padding: 15px;
+      margin: 40px;
+      border: solid 2px $orange;
+      font-size: 18px;
+      text-align: center;
+    }
+  }
+  .Home_box {
+    margin-bottom: 40px;
+    &__Title {
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: underline;
+      margin-bottom: 15px;
+      }
+    .Sub_title {
+    margin-bottom: 10px;
+    }
+    .Content {
+      border: solid 1px $orange;
+      padding: 15px;
+      margin-bottom: 20px;
+      li {
+        margin-bottom: 5px;
+      }
+    }
+    .text {
+      font-size: 14px;
+    }
+  }
+}
