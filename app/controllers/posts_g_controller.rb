@@ -1,0 +1,2 @@
+class PostsGController < ApplicationController
+end

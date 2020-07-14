@@ -1,0 +1,2 @@
+module PostsGHelper
+end

@@ -1,0 +1,2 @@
+class PostC < ApplicationRecord
+end
