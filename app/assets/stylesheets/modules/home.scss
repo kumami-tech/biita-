@@ -1,7 +1,7 @@
 $orange: #ffa500;
 
 .Wrapper {
-  margin: 0 150px 0;
+  margin: 30px 150px;
   .Btns {
     display: flex;
     justify-content: center;
@@ -20,12 +20,6 @@ $orange: #ffa500;
   }
   .Home_box {
     margin-bottom: 40px;
-    &__Title {
-      font-size: 20px;
-      font-weight: bold;
-      text-decoration: underline;
-      margin-bottom: 15px;
-      }
     .Sub_title {
     margin-bottom: 10px;
     }
@@ -41,4 +35,10 @@ $orange: #ffa500;
       font-size: 14px;
     }
   }
+  .Title {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 15px;
+    }
 }
