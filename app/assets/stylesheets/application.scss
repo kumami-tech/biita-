@@ -16,7 +16,10 @@
 
  @import "bulma";
  @import "reset";
+ @import "modules/header";
  @import "modules/messages";
- @import "modules/user";
+ @import "modules/users";
+ @import "modules/home";
+
  @import "font-awesome-sprockets";
  @import "font-awesome";
