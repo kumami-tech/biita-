@@ -10,10 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_13_034607) do
+ActiveRecord::Schema.define(version: 2020_07_14_055504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "post_cs", force: :cascade do |t|
+    t.string "region", null: false
+    t.string "datetime", null: false
+    t.text "content", null: false
+    t.string "charge", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["region"], name: "index_post_cs_on_region"
+    t.index ["user_id"], name: "index_post_cs_on_user_id"
+  end
+
+  create_table "post_gs", force: :cascade do |t|
+    t.string "region", null: false
+    t.string "datetime", null: false
+    t.text "content", null: false
+    t.string "charge", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["region"], name: "index_post_gs_on_region"
+    t.index ["user_id"], name: "index_post_gs_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
@@ -31,4 +55,6 @@ ActiveRecord::Schema.define(version: 2020_07_13_034607) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "post_cs", "users"
+  add_foreign_key "post_gs", "users"
 end
