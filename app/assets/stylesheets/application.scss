@@ -18,8 +18,9 @@
  @import "reset";
  @import "modules/header";
  @import "modules/messages";
- @import "modules/users";
+ @import "modules/user";
  @import "modules/home";
-
+ @import "posts_c";
+ @import "posts_g";
  @import "font-awesome-sprockets";
  @import "font-awesome";
