@@ -10,4 +10,24 @@
   %body
     %p.notice= notice
     %p.alert= alert
+    %header.Header
+      %div.Header__bar
+        %h1
+          = link_to "Biita!", "/", class: "Header__bar__title"
+        - if user_signed_in?
+          .Header__bar__btns
+            .Menu_box
+              .Header__bar__btns__btn.New_post 新規投稿
+              .Menu
+                %ul
+                  %li.Menu__post
+                    %a{href: "#"} ツアーゲストとして投稿する
+                  %li.Menu__post
+                    %a{href: "#"} ツアーキャストとして投稿する
+            = link_to "マイページ", "/", class: "Header__bar__btns__btn"
+            = link_to "ログアウト", "/", class: "Header__bar__btns__btn"
+        - else
+          .Header__bar__btns
+            = link_to "新規登録", "/", class: "Header__bar__btns__btn"
+            = link_to "ログイン", "/", class: "Header__bar__btns__btn"
     = yield
