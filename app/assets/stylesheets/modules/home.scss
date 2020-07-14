@@ -1,7 +1,9 @@
 $orange: #ffa500;
 
 .Wrapper {
-  margin: 30px 150px;
+  padding: 30px 200px;
+  overflow: scroll;
+  height: calc(100vh - 70px);
   .Btns {
     display: flex;
     justify-content: center;
@@ -12,7 +14,7 @@ $orange: #ffa500;
       color: $orange;
       font-weight: bold;
       padding: 15px;
-      margin: 40px;
+      margin: 40px 40px 60px 40px;
       border: solid 2px $orange;
       font-size: 18px;
       text-align: center;
@@ -31,12 +33,9 @@ $orange: #ffa500;
         margin-bottom: 5px;
       }
     }
-    .text {
-      font-size: 14px;
-    }
   }
   .Title {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     text-decoration: underline;
     margin-bottom: 15px;
