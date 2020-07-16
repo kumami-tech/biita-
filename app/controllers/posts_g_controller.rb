@@ -4,8 +4,6 @@ class PostsGController < ApplicationController
 
   def index
     @posts = PostG.includes(:user).order("created_at DESC")
-    # @post = User.find(params[:id])
-    # binding.pry
   end
 
   def new
@@ -19,6 +17,12 @@ class PostsGController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
+    @posts = @user.post_gs
+    @posts_g = current_user.post_gs
   end
 
   private

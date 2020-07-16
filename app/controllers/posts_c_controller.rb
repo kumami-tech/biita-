@@ -19,6 +19,11 @@ class PostsCController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+    @posts = @user.post_cs
+    @posts_g = current_user.post_cs
+  end
 
   private
   def post_params

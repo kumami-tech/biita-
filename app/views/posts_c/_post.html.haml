@@ -6,18 +6,18 @@
       = link_to "#{post.user.name}", posts_g_path(post.user), class: "Link"
   .Post_box__Text.Text
     .Post_box__Text__Lists
-      .Post_box__Text__Lists__List 旅行したい国と都市:
+      .Post_box__Text__Lists__List 対応可能な国と都市:
       .Post_box__Text__Lists__Content
         = post[:region]
     .Post_box__Text__Lists
-      .Post_box__Text__Lists__List 希望日時：
+      .Post_box__Text__Lists__List 対応可能な日時：
       .Post_box__Text__Lists__Content
         = post[:datetime]
     .Post_box__Text__Lists
-      .Post_box__Text__Lists__List リクエスト：
+      .Post_box__Text__Lists__List 対応可能なリクエスト：
       .Post_box__Text__Lists__Content
         = post[:content]
     .Post_box__Text__Lists
-      .Post_box__Text__Lists__List 希望料金：
+      .Post_box__Text__Lists__List 対応可能な料金：
       .Post_box__Text__Lists__Content
         = post[:charge]

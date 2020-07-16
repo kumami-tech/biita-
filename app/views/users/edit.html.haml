@@ -2,11 +2,13 @@
 .Edit_profile_image
   .Edit_profile_image__Text.Text
     プロフィール画像
-    = attachment_image_tag @user, :profile_image, fallback: "no-image.jpg", class: "Profile__Image"
-  = link_to "画像を選択", "#", class: "Edit_profile_image__Btn Text"
+  = attachment_image_tag @user, :profile_image, fallback: "no-image.jpg", class: "Profile__Image"
+  -# = link_to "画像を選択", "#", class: "Edit_profile_image__Btn Text"
 .Edit_profile_form.Text
   = form_for(current_user) do |f|
+    -# = f.label :image
     = f.attachment_field :profile_image, class:"Image_select"
+    %br
     = f.label "自己紹介文"
     %br/
     = f.text_area :profile, autofocus: true, rows: "6", class: "Form__Content__Field--large"

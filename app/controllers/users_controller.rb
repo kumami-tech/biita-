@@ -7,11 +7,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @posts = PostG.where(user_id: current_user.id)
     @user = User.find(params[:id])
-    # user = User.find(params[:id])
-    @name = current_user.name
-    # posts_g = PostG.all
+    @posts = @user.post_gs
     @posts_g = current_user.post_gs
   end
 
@@ -30,9 +27,8 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      # binding.pry
-      redirect_to request.referer
-      # redirect_to root_path
+      post = PostG.find(params[:id])
+      redirect_to posts_g_path(current_user.id)
     else
       render :edit
     end

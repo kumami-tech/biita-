@@ -1,1 +1,3 @@
-ツアーキャストの投稿一覧
+.Title ツアーキャストの投稿一覧
+- @posts.each do |post|
+  = render partial: "post", locals: { post: post }
