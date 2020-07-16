@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
-  has_many :posts_g
-  has_many :posts_c
+  has_many :post_gs
+  has_many :post_cs
+
+  # mount_uploader :profile_image_id, ImageUploader
 end
