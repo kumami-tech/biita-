@@ -1,0 +1,36 @@
+.Form__Content__Field--large {
+  width: 350px;
+}
+
+.Post_box {
+  border: solid 1px black;
+  border-radius: 30px;
+  padding: 20px 40px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: start;
+  &__User_info {
+    margin-right: 25px;
+    &__Image {
+      height: 100px;
+      width: 100px;
+      // border: solid 0.5px black;
+      // margin-bottom: 5px;
+    }
+    &__Name {
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+  &__Text {
+    margin: auto 0;
+    font-weight: bold;
+    &__Lists {
+      display: flex;
+      margin: 5px;
+      &__List {
+        margin-right: 5px;
+      }
+    }
+  }
+}
