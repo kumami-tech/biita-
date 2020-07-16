@@ -1,4 +1,5 @@
-$orange: #ffa500;
+$orange1: #FF6D05;
+$orange2: #ffa500;
 
 .Form {
   width: 350px;
@@ -15,7 +16,7 @@ $orange: #ffa500;
 
 .Btn {
   width: 100px;
-  background-color: $orange;
+  background-color: $orange2;
   padding: 10px 15px;
   border-style: none;
   display: block;
@@ -28,8 +29,9 @@ $orange: #ffa500;
 }
 
 .Profile {
+  width: 840px;
   display: flex;
-  margin: 30px 0 20px;
+  margin: 30px auto 20px;
   &__Image {
     height: 140px;
     width: 140px;
@@ -59,8 +61,10 @@ $orange: #ffa500;
         text-align: center;
         &__Btn {
         width: 120px;
-        color: black;
-        border: solid 1px black;
+        // font-weight: bold;
+        color: $orange1;
+        border: solid 1.3px $orange1;
+        margin: auto;
         }
       }
     }
@@ -71,30 +75,42 @@ $orange: #ffa500;
   width: 230px;
   display: flex;
   justify-content: space-between;
-  margin: 20px 0;
-  &__Guest {
+  margin: 20px 10px;
+  .Bold {
     font-weight: bold;
   }
 }
 
 .Edit_profile_image {
   width: 140px;
-  margin: 20px auto;
+  margin: 0 auto;
   text-align: center;
-  &__Image {
-    margin: 5px;
+  &__Text {
+    margin-bottom: 10px;
   }
-  &__Btn {
-    width: 100px;
-    margin: auto;
-    color: black;
-    border: solid 1px black;
-    padding: 5px 10px;
-    font-size: 14px;
-  }
+  // &__Btn {
+  //   width: 100px;
+  //   margin: auto;
+  //   color: black;
+  //   border: solid 1px black;
+  //   padding: 5px 10px;
+  //   font-size: 14px;
+  // }
 }
 
-.Edit_profile_form.Text {
+.Edit_profile_form {
   width: 350px;
   margin: 30px auto 0;
 }
+
+.Image_select {
+  margin: 0px 0px 20px 50px;
+}
+
+.Link {
+  color: black;
+}
+
+// .None {
+//   display: none;
+// }

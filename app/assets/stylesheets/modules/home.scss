@@ -1,4 +1,5 @@
-$orange: #ffa500;
+$orange1: #FF6D05;
+$orange2: #ffa500;
 
 .Wrapper {
   padding: 30px 280px;
@@ -11,11 +12,11 @@ $orange: #ffa500;
       height: 60px;
       width: 250px;
       text-decoration: none;
-      color: $orange;
+      color: $orange2;
       font-weight: bold;
       padding: 15px;
       margin: 40px 40px 60px 40px;
-      border: solid 2px $orange;
+      border: solid 2px $orange2;
       font-size: 18px;
       text-align: center;
     }
@@ -30,7 +31,7 @@ $orange: #ffa500;
       }
       &__Content {
         width: 700px;
-        border: solid 1px $orange;
+        border: solid 1px $orange2;
         padding: 15px;
         margin: 0 auto 20px;
         li {
