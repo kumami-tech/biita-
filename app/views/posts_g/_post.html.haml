@@ -1,0 +1,43 @@
+.Post_box
+  .Post_box__User_info
+    .Post_box__User_info__Image
+      = image_tag src="https://narutimet.com/wp-content/uploads/2019/03/thumb-9.jpg", size: "140x140"
+    .Post_box__User_info__Name.Text
+      = post.user.name
+  .Post_box__Text.Text
+    .Post_box__Text__Lists
+      .Post_box__Text__Lists__List 旅行したい国と都市:
+      .Post_box__Text__Lists__Content
+        = post[:region]
+    .Post_box__Text__Lists
+      .Post_box__Text__Lists__List 希望日時：
+      .Post_box__Text__Lists__Content
+        = post[:datetime]
+    .Post_box__Text__Lists
+      .Post_box__Text__Lists__List リクエスト：
+      .Post_box__Text__Lists__Content
+        = post[:content]
+    .Post_box__Text__Lists
+      .Post_box__Text__Lists__List 希望料金：
+      .Post_box__Text__Lists__Content
+        = post[:charge]
+
+
+
+-# .content_post{:style => "background-image: url(#{tweet.image});"}
+-#   .more
+-#     %span= image_tag 'arrow_top.png'
+-#     %ul.more_list
+-#       %li
+-#         = link_to '詳細', tweet_path(tweet.id), method: :get
+-#       - if user_signed_in? && current_user.id == tweet.user_id
+-#         %li
+-#           = link_to '編集', edit_tweet_path(tweet.id), method: :get
+-#         %li
+-#           = link_to '削除', tweet_path(tweet.id), method: :delete
+-#   %p= tweet.text
+-#   %span.name
+-#     %a{:href => "/users/#{tweet.user.id}"}
+-#       %span 投稿者
+-#       = tweet.user.nickname
+-# = "# #{tweet.tags.first.name}"

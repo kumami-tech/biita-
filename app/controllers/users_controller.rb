@@ -1,8 +1,20 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+
   def index
+    @users = User.name
+  end
+
+  def show
+    @posts = PostG.where(user_id: current_user.id)
+    # user = User.find(params[:id])
+    @name = current_user.name
+    # posts_g = PostG.all
+    @posts_g = current_user.post_gs
   end
 
   def edit
+    user = User.find(params[:id])
   end
 
   def update
@@ -16,6 +28,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:id, :name, :email)
   end
 end
