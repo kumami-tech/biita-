@@ -1,7 +1,7 @@
 $orange: #ffa500;
 
 .Wrapper {
-  padding: 30px 200px;
+  padding: 30px 280px;
   overflow: scroll;
   height: calc(100vh - 70px);
   .Btns {
@@ -22,15 +22,20 @@ $orange: #ffa500;
   }
   .Home_box {
     margin-bottom: 40px;
-    .Sub_title {
-    margin-bottom: 10px;
-    }
-    .Content {
-      border: solid 1px $orange;
-      padding: 15px;
-      margin-bottom: 20px;
-      li {
-        margin-bottom: 5px;
+    &__Box {
+      width: 750px;
+      margin: auto;
+      .Sub_title {
+      margin-bottom: 10px;
+      }
+      &__Content {
+        width: 700px;
+        border: solid 1px $orange;
+        padding: 15px;
+        margin: 0 auto 20px;
+        li {
+          margin-bottom: 5px;
+        }
       }
     }
   }

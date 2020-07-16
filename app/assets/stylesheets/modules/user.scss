@@ -16,7 +16,6 @@ $orange: #ffa500;
 .Btn {
   width: 100px;
   background-color: $orange;
-  color: black;
   padding: 10px 15px;
   border-style: none;
   display: block;
@@ -26,4 +25,74 @@ $orange: #ffa500;
 
 .Text {
   font-size: 14px;
+}
+
+.Profile {
+  display: flex;
+  margin: 30px 0 20px;
+  &__Image {
+    height: 140px;
+    width: 140px;
+    margin-right: 30px;
+    // border: solid 1px black;
+  }
+  &__Content {
+    height: 150px;
+    width: 700px;
+    &__Name_btns {
+      height: 35px;
+      width: 600px;
+      line-height: 35px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      .Name {
+        width: 150px;
+        font-weight: bold;
+      }
+      .White_btns {
+        width: 400px;
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        &__Btn {
+        width: 120px;
+        color: black;
+        border: solid 1px black;
+        }
+      }
+    }
+  }
+}
+
+.Position {
+  width: 230px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  &__Guest {
+    font-weight: bold;
+  }
+}
+
+.Edit_profile_image {
+  width: 140px;
+  margin: 20px auto;
+  text-align: center;
+  &__Image {
+    margin: 5px;
+  }
+  &__Btn {
+    width: 100px;
+    margin: auto;
+    color: black;
+    border: solid 1px black;
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+}
+
+.Edit_profile_form.Text {
+  width: 350px;
+  margin: 30px auto 0;
 }
