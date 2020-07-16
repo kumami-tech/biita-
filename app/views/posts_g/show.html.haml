@@ -1,21 +1,22 @@
-.Title
-  = "#{@user.name}さんのページ"
-.Profile
-  = attachment_image_tag @user, :profile_image, fallback: "no-image.jpg", class: "Profile__Image"
-  .Profile__Content
-    .Profile__Content__Name_btns
-      .Name
-        = @user.name
-      .White_btns
-        = link_to "編集", edit_user_path(current_user), class: "White_btns__Btn"
-        = link_to "トークルーム", groups_path, class: "White_btns__Btn"
-        = link_to "レビュー", "#", class: "White_btns__Btn"
-    .Profile__Content__Text.Text
-      = simple_format(@user.profile)
+.Wrapper
+  .Title
+    = "#{@user.name}さんのページ"
+  .Profile
+    = attachment_image_tag @user, :profile_image, fallback: "no-image.jpg", class: "Profile__Image"
+    .Profile__Content
+      .Profile__Content__Name_btns
+        .Name
+          = @user.name
+        .White_btns
+          = link_to "編集", edit_user_path(current_user), class: "White_btns__Btn"
+          = link_to "トークルーム", groups_path, class: "White_btns__Btn"
+          = link_to "レビュー", "#", class: "White_btns__Btn"
+      .Profile__Content__Text.Text
+        = simple_format(@user.profile)
 
-.Position
-  = link_to "ツアーゲスト", posts_g_path(@user.id), class: "Bold Link"
-  = link_to "ツアーキャスト", posts_c_path(@user.id), class: "Link"
+  .Position
+    = link_to "ツアーゲスト", posts_g_path(@user.id), class: "Bold Link"
+    = link_to "ツアーキャスト", posts_c_path(@user.id), class: "Link"
 
-- @posts.each do |post|
-  = render partial: "post", locals: { post: post }
+  - @posts.each do |post|
+    = render partial: "post", locals: { post: post }

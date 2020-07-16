@@ -1,16 +1,17 @@
-.Title ツアーゲストの投稿一覧
-- @posts.each do |post|
-  = render partial: "post", locals: { post: post }
+.Wrapper
+  .Title ツアーゲストの投稿一覧
+  - @posts.each do |post|
+    = render partial: "post", locals: { post: post }
 
 
 
 
 
 
--# - @posts.each do |post|
--#   = render partial: "post", locals: { post: post }
+  -# - @posts.each do |post|
+  -#   = render partial: "post", locals: { post: post }
 
 
--# 1つ目の配列.zip(2つ目の配列) do |変数1, 変数2| 
+  -# 1つ目の配列.zip(2つ目の配列) do |変数1, 変数2| 
 
--# end
+  -# end
