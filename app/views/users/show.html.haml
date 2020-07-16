@@ -1,0 +1,27 @@
+.Title マイページ
+.Profile
+  .Profile__Image
+    = image_tag src="https://narutimet.com/wp-content/uploads/2019/03/thumb-9.jpg", size: "160x140"
+  .Profile__Content
+    .Profile__Content__Name_btns
+      .Name
+        = @name
+      .White_btns
+        = link_to "編集", edit_user_path(current_user), class: "White_btns__Btn"
+        = link_to "トークルーム", "#", class: "White_btns__Btn"
+        = link_to "コメント", "#", class: "White_btns__Btn"
+    .Profile__Content__Text.Text
+      ご覧いただきありがとうございます！
+      %br
+      僕は今大学4年生で、9月にタイを一周したいと思っています。
+      %br
+      人生で初めての海外一人旅で不安もあるので、手助けしていただける方を募集しています。
+      %br
+      よろしくお願いします！
+
+.Position
+  .Position__Guest ツアーゲスト
+  .Position__Cast ツアーキャスト
+
+- @posts.each do |post|
+  = render partial: "posts_g/post", locals: { post: post }
