@@ -33,6 +33,8 @@ $orange: #ffa500;
   &__Image {
     height: 140px;
     width: 140px;
+    border-radius: 50%;
+    object-fit: cover;
     margin-right: 30px;
     // border: solid 1px black;
   }

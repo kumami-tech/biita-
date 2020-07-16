@@ -12,10 +12,12 @@
   &__User_info {
     margin-right: 25px;
     &__Image {
-      height: 100px;
-      width: 100px;
+      height: 90px;
+      width: 90px;
+      border-radius: 50%;
+      object-fit: cover;
       // border: solid 0.5px black;
-      // margin-bottom: 5px;
+      margin-bottom: 5px;
     }
     &__Name {
       font-weight: bold;

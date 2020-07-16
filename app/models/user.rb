@@ -9,5 +9,5 @@ class User < ApplicationRecord
   has_many :post_gs
   has_many :post_cs
 
-  # mount_uploader :profile_image_id, ImageUploader
+  attachment :profile_image
 end

@@ -1,7 +1,6 @@
 .Title マイページ
 .Profile
-  .Profile__Image
-    = image_tag src="https://narutimet.com/wp-content/uploads/2019/03/thumb-9.jpg", size: "160x140"
+  = attachment_image_tag @user, :profile_image, fallback: "no-image.jpg", class: "Profile__Image"
   .Profile__Content
     .Profile__Content__Name_btns
       .Name
