@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   # resources :users, only: [:show, :edit, :update]
   resources :posts_g
   resources :posts_c
+  resources :groups
+  resources :messages
 end
