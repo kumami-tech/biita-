@@ -1,6 +1,22 @@
 $orange1: #FF6D05;
 $orange2: #ffa500;
 
+.Text {
+  font-size: 14px;
+}
+
+.Text_s {
+  font-size: 12px;
+}
+
+.Bold {
+  font-weight: bold;
+}
+
+.Link {
+  color: black;
+}
+
 .Form {
   width: 350px;
   margin: 50px auto;
@@ -24,13 +40,7 @@ $orange2: #ffa500;
   cursor: pointer;
 }
 
-.Text {
-  font-size: 14px;
-}
 
-.Text_s {
-  font-size: 12px;
-}
 
 .Profile {
   width: 840px;
@@ -50,25 +60,26 @@ $orange2: #ffa500;
     &__Name_btns {
       height: 35px;
       width: 600px;
-      line-height: 35px;
       display: flex;
       justify-content: space-between;
       margin-bottom: 10px;
       .Name {
         width: 150px;
         font-weight: bold;
+        margin-top: 12px;
       }
       .White_btns {
         width: 400px;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         text-align: center;
         &__Btn {
         width: 120px;
         // font-weight: bold;
         color: $orange1;
+        line-height: 35px;
         border: solid 1.3px $orange1;
-        margin: auto;
+        margin: 0px 7px;
         }
       }
     }
@@ -109,10 +120,6 @@ $orange2: #ffa500;
 
 .Image_select {
   margin: 0px 0px 20px 50px;
-}
-
-.Link {
-  color: black;
 }
 
 

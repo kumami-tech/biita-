@@ -37,7 +37,6 @@ $orange: #FFC882;
         position: absolute;
         &__post:hover {
           background-color: $orange;
-          color: white;
         }
         > ul {
           list-style: none;
@@ -46,7 +45,7 @@ $orange: #FFC882;
           width: 220px;
           text-align: center;
           background-color: $gray;
-          > li  {
+          > li.Menu__post {
             > a {
               text-decoration: none;
               color: black;
