@@ -19,10 +19,25 @@ class PostsCController < ApplicationController
     end
   end
 
+  def edit
+    @post = PostC.find(params[:id])
+  end
+
+  def update
+    post = PostC.find(params[:id])
+    post.update(post_params)
+    redirect_to posts_c_path(post.user)
+  end
+
   def show
     @user = User.find(params[:id])
     @posts = @user.post_cs
     @posts_g = current_user.post_cs
+  end
+
+  def destroy
+    post = PostC.find(params[:id])
+    post.destroy
   end
 
   private
@@ -31,7 +46,7 @@ class PostsCController < ApplicationController
   end
 
   def set_post
-    @post = Post.find(params[:id])
+    @post = PostC.find(params[:id])
   end
 
   def move_to_index

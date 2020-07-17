@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      post = PostG.find(params[:id])
+      # post = PostG.find(params[:id])
       redirect_to posts_g_path(current_user.id)
     else
       render :edit
