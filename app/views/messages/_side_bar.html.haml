@@ -1,18 +1,8 @@
 .Side_bar
-   .Side_bar__header
-      .Side_bar__header__box
-         .Side_bar__header__box__user_name
-            = current_user.name
-         .Side_bar__header__box__icons
-            = link_to new_group_path, class: "Side_bar__header__box__icons__btn Side_bar__header__box__icons__btn--edit" do
-               = icon('far', 'edit',  class: "Side_bar__header__box__icons__btn--icon")
-            = link_to edit_user_path(current_user), class: "Side_bar__header__box__icons__btn Side_bar__header__box__icons__btn--settings" do
-               = icon('fas', 'cog',  class: "Side_bar__header__box__icons__btn--icon")
-   .Side_bar__list
-      - current_user.groups.each do |group|
-         .Side_bar__list__box
-            = link_to group_messages_path(group), class: "Side_bar__list__box__link" do
-               .Side_bar__list__box__group_name
-                  = group.name
-               .Side_bar__list__box__message
-                  = group.show_last_message
+  - current_user.groups.each do |group|
+    .Side_bar__list__box
+      = link_to group_messages_path(group), class: "Side_bar__list__box__link" do
+        .Side_bar__list__box__group_name
+          = group.name
+        .Side_bar__list__box__message
+          = group.show_last_message

@@ -1,70 +1,145 @@
-// $white: #ffffff;
-// $black: #333333;
-// $gray: #999999;
-// $light_blue: #38aef0;
+$white: #ffffff;
+$black: #333333;
+$orange1: #FF6D05;
+$orange2: #ffa500;
+$orange3: #FFE2B2;
+$light_blue: #38aef0;
 
-// * {
-//   box-sizing: border-box;
-// }
+* {
+  box-sizing: border-box;
+}
 
-// .Wrapper {
-//   height: 100vh;
-//   display: flex;
-// }
+.Title1 {
+  font-weight: bold;
+  text-decoration: underline;
+  line-height: 60px;
+  margin-left: 80px;
+  }
 
-// .Side_bar {
-//   height: 100vh;
-//   width: 300px;
-//   &__header {
-//     height: 100px;
-//     background-color: #253141;
-//     display: flex;
-//     align-items: center;
-//     &__box {
-//       height: 20px;
-//       width: 260px;
-//       margin: auto;
-//       display: flex;
-//       justify-content: space-between;
-//       color: $white;
-//       font-size: 16px;
-//       font-weight: bold;
-//       &__icons {
-//         display: flex;
-//         justify-content: flex-end;
-//         &__btn {
-//           line-height: 20px;
-//           color: $white;
-//           &--edit {
-//             margin-right: 5px;
-//           }
-//         }
-//       }
-//     }
-//   }
-//   &__list {
-//     height: calc(100vh - 100px);
-//     background-color: #2f3e51;
-//     overflow: scroll;
-//     &__box {
-//       height: 91px;
-//       width: 300px;
-//       padding: 20px 20px 40px;
-//       color: $white;
-//       &__link {
-//         text-decoration: none;
-//       }
-//       &__group_name {
-//         color: $white;
-//         font-size: 15px;
-//       }
-//       &__message {
-//         color: $white;
-//         font-size: 11px;
-//       }
-//     }
-//   }
-// }
+.All {
+  height: calc(100vh - 70px);
+  display: flex;
+  overflow: scroll;
+}
+
+.Side_bar {
+  height: calc(100vh - 70px);
+  width: 280px;
+  border-right: solid 1px #B3B8BB;
+  // background-color: $orange3;
+  overflow: scroll;
+  &__box {
+    height: 91px;
+    width: 300px;
+    padding: 20px 20px 40px;
+    color: $white;
+    &__link {
+      text-decoration: none;
+    }
+    &__group_name {
+      color: $white;
+      font-size: 15px;
+    }
+    &__message {
+      color: $white;
+      font-size: 11px;
+    }
+  }
+}
+
+.Main {
+  height: calc(100vh - 70px);
+  width: calc(100vw - 280px);
+  &__Header {
+    height: 60px;
+    border-bottom: solid 1px #B3B8BB;
+    // padding: 15px 80px;
+  }
+  &__content {
+    height: calc(100vh - 220px);
+    width: calc(100vw - 280px);
+    padding: 15px 280px 15px 80px;
+  }
+  &__form {
+    height: 90px;
+    width: 100%;
+    border-top: solid 1px #B3B8BB;
+    display: flex;
+    align-items: center;
+    &__contents {
+      height: 40px;
+      width: calc(100vw - 640px);
+      margin: 0 280px 0 80px;
+      display: flex;
+      justify-content: space-between;
+      &__input {
+        height: 40px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        position: relative;
+        .field_with_errors {
+          display: contents;
+        }
+        &__image {
+          cursor: pointer;
+        }
+        &__text {
+          background-color: #F4F4F4;
+          height: 40px;
+          width: 100%;
+          border: solid 1px black;
+          padding: 0 35px 0 10px;
+        }
+        &__image {
+          position: absolute;
+          right: 10px;
+          &__file {
+            display: none;
+          }
+        }
+      }
+      &__btn {
+        background-color: $orange2;
+        color: black;
+        font-size: 16px;
+        padding: 0 30px;
+        margin-left: 15px;
+        border-style: none;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.Message_box {
+  // border: solid 1px black;
+  border-radius: 30px;
+  padding: 10px 30px 20px 0px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: start;
+  position: relative;
+  &__User_image {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    margin-bottom: 5px;
+    display: block;
+  }
+  &__Content {
+    // margin: auto 0;
+    &__Name {
+    font-weight: bold;
+    margin-bottom: 10px;
+    }
+  }
+}
+
+
+
 
 // .Main_chat {
 //   height: 100vh;
