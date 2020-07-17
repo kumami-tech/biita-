@@ -16,8 +16,16 @@
     .Post_box__Text__Lists
       .Post_box__Text__Lists__List リクエスト：
       .Post_box__Text__Lists__Content
-        = post[:content]
+        = simple_format(post.content)
     .Post_box__Text__Lists
       .Post_box__Text__Lists__List 希望料金：
       .Post_box__Text__Lists__Content
         = post[:charge]
+  .more
+    - if user_signed_in? && current_user.id == post.user_id
+      = icon('fas', 'chevron-down', class: "Side_bar__header__box__icons__btn--icon")
+      %ul.more_list
+        %li
+          = link_to '編集', edit_posts_g_path(post.id), method: :get, class: "down_btn"
+        %li
+          = link_to '削除', "/posts_g/#{post.id}/destroy", method: :delete, class: "down_btn"
