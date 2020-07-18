@@ -33,6 +33,10 @@ class PostsGController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.post_gs
     @posts_g = current_user.post_gs
+
+    groups = @user.groups.pluck(:id)
+    group = GroupUser.where(group_id: groups)
+    @group = group.where(user_id: current_user.id)
   end
 
   def destroy

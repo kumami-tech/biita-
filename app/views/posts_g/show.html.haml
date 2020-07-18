@@ -14,7 +14,10 @@
             = link_to "レビュー", "#", class: "White_btns__Btn"
         - else
           .White_btns
-            = link_to "トークルーム", message_path(@user.id), class: "White_btns__Btn"
+            - if @group.empty?
+              = link_to "トークルーム", "/groups/#{@user.id}/create", class: "White_btns__Btn"
+            - else
+              = link_to "トークルーム", group_path(@user.id), class: "White_btns__Btn"
             = link_to "レビュー", "#", class: "White_btns__Btn"
       .Profile__Content__Text.Text
         = simple_format(@user.profile)
