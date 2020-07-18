@@ -15,11 +15,15 @@ $orange2: #ffa500;
       color: $orange2;
       font-weight: bold;
       padding: 15px;
-      margin: 40px 40px 60px 40px;
+      margin: 0px 40px 0px 40px;
       border: solid 2px $orange2;
       font-size: 18px;
       text-align: center;
     }
+  }
+  .Home_image {
+    display: block;
+    margin: 30px auto;
   }
   .Home_box {
     margin-bottom: 40px;
