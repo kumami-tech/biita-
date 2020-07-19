@@ -5,7 +5,8 @@ class GroupsController < ApplicationController
     group_user = GroupUser.create(group_id: group.id, user_id: current_user.id)
     @user = User.find(params[:id])
     group_user = GroupUser.create(group_id: group.id, user_id: @user.id)
-    redirect_to posts_g_path(@user.id)
+    @group_id = group_user.group_id
+    redirect_to group_messages_path(@group_id, user_id: @user.id)
   end
 
   def show
