@@ -32,11 +32,12 @@ class PostsCController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.post_cs
-    @posts_g = current_user.post_cs
+    @posts_c = current_user.post_cs
 
     groups = @user.groups.pluck(:id)
-    group = GroupUser.where(group_id: groups)
-    @group = group.where(user_id: current_user.id)
+    group_users = GroupUser.where(group_id: groups)
+    group_user = group_users.where(user_id: current_user.id)
+    @group_id = group_user.pluck(:group_id).first
   end
 
   def destroy

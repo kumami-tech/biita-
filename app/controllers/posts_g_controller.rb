@@ -26,7 +26,7 @@ class PostsGController < ApplicationController
   def update
     post = PostG.find(params[:id])
     post.update(post_params)
-    redirect_to posts_g_path(post.id)
+    redirect_to posts_g_path(post.user)
   end
 
   def show
@@ -35,8 +35,9 @@ class PostsGController < ApplicationController
     @posts_g = current_user.post_gs
 
     groups = @user.groups.pluck(:id)
-    group = GroupUser.where(group_id: groups)
-    @group = group.where(user_id: current_user.id)
+    group_users = GroupUser.where(group_id: groups)
+    group_user = group_users.where(user_id: current_user.id)
+    @group_id = group_user.pluck(:group_id).first
   end
 
   def destroy
