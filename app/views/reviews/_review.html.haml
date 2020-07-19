@@ -1,0 +1,26 @@
+.Message_box{data: {review: {id: review.id}}}
+  = attachment_image_tag @user, :profile_image, fallback: "no-image.jpg", class: "Message_box__User_image"
+  .Message_box__Content
+    = link_to "#{@user.name}", posts_g_path(@user), class: "Link Text Message_box__Content__Name"
+    .Message_box__Text.Text
+      = simple_format(@review.content)
+
+
+
+      let html =
+      `<div class="Main_chat__content__box" data-message-id=${message.id}>
+        <div class="Main_chat__content__box__info">
+          <div class="Main_chat__content__box__info__user_name">
+            ${message.user_name}
+          </div>
+          <div class="Main_chat__content__box__info__timestamps">
+            ${message.created_at}
+          </div>
+        </div>
+        <div class="Main_chat__content__box__message">
+          <p class="Main_chat__content__box__message__content">
+            ${message.content}
+          </p>
+        </div>
+      </div>`
+      return html;

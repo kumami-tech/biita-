@@ -1,3 +1,15 @@
-// Place all the styles related to the reviews controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.Header_r {
+  height: 60px;
+  border-bottom: solid 1px #B3B8BB;
+}
+.Wrapper_r {
+  margin: auto 280px;
+}
+
+.Title_r {
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: underline;
+  line-height: 60px;
+  margin-left: 280px;
+  }
