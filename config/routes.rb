@@ -7,10 +7,13 @@ Rails.application.routes.draw do
   end
 
   root "home#index"
-  resources :users
+  resources :users do
+    resources :reviews, only: [:index, :create]
+    # post '/users/:user_id/reviews', to: 'reviews#create'
+  end
   resources :posts_g
   resources :posts_c
-  resources :reviews, only: [:create, :show]
+  
 
   resources :groups, only: [:index, :show] do
     resources :messages, only: [:index, :create]
@@ -18,5 +21,6 @@ Rails.application.routes.draw do
 
   get '/posts_g/:id/destroy', to: 'posts_g#destroy'
   get '/posts_c/:id/destroy', to: 'posts_c#destroy'
+
   get '/groups/:id/create', to: 'groups#create'
 end

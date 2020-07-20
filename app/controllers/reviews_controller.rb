@@ -1,26 +1,25 @@
 class ReviewsController < ApplicationController
-  def create
 
-    @review = Review.create(review_params)
-    respond_to do |format|
-      format.html { redirect_to review_path(params[:user_id])  }
-      format.json
-    end
-
-    # @review = Review.create(review_params)
-    # if @review.save
-    #   redirect_to review_path(@user.id)
-    # else
-    #   render :new
-    # end
+  def index
+    @user = User.find(params[:user_id])
   end
-
-  def show
-    @user = User.find(params[:id])
+  
+  def create
+    @review = current_user.reviews.create(review_params)
+    if @review.save
+      respond_to do |format|
+        format.json
+      end
+    else
+      @reviews = @user.reviews.includes(:user)
+      render :index
+    end
   end
 
   private
+
   def review_params
-    params.require(:review).permit(:content).merge(user_id: current_user.id)
+    params.require(:review).permit(:content).merge(user_id: current_user.id, profile_image: current_user.profile_image)
   end
+
 end
