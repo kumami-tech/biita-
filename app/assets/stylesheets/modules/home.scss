@@ -14,11 +14,14 @@ $orange2: #ffa500;
       text-decoration: none;
       color: $orange2;
       font-weight: bold;
-      padding: 15px;
-      margin: 0px 40px 0px 40px;
-      border: solid 2px $orange2;
+      margin: 0px 50px;
+      color: white;
+      background-color: $orange2;
+      border-radius: 10px;
+      // border: solid 2px $orange2;
       font-size: 18px;
       text-align: center;
+      line-height: 60px;
     }
   }
   .Home_image {
@@ -34,8 +37,8 @@ $orange2: #ffa500;
       margin-bottom: 10px;
       }
       &__Content {
-        width: 700px;
-        border: solid 1px $orange2;
+        width: 695px;
+        border: solid 2px $orange2;
         padding: 15px;
         margin: 0 auto 20px;
         li {
@@ -50,4 +53,8 @@ $orange2: #ffa500;
     text-decoration: underline;
     margin-bottom: 15px;
     }
+}
+
+.Bold {
+  font-weight: bold;
 }
