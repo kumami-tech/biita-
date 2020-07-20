@@ -1,0 +1,30 @@
+.Message_box
+  = attachment_image_tag @user, :profile_image, fallback: "no-image.jpg", class: "Message_box__User_image"
+  .Message_box__Content
+    = link_to "#{@user.name}", posts_g_path(@user), class: "Link Text Message_box__Content__Name"
+    .Message_box__Text.Text
+      あああああ
+      -# %br
+      -# あああああ
+  .more
+    - if user_signed_in? && current_user.id == @user_id
+      = icon('fas', 'chevron-down', class: "Side_bar__header__box__icons__btn--icon")
+      %ul.more_list
+        %li
+          = link_to '編集', edit_posts_g_path(post.id), method: :get, class: "down_btn"
+        %li
+          = link_to '削除', "/posts_g/#{post.id}/destroy", method: :delete, class: "down_btn"
+
+
+
+-# .Main_chat__content__box{data: {message: {id: message.id}}}
+-#   .Main_chat__content__box__info
+-#     .Main_chat__content__box__info__user_name
+-#       = message.user.name
+-#     .Main_chat__content__box__info__timestamps
+-#       = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+-#   .Main_chat__content__box__message
+-#     - if message.content.present?
+-#       %p.Main_chat__content__box__message__content
+-#         = message.content
+-#     = image_tag message.image.url, class: 'Main_chat__content__box__message' if message.image.present?
