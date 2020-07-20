@@ -15,7 +15,10 @@
     %header.Header
       %div.Header__bar
         %h1
-          = link_to "Biita!", "/", class: "Header__bar__title"
+          -# = icon('fas', 'shoe-prints', class: 'Header__bar__icon')
+          = link_to "/", class: "Header__bar__title" do
+            %i.fas.fa-shoe-prints.fa-rotate-270.fa-orange
+            %span Biita!
         - if user_signed_in?
           .Header__bar__btns
             .Menu_box
