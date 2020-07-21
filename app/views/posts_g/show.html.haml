@@ -11,7 +11,7 @@
           .White_btns
             = link_to "編集", edit_user_path(current_user), class: "White_btns__Btn"
             = link_to "トークルーム", groups_path, class: "White_btns__Btn"
-            = link_to "レビュー", "#", class: "White_btns__Btn"
+            = link_to "レビュー", "/users/#{@user.id}/reviews", class: "White_btns__Btn"
         - else
           .White_btns
             - if @group_id.nil?
