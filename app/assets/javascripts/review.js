@@ -1,9 +1,7 @@
 $(function(){
   function buildHTML(review){
   let html = `<div class="Message_box">
-                <div class=" Message_box__User_image">
-                  ${review.user.profile_image}
-                </div>
+                <img class="Message_box__User_image" src="/attachments/1aab43602b1af4375a5bdc1eb3ad4ab5756602bd/store/${review.profile_image}/profile_image">
                 <div class="Message_box__Content">
                   <a class="Link Text Message_box__Content__Name" href="/posts_g/8">${review.user_name}</a>
                   <div class="Message_box__Text Text">
@@ -17,11 +15,13 @@ $(function(){
     e.preventDefault();
     let formData = new FormData(this);
     let url = $(this).attr('action');
+    // let url = "/users/8/reviews.json";
     $.ajax({
       url: url,
       type: 'POST',
       data: formData,
       dataType: 'json',
+      format: 'json',
       processData: false,
       contentType: false
     })
@@ -72,3 +72,11 @@ $(function(){
 
 {/* <img class="attachment user profile_image Message_box__User_image" src="/attachments/a11b74cf4b391cc0d6ae8e8cc0180164e5a178c6/store/4360ef900099ff983a197d851e902b57f1dd2199e9c73a5165f84d99f4e2/profile_image"> */}
 {/* <img class=" Message_box__User_image" src=${review.user.profile_image}> */}
+
+
+{/* <img class="attachment user profile_image Message_box__User_image" src="/attachments/1aab43602b1af4375a5bdc1eb3ad4ab5756602bd/store/${review.profile_image}/profile_image"> */}
+
+
+
+{/* <img class="attachment user profile_image Message_box__User_image" src="/attachments/1aab43602b1af4375a5bdc1eb3ad4ab5756602bd/store/eabcbcdc16c05c459a894b3fb1a352de75856341e448340b16e48777fd47/profile_image"></img>
+<img class="attachment user profile_image Message_box__User_image" src="/attachments/1aab43602b1af4375a5bdc1eb3ad4ab5756602bd/store/b5c6011b7f57cca7c63cfa170e261482309737161cac6de2d6a763acb301/profile_image"></img> */}

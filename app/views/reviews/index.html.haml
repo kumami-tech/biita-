@@ -2,14 +2,16 @@
   .Title_r
     = "#{@user.name}さんのレビュー"
   .Main__content_r
-    .Reviews
-      = render "review"
+    .Wrapper_r
+      .Reviews
+        = render "review"
   .Main__form
-    = form_with model: [@user, Review.new], html: {class: "New_r"}, local: true do |f|
-      .Main__form__contents_r
-        .Main__form__contents__input
-          = f.text_field :content, class: 'Main__form__contents__input__text Textbox_r'
-        = f.submit '送信', class: 'Main__form__contents__btn Submit_r'
+    .Wrapper_r
+      = form_with model: [@user, Review.new], html: {class: "New_r"}, local: true do |f|
+        .Main__form__contents_r
+          .Main__form__contents__input
+            = f.text_field :content, class: 'Main__form__contents__input__text Textbox_r'
+          = f.submit '送信', class: 'Main__form__contents__btn Submit_r'
 
 
 

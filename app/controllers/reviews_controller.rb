@@ -5,9 +5,11 @@ class ReviewsController < ApplicationController
   end
   
   def create
-    @review = current_user.reviews.create(review_params)
+    @user = User.find(params[:user_id])
+    @review = @user.reviews.new(review_params)
     if @review.save
       respond_to do |format|
+        # format.html { redirect_to "/users/#{@user.id}/reviews" }
         format.json
       end
     else
@@ -19,7 +21,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:content).merge(user_id: current_user.id, profile_image: current_user.profile_image)
+    params.require(:review).permit(:content).merge(user_id: current_user.id)
   end
 
 end

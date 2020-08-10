@@ -1,11 +1,26 @@
--# .Message_box{data: {review: {id: review.id}}}
 .Message_box
-  = attachment_image_tag @user, :profile_image, fallback: "no-image.jpg", class: "Message_box__User_image"
+  -# = attachment_image_tag current_user, :profile_image, fallback: "no-image.jpg", class: "Message_box__User_image"
+  = image_tag "kakashi.jpg", class: "Message_box__User_image"
   .Message_box__Content
-    = link_to "#{@user.name}", posts_g_path(@user), class: "Link Text Message_box__Content__Name"
+    = link_to "カカシ", posts_g_path(current_user), class: "Link Text Message_box__Content__Name"
     .Message_box__Text.Text
-      -# = simple_format(@review.content)
+      現地のタクシーに乗るのが怖いので、運転を依頼させていただきました。
+      %br
+      とても親切で話しやすい方でした。またバンコク行ったらお願いしたいと思います。
+.Message_box
+  -# = attachment_image_tag @user, :profile_image, fallback: "no-image.jpg", class: "Message_box__User_image"
+  = image_tag "ri-.jpg", class: "Message_box__User_image"
+  .Message_box__Content
+    = link_to "ロック・リー", posts_g_path(@user), class: "Link Text Message_box__Content__Name"
+    .Message_box__Text.Text
+      案内が丁寧で助かりました。ありがとうございました！！
 
+
+
+
+
+-# .Message_box{data: {review: {id: review.id}}}
+-# = simple_format(@review.content)
 
 
       -# let html =

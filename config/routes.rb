@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   root "home#index"
   resources :users do
     resources :reviews, only: [:index, :create]
-    # post '/users/:user_id/reviews', to: 'reviews#create'
   end
   resources :posts_g
   resources :posts_c
