@@ -1,0 +1,19 @@
+.Group_box {
+  height: 90px;
+  padding: 20px;
+  // margin-bottom: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: start;
+  position: relative;
+}
+
+.Group_box__User_image {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: auto 15px auto 0;
+  // margin-right: 15px;
+  display: block;
+}

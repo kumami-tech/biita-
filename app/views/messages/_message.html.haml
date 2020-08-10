@@ -1,19 +1,29 @@
 .Message_box
+  = attachment_image_tag current_user, :profile_image, fallback: "no-image.jpg", class: "Message_box__User_image"
+  .Message_box__Content
+    = link_to "#{current_user.name}", posts_g_path(current_user), class: "Link Text Message_box__Content__Name"
+    .Message_box__Text.Text
+      初めまして！うずまきナルトと申します！
+      %br
+      9/5(土)の14時頃、フワランポーン駅からカオサン通りのホテルまで車で送っていただきたいのですが、
+      %br
+      ご都合はいかがですか？
+
+.Message_box
   = attachment_image_tag @user, :profile_image, fallback: "no-image.jpg", class: "Message_box__User_image"
   .Message_box__Content
     = link_to "#{@user.name}", posts_g_path(@user), class: "Link Text Message_box__Content__Name"
     .Message_box__Text.Text
-      あああああ
-      -# %br
-      -# あああああ
-  .more
-    - if user_signed_in? && current_user.id == @user_id
-      = icon('fas', 'chevron-down', class: "Side_bar__header__box__icons__btn--icon")
-      %ul.more_list
-        %li
-          = link_to '編集', edit_posts_g_path(post.id), method: :get, class: "down_btn"
-        %li
-          = link_to '削除', "/posts_g/#{post.id}/destroy", method: :delete, class: "down_btn"
+      ご連絡ありがとうございます。大丈夫ですよ。
+      %br
+      料金は800円となりますが、よろしいでしょうか？
+
+.Message_box
+  = attachment_image_tag current_user, :profile_image, fallback: "no-image.jpg", class: "Message_box__User_image"
+  .Message_box__Content
+    = link_to "#{current_user.name}", posts_g_path(current_user), class: "Link Text Message_box__Content__Name"
+    .Message_box__Text.Text
+      大丈夫です！ありがとうございます！
 
 
 
