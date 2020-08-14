@@ -3,30 +3,13 @@
     .Title1
       = "#{@user.name}さんとのトークルーム"
   .Main__content
-    = render "message"
+    = render @messages
   .Main__form
-    = form_with html: {class: "Main__form__Form"}, local: true do |f|
+    = form_with model: [@group, @message], html: {class: "Main__form__Form"}, local: true do |f|
       .Main__form__contents
         .Main__form__contents__input
-          = f.text_field :text, class: 'Main__form__contents__input__text'
+          = f.text_area :text, class: 'Main__form__contents__input__text'
           = f.label :image, class: 'Main__form__contents__input__image' do
             = icon('far', 'image', class: 'Main__form__contents__input__icon')
-            = f.file_field :image, class: 'Main__form__contents__input__image__file'
+            = f.attachment_field :image, class: 'Main__form__contents__input__image__file'
         = f.submit '送信', class: 'Main__form__contents__btn'
-
-
-
--# .Main_chat
--#   .Main_chat__content
--#     = render @messages
--#   .Main_chat__form
--#     = form_with model: [@group, @message], html: {class: "Main_chat__form__contents"}, local: true do |f|
-      -# .Main_chat__form__contents__input
-      -#   = f.text_field :content, class: 'Main_chat__form__contents__input__text', placeholder: 'type a message'
-      -#   = f.label :image, class: 'Main_chat__form__contents__input__image' do
-      -#     = icon('far', 'image', class: 'Main_chat__form__contents__input__icon')
-      -#     = f.file_field :image, class: 'Main_chat__form__contents__input__image__file'
-      -# = f.submit 'Send', class: 'Main_chat__form__contents__btn'
-
-
--# = form_with(model: @post, url: "/posts_c", local: true) do |f|
