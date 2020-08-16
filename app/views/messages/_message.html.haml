@@ -1,55 +1,10 @@
 .Message_box
   = link_to posts_g_path(message.user) do
-    = attachment_image_tag message.user, :profile_image, fallback: "no-image.jpg", class: "Message_box__User_image"
+    = image_tag message.user.profile_image.url, fallback: "no-image.jpg", class: "Message_box__User_image"
   .Message_box__Content
     = link_to "#{message.user.name}", posts_g_path(message.user), class: "Link Text Message_box__Content__Name"
     .Message_box__Text.Text
       - if message.text.present?
         = simple_format(message.text)
       - if message.image.present?
-        = attachment_image_tag message, :image, class: 'Message__image'
-
-
-
-
-
--# .Message_box
--#   = attachment_image_tag current_user, :profile_image, fallback: "no-image.jpg", class: "Message_box__User_image"
--#   .Message_box__Content
--#     = link_to "#{current_user.name}", posts_g_path(current_user), class: "Link Text Message_box__Content__Name"
--#     .Message_box__Text.Text
--#       初めまして！うずまきナルトと申します！
--#       %br
--#       9/5(土)の14時頃、フワランポーン駅からカオサン通りのホテルまで車で送っていただきたいのですが、
--#       %br
--#       ご都合はいかがですか？
-
--# .Message_box
--#   = attachment_image_tag @user, :profile_image, fallback: "no-image.jpg", class: "Message_box__User_image"
--#   .Message_box__Content
--#     = link_to "#{@user.name}", posts_g_path(@user), class: "Link Text Message_box__Content__Name"
--#     .Message_box__Text.Text
--#       ご連絡ありがとうございます。大丈夫ですよ。
--#       %br
--#       料金は800円となりますが、よろしいでしょうか？
-
--# .Message_box
--#   = attachment_image_tag current_user, :profile_image, fallback: "no-image.jpg", class: "Message_box__User_image"
--#   .Message_box__Content
--#     = link_to "#{current_user.name}", posts_g_path(current_user), class: "Link Text Message_box__Content__Name"
--#     .Message_box__Text.Text
--#       大丈夫です！ありがとうございます！
-
-
-
--# .Main_chat__content__box{data: {message: {id: message.id}}}
--#   .Main_chat__content__box__info
--#     .Main_chat__content__box__info__user_name
--#       = message.user.name
--#     .Main_chat__content__box__info__timestamps
--#       = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
--#   .Main_chat__content__box__message
--#     - if message.content.present?
--#       %p.Main_chat__content__box__message__content
--#         = message.content
--#     = image_tag message.image.url, class: 'Main_chat__content__box__message' if message.image.present?
+        = image_tag message.image.url, class: 'Message__image'

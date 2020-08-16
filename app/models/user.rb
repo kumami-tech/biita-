@@ -15,5 +15,5 @@ class User < ApplicationRecord
   has_many :messages
   has_many :reviews
 
-  attachment :profile_image
+  mount_uploader :profile_image, ImageUploader
 end

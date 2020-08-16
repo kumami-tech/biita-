@@ -2,7 +2,7 @@
   .Title
     = "#{@user.name}さんのページ"
   .Profile
-    = attachment_image_tag @user, :profile_image, fallback: "no-image.jpg", class: "Profile__Image"
+    = image_tag @user.profile_image.url, fallback: "no-image.jpg", class: "Profile__Image"
     .Profile__Content
       .Profile__Content__Name_btns
         .Name
