@@ -123,7 +123,12 @@ $orange3: #FFE2B2;
 }
 
 .My_talkroom{
-  margin: auto;
-  margin-top: 20%;
   font-size: 20px;
+  text-align: center;
+  margin: auto;
+  &__Text{
+    color: #A4A8B1;
+    text-align: center;
+    margin-top: 15px;
+  }
 }
