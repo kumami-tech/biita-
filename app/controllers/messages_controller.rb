@@ -11,12 +11,15 @@ class MessagesController < ApplicationController
     @message = @group.messages.new(message_params)
     @user = @group.users.last
     if @message.save
+      respond_to do |format|
+        format.json
+      end
       @user = @message.user
-      redirect_to action: :index, group_id: @group.id, user_id: @user.id
     else
-      @messages = @group.messages.includes(:user)
       render :index
     end
+    # redirect_to action: :index, group_id: @group.id, user_id: @user.id
+
   end
 
   def show

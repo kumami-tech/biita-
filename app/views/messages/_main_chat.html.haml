@@ -11,5 +11,5 @@
           = f.text_area :text, class: 'Main__form__contents__input__text'
           = f.label :image, class: 'Main__form__contents__input__image' do
             = icon('far', 'image', class: 'Main__form__contents__input__icon')
-            = f.attachment_field :image, class: 'Main__form__contents__input__image__file'
+            = f.file_field :image, class: 'Main__form__contents__input__image__file'
         = f.submit '送信', class: 'Main__form__contents__btn'
