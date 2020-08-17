@@ -3,7 +3,6 @@ $black: #333333;
 $orange1: #FF6D05;
 $orange2: #ffa500;
 $orange3: #FFE2B2;
-$light_blue: #38aef0;
 
 * {
   box-sizing: border-box;
@@ -20,31 +19,6 @@ $light_blue: #38aef0;
   height: calc(100vh - 70px);
   display: flex;
   overflow: scroll;
-}
-
-.Side_bar {
-  height: calc(100vh - 70px);
-  width: 280px;
-  border-right: solid 1px #B3B8BB;
-  // background-color: $orange3;
-  overflow: scroll;
-  &__box {
-    height: 91px;
-    width: 300px;
-    padding: 20px 20px 40px;
-    color: $white;
-    &__link {
-      text-decoration: none;
-    }
-    &__group_name {
-      color: $white;
-      font-size: 15px;
-    }
-    &__message {
-      color: $white;
-      font-size: 11px;
-    }
-  }
 }
 
 .Main {
@@ -112,7 +86,7 @@ $light_blue: #38aef0;
 
 .Message_box {
   padding: 10px 30px 20px 0px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: start;
   position: relative;
@@ -122,18 +96,34 @@ $light_blue: #38aef0;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 20px;
-    margin-bottom: 5px;
     display: block;
   }
   &__Content {
-    margin: auto 0;
-    &__Name {
-    font-weight: bold;
-    margin-bottom: 10px;
+    margin: auto;
+    &__Info{
+      width: 680px;
+      margin: auto;
+      margin-bottom: 5px;
+      display: flex;
+      &__Name {
+        font-weight: bold;
+        margin-right: 20px;
+      }
+      &__Time{
+        height: 14px;
+        color: #7B7D7F;
+        margin: auto 0;
+      }
     }
   }
 }
 
 .Group_form {
   margin: auto;
+}
+
+.My_talkroom{
+  margin: auto;
+  margin-top: 20%;
+  font-size: 20px;
 }
