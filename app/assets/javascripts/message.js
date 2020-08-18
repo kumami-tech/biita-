@@ -1,49 +1,96 @@
 $(function(){
   function buildHTML(message){
-    if ( message.image ) {
-      let html = 
-      `<div class="Message_box">
-        <a href="/posts_g/${message.user_id}">
-          <img class="Message_box__User_image" src="${message.user_image}">
-        </a>
-        <div class="Message_box__Content">
-          <div class="Message_box__Content__Info">
-            <div class="Message_box__Content__Info__Name">
-              <a class="Link Text" href="/posts_g/${message.user_id}">${message.user_name}</a>
+    if (message.user_image) {
+      if (message.image) {
+        let html = 
+        `<div class="Message_box">
+          <a href="/posts_g/${message.user_id}">
+            <img class="Message_box__User_image" src="${message.user_image}">
+          </a>
+          <div class="Message_box__Content">
+            <div class="Message_box__Content__Info">
+              <div class="Message_box__Content__Info__Name">
+                <a class="Link Text" href="/posts_g/${message.user_id}">${message.user_name}</a>
+              </div>
+              <div class="Message_box__Content__Info__Time Text_s">
+                ${message.created_at}
+              </div>
             </div>
-            <div class="Message_box__Content__Info__Time Text_s">
-              ${message.created_at}
+            <div class="Message_box__Content__Message Text">
+              <p>${message.text}</p>
+              <img class="Message__image" src="${message.image}">
             </div>
           </div>
-          <div class="Message_box__Content__Message Text">
-            <p>${message.text}</p>
-            <img class="Message__image" src="${message.image}">
+        </div>`
+        return html;
+      } else {
+        let html =
+        `<div class="Message_box">
+          <a href="/posts_g/${message.user_id}">
+            <img class="Message_box__User_image" src="${message.user_image}">
+          </a>
+          <div class="Message_box__Content">
+            <div class="Message_box__Content__Info">
+              <div class="Message_box__Content__Info__Name">
+                <a class="Link Text" href="/posts_g/${message.user_id}">${message.user_name}</a>
+              </div>
+              <div class="Message_box__Content__Info__Time Text_s">
+                ${message.created_at}
+              </div>
+            </div>
+            <div class="Message_box__Content__Message Text">
+              <p>${message.text}</p>
+            </div>
           </div>
-        </div>
-      </div>`
-      return html;
+        </div>`
+        return html;
+      };
     } else {
-      let html =
-      `<div class="Message_box">
-        <a href="/posts_g/${message.user_id}">
-          <img class="Message_box__User_image" src="${message.user_image}">
-        </a>
-        <div class="Message_box__Content">
-          <div class="Message_box__Content__Info">
-            <div class="Message_box__Content__Info__Name">
-              <a class="Link Text" href="/posts_g/${message.user_id}">${message.user_name}</a>
+      if (message.image) {
+        let html = 
+        `<div class="Message_box">
+          <a href="/posts_g/${message.user_id}">
+            <img class="Message_box__User_image" src="no-image.jpeg">
+          </a>
+          <div class="Message_box__Content">
+            <div class="Message_box__Content__Info">
+              <div class="Message_box__Content__Info__Name">
+                <a class="Link Text" href="/posts_g/${message.user_id}">${message.user_name}</a>
+              </div>
+              <div class="Message_box__Content__Info__Time Text_s">
+                ${message.created_at}
+              </div>
             </div>
-            <div class="Message_box__Content__Info__Time Text_s">
-              ${message.created_at}
+            <div class="Message_box__Content__Message Text">
+              <p>${message.text}</p>
+              <img class="Message__image" src="${message.image}">
             </div>
           </div>
-          <div class="Message_box__Content__Message Text">
-            <p>${message.text}</p>
+        </div>`
+        return html;
+      } else {
+        let html =
+        `<div class="Message_box">
+          <a href="/posts_g/${message.user_id}">
+            <img class="Message_box__User_image" src="no-image.jpeg">
+          </a>
+          <div class="Message_box__Content">
+            <div class="Message_box__Content__Info">
+              <div class="Message_box__Content__Info__Name">
+                <a class="Link Text" href="/posts_g/${message.user_id}">${message.user_name}</a>
+              </div>
+              <div class="Message_box__Content__Info__Time Text_s">
+                ${message.created_at}
+              </div>
+            </div>
+            <div class="Message_box__Content__Message Text">
+              <p>${message.text}</p>
+            </div>
           </div>
-        </div>
-      </div>`
-      return html;
-    };
+        </div>`
+        return html;
+      };
+    }
   }
 
   $('.Main__form__Form').on('submit', function(e){

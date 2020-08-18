@@ -3,7 +3,10 @@
     = link_to group_messages_path(group.id, user_id: group.users.last.id) do
       .Group_box
         .Group_box__Content
-          = image_tag group.users.last.profile_image.url, class: "Group_box__Content__User_image"
+          - if group.users.last.profile_image?
+            = image_tag group.users.last.profile_image.url, class: "Group_box__Content__User_image"
+          - else
+            = image_tag "no-image.jpeg", class: "Group_box__Content__User_image"
           .Group_box__Content__Text.Link
             .Group_box__Content__Text__Info.Text_s
               .Group_box__Content__Text__Info__Name
