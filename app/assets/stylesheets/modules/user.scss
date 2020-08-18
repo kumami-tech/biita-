@@ -17,11 +17,17 @@ $orange2: #ffa500;
   color: black;
 }
 
+#error_explanation{
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
 .Form {
   width: 350px;
   margin: 50px auto;
   &__Content {
     margin-bottom: 40px;
+    font-size: 15px;
     &__Field {
       height: 40px;
       width: 350px;
@@ -33,6 +39,7 @@ $orange2: #ffa500;
 .Btn {
   width: 100px;
   background-color: $orange2;
+  color: white;
   padding: 10px 15px;
   border-style: none;
   display: block;
