@@ -1,5 +1,10 @@
 class GroupsController < ApplicationController
 
+  def index
+    groups = current_user.groups.includes(:messages)
+    @groups = groups.joins(:messages).order("messages.created_at DESC")
+  end
+
   def create
     group = Group.create
     group_user = GroupUser.create(group_id: group.id, user_id: current_user.id)

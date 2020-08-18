@@ -1,8 +1,17 @@
 .Side_bar
-  -# - current_user.groups.each do |group|
-  -#   .Side_bar__list__box
-  -#     = link_to group_messages_path(group), class: "Side_bar__list__box__link" do
-  -#       .Side_bar__list__box__group_name
-  -#         = group.name
-  -#       .Side_bar__list__box__message
-  -#         = group.show_last_message
+  - @groups.each do |group|
+    = link_to group_messages_path(group.id, user_id: group.users.last.id) do
+      .Group_box
+        .Group_box__Content
+          - if group.users.last.profile_image?
+            = image_tag group.users.last.profile_image.url, class: "Group_box__Content__User_image"
+          - else
+            = image_tag "no-image.jpeg", class: "Group_box__Content__User_image"
+          .Group_box__Content__Text.Link
+            .Group_box__Content__Text__Info.Text_s
+              .Group_box__Content__Text__Info__Name
+                = group.users.last.name
+              .Group_box__Content__Text__Info__Time
+                = group.messages.last.created_at.strftime("%-m月%-d日")
+            .Group_box__Content__Text__Message.Text_s
+              = simple_format(group.show_last_message)

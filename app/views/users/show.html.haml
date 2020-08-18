@@ -2,7 +2,7 @@
   .Title
     = "#{@user.name}さんのページ"
   .Profile
-    = attachment_image_tag @user, :profile_image, fallback: "no-image.jpg", class: "Profile__Image"
+    = image_tag user.profile_image.url, fallback: "no-image.jpg", class: "Profile__Image"
     .Profile__Content
       .Profile__Content__Name_btns
         .Name
@@ -10,7 +10,7 @@
         .White_btns
           = link_to "編集", edit_user_path(current_user), class: "White_btns__Btn"
           = link_to "トークルーム", "#", class: "White_btns__Btn"
-          = link_to "コメント", "#", class: "White_btns__Btn"
+          = link_to "レビュー", "#", class: "White_btns__Btn"
       .Profile__Content__Text.Text
         = simple_format(@user.profile)
 
