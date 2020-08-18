@@ -10,8 +10,8 @@
     = javascript_include_tag 'application'
     -# = javascript_pack_tag 'application'
   %body
-    %p.notice= notice
-    %p.alert= alert
+    -# %p.notice= notice
+    -# %p.alert= alert
     %header.Header
       %div.Header__bar
         %h1
@@ -35,4 +35,6 @@
           .Header__bar__btns
             = link_to "新規登録", new_user_registration_path, class: "Header__bar__btns__btn"
             = link_to "ログイン", new_user_session_path, class: "Header__bar__btns__btn"
+
+    = render 'layouts/notifications'
     = yield
