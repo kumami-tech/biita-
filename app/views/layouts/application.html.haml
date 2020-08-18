@@ -30,7 +30,7 @@
                   %li.Menu__post
                     %a.Text{href: new_posts_c_path} ツアーキャストとして投稿する
             = link_to "マイページ", "/posts_g/#{current_user.id}", class: "Header__bar__btns__btn"
-            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "Header__bar__btns__btn"
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" }, class: "Header__bar__btns__btn"
         - else
           .Header__bar__btns
             = link_to "新規登録", new_user_registration_path, class: "Header__bar__btns__btn"
