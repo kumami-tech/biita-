@@ -2,7 +2,10 @@
   .Title
     = "#{@user.name}さんのページ"
   .Profile
-    = image_tag @user.profile_image.url, fallback: "no-image.jpg", class: "Profile__Image"
+    - if @user.profile_image?
+      = image_tag @user.profile_image.url, class: "Profile__Image"
+    - else
+      = image_tag "no-image.jpeg", class: "Profile__Image"
     .Profile__Content
       .Profile__Content__Name_btns
         .Name
