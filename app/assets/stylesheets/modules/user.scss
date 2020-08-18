@@ -54,12 +54,11 @@ $orange2: #ffa500;
   display: flex;
   margin: 30px auto 20px;
   &__Image {
-    height: 140px;
-    width: 140px;
+    height: 130px;
+    width: 130px;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 30px;
-    // border: solid 1px black;
   }
   &__Content {
     height: 150px;
@@ -104,33 +103,25 @@ $orange2: #ffa500;
 }
 
 .Edit_profile_image {
-  width: 140px;
+  width: 130px;
   margin: 0 auto;
   text-align: center;
   &__Text {
     margin-bottom: 10px;
   }
-  // &__Btn {
-  //   width: 100px;
-  //   margin: auto;
-  //   color: black;
-  //   border: solid 1px black;
-  //   padding: 5px 10px;
-  //   font-size: 14px;
-  // }
 }
 
 .Edit_profile_form {
   width: 350px;
-  margin: 30px auto 0;
+  margin: 5px auto 0;
+  &__Btn{
+    width: 90px;
+    font-size: 14px;
+    background-color: #EAEAEA;
+    padding: 5px 10px;
+    display: block;
+    cursor: pointer;
+    margin: 0 auto 25px;
+    margin-top: 0;
+  }
 }
-
-.Image_select {
-  margin: 0px 0px 20px 50px;
-}
-
-
-
-// .None {
-//   display: none;
-// }

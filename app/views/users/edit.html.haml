@@ -3,12 +3,14 @@
   .Edit_profile_image
     .Edit_profile_image__Text.Text
       プロフィール画像
-    = image_tag current_user.profile_image.url, fallback: "no-image.jpg", class: "Profile__Image"
-    -# = link_to "画像を選択", "#", class: "Edit_profile_image__Btn Text"
+    - if current_user.profile_image?
+      = image_tag current_user.profile_image.url, class: "Profile__Image Img_prev"
+    - else
+      = image_tag "no-image.jpeg", class: "Profile__Image Img_prev"
   .Edit_profile_form.Text
     = form_for(current_user) do |f|
-      -# = f.label :image
-      = f.file_field :profile_image, class:"Image_select"
+      = f.label :profile_image, "画像を選択", class: "Edit_profile_form__Btn"
+      = f.file_field :profile_image, class:"Image_select", style: "display:none;"
       %br
       = f.label "自己紹介文"
       %br/
