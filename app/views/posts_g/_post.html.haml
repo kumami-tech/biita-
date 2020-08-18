@@ -3,7 +3,6 @@
     .Post_box__User_info__Image
       = link_to posts_g_path(post.user) do
         = image_tag post.user.profile_image.url, fallback: "no-image.jpg", class: "Post_box__User_info__Image"
-        -# = attachment_image_tag post.user, :profile_image, fallback: "no-image.jpg", class: "Post_box__User_info__Image"
     .Post_box__User_info__Name.Text
       = link_to "#{post.user.name}", posts_g_path(post.user), class: "Link"
   .Post_box__Text.Text
@@ -30,4 +29,4 @@
         %li
           = link_to '編集', edit_posts_g_path(post.id), method: :get, class: "down_btn"
         %li
-          = link_to '削除', "/posts_g/#{post.id}/destroy", class: "down_btn"
+          = link_to '削除', "/posts_g/#{post.id}/destroy", data: { confirm: "削除しますか？" }, class: "down_btn"
