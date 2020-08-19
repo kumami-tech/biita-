@@ -1,4 +1,5 @@
 class PostsCController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post, only: [:edit]
   before_action :move_to_index, except: [:index]
 

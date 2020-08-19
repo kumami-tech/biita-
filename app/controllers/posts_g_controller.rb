@@ -1,6 +1,7 @@
 class PostsGController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post, only: [:edit]
-  before_action :move_to_index, except: [:index]
+  # before_action :move_to_index, except: [:index, :show]
 
   def index
     @posts = PostG.includes(:user).order("created_at DESC")
@@ -32,12 +33,13 @@ class PostsGController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.post_gs
-    @posts_g = current_user.post_gs
 
-    groups = @user.groups.pluck(:id)
-    group_users = GroupUser.where(group_id: groups)
-    group_user = group_users.where(user_id: current_user.id)
-    @group_id = group_user.pluck(:group_id).first
+    if user_signed_in?
+      groups = @user.groups.pluck(:id)
+      group_users = GroupUser.where(group_id: groups)
+      group_user = group_users.where(user_id: current_user.id)
+      @group_id = group_user.pluck(:group_id).first
+    end
   end
 
   def destroy

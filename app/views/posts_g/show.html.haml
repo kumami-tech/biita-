@@ -10,7 +10,7 @@
       .Profile__Content__Name_btns
         .Name
           = @user.name
-        - if @user.id == current_user.id
+        - if user_signed_in? && @user.id == current_user.id
           .White_btns
             = link_to "編集", edit_user_path(current_user), class: "White_btns__Btn"
             = link_to "トークルーム", groups_path, class: "White_btns__Btn"
