@@ -8,14 +8,10 @@
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application'
-    -# = javascript_pack_tag 'application'
   %body
-    -# %p.notice= notice
-    -# %p.alert= alert
     %header.Header
       %div.Header__bar
         %h1
-          -# = icon('fas', 'shoe-prints', class: 'Header__bar__icon')
           = link_to "/", class: "Header__bar__title" do
             %i.fas.fa-shoe-prints.fa-rotate-270.fa-orange
             %span Biita!
