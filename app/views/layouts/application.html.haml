@@ -31,7 +31,7 @@
               .Header__Bar__Btns__Btn
                 = image_tag current_user.profile_image.url, size: "40x40", class: "Header__Bar__Btns__Btn__Image"
               .Menu
-                =link_to "/posts_g/#{current_user.id}" do
+                =link_to user_path(current_user.id) do
                   .Menu__Content
                     マイページ
                 =link_to edit_user_registration_path do

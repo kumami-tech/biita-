@@ -4,7 +4,7 @@ class PostsGController < ApplicationController
   # before_action :move_to_index, except: [:index, :show]
 
   def index
-    @posts = PostG.includes(:user).order("created_at DESC")
+    @post_gs = PostG.includes(:user).order("created_at DESC")
   end
 
   def new

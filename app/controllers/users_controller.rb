@@ -3,8 +3,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.post_gs
-    @posts_g = current_user.post_gs
+    @post_gs = @user.post_gs
+    @post_cs = @user.post_cs
   end
 
   def edit
