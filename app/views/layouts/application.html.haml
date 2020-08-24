@@ -37,21 +37,27 @@
                 =link_to edit_user_registration_path do
                   .Menu__Content
                     アカウントを編集する
-                =link_to new_posts_g_path, method: :delete, data: { confirm: "ログアウトしますか？" } do
+                =link_to users_sign_out_path, method: :delete, data: { confirm: "ログアウトしますか？" } do
                   .Menu__Content
                     ログアウト
         - else
           .Header__Bar__Btns
             .Menu_box
-              .Header__Bar__Btns__Btn.New_post 投稿する
+              .Header__Bar__Btns__Btn.New_post
+                = icon('far', 'edit',  class: "Header__Bar__Btns__Btn--icon")
               .Menu
-                %ul
-                  %li.Menu__Post
-                    %a.Text{href: new_posts_g_path} ツアーゲストとして投稿する
-                  %li.Menu__Post
-                    %a.Text{href: new_posts_c_path} ツアーキャストとして投稿する
-            = link_to "新規登録", new_user_registration_path, class: "Header__Bar__Btns__Btn"
-            = link_to "ログイン", new_user_session_path, class: "Header__Bar__Btns__Btn"
+                =link_to new_posts_g_path do
+                  .Menu__Content
+                    ツアーゲストとして投稿する
+                =link_to new_posts_c_path do
+                  .Menu__Content
+                    ツアーキャストとして投稿する
+            =link_to new_user_registration_path do
+              .Header__Bar__Btns__Btn
+                新規登録
+            =link_to new_user_session_path do
+              .Header__Bar__Btns__Btn
+                ログイン
 
     = render 'layouts/notifications'
     = yield
