@@ -8,31 +8,50 @@
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application'
-    -# = javascript_pack_tag 'application'
   %body
-    %p.notice= notice
-    %p.alert= alert
     %header.Header
-      %div.Header__bar
+      .Header__Bar
         %h1
-          -# = icon('fas', 'shoe-prints', class: 'Header__bar__icon')
-          = link_to "/", class: "Header__bar__title" do
+          = link_to "/", class: "Header__Bar__Title" do
             %i.fas.fa-shoe-prints.fa-rotate-270.fa-orange
             %span Biita!
         - if user_signed_in?
-          .Header__bar__btns
+          .Header__Bar__Btns
             .Menu_box
-              .Header__bar__btns__btn.New_post 新規投稿
+              .Header__Bar__Btns__Btn.New_post
+                = icon('far', 'edit',  class: "Header__Bar__Btns__Btn--icon")
+              .Menu
+                =link_to new_posts_g_path do
+                  .Menu__Content
+                    ツアーゲストとして投稿する
+                =link_to new_posts_c_path do
+                  .Menu__Content
+                    ツアーキャストとして投稿する
+            .Menu_box
+              .Header__Bar__Btns__Btn
+                = image_tag current_user.profile_image.url, size: "40x40", class: "Header__Bar__Btns__Btn__Image"
+              .Menu
+                =link_to user_path(current_user.id) do
+                  .Menu__Content
+                    マイページ
+                =link_to edit_user_registration_path do
+                  .Menu__Content
+                    アカウントを編集する
+                =link_to new_posts_g_path, method: :delete, data: { confirm: "ログアウトしますか？" } do
+                  .Menu__Content
+                    ログアウト
+        - else
+          .Header__Bar__Btns
+            .Menu_box
+              .Header__Bar__Btns__Btn.New_post 投稿する
               .Menu
                 %ul
-                  %li.Menu__post
+                  %li.Menu__Post
                     %a.Text{href: new_posts_g_path} ツアーゲストとして投稿する
-                  %li.Menu__post
+                  %li.Menu__Post
                     %a.Text{href: new_posts_c_path} ツアーキャストとして投稿する
-            = link_to "マイページ", "/posts_g/#{current_user.id}", class: "Header__bar__btns__btn"
-            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "Header__bar__btns__btn"
-        - else
-          .Header__bar__btns
-            = link_to "新規登録", new_user_registration_path, class: "Header__bar__btns__btn"
-            = link_to "ログイン", new_user_session_path, class: "Header__bar__btns__btn"
+            = link_to "新規登録", new_user_registration_path, class: "Header__Bar__Btns__Btn"
+            = link_to "ログイン", new_user_session_path, class: "Header__Bar__Btns__Btn"
+
+    = render 'layouts/notifications'
     = yield

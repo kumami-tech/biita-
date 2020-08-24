@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, except: :index
 
   def index
     @user = User.find(params[:user_id])

@@ -1,39 +1,40 @@
-.Title アカウント情報を編集する
-.Form
-  = form_for(current_user, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-    = render "devise/shared/error_messages", resource: resource
-    .Form__Content
-      = f.label "ユーザー名"
-      %br/
-      = f.text_field :name, autofocus: true, autocomplete: "name", class: "Form__Content__Field"
-    .Form__Content
-      = f.label "メールアドレス"
-      %br/
-      = f.email_field :email, autofocus: true, autocomplete: "email", class: "Form__Content__Field"
-    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-      %div
-        Currently waiting confirmation for: #{resource.unconfirmed_email}
-    .Form__Content
-      = f.label "新しいパスワード"
-      %br/
-      .Text_s※パスワードを変更しない場合は空白のままにしてください
-      = f.password_field :password, autocomplete: "new-password", class: "Form__Content__Field"
-      - if @minimum_password_length
+.Wrapper
+  .Title アカウント情報を編集する
+  .Form
+    = form_for(current_user, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .Form__Content
+        = f.label "ユーザー名"
         %br/
-        -# %em
-        -#   = @minimum_password_length
-          -# characters minimum
-    .Form__Content
-      = f.label "新しいパスワードの再入力"
-      %br/
-      = f.password_field :password_confirmation, autocomplete: "new-password", class: "Form__Content__Field"
-    .Form__Content
-      = f.label "現在のパスワード"
-      %br/
-      .Text_s ※アカウント情報を変更するには、現在のパスワードを入力する必要があります
-      = f.password_field :current_password, autocomplete: "current-password", class: "Form__Content__Field"
-    = f.submit "更新", class: "Btn Text"
-  -# %h3 Cancel my account
-  -# %p
-  -#   Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-  = link_to "戻る", :back, class: "Text"
+        = f.text_field :name, autofocus: true, autocomplete: "name", class: "Form__Content__Field"
+      .Form__Content
+        = f.label "メールアドレス"
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: "Form__Content__Field"
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        %div
+          Currently waiting confirmation for: #{resource.unconfirmed_email}
+      .Form__Content
+        = f.label "新しいパスワード"
+        %br/
+        .Text_s※パスワードを変更しない場合は空白のままにしてください
+        = f.password_field :password, autocomplete: "new-password", class: "Form__Content__Field"
+        - if @minimum_password_length
+          %br/
+          -# %em
+          -#   = @minimum_password_length
+            -# characters minimum
+      .Form__Content
+        = f.label "新しいパスワードの再入力"
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "new-password", class: "Form__Content__Field"
+      .Form__Content
+        = f.label "現在のパスワード"
+        %br/
+        .Text_s ※アカウント情報を変更するには、現在のパスワードを入力する必要があります
+        = f.password_field :current_password, autocomplete: "current-password", class: "Form__Content__Field"
+      = f.submit "更新", class: "Btn Text"
+    -# %h3 Cancel my account
+    -# %p
+    -#   Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
+    = link_to "戻る", :back, class: "Text"

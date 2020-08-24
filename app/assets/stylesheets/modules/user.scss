@@ -17,11 +17,17 @@ $orange2: #ffa500;
   color: black;
 }
 
+#error_explanation{
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
 .Form {
   width: 350px;
   margin: 50px auto;
   &__Content {
     margin-bottom: 40px;
+    font-size: 15px;
     &__Field {
       height: 40px;
       width: 350px;
@@ -33,6 +39,7 @@ $orange2: #ffa500;
 .Btn {
   width: 100px;
   background-color: $orange2;
+  color: white;
   padding: 10px 15px;
   border-style: none;
   display: block;
@@ -47,12 +54,11 @@ $orange2: #ffa500;
   display: flex;
   margin: 30px auto 20px;
   &__Image {
-    height: 140px;
-    width: 140px;
+    height: 130px;
+    width: 130px;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 30px;
-    // border: solid 1px black;
   }
   &__Content {
     height: 150px;
@@ -75,7 +81,6 @@ $orange2: #ffa500;
         text-align: center;
         &__Btn {
         width: 120px;
-        // font-weight: bold;
         color: $orange1;
         line-height: 35px;
         border: solid 1.3px $orange1;
@@ -91,39 +96,38 @@ $orange2: #ffa500;
   display: flex;
   justify-content: space-between;
   margin: 20px 10px;
-  .Bold {
+  .Active{
     font-weight: bold;
   }
 }
 
+.User_posts {
+  display: none;
+}
+.Show {
+  display: block;
+}
+
 .Edit_profile_image {
-  width: 140px;
+  width: 130px;
   margin: 0 auto;
   text-align: center;
   &__Text {
     margin-bottom: 10px;
   }
-  // &__Btn {
-  //   width: 100px;
-  //   margin: auto;
-  //   color: black;
-  //   border: solid 1px black;
-  //   padding: 5px 10px;
-  //   font-size: 14px;
-  // }
 }
 
 .Edit_profile_form {
   width: 350px;
-  margin: 30px auto 0;
+  margin: 5px auto 0;
+  &__Btn{
+    width: 90px;
+    font-size: 14px;
+    background-color: #EAEAEA;
+    padding: 5px 10px;
+    display: block;
+    cursor: pointer;
+    margin: 0 auto 25px;
+    margin-top: 0;
+  }
 }
-
-.Image_select {
-  margin: 0px 0px 20px 50px;
-}
-
-
-
-// .None {
-//   display: none;
-// }
