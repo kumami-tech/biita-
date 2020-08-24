@@ -6,11 +6,11 @@ $orange2: #ffa500;
 
 .Header {
   background-color: $yellow;
-  &__bar {
+  &__Bar {
     display: flex;
     justify-content: space-between;
     height: 70px;
-    &__title {
+    &__Title {
       height: 70px;
       width: 400px;
       color: black;
@@ -25,42 +25,49 @@ $orange2: #ffa500;
         color: $orange1;
       }
     }
-    &__btns {
+    &__Btns {
       width: 500px;
       color: black;
       display: flex;
       justify-content: flex-end;
       align-items: center;
       margin-right: 280px;
-      &__btn {
-        width: 110px;
+      &__Btn {
+        height: 35px;
         color: black;
         font-size: 14px;
-        border: solid 0.3px black;
-        border-radius: 20px;
-        padding: 5px 7px;
-        margin-left: 20px;
-        text-align: center;
+        margin-left: 30px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+        &--icon {
+          font-size: 28px;
+        }
+        &__Image{
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin: auto 0;
+          margin-right: 5px;
+        }
       }
       .Menu {
         display: none;
         position: absolute;
-        &__post:hover {
-          background-color: $orange;
-        }
-        > ul {
-          list-style: none;
-          margin: 0;
-          padding: 0;
-          width: 220px;
-          text-align: center;
+        &__Content {
+          padding: 7px 15px;
+          font-size: 14px;
           background-color: $gray;
-          > li.Menu__post {
-            > a {
-              text-decoration: none;
-              color: black;
-            }
-          }
+        }
+        &__Content:hover {
+          padding: 7px 15px;
+          background-color: $orange;
+          font-size: 14px;
+        }
+        > a {
+          text-decoration: none;
+          color: black;
         }
       }
       .Menu_box:hover .Menu {
