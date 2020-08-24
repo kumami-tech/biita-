@@ -81,7 +81,6 @@ $orange2: #ffa500;
         text-align: center;
         &__Btn {
         width: 120px;
-        // font-weight: bold;
         color: $orange1;
         line-height: 35px;
         border: solid 1.3px $orange1;
@@ -97,9 +96,16 @@ $orange2: #ffa500;
   display: flex;
   justify-content: space-between;
   margin: 20px 10px;
-  .Bold {
+  .Active{
     font-weight: bold;
   }
+}
+
+.User_posts {
+  display: none;
+}
+.Show {
+  display: block;
 }
 
 .Edit_profile_image {

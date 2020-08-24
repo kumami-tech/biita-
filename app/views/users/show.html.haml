@@ -2,21 +2,42 @@
   .Title
     = "#{@user.name}さんのページ"
   .Profile
-    = image_tag user.profile_image.url, fallback: "no-image.jpg", class: "Profile__Image"
+    - if @user.profile_image?
+      = image_tag @user.profile_image.url, class: "Profile__Image"
+    - else
+      = image_tag "no-image.jpeg", class: "Profile__Image"
     .Profile__Content
       .Profile__Content__Name_btns
         .Name
           = @user.name
-        .White_btns
-          = link_to "編集", edit_user_path(current_user), class: "White_btns__Btn"
-          = link_to "トークルーム", "#", class: "White_btns__Btn"
-          = link_to "レビュー", "#", class: "White_btns__Btn"
+        - if user_signed_in? && @user.id == current_user.id
+          .White_btns
+            = link_to "編集", edit_user_path(current_user), class: "White_btns__Btn"
+            = link_to "トークルーム", groups_path, class: "White_btns__Btn"
+            = link_to "レビュー", "/users/#{@user.id}/reviews", class: "White_btns__Btn"
+        - else
+          .White_btns
+            - if @group_id.nil?
+              = link_to "トークルーム", "/groups/#{@user.id}/create", class: "White_btns__Btn"
+            - else
+              = link_to "トークルーム", group_messages_path(@group_id, user_id: @user.id), class: "White_btns__Btn"
+            = link_to "レビュー", "/users/#{@user.id}/reviews", class: "White_btns__Btn"
       .Profile__Content__Text.Text
         = simple_format(@user.profile)
 
   .Position
-    .Position__Guest ツアーゲスト
-    .Position__Cast ツアーキャスト
+    = link_to "ツアーゲスト", "#", class: "Position__Name Link Active"
+    = link_to "ツアーキャスト", "#", class: "Position__Name Link"
 
-  - @posts.each do |post|
-    = render partial: "posts_g/post", locals: { post: post }
+  .User_posts.Show
+    - if @post_gs.empty?
+      .Empty 投稿されていません
+    - else
+      - @post_gs.each do |post|
+        = render partial: "posts_g/post", locals: { post: post }
+  .User_posts
+    - if @post_cs.empty?
+      .Empty 投稿されていません
+    - else
+      - @post_cs.each do |post|
+        = render partial: "posts_c/post", locals: { post: post }
