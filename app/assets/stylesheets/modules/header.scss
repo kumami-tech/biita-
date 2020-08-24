@@ -26,7 +26,6 @@ $orange2: #ffa500;
       }
     }
     &__Btns {
-      width: 500px;
       color: black;
       display: flex;
       justify-content: flex-end;
@@ -36,10 +35,10 @@ $orange2: #ffa500;
         height: 35px;
         color: black;
         font-size: 14px;
+        font-weight: bold;
         margin-left: 30px;
         display: flex;
         align-items: center;
-        margin-bottom: 5px;
         &--icon {
           font-size: 28px;
         }
