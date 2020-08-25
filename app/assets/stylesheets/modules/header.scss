@@ -7,17 +7,34 @@ $orange2: #ffa500;
 .Header {
   background-color: $yellow;
   &__Bar {
+    width: 1000px;
+    height: 60px;
     display: flex;
     justify-content: space-between;
-    height: 70px;
+    align-items: center;
+    margin: auto;
+    &__Content{
+      display: flex;
+      align-items: center;
+      &__Search{
+        width: 340px;
+        font-size: 15px;
+        display: flex;
+        justify-content: space-between;
+        margin-left: 210px;
+        > a {
+          color: $orange1;
+          font-weight: bold;
+        }
+      }
+    }
     &__Title {
       height: 70px;
       width: 400px;
       color: black;
-      font-size: 35px;
+      font-size: 33px;
       font-weight: bold;
       line-height: 70px;
-      margin-left: 280px;
       .fa-rotate-270 {
         transform: rotate(270deg);
       }
@@ -29,16 +46,17 @@ $orange2: #ffa500;
       color: black;
       display: flex;
       justify-content: flex-end;
-      align-items: center;
-      margin-right: 280px;
+      .Left{
+        margin-left: 0;
+      }
       &__Btn {
         height: 35px;
         color: black;
         font-size: 14px;
         font-weight: bold;
-        margin-left: 30px;
         display: flex;
         align-items: center;
+        margin-left: 25px;
         &--icon {
           font-size: 28px;
         }

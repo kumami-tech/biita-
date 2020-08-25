@@ -1,58 +1,68 @@
 $orange1: #FF6D05;
 $orange2: #ffa500;
 
-.Wrapper {
-  padding: 30px 280px;
+.Wrapper_l{
   overflow: scroll;
-  height: calc(100vh - 70px);
-  .Btns {
-    display: flex;
-    justify-content: center;
-    &__btn {
-      height: 60px;
-      width: 250px;
-      text-decoration: none;
-      color: $orange2;
-      font-weight: bold;
-      margin: 0px 50px;
-      color: white;
-      background-color: $orange2;
-      border-radius: 10px;
-      // border: solid 2px $orange2;
-      font-size: 18px;
-      text-align: center;
-      line-height: 60px;
-    }
-  }
-  .Home_image {
-    display: block;
-    margin: 30px auto;
-  }
-  .Home_box {
-    margin-bottom: 40px;
-    &__Box {
-      width: 750px;
-      margin: auto;
-      .Sub_title {
-      margin-bottom: 10px;
+  height: calc(100vh - 60px);
+  .Wrapper_s {
+    width: 880px;
+    padding: 30px 0px;
+    margin: auto;
+    .Btns {
+      display: flex;
+      justify-content: center;
+      &__btn {
+        height: 60px;
+        width: 250px;
+        text-decoration: none;
+        color: $orange2;
+        font-weight: bold;
+        margin: 0px 50px;
+        color: white;
+        background-color: $orange2;
+        border-radius: 10px;
+        font-size: 18px;
+        text-align: center;
+        line-height: 60px;
       }
-      &__Content {
-        width: 695px;
-        border: solid 2px $orange2;
-        padding: 15px;
-        margin: 0 auto 20px;
-        li {
-          margin-bottom: 5px;
+    }
+    .Home_image {
+      display: block;
+      margin: 30px auto;
+    }
+    .Home_box {
+      margin-bottom: 40px;
+      &__Box {
+        width: 750px;
+        margin: auto;
+        .Sub_title {
+        margin-bottom: 10px;
+        }
+        &__Content {
+          width: 695px;
+          border: solid 2px $orange2;
+          padding: 15px;
+          margin: 0 auto 20px;
+          li {
+            margin-bottom: 5px;
+          }
         }
       }
     }
   }
-  .Title {
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: underline;
-    margin-bottom: 15px;
-    }
+}
+
+.Wrapper {
+  padding: 30px 280px;
+  overflow: scroll;
+  height: calc(100vh - 70px);
+}
+
+.Title {
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-bottom: 15px;
 }
 
 .Bold {

@@ -1,0 +1,53 @@
+.Header
+  .Header__Bar
+    .Header__Bar__Content
+      %h1
+        = link_to "/", class: "Header__Bar__Title" do
+          %i.fas.fa-shoe-prints.fa-rotate-270.fa-orange
+          %span Biita!
+      .Header__Bar__Content__Search
+        = link_to "ツアーゲストを探す", posts_g_index_path, class: "Btns__btn"
+        = link_to "ツアーキャストを探す", posts_c_index_path, class: "Btns__btn"
+    - if user_signed_in?
+      .Header__Bar__Btns
+        .Menu_box
+          .Header__Bar__Btns__Btn.New_post.Left
+            = icon('far', 'edit',  class: "Header__Bar__Btns__Btn--icon")
+          .Menu
+            =link_to new_posts_g_path do
+              .Menu__Content
+                ツアーゲストとして投稿する
+            =link_to new_posts_c_path do
+              .Menu__Content
+                ツアーキャストとして投稿する
+        .Menu_box
+          .Header__Bar__Btns__Btn
+            = image_tag current_user.profile_image.url, size: "40x40", class: "Header__Bar__Btns__Btn__Image"
+          .Menu
+            =link_to user_path(current_user.id) do
+              .Menu__Content
+                マイページ
+            =link_to edit_user_registration_path do
+              .Menu__Content
+                アカウントを編集する
+            =link_to users_sign_out_path, method: :delete, data: { confirm: "ログアウトしますか？" } do
+              .Menu__Content
+                ログアウト
+    - else
+      .Header__Bar__Btns
+        .Menu_box
+          .Header__Bar__Btns__Btn.New_post.Left
+            = icon('far', 'edit',  class: "Header__Bar__Btns__Btn--icon")
+          .Menu
+            =link_to new_posts_g_path do
+              .Menu__Content
+                ツアーゲストとして投稿する
+            =link_to new_posts_c_path do
+              .Menu__Content
+                ツアーキャストとして投稿する
+        =link_to new_user_registration_path do
+          .Header__Bar__Btns__Btn
+            新規登録
+        =link_to new_user_session_path do
+          .Header__Bar__Btns__Btn
+            ログイン
