@@ -46,11 +46,11 @@ $orange2: #ffa500;
       color: black;
       display: flex;
       justify-content: flex-end;
+      align-items: center;
       .Left{
         margin-left: 0;
       }
       &__Btn {
-        height: 35px;
         color: black;
         font-size: 14px;
         font-weight: bold;
@@ -59,10 +59,12 @@ $orange2: #ffa500;
         margin-left: 25px;
         &--icon {
           font-size: 28px;
+          line-height: 40px;
+          padding: 6px 0;
         }
         &__Image{
-          width: 35px;
-          height: 35px;
+          width: 40px;
+          height: 40px;
           border-radius: 50%;
           object-fit: cover;
           margin: auto 0;
@@ -70,6 +72,7 @@ $orange2: #ffa500;
         }
       }
       .Menu {
+        padding-top: 5px;
         display: none;
         position: absolute;
         &__Content {
