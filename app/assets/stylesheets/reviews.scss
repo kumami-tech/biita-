@@ -1,12 +1,33 @@
 .Header_r {
   height: 60px;
   border-bottom: solid 1px #B3B8BB;
+  .Wrapper_r {
+    width: 880px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    .Title_r {
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: underline;
+      line-height: 60px;
+    }
+    .Write_review {
+      font-size: 14px;
+      font-weight: bold;
+      margin: auto 0;
+    }
+    .Reviews {
+      margin-top: 20px;
+    }
+  }
+  .Main__content_r {
+    padding: 15px 280px;
+    height: calc(100vh - 220px);
+    overflow: scroll;
+  }
 }
-.Main__content_r {
-  padding: 15px 280px;
-  height: calc(100vh - 220px);
-  overflow: scroll;
-}
+
 
 .New_r {
   margin: 0 280px;
@@ -18,20 +39,45 @@
   justify-content: space-between;
 }
 
-.Title_r {
-  font-size: 18px;
-  font-weight: bold;
-  text-decoration: underline;
-  line-height: 60px;
-  margin-left: 280px;
-  }
 
-  // .Wrapper_r {
-  //   padding: 0 300px;
-  // }
+
 
   // &__content {
   //   height: calc(100vh - 220px);
   //   width: calc(100vw - 280px);
   //   padding: 15px 280px 15px 80px;
   // }
+
+  .ratings--icon {
+    font-size: 20px;
+    // color: #fc0;
+    cursor: pointer;
+  }
+
+  .main-rating {
+    display: flex;
+    width: 210px;
+    margin: 0 auto;
+    .ratings {
+      margin-right: 10px;
+    }
+    .rating-value-display {
+      line-height: 30px;
+    }
+  }
+
+  .Star {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .Form_review {
+    width: 500px;
+    margin: 40px auto;
+    &__Text {
+      width: 500px;
+      padding: 5px;
+      margin-top: 20px;
+    }
+  }

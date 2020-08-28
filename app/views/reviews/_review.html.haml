@@ -1,42 +1,45 @@
 .Message_box
-  -# = attachment_image_tag current_user, :profile_image, fallback: "no-image.jpg", class: "Message_box__User_image"
-  = image_tag "kakashi.jpg", class: "Message_box__User_image"
+  = link_to user_path(review.reviewer_id) do
+    - if review.reviewer.profile_image?
+      = image_tag review.reviewer.profile_image.url, class: "Message_box__User_image"
+    - else
+      = image_tag "no-image.jpeg", class: "Message_box__User_image"
   .Message_box__Content
-    = link_to "カカシ", "#", class: "Link Text Message_box__Content__Name"
-    .Message_box__Text.Text
-      現地のタクシーに乗るのが怖いので、運転を依頼させていただきました。
-      %br
-      とても親切で話しやすい方でした。またバンコク行ったらお願いしたいと思います。
-.Message_box
-  -# = attachment_image_tag @user, :profile_image, fallback: "no-image.jpg", class: "Message_box__User_image"
-  = image_tag "ri-.jpg", class: "Message_box__User_image"
-  .Message_box__Content
-    = link_to "ロック・リー", posts_g_path(@user), class: "Link Text Message_box__Content__Name"
-    .Message_box__Text.Text
-      案内が丁寧で助かりました。ありがとうございました！！
+    .Message_box__Content__Info
+      .Message_box__Content__Info__Name
+        = link_to "#{review.reviewer.name}", user_path(review.reviewee_id), class: "Link Text"
+      .Message_box__Content__Info__Time.Text_s
+        = review.created_at.strftime("%Y年%-m月%-d日 %H時%M分")
+    .Message_box__Content__Message.Text
+      = simple_format(review.content)
 
 
 
 
+-#   .Message_box__Content
+-#     = link_to "カカシ", "#", class: "Link Text Message_box__Content__Name"
+-#     .Message_box__Text.Text
+-#       現地のタクシーに乗るのが怖いので、運転を依頼させていただきました。
+-#       %br
+-#       とても親切で話しやすい方でした。またバンコク行ったらお願いしたいと思います。
 
--# .Message_box{data: {review: {id: review.id}}}
--# = simple_format(@review.content)
 
 
-      -# let html =
-      -# `<div class="Main_chat__content__box" data-message-id=${message.id}>
-      -#   <div class="Main_chat__content__box__info">
-      -#     <div class="Main_chat__content__box__info__user_name">
-      -#       ${message.user_name}
-      -#     </div>
-      -#     <div class="Main_chat__content__box__info__timestamps">
-      -#       ${message.created_at}
-      -#     </div>
-      -#   </div>
-      -#   <div class="Main_chat__content__box__message">
-      -#     <p class="Main_chat__content__box__message__content">
-      -#       ${message.content}
-      -#     </p>
-      -#   </div>
-      -# </div>`
-      -# return html;
+
+-# .Message_box
+-#   = link_to user_path(message.user) do
+-#     - if message.user.profile_image?
+-#       = image_tag message.user.profile_image.url, class: "Message_box__User_image"
+-#     - else
+-#       = image_tag "no-image.jpeg", class: "Message_box__User_image"
+-#   .Message_box__Content
+-#     .Message_box__Content__Info
+-#       .Message_box__Content__Info__Name
+-#         = link_to "#{message.user.name}", user_path(message.user), class: "Link Text"
+-#       .Message_box__Content__Info__Time.Text_s
+-#         = message.created_at.strftime("%Y年%-m月%-d日 %H時%M分")
+-#     .Message_box__Content__Message.Text
+-#       - if message.text.present?
+-#         = simple_format(message.text)
+-#       - if message.image.present?
+-#         = image_tag message.image.url, class: 'Message__image'
