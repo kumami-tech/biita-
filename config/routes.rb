@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   root "home#index"
   resources :users do
-    resources :reviews, only: [:index, :create]
+    resources :reviews, only: [:index, :new, :create]
   end
   resources :posts_g
   resources :posts_c
