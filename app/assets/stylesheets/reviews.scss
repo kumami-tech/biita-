@@ -29,55 +29,29 @@
 }
 
 
-.New_r {
-  margin: 0 280px;
-}
-.Main__form__contents_r {
-  height: 40px;
-  width: calc(100vw - 560px);
-  display: flex;
-  justify-content: space-between;
-}
 
-
-
-
-  // &__content {
-  //   height: calc(100vh - 220px);
-  //   width: calc(100vw - 280px);
-  //   padding: 15px 280px 15px 80px;
-  // }
-
-  .ratings--icon {
-    font-size: 20px;
-    // color: #fc0;
-    cursor: pointer;
-  }
-
+.Form_review {
+  width: 500px;
+  margin: 40px auto;
   .main-rating {
     display: flex;
     width: 210px;
     margin: 0 auto;
     .ratings {
       margin-right: 10px;
+      .Star {
+        font-size: 25px;
+        color: silver;
+        cursor: pointer;
+      }
     }
     .rating-value-display {
       line-height: 30px;
     }
   }
-
-  .Star {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-  }
-
-  .Form_review {
+  &__Text {
     width: 500px;
-    margin: 40px auto;
-    &__Text {
-      width: 500px;
-      padding: 5px;
-      margin-top: 20px;
-    }
+    padding: 5px;
+    margin-top: 25px;
   }
+}
