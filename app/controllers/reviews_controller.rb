@@ -1,13 +1,12 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!, except: :index
+  before_action :set_reviewee
 
   def index
-    @user = User.find(params[:user_id])
     @reviews = @user.reviews.includes(:user)
   end
   
   def new
-    @user = User.find(params[:user_id])
     @review = Review.new
   end
 
@@ -23,6 +22,10 @@ class ReviewsController < ApplicationController
   end
 
   private
+
+  def set_reviewee
+    @user = User.find(params[:user_id])
+  end
 
   def review_params
     params.require(:review).permit(:content, :score, :reviewee_id).merge(reviewer_id: current_user.id)
