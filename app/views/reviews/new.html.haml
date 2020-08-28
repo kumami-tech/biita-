@@ -4,15 +4,15 @@
   = form_with model: @review, url: user_reviews_path, local: true, class: "Form_review" do |f|
     .main-rating
       .ratings
-        = image_tag "star-off.png", class: "Star"
-        = image_tag "star-off.png", class: "Star"
-        = image_tag "star-off.png", class: "Star"
-        = image_tag "star-off.png", class: "Star"
-        = image_tag "star-off.png", class: "Star"
+        =icon('fas', 'star', class: "Star")
+        =icon('fas', 'star', class: "Star")
+        =icon('fas', 'star', class: "Star")
+        =icon('fas', 'star', class: "Star")
+        =icon('fas', 'star', class: "Star")
       .rating-value-display
         %span#rating-value-display 0
         %span / 5
     = f.hidden_field :reviewee_id, value: @user.id
-    = f.hidden_field :score, id: "rating-value", value: 4
+    = f.hidden_field :score, id: "rating-value"
     = f.text_area :content, rows: "10", class: "Form_review__Text"
     = f.submit "投稿", class: "Btn Text"
