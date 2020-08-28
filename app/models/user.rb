@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :groups, through: :group_users
 
   has_many :messages
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   mount_uploader :profile_image, ImageUploader
 end
