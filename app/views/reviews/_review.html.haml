@@ -7,7 +7,7 @@
   .Message_box__Content
     .Message_box__Content__Info
       .Message_box__Content__Info__Name
-        = link_to "#{review.reviewer.name}", user_path(review.reviewee_id), class: "Link Text"
+        = link_to "#{review.reviewer.name}", user_path(review.reviewer_id), class: "Link Text"
       .Message_box__Content__Info__Time.Text_s
         = review.created_at.strftime("%Y年%-m月%-d日 %H時%M分")
     .Message_box__Content__Message.Text

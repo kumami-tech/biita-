@@ -3,7 +3,8 @@ class ReviewsController < ApplicationController
   before_action :set_reviewee
 
   def index
-    @reviews = @user.reviews.includes(:user)
+    reviews = Review.where(reviewee_id: @user.id)
+    @reviews = reviews.includes(:reviewer).order("reviews.created_at DESC")
   end
   
   def new
