@@ -39,3 +39,16 @@ $(function(){
 	)
 
 });
+
+
+$(function() {
+  let tabs = $(".Position_r__Name");
+
+  function tabSwitch() {
+    $(".Active").removeClass("Active");
+    $(this).addClass("Active");
+    const index = tabs.index(this);
+    $(".Reviews").removeClass("Show").eq(index).addClass("Show");
+  }
+  tabs.click(tabSwitch);
+});

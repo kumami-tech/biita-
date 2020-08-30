@@ -2,11 +2,19 @@
   .Wrapper_header_r
     .Title_r
       = "#{@user.name}さんのレビュー"
+    .Position_r
+      = link_to "全て", "#", class: "Position_r__Name Active"
+      = link_to "ツアーゲスト", "#", class: "Position_r__Name"
+      = link_to "ツアーキャスト", "#", class: "Position_r__Name"
     - unless user_signed_in? && current_user.id == @user.id
       = link_to new_user_review_path(@user), class: "Link Write_review" do
         = icon('fas', 'pen', class: 'Review_icon')
         %span レビューを書く
 .Wrapper_r
   .Wrapper_r_inner
-    .Reviews
+    .Reviews.Show
       = render @reviews
+    .Reviews
+      = render partial: 'review', collection: @reviews_g
+    .Reviews
+      = render partial: 'review', collection: @reviews_c
