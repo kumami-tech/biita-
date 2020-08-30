@@ -18,5 +18,12 @@ class User < ApplicationRecord
   mount_uploader :profile_image, ImageUploader
 
 
+  def avg_score
+    unless self.reviews.empty?
+      reviews.pluck(:score).average.round(1)
+    else
+      0.0
+    end
+  end
   
 end
