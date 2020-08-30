@@ -5,6 +5,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @post_gs = @user.post_gs
     @post_cs = @user.post_cs
+    reviews = Review.where(reviewee_id: @user.id)
+    @count = reviews.count
   end
 
   def edit
@@ -13,7 +15,7 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      redirect_to posts_g_path(current_user.id)
+      redirect_to user_path(current_user.id)
     else
       render :edit
     end

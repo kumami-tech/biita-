@@ -1,0 +1,24 @@
+.Wrapper
+  .Title
+    = "#{@user.name}さんのレビューを書く"
+  = form_with model: @review, url: user_reviews_path, local: true, class: "Form_review" do |f|
+    .Position_btns
+      = f.radio_button :position, :guest, class: "Position_btns__btn"
+      %label ツアーゲストとして評価する
+      %br
+      = f.radio_button :position, :cast, class: "Position_btns__btn"
+      %label ツアーキャストとして評価する
+    .main-rating
+      .ratings
+        =icon('fas', 'star', class: "Star")
+        =icon('fas', 'star', class: "Star")
+        =icon('fas', 'star', class: "Star")
+        =icon('fas', 'star', class: "Star")
+        =icon('fas', 'star', class: "Star")
+      .rating-value-display
+        %span#rating-value-display 0
+        %span / 5
+    = f.hidden_field :reviewee_id, value: @user.id
+    = f.hidden_field :score, id: "rating-value"
+    = f.text_area :content, rows: "10", class: "Form_review__Text"
+    = f.submit "投稿", class: "Btn Text"

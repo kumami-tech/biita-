@@ -1,47 +1,31 @@
 .Header_r
-  .Title_r
-    = "#{@user.name}さんのレビュー"
-  .Main__content_r
-    .Wrapper_r
-      .Reviews
-        = render "review"
-  .Main__form
-    .Wrapper_r
-      = form_with model: [@user, Review.new], html: {class: "New_r"}, local: true do |f|
-        .Main__form__contents_r
-          .Main__form__contents__input
-            = f.text_field :content, class: 'Main__form__contents__input__text Textbox_r'
-          = f.submit '送信', class: 'Main__form__contents__btn Submit_r'
-
-
-
--# .Main
--#   .Main__Header
--#     .Title1
--#       = "#{@user.name}さんとのトークルーム"
--#   .Main__content
--#     = render "message"
-  -# .Main__form
-  -#   = form_with html: {class: "Main__form__Form"}, local: true do |f|
-  -#     .Main__form__contents
-  -#       .Main__form__contents__input
-  -#         = f.text_field :text, class: 'Main__form__contents__input__text'
-  -#         = f.label :image, class: 'Main__form__contents__input__image' do
-  -#           = icon('far', 'image', class: 'Main__form__contents__input__icon')
-  -#           = f.file_field :image, class: 'Main__form__contents__input__image__file'
-  -#       = f.submit '送信', class: 'Main__form__contents__btn'
-
-
-
--# = form_with(model: [@tweet, @comment], local: true, id: "new_comment") do |form|
--#         = form.text_area :text, placeholder: "コメントする", rows: "2", class: "textbox"
--#         = form.submit "SEND", class: "form__submit"
-
-
-    -# = form_with model: [@group, @message], html: {class: "Main_chat__form__contents"}, local: true do |f|
-    -#   .Main_chat__form__contents__input
-    -#     = f.text_field :content, class: 'Main_chat__form__contents__input__text', placeholder: 'type a message'
-    -#     = f.label :image, class: 'Main_chat__form__contents__input__image' do
-    -#       = icon('far', 'image', class: 'Main_chat__form__contents__input__icon')
-    -#       = f.file_field :image, class: 'Main_chat__form__contents__input__image__file'
-    -#   = f.submit 'Send', class: 'Main_chat__form__contents__btn'
+  = link_to user_path(@user) do
+    = icon('fas', 'chevron-left', class: "Back_btn")
+  .Wrapper_header_r
+    .Title_r
+      = "#{@user.name}さんのレビュー"
+    .Position_r
+      = link_to "全て(#{@reviews.count})", "#", class: "Position_r__Name Active"
+      = link_to "ツアーゲスト(#{@review_gs.count})", "#", class: "Position_r__Name"
+      = link_to "ツアーキャスト(#{@review_cs.count})", "#", class: "Position_r__Name"
+    - unless user_signed_in? && current_user.id == @user.id
+      = link_to new_user_review_path(@user), class: "Link Write_review" do
+        = icon('fas', 'pen', class: 'Review_icon')
+        %span レビューを書く
+.Wrapper_r
+  .Wrapper_r_inner
+    .Reviews.Show
+      - if @reviews.empty?
+        .Reviews__Empty 投稿されていません
+      - else
+        = render @reviews
+    .Reviews
+      - if @review_gs.empty?
+        .Reviews__Empty 投稿されていません
+      - else
+        = render partial: 'review', collection: @review_gs
+    .Reviews
+      - if @review_cs.empty?
+        .Reviews__Empty 投稿されていません
+      - else
+        = render partial: 'review', collection: @review_cs

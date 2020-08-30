@@ -1,28 +1,36 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!, except: :index
+  before_action :set_reviewee
 
   def index
-    @user = User.find(params[:user_id])
+    @reviews = Review.where(reviewee_id: @user.id).includes(:reviewer).order("reviews.created_at DESC")
+    @review_gs = Review.where(reviewee_id: @user.id).where(position: "guest").includes(:reviewer).order("reviews.created_at DESC")
+    @review_cs = Review.where(reviewee_id: @user.id).where(position: "cast").includes(:reviewer).order("reviews.created_at DESC")
   end
   
+  def new
+    @review = Review.new
+  end
+
   def create
-    @user = User.find(params[:user_id])
-    @review = @user.reviews.new(review_params)
+    @review = Review.new(review_params)
     if @review.save
-      respond_to do |format|
-        # format.html { redirect_to "/users/#{@user.id}/reviews" }
-        format.json
-      end
+      flash[:notice] = 'レビューを投稿しました。'
+      redirect_to user_reviews_path
     else
-      @reviews = @user.reviews.includes(:user)
-      render :index
+      flash.now[:alert] = '全ての項目を入力してください。'
+      render :new
     end
   end
 
   private
 
+  def set_reviewee
+    @user = User.find(params[:user_id])
+  end
+
   def review_params
-    params.require(:review).permit(:content).merge(user_id: current_user.id)
+    params.require(:review).permit(:position, :score, :content, :reviewee_id).merge(reviewer_id: current_user.id)
   end
 
 end

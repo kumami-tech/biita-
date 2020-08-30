@@ -1,42 +1,29 @@
-.Message_box
-  -# = attachment_image_tag current_user, :profile_image, fallback: "no-image.jpg", class: "Message_box__User_image"
-  = image_tag "kakashi.jpg", class: "Message_box__User_image"
-  .Message_box__Content
-    = link_to "カカシ", "#", class: "Link Text Message_box__Content__Name"
-    .Message_box__Text.Text
-      現地のタクシーに乗るのが怖いので、運転を依頼させていただきました。
-      %br
-      とても親切で話しやすい方でした。またバンコク行ったらお願いしたいと思います。
-.Message_box
-  -# = attachment_image_tag @user, :profile_image, fallback: "no-image.jpg", class: "Message_box__User_image"
-  = image_tag "ri-.jpg", class: "Message_box__User_image"
-  .Message_box__Content
-    = link_to "ロック・リー", posts_g_path(@user), class: "Link Text Message_box__Content__Name"
-    .Message_box__Text.Text
-      案内が丁寧で助かりました。ありがとうございました！！
-
-
-
-
-
--# .Message_box{data: {review: {id: review.id}}}
--# = simple_format(@review.content)
-
-
-      -# let html =
-      -# `<div class="Main_chat__content__box" data-message-id=${message.id}>
-      -#   <div class="Main_chat__content__box__info">
-      -#     <div class="Main_chat__content__box__info__user_name">
-      -#       ${message.user_name}
-      -#     </div>
-      -#     <div class="Main_chat__content__box__info__timestamps">
-      -#       ${message.created_at}
-      -#     </div>
-      -#   </div>
-      -#   <div class="Main_chat__content__box__message">
-      -#     <p class="Main_chat__content__box__message__content">
-      -#       ${message.content}
-      -#     </p>
-      -#   </div>
-      -# </div>`
-      -# return html;
+.Review_box
+  = link_to user_path(review.reviewer_id) do
+    - if review.reviewer.profile_image?
+      = image_tag review.reviewer.profile_image.url, class: "Review_box__User_image"
+    - else
+      = image_tag "no-image.jpeg", class: "Review_box__User_image"
+  .Review_box__Content
+    .Review_box__Content__Info
+      .Review_box__Content__Info__Name
+        = link_to "#{review.reviewer.name}", user_path(review.reviewer_id), class: "Link Text"
+      .Position_text
+        = review.display_position
+      .Star_rating_r
+        .Front_r{ style: "width: #{review.score*20}%"}
+          =icon('fas', 'star')
+          =icon('fas', 'star')
+          =icon('fas', 'star')
+          =icon('fas', 'star')
+          =icon('fas', 'star')
+        .Back_r
+          =icon('fas', 'star')
+          =icon('fas', 'star')
+          =icon('fas', 'star')
+          =icon('fas', 'star')
+          =icon('fas', 'star')
+      .Review_box__Content__Info__Time.Text_s
+        = review.created_at.strftime("%Y年%-m月%-d日 %H時%M分")
+    .Review_box__Content__Review.Text
+      = simple_format(review.content)

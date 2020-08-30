@@ -22,7 +22,10 @@
                 ツアーキャストとして投稿する
         .Menu_box
           .Header__Bar__Btns__Btn
-            = image_tag current_user.profile_image.url, size: "40x40", class: "Header__Bar__Btns__Btn__Image"
+            - if current_user.profile_image?
+              = image_tag current_user.profile_image.url, class: "Header__Bar__Btns__Btn__Image"
+            - else
+              = image_tag "no-image.jpeg", class: "Header__Bar__Btns__Btn__Image"
           .Menu
             =link_to user_path(current_user.id) do
               .Menu__Content
