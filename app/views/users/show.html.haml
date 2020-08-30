@@ -10,22 +10,20 @@
       .Profile__Content__Upper
         .Name
           = @user.name
-        .White_btns
+        .Info_right
           .Star_rating
-            .Front{ style: "width: #{@user.avg_score*20}%"}
-              = image_tag "stars.jpg", class: "Front__Star"
-            .Back
-              = image_tag "stars_gray.jpg", class: "Back__Star"
+            = image_tag "stars.jpg", class: "Front", width: "#{@user.avg_score*20}%"
+            = image_tag "stars_gray.jpg"
           .Review_info
             = @user.avg_score
             = link_to "(#{@count}件のレビュー)", "/users/#{@user.id}/reviews"
           - if user_signed_in? && @user.id == current_user.id
-            = link_to "プロフィールを編集", edit_user_path(current_user), class: "White_btns__Btn"
+            = link_to "プロフィールを編集", edit_user_path(current_user), class: "Info_right__Btn"
           - else
             - if @group_id.nil?
-              = link_to "メッセージを送る", "/groups/#{@user.id}/create", class: "White_btns__Btn"
+              = link_to "メッセージを送る", "/groups/#{@user.id}/create", class: "Info_right__Btn"
             - else
-              = link_to "メッセージを送る", group_messages_path(@group_id, user_id: @user.id), class: "White_btns__Btn"
+              = link_to "メッセージを送る", group_messages_path(@group_id, user_id: @user.id), class: "Info_right__Btn"
       .Profile__Content__Text.Text
         = simple_format(@user.profile)
 

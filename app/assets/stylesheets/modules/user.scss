@@ -47,8 +47,6 @@ $orange2: #ffa500;
   cursor: pointer;
 }
 
-
-
 .Profile {
   width: 840px;
   display: flex;
@@ -74,7 +72,7 @@ $orange2: #ffa500;
         font-weight: bold;
         margin: auto 0px;
       }
-      .White_btns {
+      .Info_right {
         width: 550px;
         display: flex;
         justify-content: flex-end;
@@ -89,17 +87,8 @@ $orange2: #ffa500;
             position: absolute;
             top: 0px;
             left: 0;
-            text-align: left;
-            &__Star {
-              width: 130px;
-              height: 21.08px;
-              object-fit: cover;
-              object-position: 0% 0%;
-            }
-          }
-          .Back {
-            width: 130px;
-            height: 21.08px;
+            object-fit: cover;
+            object-position: 0% 0%;
           }
         }
         .Review_info {
@@ -107,11 +96,11 @@ $orange2: #ffa500;
           margin: auto 20px auto 0;
         }
         &__Btn {
-        width: 160px;
-        color: $orange1;
-        line-height: 35px;
-        border: solid 1.3px $orange1;
-        margin: 0px 7px;
+          width: 160px;
+          color: $orange1;
+          line-height: 35px;
+          border: solid 1.3px $orange1;
+          margin: 0px 7px;
         }
       }
     }
