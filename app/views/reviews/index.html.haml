@@ -13,8 +13,17 @@
 .Wrapper_r
   .Wrapper_r_inner
     .Reviews.Show
-      = render @reviews
+      - if @reviews.empty?
+        .Reviews__Empty 投稿されていません
+      - else
+        = render @reviews
     .Reviews
-      = render partial: 'review', collection: @reviews_g
+      - if @reviews_g.empty?
+        .Reviews__Empty 投稿されていません
+      - else
+        = render partial: 'review', collection: @reviews_g
     .Reviews
-      = render partial: 'review', collection: @reviews_c
+      - if @reviews_c.empty?
+        .Reviews__Empty 投稿されていません
+      - else
+        = render partial: 'review', collection: @reviews_c

@@ -15,10 +15,13 @@
     }
     .Position_r {
       margin: auto 0px;
-      > a {
+      &__Name {
         font-size: 14px;
         color: black;
         margin: 0 15px;
+      }
+      .Active {
+        font-weight: bold;
       }
     }
     .Write_review {
@@ -37,8 +40,13 @@
     display: flex;
     justify-content: space-between;
     .Reviews {
+      width: 100%;
       margin-top: 20px;
       display: none;
+      &__Empty {
+        margin-top: 50px;
+        text-align: center;
+      }
       .Review_box {
         margin-bottom: 60px;
         display: flex;
