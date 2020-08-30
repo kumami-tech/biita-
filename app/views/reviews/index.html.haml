@@ -1,11 +1,12 @@
 .Header_r
-  .Wrapper_r
+  .Wrapper_header_r
     .Title_r
       = "#{@user.name}さんのレビュー"
     - unless user_signed_in? && current_user.id == @user.id
       = link_to new_user_review_path(@user), class: "Link Write_review" do
         = icon('fas', 'pen', class: 'Review_icon')
         %span レビューを書く
-  .Wrapper_r
+.Wrapper_r
+  .Wrapper_r_inner
     .Reviews
       = render @reviews

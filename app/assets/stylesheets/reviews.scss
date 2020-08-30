@@ -1,7 +1,8 @@
 .Header_r {
   height: 60px;
   border-bottom: solid 1px #B3B8BB;
-  .Wrapper_r {
+  margin-bottom: 15px;
+  .Wrapper_header_r {
     width: 880px;
     margin: 0 auto;
     display: flex;
@@ -21,22 +22,102 @@
       margin-top: 20px;
     }
   }
-  .Main__content_r {
-    padding: 15px 280px;
-    height: calc(100vh - 220px);
-    overflow: scroll;
+}
+.Wrapper_r {
+  height: calc(100vh - 120px);
+  overflow: scroll;
+  .Wrapper_r_inner {
+    width: 880px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    .Reviews {
+      margin-top: 20px;
+      .Review_box {
+        margin-bottom: 60px;
+        display: flex;
+        justify-content: start;
+        position: relative;
+        &__User_image {
+          height: 70px;
+          width: 70px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin-right: 20px;
+          display: block;
+        }
+        &__Content {
+          margin: auto;
+          &__Info{
+            width: 790px;
+            margin: auto;
+            margin-bottom: 10px;
+            display: flex;
+            position: relative;
+            &__Name {
+              width: 140px;
+              font-weight: bold;
+              margin-right: 70px;
+            }
+            .Position_text {
+              font-size: 14px;
+              line-height: 24px;
+            }
+            .Star_rating {
+              font-size: 16px;
+              position: relative;
+              margin-right: 60px;
+              .Front {
+                height: 24px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                overflow: hidden;
+                color: orange;
+              }
+              .Back {
+                color: silver;
+              }
+            }
+            &__Time{
+              height: 14px;
+              line-height: 16px;
+              color: #7B7D7F;
+              margin: auto 0;
+              position: absolute;
+              top: 5px;
+              right: 0;
+            }
+          }
+        }
+      }
+    }
   }
 }
-
-
 
 .Form_review {
   width: 500px;
   margin: 40px auto;
+  .Position_btns {
+    width: 250px;
+    margin: 0 auto;
+    line-height: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    input {
+      width: 18px;
+      height: 18px;
+      line-height: 30px;
+      top: 3px;
+      position: relative;
+      border: solid bold;
+      cursor: pointer;
+    }
+  }
   .main-rating {
     display: flex;
     width: 210px;
-    margin: 0 auto;
+    margin: 30px auto;
     .ratings {
       margin-right: 10px;
       .Star {
@@ -52,6 +133,8 @@
   &__Text {
     width: 500px;
     padding: 5px;
-    margin-top: 25px;
+    // margin-top: 25px;
   }
 }
+
+

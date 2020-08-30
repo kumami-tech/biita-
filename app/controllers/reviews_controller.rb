@@ -29,7 +29,7 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:content, :score, :reviewee_id).merge(reviewer_id: current_user.id)
+    params.require(:review).permit(:position, :score, :content, :reviewee_id).merge(reviewer_id: current_user.id)
   end
 
 end

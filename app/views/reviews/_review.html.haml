@@ -1,14 +1,33 @@
-.Message_box
+.Review_box
   = link_to user_path(review.reviewer_id) do
     - if review.reviewer.profile_image?
-      = image_tag review.reviewer.profile_image.url, class: "Message_box__User_image"
+      = image_tag review.reviewer.profile_image.url, class: "Review_box__User_image"
     - else
-      = image_tag "no-image.jpeg", class: "Message_box__User_image"
-  .Message_box__Content
-    .Message_box__Content__Info
-      .Message_box__Content__Info__Name
+      = image_tag "no-image.jpeg", class: "Review_box__User_image"
+  .Review_box__Content
+    .Review_box__Content__Info
+      .Review_box__Content__Info__Name
         = link_to "#{review.reviewer.name}", user_path(review.reviewer_id), class: "Link Text"
-      .Message_box__Content__Info__Time.Text_s
+      .Position_text
+        = "#{review.display_position}："
+      .Star_rating
+        .Front{ style: "width: #{review.score*20}%"}
+          =icon('fas', 'star', class: "Front__Star")
+          =icon('fas', 'star', class: "Front__Star")
+          =icon('fas', 'star', class: "Front__Star")
+          =icon('fas', 'star', class: "Front__Star")
+          =icon('fas', 'star', class: "Front__Star")
+        .Back
+          =icon('fas', 'star', class: "Back__Star")
+          =icon('fas', 'star', class: "Back__Star")
+          =icon('fas', 'star', class: "Back__Star")
+          =icon('fas', 'star', class: "Back__Star")
+          =icon('fas', 'star', class: "Back__Star")
+      .Review_box__Content__Info__Time.Text_s
         = review.created_at.strftime("%Y年%-m月%-d日 %H時%M分")
-    .Message_box__Content__Message.Text
+    .Review_box__Content__Review.Text
       = simple_format(review.content)
+      
+
+
+
