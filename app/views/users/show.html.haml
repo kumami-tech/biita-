@@ -18,7 +18,7 @@
         - else
           .White_btns
             = link_to "レビュー", "/users/#{@user.id}/reviews", class: "White_btns__Btn"
-            = @reviews.avg_score
+            = @user.reviewees.pluck(:score).average.round(1)
             - if @group_id.nil?
               = link_to "メッセージを送る", "/groups/#{@user.id}/create", class: "White_btns__Btn"
             - else

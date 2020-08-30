@@ -7,7 +7,7 @@ class Review < ApplicationRecord
 
   def avg_score
     unless self.reviews.empty?
-      reviews.average(:score).round(1)
+      reviews.pluck(:score).average.round(1)
     else
       0.0
     end
