@@ -17,8 +17,12 @@
             = link_to "レビュー", "/users/#{@user.id}/reviews", class: "White_btns__Btn"
         - else
           .White_btns
-            = link_to "レビュー", "/users/#{@user.id}/reviews", class: "White_btns__Btn"
-            = @user.reviewees.pluck(:score).average.round(1)
+            .Star_rating
+              .Front{ style: "width: #{@user.avg_score*20}%"}
+                = image_tag "stars.jpg", class: "Front__Star"
+              .Back
+                = image_tag "stars_gray.jpg", class: "Back__Star"
+            = link_to @user.avg_score, "/users/#{@user.id}/reviews"
             - if @group_id.nil?
               = link_to "メッセージを送る", "/groups/#{@user.id}/create", class: "White_btns__Btn"
             - else

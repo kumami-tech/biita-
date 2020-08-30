@@ -77,22 +77,6 @@
               font-size: 14px;
               line-height: 24px;
             }
-            .Star_rating {
-              font-size: 16px;
-              position: relative;
-              margin-right: 60px;
-              .Front {
-                height: 24px;
-                position: absolute;
-                top: 0;
-                left: 0;
-                overflow: hidden;
-                color: orange;
-              }
-              .Back {
-                color: silver;
-              }
-            }
             &__Time{
               height: 14px;
               line-height: 16px;
@@ -109,6 +93,23 @@
     .Show {
       display: block;
     }
+  }
+}
+
+.Star_rating_r {
+  font-size: 16px;
+  position: relative;
+  margin-right: 60px;
+  .Front_r {
+    height: 24px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    color: orange;
+  }
+  .Back_r {
+    color: silver;
   }
 }
 

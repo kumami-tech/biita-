@@ -10,19 +10,19 @@
         = link_to "#{review.reviewer.name}", user_path(review.reviewer_id), class: "Link Text"
       .Position_text
         = review.display_position
-      .Star_rating
-        .Front{ style: "width: #{review.score*20}%"}
-          =icon('fas', 'star', class: "Front__Star")
-          =icon('fas', 'star', class: "Front__Star")
-          =icon('fas', 'star', class: "Front__Star")
-          =icon('fas', 'star', class: "Front__Star")
-          =icon('fas', 'star', class: "Front__Star")
-        .Back
-          =icon('fas', 'star', class: "Back__Star")
-          =icon('fas', 'star', class: "Back__Star")
-          =icon('fas', 'star', class: "Back__Star")
-          =icon('fas', 'star', class: "Back__Star")
-          =icon('fas', 'star', class: "Back__Star")
+      .Star_rating_r
+        .Front_r{ style: "width: #{review.score*20}%"}
+          =icon('fas', 'star')
+          =icon('fas', 'star')
+          =icon('fas', 'star')
+          =icon('fas', 'star')
+          =icon('fas', 'star')
+        .Back_r
+          =icon('fas', 'star')
+          =icon('fas', 'star')
+          =icon('fas', 'star')
+          =icon('fas', 'star')
+          =icon('fas', 'star')
       .Review_box__Content__Info__Time.Text_s
         = review.created_at.strftime("%Y年%-m月%-d日 %H時%M分")
     .Review_box__Content__Review.Text

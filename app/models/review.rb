@@ -4,10 +4,9 @@ class Review < ApplicationRecord
   belongs_to :reviewer, class_name: 'User', foreign_key: 'reviewer_id'
   belongs_to :reviewee, class_name: 'User', foreign_key: 'reviewee_id'
 
-
   def avg_score
-    unless self.reviews.empty?
-      reviews.pluck(:score).average.round(1)
+    unless self.empty?
+      reviews.average(:score).round(1)
     else
       0.0
     end

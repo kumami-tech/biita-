@@ -13,17 +13,17 @@ class User < ApplicationRecord
   has_many :groups, through: :group_users
 
   has_many :messages
-  has_many :reviewees, foreign_key: "reviewee_id"
+  has_many :reviews, foreign_key: "reviewee_id"
 
   mount_uploader :profile_image, ImageUploader
 
 
-  # def avg_score
-  #   unless self.reviews.reviewee.empty?
-  #     reviews.pluck(:score).average.round(1)
-  #   else
-  #     0.0
-  #   end
-  # end
+  def avg_score
+    unless self.reviews.empty?
+      reviews.average(:score).round(1)
+    else
+      0.0
+    end
+  end
 
 end
