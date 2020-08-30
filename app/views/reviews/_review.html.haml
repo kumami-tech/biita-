@@ -9,7 +9,7 @@
       .Review_box__Content__Info__Name
         = link_to "#{review.reviewer.name}", user_path(review.reviewer_id), class: "Link Text"
       .Position_text
-        = "#{review.display_position}："
+        = review.display_position
       .Star_rating
         .Front{ style: "width: #{review.score*20}%"}
           =icon('fas', 'star', class: "Front__Star")

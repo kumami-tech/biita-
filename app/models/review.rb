@@ -6,9 +6,9 @@ class Review < ApplicationRecord
 
 def display_position
   if self.position == "guest"
-    "ツアーゲストとしての評価"
+    "ツアーゲストとしての評価："
   else
-    "ツアーキャストとしての評価"
+    "ツアーキャストとしての評価："
   end
 end
 
