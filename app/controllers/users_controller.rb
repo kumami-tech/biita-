@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @post_gs = @user.post_gs
     @post_cs = @user.post_cs
+    @reviews = Review.where(reviewee_id: @user.id)
   end
 
   def edit

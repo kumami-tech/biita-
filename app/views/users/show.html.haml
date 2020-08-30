@@ -17,11 +17,12 @@
             = link_to "レビュー", "/users/#{@user.id}/reviews", class: "White_btns__Btn"
         - else
           .White_btns
-            - if @group_id.nil?
-              = link_to "トークルーム", "/groups/#{@user.id}/create", class: "White_btns__Btn"
-            - else
-              = link_to "トークルーム", group_messages_path(@group_id, user_id: @user.id), class: "White_btns__Btn"
             = link_to "レビュー", "/users/#{@user.id}/reviews", class: "White_btns__Btn"
+            = @reviews.avg_score
+            - if @group_id.nil?
+              = link_to "メッセージを送る", "/groups/#{@user.id}/create", class: "White_btns__Btn"
+            - else
+              = link_to "メッセージを送る", group_messages_path(@group_id, user_id: @user.id), class: "White_btns__Btn"
       .Profile__Content__Text.Text
         = simple_format(@user.profile)
 
