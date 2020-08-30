@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
       flash[:notice] = 'レビューを投稿しました。'
       redirect_to user_reviews_path
     else
-      flash.now[:alert] = 'レビューを投稿できませんでした。'
+      flash.now[:alert] = '全ての項目を入力してください。'
       render :new
     end
   end
