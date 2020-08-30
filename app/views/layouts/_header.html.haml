@@ -8,18 +8,21 @@
       .Header__Bar__Content__Search
         = link_to "ツアーゲストを探す", posts_g_index_path, class: "Btns__btn"
         = link_to "ツアーキャストを探す", posts_c_index_path, class: "Btns__btn"
-    - if user_signed_in?
-      .Header__Bar__Btns
-        .Menu_box
-          .Header__Bar__Btns__Btn.New_post.Left
-            = icon('far', 'edit',  class: "Header__Bar__Btns__Btn--icon")
-          .Menu
-            =link_to new_posts_g_path do
-              .Menu__Content
-                ツアーゲストとして投稿する
-            =link_to new_posts_c_path do
-              .Menu__Content
-                ツアーキャストとして投稿する
+    .Header__Bar__Btns
+      .Menu_box
+        .Header__Bar__Btns__Btn.Left
+          = icon('far', 'edit',  class: "Header__Bar__Btns__Btn--icon")
+        .Menu
+          =link_to new_posts_g_path do
+            .Menu__Content
+              ツアーゲストとして投稿する
+          =link_to new_posts_c_path do
+            .Menu__Content
+              ツアーキャストとして投稿する
+      - if user_signed_in?
+        .Header__Bar__Btns__Btn
+          = link_to groups_path do
+            = icon('far', 'paper-plane',  class: "Header__Bar__Btns__Btn--icon Link")
         .Menu_box
           .Header__Bar__Btns__Btn
             - if current_user.profile_image?
@@ -36,18 +39,7 @@
             =link_to users_sign_out_path, method: :delete, data: { confirm: "ログアウトしますか？" } do
               .Menu__Content
                 ログアウト
-    - else
-      .Header__Bar__Btns
-        .Menu_box
-          .Header__Bar__Btns__Btn.New_post.Left
-            = icon('far', 'edit',  class: "Header__Bar__Btns__Btn--icon")
-          .Menu
-            =link_to new_posts_g_path do
-              .Menu__Content
-                ツアーゲストとして投稿する
-            =link_to new_posts_c_path do
-              .Menu__Content
-                ツアーキャストとして投稿する
+      - else
         =link_to new_user_registration_path do
           .Header__Bar__Btns__Btn
             新規登録
