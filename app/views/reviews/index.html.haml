@@ -1,4 +1,6 @@
 .Header_r
+  = link_to user_path(@user) do
+    = icon('fas', 'chevron-left', class: "Back_btn")
   .Wrapper_header_r
     .Title_r
       = "#{@user.name}さんのレビュー"

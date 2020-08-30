@@ -2,6 +2,14 @@
   height: 60px;
   border-bottom: solid 1px #B3B8BB;
   margin-bottom: 15px;
+  position: relative;
+  .Back_btn {
+    position: absolute;
+    font-size: 30px;
+    color: gray;
+    top: 15px;
+    left: 50px;
+  }
   .Wrapper_header_r {
     width: 880px;
     margin: 0 auto;
