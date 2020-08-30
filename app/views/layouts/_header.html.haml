@@ -28,7 +28,7 @@
             - if current_user.profile_image?
               = image_tag current_user.profile_image.url, class: "Header__Bar__Btns__Btn__Image"
             - else
-              = image_tag "no-image.jpeg", class: "Header__Bar__Btns__Btn__Image"
+              = image_tag "no-image.jpg", class: "Header__Bar__Btns__Btn__Image"
           .Menu
             =link_to user_path(current_user.id) do
               .Menu__Content

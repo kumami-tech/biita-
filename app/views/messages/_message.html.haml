@@ -3,7 +3,7 @@
     - if message.user.profile_image?
       = image_tag message.user.profile_image.url, class: "Message_box__User_image"
     - else
-      = image_tag "no-image.jpeg", class: "Message_box__User_image"
+      = image_tag "no-image.jpg", class: "Message_box__User_image"
   .Message_box__Content
     .Message_box__Content__Info
       .Message_box__Content__Info__Name
