@@ -10,11 +10,11 @@ Rails.application.routes.draw do
   resources :users do
     resources :reviews, only: [:index, :new, :create]
   end
-  resources :posts_g
-  resources :posts_c
+  resources :posts_g, except: :show
+  resources :posts_c, except: :show
   
 
-  resources :groups, only: [:index, :show] do
+  resources :groups, only: [:index] do
     resources :messages, only: [:index, :create]
   end
 
