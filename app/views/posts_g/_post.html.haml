@@ -2,7 +2,10 @@
   .Post_box__User_info
     .Post_box__User_info__Image
       = link_to user_path(post.user) do
-        = image_tag post.user.profile_image.url, fallback: "no-image.jpg", class: "Post_box__User_info__Image"
+        - if post.user.profile_image?
+          = image_tag post.user.profile_image.url, class: "Post_box__User_info__Image"
+        - else
+          = image_tag "no-image.jpg", class: "Post_box__User_info__Image"
     .Post_box__User_info__Name.Text
       = link_to "#{post.user.name}", user_path(post.user), class: "Link"
   .Post_box__Text.Text
