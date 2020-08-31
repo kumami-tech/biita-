@@ -50,7 +50,7 @@ $(function(){
         let html = 
         `<div class="Message_box">
           <a href="/posts_g/${message.user_id}">
-            <img class="Message_box__User_image" src="no-image.jpeg">
+            <img class="Message_box__User_image" src="/assets/no-image.jpg">
           </a>
           <div class="Message_box__Content">
             <div class="Message_box__Content__Info">
@@ -72,7 +72,7 @@ $(function(){
         let html =
         `<div class="Message_box">
           <a href="/posts_g/${message.user_id}">
-            <img class="Message_box__User_image" src="no-image.jpeg">
+            <img class="Message_box__User_image" src="/assets/no-image.jpg">
           </a>
           <div class="Message_box__Content">
             <div class="Message_box__Content__Info">
