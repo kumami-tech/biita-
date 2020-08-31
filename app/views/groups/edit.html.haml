@@ -1,6 +1,0 @@
-.All
-  = render "messages/side_bar"
-  .Group_form
-    = form_with model: @group, local: true do |f|
-      = f.submit "#{@user.name}さんにメッセージを送る", class: 'Main__form__contents__btn'
-    -# = link_to "#{@user.name}さんにメッセージを送る", edit_group_path(@user), class: "ain__form__contents__btn"
