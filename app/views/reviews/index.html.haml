@@ -16,16 +16,16 @@
   .Wrapper_r_inner
     .Reviews.Show
       - if @reviews.empty?
-        .Reviews__Empty 投稿されていません
+        .Empty 投稿されていません
       - else
         = render @reviews
     .Reviews
       - if @review_gs.empty?
-        .Reviews__Empty 投稿されていません
+        .Empty 投稿されていません
       - else
         = render partial: 'review', collection: @review_gs
     .Reviews
       - if @review_cs.empty?
-        .Reviews__Empty 投稿されていません
+        .Empty 投稿されていません
       - else
         = render partial: 'review', collection: @review_cs

@@ -3,7 +3,7 @@ class PostsGController < ApplicationController
   before_action :set_post, only: [:edit]
 
   def index
-    @post_gs = PostG.includes(:user).order("created_at DESC")
+    @posts = PostG.includes(:user).order("created_at DESC")
   end
 
   def new
