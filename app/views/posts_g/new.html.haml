@@ -1,21 +1,2 @@
-.Wrapper
-  .Title ツアーゲストとして投稿する
-  .Form
-    = form_with(model: @post, url: "/posts_g", local: true) do |f|
-      .Form__Content.Text
-        = f.label "旅行したい国と都市"
-        %br/
-        = f.text_field :region, autofocus: true, class: "Form__Content__Field"
-      .Form__Content.Text
-        = f.label "希望日時"
-        %br/
-        = f.text_field :datetime, autofocus: true, class: "Form__Content__Field"
-      .Form__Content.Text
-        = f.label "リクエスト"
-        %br/
-        = f.text_area :content, autofocus: true, rows: "10", class: "Form__Content__Field--large"
-      .Form__Content.Text
-        = f.label "希望料金"
-        %br/
-        = f.text_field :charge, autofocus: true, class: "Form__Content__Field"
-      = f.submit "投稿", class: "Btn Text"
+.Title ツアーゲストとして投稿する
+= render partial: "form"

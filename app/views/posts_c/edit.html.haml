@@ -1,21 +1,2 @@
-.Wrapper
-  .Title 投稿を編集する
-  .Form
-    = form_with(model: @post, url: posts_c_path(@post.id), local: true) do |f|
-      .Form__Content.Text
-        = f.label "対応可能な国と都市"
-        %br/
-        = f.text_field :region, autofocus: true, class: "Form__Content__Field"
-      .Form__Content.Text
-        = f.label "対応可能な日時"
-        %br/
-        = f.text_field :datetime, autofocus: true, class: "Form__Content__Field"
-      .Form__Content.Text
-        = f.label "対応可能なリクエスト"
-        %br/
-        = f.text_area :content, autofocus: true, rows: "10", class: "Form__Content__Field--large"
-      .Form__Content.Text
-        = f.label "対応可能な料金"
-        %br/
-        = f.text_field :charge, autofocus: true, class: "Form__Content__Field"
-      = f.submit "保存", class: "Btn Text"
+.Title 投稿を編集する
+= render partial: "form"
