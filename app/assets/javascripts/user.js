@@ -1,4 +1,16 @@
 $(function() {
+  let tabs = $(".Position__Name");
+
+  function tabSwitch() {
+    $(".Active").removeClass("Active");
+    $(this).addClass("Active");
+    const index = tabs.index(this);
+    $(".User_posts").removeClass("Show").eq(index).addClass("Show");
+  }
+  tabs.click(tabSwitch);
+});
+
+$(function() {
   function readURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
