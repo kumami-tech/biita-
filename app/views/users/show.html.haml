@@ -1,45 +1,44 @@
-.Wrapper
-  .Title
-    = "#{@user.name}さんのページ"
-  .Profile
-    - if @user.profile_image?
-      = image_tag @user.profile_image.url, class: "Profile__Image"
-    - else
-      = image_tag "no-image.jpg", class: "Profile__Image"
-    .Profile__Content
-      .Profile__Content__Upper
-        .Name
-          = @user.name
-        .Info_right
-          .Star_rating
-            = image_tag "stars.jpg", class: "Front", width: "#{@user.avg_score*20}%"
-            = image_tag "stars_gray.jpg"
-          .Review_info
-            = @user.avg_score
-            = link_to "(#{@count}件のレビュー)", "/users/#{@user.id}/reviews"
-          - if user_signed_in? && @user.id == current_user.id
-            = link_to "プロフィールを編集", edit_user_path(current_user), class: "Info_right__Btn"
+.Title
+  = "#{@user.name}さんのページ"
+.Profile
+  - if @user.profile_image?
+    = image_tag @user.profile_image.url, class: "Profile__Image"
+  - else
+    = image_tag "no-image.jpg", class: "Profile__Image"
+  .Profile__Content
+    .Profile__Content__Upper
+      .Name
+        = @user.name
+      .Info_right
+        .Star_rating
+          = image_tag "stars.jpg", class: "Front", width: "#{@user.avg_score*20}%"
+          = image_tag "stars_gray.jpg"
+        .Review_info
+          = @user.avg_score
+          = link_to "(#{@count}件のレビュー)", "/users/#{@user.id}/reviews"
+        - if user_signed_in? && @user.id == current_user.id
+          = link_to "プロフィールを編集", edit_user_path(current_user), class: "Info_right__Btn"
+        - else
+          - if @group_id.nil?
+            = link_to "メッセージを送る", "/groups/#{@user.id}/create", class: "Info_right__Btn"
           - else
-            - if @group_id.nil?
-              = link_to "メッセージを送る", "/groups/#{@user.id}/create", class: "Info_right__Btn"
-            - else
-              = link_to "メッセージを送る", group_messages_path(@group_id, user_id: @user.id), class: "Info_right__Btn"
-      .Profile__Content__Text.Text
-        = simple_format(@user.profile)
+            = link_to "メッセージを送る", group_messages_path(@group_id, user_id: @user.id), class: "Info_right__Btn"
+    .Profile__Content__Text.Text
+      = simple_format(@user.profile)
 
-  .Position
-    = link_to "ツアーゲスト", "#", class: "Position__Name Link Active"
-    = link_to "ツアーキャスト", "#", class: "Position__Name Link"
+.Position
+  = link_to "ツアーゲスト", "#", class: "Position__Name Link Active"
+  = link_to "ツアーキャスト", "#", class: "Position__Name Link"
 
-  .User_posts.Show
-    - if @post_gs.empty?
-      .Empty 投稿されていません
-    - else
-      - @post_gs.each do |post|
-        = render partial: "posts_g/post", locals: { post: post }
-  .User_posts
-    - if @post_cs.empty?
-      .Empty 投稿されていません
-    - else
-      - @post_cs.each do |post|
-        = render partial: "posts_c/post", locals: { post: post }
+.User_posts.Show
+  - if @post_gs.empty?
+    .Empty 投稿されていません
+  - else
+    - @post_gs.each do |post|
+      = render partial: "posts_g/post", locals: { post: post }
+.User_posts
+  - if @post_cs.empty?
+    .Empty 投稿されていません
+  - else
+    - @post_cs.each do |post|
+      = render partial: "posts_c/post", locals: { post: post }

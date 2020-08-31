@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
+  layout 'no_wrapper'
 
   def index
     groups = current_user.groups.includes(:messages)
@@ -13,14 +14,6 @@ class GroupsController < ApplicationController
     group_user = GroupUser.create(group_id: group.id, user_id: @user.id)
     @group_id = group_user.group_id
     redirect_to group_messages_path(@group_id, user_id: @user.id)
-  end
-
-  def show
-    @group = Group.find(params[:id])
-    group_user = GroupUser.where(group_id: @group.id)
-    group_user1 = group_user[1]
-    user_id = group_user_id.user_id
-    @user = User.where(id: user_id)
   end
 
   private

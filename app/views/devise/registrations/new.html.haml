@@ -1,23 +1,22 @@
-.Wrapper
-  .Title 新規登録
-  .Form
-    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      = render "devise/shared/error_messages", resource: resource
-      .Form__Content
-        = f.label "ユーザー名（10文字以内）"
-        %br/
-        = f.text_field :name, autofocus: true, autocomplete: "email", class: "Form__Content__Field"
-      .Form__Content
-        = f.label "メールアドレス"
-        %br/
-        = f.email_field :email, autofocus: true, autocomplete: "email", class: "Form__Content__Field"
-      .Form__Content
-        = f.label "パスワード（英数字6文字以上）"
-        %br/
-        = f.password_field :password, autocomplete: "new-password", class: "Form__Content__Field"
-      .Form__Content
-        = f.label "パスワード再入力"
-        %br/
-        = f.password_field :password_confirmation, autocomplete: "new-password", class: "Form__Content__Field"
-      = f.submit "新規登録", class: "Btn Text"
-    = render "devise/shared/links"
+.Title 新規登録
+.Form
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .Form__Content
+      = f.label "ユーザー名（10文字以内）"
+      %br/
+      = f.text_field :name, autofocus: true, autocomplete: "email", class: "Form__Content__Field"
+    .Form__Content
+      = f.label "メールアドレス"
+      %br/
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: "Form__Content__Field"
+    .Form__Content
+      = f.label "パスワード（英数字6文字以上）"
+      %br/
+      = f.password_field :password, autocomplete: "new-password", class: "Form__Content__Field"
+    .Form__Content
+      = f.label "パスワード再入力"
+      %br/
+      = f.password_field :password_confirmation, autocomplete: "new-password", class: "Form__Content__Field"
+    = f.submit "新規登録", class: "Btn Text"
+  = render "devise/shared/links"

@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_group
+  layout 'no_wrapper'
 
   def index
     @user = User.find_by(id: params[:user_id])
@@ -23,10 +24,6 @@ class MessagesController < ApplicationController
     end
     # redirect_to action: :index, group_id: @group.id, user_id: @user.id
 
-  end
-
-  def show
-    @user = User.find(params[:id])
   end
 
   private
