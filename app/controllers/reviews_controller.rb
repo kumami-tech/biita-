@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!, except: :index
   before_action :set_reviewee
+  layout 'no_wrapper', only: :index
 
   def index
     @reviews = Review.where(reviewee_id: @user.id).includes(:reviewer).order("reviews.created_at DESC")
@@ -18,7 +19,7 @@ class ReviewsController < ApplicationController
       flash[:notice] = 'レビューを投稿しました。'
       redirect_to user_reviews_path
     else
-      flash.now[:alert] = '全ての項目を入力してください。'
+      flash.now[:alert] = '入力に不備があります。'
       render :new
     end
   end
