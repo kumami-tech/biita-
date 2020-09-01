@@ -1,6 +1,6 @@
 .Side_bar {
   height: calc(100vh - 60px);
-  width: 280px;
+  width: 20vw;
   border-right: solid 1px #B3B8BB;
   overflow: scroll;
   .Group_box {
@@ -19,6 +19,7 @@
         display: block;
       }
       &__Text{
+        width: 100%;
         margin: auto 0;
         &__Info{        
           margin-bottom: 3px;
@@ -33,7 +34,7 @@
           }
         }
         &__Message{
-          width: 159px;
+          width: 100%;
           max-height: 36px;
           overflow: hidden;
           display: -webkit-box;

@@ -16,6 +16,7 @@ $orange3: #FFE2B2;
   }
 
 .All {
+  width: 100vw;
   height: calc(100vh - 60px);
   display: flex;
   overflow: scroll;
@@ -23,16 +24,20 @@ $orange3: #FFE2B2;
 
 .Main {
   height: calc(100vh - 60px);
-  width: calc(100vw - 280px);
+  width: 80vw;
   &__Header {
+    width: 80vw;
     height: 50px;
     border-bottom: solid 1px #B3B8BB;
   }
   &__content {
+    width: 80vw;
     height: calc(100vh - 200px);
-    width: calc(100vw - 280px);
-    padding: 15px 280px 0px 80px;
     overflow: scroll;
+    &__Wrapper {
+      width: 1000px;
+      padding: 15px 0px 0px 80px;
+    }
   }
   &__form {
     height: 90px;
@@ -40,10 +45,14 @@ $orange3: #FFE2B2;
     border-top: solid 1px #B3B8BB;
     display: flex;
     align-items: center;
+    &__Form {
+      width: 100%;
+      padding: 0 80px;
+    }
     &__contents {
       height: 40px;
-      width: calc(100vw - 640px);
-      margin: 0 280px 0 80px;
+      width: 100%;
+      margin: auto;
       display: flex;
       justify-content: space-between;
       &__input {
@@ -73,7 +82,7 @@ $orange3: #FFE2B2;
       }
       &__btn {
         background-color: $orange2;
-        color: black;
+        color: white;
         font-size: 16px;
         padding: 0 30px;
         margin-left: 15px;
@@ -85,6 +94,7 @@ $orange3: #FFE2B2;
 }
 
 .Message_box {
+  width: 1000px;
   padding: 10px 30px 20px 0px;
   margin-bottom: 20px;
   display: flex;
@@ -99,10 +109,11 @@ $orange3: #FFE2B2;
     display: block;
   }
   &__Content {
-    margin: auto;
+    width: 910px;
+    margin: auto 0;
     &__Info{
       width: 680px;
-      margin: auto;
+      margin: auto 0;
       margin-bottom: 5px;
       display: flex;
       &__Name {
@@ -114,6 +125,9 @@ $orange3: #FFE2B2;
         color: #7B7D7F;
         margin: auto 0;
       }
+    }
+    &__Message {
+      width: 100%;
     }
   }
 }

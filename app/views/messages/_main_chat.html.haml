@@ -3,7 +3,8 @@
     .Title1
       = "#{@user.name}さんとのトークルーム"
   .Main__content
-    = render @messages
+    .Main__content__Wrapper
+      = render @messages
   .Main__form
     = form_with model: [@group, @message], html: {class: "Main__form__Form"}, local: true do |f|
       .Main__form__contents
