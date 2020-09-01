@@ -1,16 +1,16 @@
 .Side_bar
   - @groups.each do |group|
-    = link_to group_messages_path(group.id, user_id: group.users.last.id) do
+    = link_to group_messages_path(group.id, user_id: group.users.where.not(id: current_user.id).ids.first) do
       .Group_box
         .Group_box__Content
-          - if group.users.last.profile_image?
-            = image_tag group.users.last.profile_image.url, class: "Group_box__Content__User_image"
+          - if group.users.where.not(id: current_user.id).first.profile_image?
+            = image_tag group.users.where.not(id: current_user.id).first.profile_image.url, class: "Group_box__Content__User_image"
           - else
             = image_tag "no-image.jpeg", class: "Group_box__Content__User_image"
           .Group_box__Content__Text.Link
             .Group_box__Content__Text__Info.Text_s
               .Group_box__Content__Text__Info__Name
-                = group.users.last.name
+                = group.users.where.not(id: current_user.id).first.name
               .Group_box__Content__Text__Info__Time
                 = group.messages.last.created_at.strftime("%-m月%-d日")
             .Group_box__Content__Text__Message.Text_s
