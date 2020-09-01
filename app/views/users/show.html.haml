@@ -19,10 +19,14 @@
         - if user_signed_in? && @user.id == current_user.id
           = link_to "プロフィールを編集", edit_user_path(current_user), class: "Info_right__Btn"
         - else
-          - if @group_id.nil?
-            = link_to "メッセージを送る", "/groups/#{@user.id}/create", class: "Info_right__Btn"
-          - else
+          - if @is_exists_user_group
             = link_to "メッセージを送る", group_messages_path(@group_id, user_id: @user.id), class: "Info_right__Btn"
+          - else
+            = link_to "メッセージを送る", "/groups/#{@user.id}/create", class: "Info_right__Btn"
+          -# - if @group_id.nil?
+          -#   = link_to "メッセージを送る", "/groups/#{@user.id}/create", class: "Info_right__Btn"
+          -# - else
+          -#   = link_to "メッセージを送る", group_messages_path(@group_id, user_id: @user.id), class: "Info_right__Btn"
     .Profile__Content__Text.Text
       = simple_format(@user.profile)
 

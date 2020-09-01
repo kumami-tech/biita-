@@ -12,6 +12,8 @@ class UsersController < ApplicationController
     group_users = GroupUser.where(group_id: group_ids)
     group_user = group_users.where(user_id: current_user.id)
     @group_id = group_user.pluck(:group_id).first
+
+    @is_exists_user_group = current_user.groups.pluck(:user_id).include?(@user.id)
   end
 
   def edit
