@@ -32,6 +32,11 @@ $orange2: #ffa500;
       height: 40px;
       width: 350px;
       margin-bottom: 5px;
+      padding: 5px;
+      &--Large {
+        width: 350px;
+        padding: 5px;
+      }
     }
   }
 }
@@ -103,6 +108,10 @@ $orange2: #ffa500;
           margin: 0px 7px;
         }
       }
+    }
+    &__Text {
+      height: 80px;
+      overflow: hidden;
     }
   }
 }
