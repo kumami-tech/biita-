@@ -6,14 +6,14 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: {maximum: 10}
 
-  has_many :post_gs
-  has_many :post_cs
+  has_many :post_gs, dependent: :destroy
+  has_many :post_cs, dependent: :destroy
 
-  has_many :group_users
+  has_many :group_users, dependent: :destroy
   has_many :groups, through: :group_users
 
-  has_many :messages
-  has_many :reviews, foreign_key: "reviewee_id"
+  has_many :messages, dependent: :destroy
+  has_many :reviews, foreign_key: "reviewee_id", dependent: :destroy
 
   mount_uploader :profile_image, ImageUploader
 
