@@ -9,7 +9,7 @@
       = link_to "ツアーゲスト(#{@review_gs.count}件)", "#", class: "Position_r__Name"
       = link_to "ツアーキャスト(#{@review_cs.count}件)", "#", class: "Position_r__Name"
     - unless user_signed_in? && current_user.id == @user.id
-      = link_to new_user_review_path(@user), class: "Link Write_review" do
+      = link_to new_user_review_path(@user), class: "Write_review" do
         = icon('fas', 'pen', class: 'Review_icon')
         %span レビューを書く
 .Wrapper_r
