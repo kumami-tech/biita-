@@ -2,19 +2,22 @@ $orange1: #FF6D05;
 $orange2: #ffa500;
 $orange3: #FFE2B2;
 $orange4: #FFC882;
+$gray: #f5f5f5;
 
 .Form__Content__Field--large {
   width: 350px;
 }
 
 .Post_box {
-  border: solid 1px black;
+  border: solid 1px silver;
   border-radius: 30px;
+  background-color: white;
   padding: 20px 40px;
   margin-bottom: 20px;
   display: flex;
   justify-content: start;
   position: relative;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   &__User_info {
     margin-right: 25px;
     &__Image {
@@ -41,6 +44,7 @@ $orange4: #FFC882;
     }
   }
   .more {
+    color: gray;
     position: absolute;
     cursor: pointer;
     top: 20px;
@@ -63,8 +67,6 @@ $orange4: #FFC882;
     background-color: #fff;
     border: 1px solid #ddd;
     display: none;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    border-radius: 3px;
   }
   
   .more ul.more_list li {
