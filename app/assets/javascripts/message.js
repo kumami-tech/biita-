@@ -107,13 +107,13 @@ $(function(){
     })
     .done(function(data){
       let html = buildHTML(data);
-      $('.Main__content').append(html);
+      $('.Main__content__Wrapper').append(html);
       $('.Main__content').animate({ scrollTop: $('.Main__content')[0].scrollHeight});
       $('form')[0].reset();
       $('.Main__form__contents__btn').prop('disabled', false);
     })
     .fail(function() {
-      alert("メッセージ送信に失敗しました");
+      alert("メッセージを入力してください");
       $('.Main__form__contents__btn').prop('disabled', false);
     })
   });

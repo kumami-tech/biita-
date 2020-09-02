@@ -13,4 +13,5 @@
           = f.label :image, class: 'Main__form__contents__input__image' do
             = icon('far', 'image', class: 'Main__form__contents__input__icon')
             = f.file_field :image, class: 'Main__form__contents__input__image__file'
-        = f.submit '送信', class: 'Main__form__contents__btn'
+        = button_tag type: 'submit', class: "Main__form__contents__btn" do
+          = icon('fas', 'paper-plane')

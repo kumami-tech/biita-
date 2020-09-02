@@ -22,8 +22,6 @@ class MessagesController < ApplicationController
     else
       render :index
     end
-    # redirect_to action: :index, group_id: @group.id, user_id: @user.id
-
   end
 
   private
