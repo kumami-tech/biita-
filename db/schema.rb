@@ -12,10 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_08_29_124616) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "group_users", force: :cascade do |t|
+  create_table "group_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "group_id"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
@@ -24,12 +21,12 @@ ActiveRecord::Schema.define(version: 2020_08_29_124616) do
     t.index ["user_id"], name: "index_group_users_on_user_id"
   end
 
-  create_table "groups", force: :cascade do |t|
+  create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "messages", force: :cascade do |t|
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "text"
     t.string "image"
     t.bigint "user_id"
@@ -40,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_08_29_124616) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-  create_table "post_cs", force: :cascade do |t|
+  create_table "post_cs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "region", null: false
     t.string "datetime", null: false
     t.text "content", null: false
@@ -52,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_08_29_124616) do
     t.index ["user_id"], name: "index_post_cs_on_user_id"
   end
 
-  create_table "post_gs", force: :cascade do |t|
+  create_table "post_gs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "region", null: false
     t.string "datetime", null: false
     t.text "content", null: false
@@ -64,7 +61,7 @@ ActiveRecord::Schema.define(version: 2020_08_29_124616) do
     t.index ["user_id"], name: "index_post_gs_on_user_id"
   end
 
-  create_table "reviews", force: :cascade do |t|
+  create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content", null: false
     t.bigint "reviewer_id", null: false
     t.bigint "reviewee_id", null: false
@@ -76,7 +73,7 @@ ActiveRecord::Schema.define(version: 2020_08_29_124616) do
     t.index ["reviewer_id"], name: "index_reviews_on_reviewer_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
