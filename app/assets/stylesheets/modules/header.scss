@@ -5,27 +5,59 @@ $orange1: #FF6D05;
 $orange2: #ffa500;
 
 .Header {
-  background-color: $yellow;
+  background-color: #ffff80;
+  padding: 0 150px;
+  // border-bottom: solid 1px #B3B8BB;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
   &__Bar {
-    width: 1000px;
     height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: auto;
     &__Content{
+      height: 60px;
       display: flex;
       align-items: center;
-      &__Search{
-        width: 340px;
-        font-size: 15px;
-        display: flex;
-        justify-content: space-between;
-        margin-left: 210px;
-        > a {
-          color: $orange1;
-          font-weight: bold;
-        }
+    }
+    &__Search{
+      width: 340px;
+      font-size: 15px;
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      color: $orange1;
+      font-weight: bold;
+      > a {
+        line-height: 60px;
+        color: $orange1;
+        font-weight: bold;
+        display: block;
+        position: relative;
+      }
+      > a::before,
+      > a::after {
+        border-bottom: solid 2px $orange1;
+        bottom: 0;
+        content: "";
+        display: block;
+        position: absolute;
+        transition: all .3s ease;
+        -webkit-transition: all .3s ease;
+        width: 0;
+      }
+      > a::before {
+        left: 50%;
+      }
+      > a::after {
+        right: 50%;
+      }
+      > a:hover::before,
+      > a:hover::after {
+        width: 50%;
       }
     }
     &__Title {
