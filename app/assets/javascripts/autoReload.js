@@ -109,7 +109,9 @@ $(function(){
         });
         $('.Main__content__Wrapper').append(insertHTML);
         $('.Main__content').animate({ scrollTop: $('.Main__content')[0].scrollHeight});
+        console.log("aaa")
       }
+      console.log(messages[0])
     })
     .fail(function() {
       alert('error');
