@@ -3,7 +3,7 @@ $(function(){
     if (message.user_image) {
       if (message.image) {
         let html = 
-        `<div class="Message_box">
+        `<div class="Message_box" data-message-id=${message.id}>
           <a href="/posts_g/${message.user_id}">
             <img class="Message_box__User_image" src="${message.user_image}">
           </a>
@@ -25,7 +25,7 @@ $(function(){
         return html;
       } else {
         let html =
-        `<div class="Message_box">
+        `<div class="Message_box" data-message-id=${message.id}>
           <a href="/posts_g/${message.user_id}">
             <img class="Message_box__User_image" src="${message.user_image}">
           </a>
@@ -48,7 +48,7 @@ $(function(){
     } else {
       if (message.image) {
         let html = 
-        `<div class="Message_box">
+        `<div class="Message_box" data-message-id=${message.id}>
           <a href="/posts_g/${message.user_id}">
             <img class="Message_box__User_image" src="/assets/no-image.jpg">
           </a>
@@ -70,7 +70,7 @@ $(function(){
         return html;
       } else {
         let html =
-        `<div class="Message_box">
+        `<div class="Message_box" data-message-id=${message.id}>
           <a href="/posts_g/${message.user_id}">
             <img class="Message_box__User_image" src="/assets/no-image.jpg">
           </a>
