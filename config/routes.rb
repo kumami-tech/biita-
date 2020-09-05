@@ -16,6 +16,9 @@ Rails.application.routes.draw do
 
   resources :groups, only: [:index] do
     resources :messages, only: [:index, :create]
+    namespace :api do
+      resources :messages, only: :index, defaults: { format: 'json' }
+    end
   end
 
   get '/posts_g/:id/destroy', to: 'posts_g#destroy'

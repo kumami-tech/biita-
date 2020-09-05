@@ -3,7 +3,7 @@ $(function(){
     if (message.user_image) {
       if (message.image) {
         let html = 
-        `<div class="Message_box">
+        `<div class="Message_box" data-message-id=${message.id}>
           <a href="/posts_g/${message.user_id}">
             <img class="Message_box__User_image" src="${message.user_image}">
           </a>
@@ -25,7 +25,7 @@ $(function(){
         return html;
       } else {
         let html =
-        `<div class="Message_box">
+        `<div class="Message_box" data-message-id=${message.id}>
           <a href="/posts_g/${message.user_id}">
             <img class="Message_box__User_image" src="${message.user_image}">
           </a>
@@ -48,7 +48,7 @@ $(function(){
     } else {
       if (message.image) {
         let html = 
-        `<div class="Message_box">
+        `<div class="Message_box" data-message-id=${message.id}>
           <a href="/posts_g/${message.user_id}">
             <img class="Message_box__User_image" src="/assets/no-image.jpg">
           </a>
@@ -70,7 +70,7 @@ $(function(){
         return html;
       } else {
         let html =
-        `<div class="Message_box">
+        `<div class="Message_box" data-message-id=${message.id}>
           <a href="/posts_g/${message.user_id}">
             <img class="Message_box__User_image" src="/assets/no-image.jpg">
           </a>
@@ -93,28 +93,27 @@ $(function(){
     }
   }
 
-  $('.Main__form__Form').on('submit', function(e){
-    e.preventDefault();
-    let formData = new FormData(this);
-    let url = $(this).attr('action');
+  let reloadMessages = function() {
+    let last_message_id = $('.Message_box:last').data("message-id") || 0;
     $.ajax({
-      url: url,
-      type: 'POST',
-      data: formData,  
+      url: "api/messages",
+      type: 'get',
       dataType: 'json',
-      processData: false,
-      contentType: false
+      data: {id: last_message_id}
     })
-    .done(function(data){
-      let html = buildHTML(data);
-      $('.Main__content__Wrapper').append(html);
-      $('.Main__content').animate({ scrollTop: $('.Main__content')[0].scrollHeight});
-      $('form')[0].reset();
-      $('.Main__form__contents__btn').prop('disabled', false);
+    .done(function(messages) {
+      if (messages.length !== 0) {
+        let insertHTML = '';
+        $.each(messages, function(i, message) {
+          insertHTML += buildHTML(message)
+        });
+        $('.Main__content__Wrapper').append(insertHTML);
+        $('.Main__content').animate({ scrollTop: $('.Main__content')[0].scrollHeight});
+      }
     })
     .fail(function() {
-      alert("メッセージを入力してください");
-      $('.Main__form__contents__btn').prop('disabled', false);
-    })
-  });
+      alert('error');
+    });
+  };
+  setInterval(reloadMessages, 7000);
 });
