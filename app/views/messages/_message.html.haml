@@ -1,4 +1,4 @@
-.Message_box
+.Message_box{data: {message: {id: message.id}}}
   = link_to user_path(message.user) do
     - if message.user.profile_image?
       = image_tag message.user.profile_image.url, class: "Message_box__User_image"
