@@ -37,7 +37,6 @@ $gray: #f5f5f5;
   }
 }
 
-
 .Post_box {
   border: solid 1px silver;
   border-radius: 30px;
@@ -73,56 +72,99 @@ $gray: #f5f5f5;
       }
     }
   }
-  .more {
-    color: gray;
-    position: absolute;
-    cursor: pointer;
-    top: 20px;
-    right: 30px;
-    height: 100px;
-    width: 80px;
-    text-align: right;
-  }
-  
-  .more:hover ul.more_list {
-    display: block;
-  }
-  
-  .more ul.more_list {
-    position: absolute;
-    text-align: left;
-    width: 50px;
-    right: 0;
-    font-size: 12px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    display: none;
-  }
-  
-  .more ul.more_list li {
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .more ul.more_list li:last-child {
-    border-bottom: 0;
-  }
-  
-  .more ul.more_list li a {
-    display: block;
-    padding: 5px;
-    text-align: center;
-  }
-  
-  .more ul.more_list li a:hover {
-    background-color: $orange4;
-  }
-
-  .down_btn {
-    color: black;
-  }
 }
 
 .Empty {
   margin-top: 30px;
   margin-left: 10px;
+}
+
+.Post_show_wrapper {
+  width: 100%;
+  max-height: calc(100vh - 60px);
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  overflow: scroll;
+  .Post_user_info {
+    width: 280px;
+    margin-right: 50px;
+    text-align: center;
+    &__Image {
+      height: 120px;
+      width: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 30px auto 5px;
+    }
+    .Post_user_info__Review {
+      width: 150px;
+      height: 19.45px;
+      line-height: 19.45px;
+      display: flex;
+      justify-content: space-between;
+      margin: 20px auto 8px;
+      .Star_rating {
+        width: 120px;
+        position: relative;
+        img {
+          height: 19.45px;
+        }
+        .Front {
+          position: absolute;
+          top: 0px;
+          left: 0;
+          object-fit: cover;
+          object-position: 0% 0%;
+        }
+      }
+    }
+    > a {
+      font-size: 15px;
+    }
+    &__Btn {
+      width: 160px;
+      color: $orange1;
+      line-height: 35px;
+      border: solid 1.3px $orange1;
+      margin: 20px auto;
+      display: block;
+    }
+  }
+  .Post_main {
+    width: 100%;
+    border: solid 1px silver;
+    border-radius: 30px;
+    padding: 30px 50px;
+    .Post_title {
+      font-size: 18px;
+      text-align: center;
+    }
+    .Post_table {
+      width: 100%;
+      font-size: 14px;
+      margin: 20px 0;
+      table {
+        width: 100%;
+        text-align: center;
+        th {
+          width: 30%;
+          background-color: #eee;
+          padding: 10px;
+          border: 1px solid #dedede;
+        }
+        td {
+          padding: 10px;
+          border: 1px solid #dedede;
+        }
+      }
+    }
+    .Post_request {
+      text-align: center;
+    }
+    .Post_content {
+      font-size: 14px;
+      margin: 10px 0;
+    }
+  }
 }

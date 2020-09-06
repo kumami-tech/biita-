@@ -1,0 +1,49 @@
+.Post_show_wrapper
+  .Post_user_info
+    = link_to user_path(@user) do
+      - if @user.profile_image?
+        = image_tag @user.profile_image.url, class: "Post_user_info__Image"
+      - else
+        = image_tag "no-image.jpg", class: "Post_user_info__Image"
+    .Post_user_info__Name.Bold
+      = @user.name
+    .Post_user_info__Review
+      .Star_rating
+        = image_tag "stars.jpg", class: "Front", width: "#{@user.avg_score*20}%"
+        = image_tag "stars_gray.jpg"
+      = @user.avg_score
+    = link_to "(#{@count}件のレビュー)", "/users/#{@user.id}/reviews"
+    %br
+    - if user_signed_in? && @user.id == current_user.id
+      = link_to '投稿を編集する', edit_posts_g_path(@post.id), method: :get, class: "Post_user_info__Btn"
+      = link_to '投稿を削除する', "/posts_g/#{@post.id}/destroy", data: { confirm: "削除しますか？" }, class: "Post_user_info__Btn"
+    - else
+      - if @group_id.nil?
+        = link_to "メッセージを送る", "/groups/#{@user.id}/create", class: "Post_user_info__Btn"
+      - else
+        = link_to "メッセージを送る", group_messages_path(@group_id, user_id: @user.id), class: "Post_user_info__Btn"
+  .Post_main
+    .Post_title.Bold
+      = @post.title
+    .Post_table
+      %table
+        %tr
+          %th 対応可能な場所:
+          %td
+            = @post.region
+        %tr
+          %th 対応可能な日時：
+          %td
+            = @post.datetime
+        %tr
+          %th 対応可能な料金
+          %td
+            = @post.charge
+        %tr
+          %th お支払い方法
+          %td
+            = @post.payment
+    .Post_request.Bold
+      = "-対応可能なリクエスト内容-"
+    .Post_content
+      = simple_format(@post.content)
