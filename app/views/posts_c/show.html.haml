@@ -1,5 +1,7 @@
 .Post_show_wrapper
   .Post_user_info
+    .Post_user_info__Person
+      投稿者
     = link_to user_path(@user) do
       - if @user.profile_image?
         = image_tag @user.profile_image.url, class: "Post_user_info__Image"
@@ -23,7 +25,7 @@
       - else
         = link_to "メッセージを送る", group_messages_path(@group_id, user_id: @user.id), class: "Post_user_info__Btn"
   .Post_main
-    .Post_title.Bold
+    .Post_show_title.Bold
       = @post.title
     .Post_table
       %table

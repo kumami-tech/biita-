@@ -34,11 +34,13 @@
   - if @post_gs.empty?
     .Empty 投稿されていません
   - else
-    - @post_gs.each do |post|
-      = render partial: "posts_g/post", locals: { post: post }
+    .Post_index
+      - @post_gs.each do |post|
+        = render partial: "posts_g/post", locals: { post: post }
 .User_posts
   - if @post_cs.empty?
     .Empty 投稿されていません
   - else
-    - @post_cs.each do |post|
-      = render partial: "posts_c/post", locals: { post: post }
+    .Post_index
+      - @post_cs.each do |post|
+        = render partial: "posts_c/post", locals: { post: post }

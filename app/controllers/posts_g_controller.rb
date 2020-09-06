@@ -1,6 +1,7 @@
 class PostsGController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_post, only: [:edit]
+  before_action :set_post, only: :edit
+  layout 'no_wrapper', only: :index
 
   def index
     @posts = PostG.includes(:user).order("created_at DESC")

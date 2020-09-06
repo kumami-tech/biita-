@@ -37,38 +37,105 @@ $gray: #f5f5f5;
   }
 }
 
-.Post_box {
-  border: solid 1px silver;
-  border-radius: 30px;
-  background-color: white;
-  padding: 20px 40px;
-  margin-bottom: 20px;
+.Post_index_title {
+  margin: 30px 280px;
+}
+
+.Post_index {
+  width: 900px;
   display: flex;
-  justify-content: start;
-  position: relative;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  &__User_info {
-    margin-right: 25px;
-    &__Image {
-      height: 90px;
-      width: 90px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 5px;
+  flex-wrap: wrap;
+  margin: auto;
+  .Post_box {
+    width: 430px;
+    border: solid 1px silver;
+    border-radius: 30px;
+    background-color: white;
+    padding: 20px 40px;
+    margin: 0 10px 20px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    > a {
+      color: black;
     }
-    &__Name {
+    &__Title {
+      height: 24px;
       font-weight: bold;
       text-align: center;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      margin-bottom: 10px;
     }
-  }
-  &__Text {
-    margin: auto 0;
-    font-weight: bold;
-    &__Lists {
+    &__User_info {
+      width: 300px;
       display: flex;
-      margin: 5px;
-      &__List {
-        margin-right: 5px;
+      margin: 10px auto 0;
+      &__Image {
+        height: 75px;
+        width: 75px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 30px;
+      }
+      &__Right {
+        line-height: 18px;
+        margin: auto 0;
+        > a {
+          color: black;
+        }
+        .Post_index_username {
+          font-weight: bold;
+          font-size: 14px;
+          margin-bottom: 10px;
+        }
+        .Post_index_review {
+          display: flex;
+          .Star_rating {
+            width: 111px;
+            position: relative;
+            margin-right: 5px;
+            img {
+              height: 18px;
+            }
+            .Front {
+              position: absolute;
+              top: 0px;
+              left: 0;
+              object-fit: cover;
+              object-position: 0% 0%;
+            }
+          }
+          .Review_info > a {
+            color: black;
+          }
+        }
+      }
+    }
+    &__Text {
+      margin: 0 auto;
+      &__Lists {
+        display: flex;
+        margin: 5px;
+        &__List {
+          margin-right: 5px;
+        }
+      }
+      table {
+        margin: 0 auto;
+      }
+      th {
+        height: 31px;
+        color: gray;
+        width: 120px;
+        padding: 5px;
+      }
+      td {
+        max-width: 228px;
+        height: 31px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding: 5px;
       }
     }
   }
@@ -84,10 +151,10 @@ $gray: #f5f5f5;
   max-height: calc(100vh - 60px);
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
   overflow: scroll;
   .Post_user_info {
     width: 280px;
+    margin-top: 30px;
     margin-right: 50px;
     text-align: center;
     &__Image {
@@ -95,7 +162,7 @@ $gray: #f5f5f5;
       width: 120px;
       border-radius: 50%;
       object-fit: cover;
-      margin: 30px auto 5px;
+      margin: 15px auto 5px;
     }
     .Post_user_info__Review {
       width: 150px;
@@ -136,7 +203,9 @@ $gray: #f5f5f5;
     border: solid 1px silver;
     border-radius: 30px;
     padding: 30px 50px;
-    .Post_title {
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 0 10px 10px 0;
+    .Post_show_title {
       font-size: 18px;
       text-align: center;
     }
