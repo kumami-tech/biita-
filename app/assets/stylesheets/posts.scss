@@ -37,79 +37,73 @@ $gray: #f5f5f5;
   }
 }
 
-.Post_index_title {
-  margin: 30px 280px;
-}
-
-.Post_index {
-  width: 900px;
+.Post_box {
+  color: #4a4a4a;
+  width: 100%;
+  border: solid 1px silver;
+  border-radius: 30px;
+  padding: 25px 40px;
+  margin-bottom: 20px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
   display: flex;
-  flex-wrap: wrap;
-  margin: auto;
-  .Post_box {
-    width: 430px;
-    border: solid 1px silver;
-    border-radius: 30px;
-    background-color: white;
-    padding: 20px 40px;
-    margin: 0 10px 20px;
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-    > a {
-      color: black;
+  &__Left {
+    height: 90px;
+    width: 320px;
+    display: flex;
+    margin: auto 0;
+    > a  {
+      height: 90px;
+      width: 90px;
+      margin: auto 30px auto 0;
     }
+    &__Image {
+      height: 90px;
+      width: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: auto 30px auto 0;
+    }
+    &__Other {
+      line-height: 18px;
+      margin: auto 0;
+      .Post_index_username {
+        font-weight: bold;
+        font-size: 15px;
+        margin-bottom: 15px;
+      }
+      .Post_index_review {
+        display: flex;
+        .Star_rating {
+          width: 111px;
+          position: relative;
+          margin: 0 5px 5px 0;
+          img {
+            height: 18px;
+          }
+          .Front {
+            position: absolute;
+            top: 0px;
+            left: 0;
+            object-fit: cover;
+            object-position: 0% 0%;
+          }
+        }
+        &__Count {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  &__Right {
+    width: 490px;
     &__Title {
+      width: 490px;
       height: 24px;
       font-weight: bold;
-      text-align: center;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
       margin-bottom: 10px;
-    }
-    &__User_info {
-      width: 300px;
-      display: flex;
-      margin: 10px auto 0;
-      &__Image {
-        height: 75px;
-        width: 75px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-right: 30px;
-      }
-      &__Right {
-        line-height: 18px;
-        margin: auto 0;
-        > a {
-          color: black;
-        }
-        .Post_index_username {
-          font-weight: bold;
-          font-size: 14px;
-          margin-bottom: 10px;
-        }
-        .Post_index_review {
-          display: flex;
-          .Star_rating {
-            width: 111px;
-            position: relative;
-            margin-right: 5px;
-            img {
-              height: 18px;
-            }
-            .Front {
-              position: absolute;
-              top: 0px;
-              left: 0;
-              object-fit: cover;
-              object-position: 0% 0%;
-            }
-          }
-          .Review_info > a {
-            color: black;
-          }
-        }
-      }
     }
     &__Text {
       margin: 0 auto;
@@ -120,22 +114,21 @@ $gray: #f5f5f5;
           margin-right: 5px;
         }
       }
-      table {
-        margin: 0 auto;
-      }
       th {
+        width: 120px;
         height: 31px;
         color: gray;
         width: 120px;
-        padding: 5px;
+        padding: 5px 0;
+        margin-right: 15px;
       }
       td {
-        max-width: 228px;
+        max-width: 370px;
         height: 31px;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        padding: 5px;
+        padding: 5px 0;
       }
     }
   }

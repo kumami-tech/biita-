@@ -1,27 +1,36 @@
 = link_to posts_c_path(post) do
   .Post_box.Link
-    .Post_box__User_info
-      .Post_box__User_info__Image
+    .Post_box__Left
+      .Post_box__Left__Image
         - if post.user.profile_image?
-          = image_tag post.user.profile_image.url, class: "Post_box__User_info__Image"
+          = image_tag post.user.profile_image.url, class: "Post_box__Left__Image"
         - else
-          = image_tag "no-image.jpg", class: "Post_box__User_info__Image"
-      .Post_box__User_info__Name.Text
-        = post.user.name
-    .Post_box__Text.Text
-      .Post_box__Text__Lists
-        .Post_box__Text__Lists__List 対応可能な場所:
-        .Post_box__Text__Lists__Content
-          = post[:region]
-      .Post_box__Text__Lists
-        .Post_box__Text__Lists__List 対応可能な日時：
-        .Post_box__Text__Lists__Content
-          = post[:datetime]
-      .Post_box__Text__Lists
-        .Post_box__Text__Lists__List 対応可能なリクエスト：
-        .Post_box__Text__Lists__Content
-          = simple_format(post.content)
-      .Post_box__Text__Lists
-        .Post_box__Text__Lists__List 対応可能な料金：
-        .Post_box__Text__Lists__Content
-          = post[:charge]
+          = image_tag "no-image.jpg", class: "Post_box__Left__Image"
+      .Post_box__Left__Other
+        .Post_index_username
+          = post.user.name
+        .Post_index_review
+          .Star_rating
+            = image_tag "stars.jpg", class: "Front", width: "#{post.user.avg_score*20}%"
+            = image_tag "stars_gray.jpg"
+          .Review_info
+            = post.user.avg_score
+        .Post_index_review__Count
+          = "(#{post.user.reviews.count}件のレビュー)"
+    .Post_box__Right
+      .Post_box__Right__Title
+        = post[:title]
+      .Post_box__Right__Text.Text
+        %table
+          %tr
+            %th 対応可能な場所
+            %td
+              = post.region
+          %tr
+            %th 対応可能な日時
+            %td
+              = post.datetime
+          %tr
+            %th 対応可能な料金
+            %td
+              = post.charge
