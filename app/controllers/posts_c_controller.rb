@@ -6,6 +6,9 @@ class PostsCController < ApplicationController
     @posts = PostC.includes(:user).order("created_at DESC")
   end
 
+  def show
+  end
+
   def new
     @post = PostC.new
   end
@@ -35,6 +38,7 @@ class PostsCController < ApplicationController
       redirect_to action: "edit"
     end
   end
+
 
   def destroy
     post = PostC.find(params[:id])

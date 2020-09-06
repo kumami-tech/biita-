@@ -1,35 +1,35 @@
-.Post_box
-  .Post_box__User_info
-    .Post_box__User_info__Image
-      = link_to user_path(post.user) do
+= link_to posts_g_path(post.user) do
+  .Post_box.Link
+    .Post_box__User_info
+      .Post_box__User_info__Image
         - if post.user.profile_image?
           = image_tag post.user.profile_image.url, class: "Post_box__User_info__Image"
         - else
           = image_tag "no-image.jpg", class: "Post_box__User_info__Image"
-    .Post_box__User_info__Name.Text
-      = link_to "#{post.user.name}", user_path(post.user), class: "Link"
-  .Post_box__Text.Text
-    .Post_box__Text__Lists
-      .Post_box__Text__Lists__List 旅行したい国と都市:
-      .Post_box__Text__Lists__Content
-        = post[:region]
-    .Post_box__Text__Lists
-      .Post_box__Text__Lists__List 希望日時：
-      .Post_box__Text__Lists__Content
-        = post[:datetime]
-    .Post_box__Text__Lists
-      .Post_box__Text__Lists__List リクエスト：
-      .Post_box__Text__Lists__Content
-        = simple_format(post.content)
-    .Post_box__Text__Lists
-      .Post_box__Text__Lists__List 希望料金：
-      .Post_box__Text__Lists__Content
-        = post[:charge]
-  .more
-    - if user_signed_in? && current_user.id == post.user_id
-      = icon('fas', 'chevron-down', class: "Side_bar__header__box__icons__btn--icon")
-      %ul.more_list
-        %li
-          = link_to '編集', edit_posts_g_path(post.id), method: :get, class: "down_btn"
-        %li
-          = link_to '削除', "/posts_g/#{post.id}/destroy", data: { confirm: "削除しますか？" }, class: "down_btn"
+      .Post_box__User_info__Name.Text
+        = post.user.name
+    .Post_box__Text.Text
+      .Post_box__Text__Lists
+        .Post_box__Text__Lists__List 旅行したい国と都市:
+        .Post_box__Text__Lists__Content
+          = post[:region]
+      .Post_box__Text__Lists
+        .Post_box__Text__Lists__List 希望日時：
+        .Post_box__Text__Lists__Content
+          = post[:datetime]
+      .Post_box__Text__Lists
+        .Post_box__Text__Lists__List リクエスト：
+        .Post_box__Text__Lists__Content
+          = simple_format(post.content)
+      .Post_box__Text__Lists
+        .Post_box__Text__Lists__List 希望料金：
+        .Post_box__Text__Lists__Content
+          = post[:charge]
+    -# .more
+    -#   - if user_signed_in? && current_user.id == post.user_id
+    -#     = icon('fas', 'chevron-down', class: "Side_bar__header__box__icons__btn--icon")
+    -#     %ul.more_list
+    -#       %li
+    -#         = link_to '編集', edit_posts_g_path(post.id), method: :get, class: "down_btn"
+    -#       %li
+    -#         = link_to '削除', "/posts_g/#{post.id}/destroy", data: { confirm: "削除しますか？" }, class: "down_btn"

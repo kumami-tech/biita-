@@ -6,6 +6,9 @@ class PostsGController < ApplicationController
     @posts = PostG.includes(:user).order("created_at DESC")
   end
 
+  def show
+  end
+
   def new
     @post = PostG.new
   end
