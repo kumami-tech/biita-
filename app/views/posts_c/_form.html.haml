@@ -1,6 +1,6 @@
 .Post_form
   = form_with(model: @post, url: "/posts_c/#{@post.id}", local: true) do |f|
-    .Form__Content.Text
+    .Post_form__Content.Text
       = f.label "タイトル"
       %br/
       = f.text_field :title, autofocus: true, class: "Post_form__Content__Field"
@@ -13,10 +13,6 @@
       %br/
       = f.text_field :datetime, class: "Post_form__Content__Field"
     .Post_form__Content.Text
-      = f.label "対応可能なリクエスト"
-      %br/
-      = f.text_area :content, rows: "15", class: "Post_form__Content__Field--Large"
-    .Post_form__Content.Text
       = f.label "対応可能な料金"
       %br/
       = f.text_field :charge, class: "Post_form__Content__Field"
@@ -24,4 +20,8 @@
       = f.label "お支払い方法"
       %br/
       = f.select :payment, [["現地で手渡し"],["事前振り込み"],["事後振り込み"]], prompt: "選択してください"
+    .Post_form__Content.Text
+      = f.label "対応可能なリクエスト内容"
+      %br/
+      = f.text_area :content, rows: "15", class: "Post_form__Content__Field--Large"
     = f.submit "投稿", class: "Post_form__Btn Text"
