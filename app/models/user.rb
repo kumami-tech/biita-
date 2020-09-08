@@ -6,8 +6,11 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: {maximum: 10}
 
-  has_many :post_gs, dependent: :destroy
-  has_many :post_cs, dependent: :destroy
+  has_many :giving_post_gs, foreign_key: "giver_id", class_name: "PostG", dependent: :destroy
+  has_many :giving_post_cs, foreign_key: "giver_id", class_name: "PostC", dependent: :destroy
+
+  has_many :taking_post_gs, foreign_key: "taker_id", class_name: "PostG", dependent: :destroy
+  has_many :taking_post_cs, foreign_key: "taker_id", class_name: "PostC", dependent: :destroy
 
   has_many :group_users, dependent: :destroy
   has_many :groups, through: :group_users

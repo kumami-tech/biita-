@@ -6,5 +6,6 @@ class PostC < ApplicationRecord
   validates :charge, presence: true
   validates :payment, presence: true
 
-  belongs_to :user
+  belongs_to :giver, class_name: 'User', foreign_key: 'giver_id'
+  belongs_to :taker, class_name: 'User', foreign_key: 'taker_id', optional: true
 end

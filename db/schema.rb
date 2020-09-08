@@ -42,14 +42,16 @@ ActiveRecord::Schema.define(version: 2020_09_06_022923) do
     t.string "datetime", null: false
     t.text "content", null: false
     t.string "charge", null: false
-    t.bigint "user_id"
+    t.bigint "giver_id", null: false
+    t.bigint "taker_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "title", null: false
     t.string "payment", null: false
     t.string "image"
+    t.index ["giver_id"], name: "index_post_cs_on_giver_id"
     t.index ["region"], name: "index_post_cs_on_region"
-    t.index ["user_id"], name: "index_post_cs_on_user_id"
+    t.index ["taker_id"], name: "index_post_cs_on_taker_id"
   end
 
   create_table "post_gs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -57,14 +59,16 @@ ActiveRecord::Schema.define(version: 2020_09_06_022923) do
     t.string "datetime", null: false
     t.text "content", null: false
     t.string "charge", null: false
-    t.bigint "user_id"
+    t.bigint "giver_id", null: false
+    t.bigint "taker_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "title", null: false
     t.string "payment", null: false
     t.string "image"
+    t.index ["giver_id"], name: "index_post_gs_on_giver_id"
     t.index ["region"], name: "index_post_gs_on_region"
-    t.index ["user_id"], name: "index_post_gs_on_user_id"
+    t.index ["taker_id"], name: "index_post_gs_on_taker_id"
   end
 
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -99,8 +103,10 @@ ActiveRecord::Schema.define(version: 2020_09_06_022923) do
   add_foreign_key "group_users", "users"
   add_foreign_key "messages", "groups"
   add_foreign_key "messages", "users"
-  add_foreign_key "post_cs", "users"
-  add_foreign_key "post_gs", "users"
+  add_foreign_key "post_cs", "users", column: "giver_id"
+  add_foreign_key "post_cs", "users", column: "taker_id"
+  add_foreign_key "post_gs", "users", column: "giver_id"
+  add_foreign_key "post_gs", "users", column: "taker_id"
   add_foreign_key "reviews", "users", column: "reviewee_id"
   add_foreign_key "reviews", "users", column: "reviewer_id"
 end
