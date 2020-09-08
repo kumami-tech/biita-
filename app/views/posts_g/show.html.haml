@@ -27,30 +27,37 @@
       - else
         = link_to "メッセージを送る", group_messages_path(@group_id, user_id: @user.id), class: "Post_user_info__Btn"
   .Post_main
-    .Post_show_title.Bold
-      = @post.title
-    .Post_table.Text
-      %table
-        %tr
-          %th 旅行したい場所
-          %td#address
-            = @post.region
-        %tr
-          %th 希望日時
-          %td
-            = @post.datetime
-        %tr
-          %th 希望料金
-          %td
-            = @post.charge
-        %tr
-          %th お支払い方法
-          %td
-            = @post.payment
-    .Post_head.Bold
-      = "-リクエスト内容-"
-    .Post_content.Text
-      = simple_format(@post.content)
-    .Post_head.Bold
-      = "-地図-"
-    .Post_map#map.Text
+    .Post_main__Box
+      .Post_show_title.Bold
+        = @post.title
+      .Post_table.Text
+        %table
+          %tr
+            %th 旅行したい場所
+            %td#address
+              = @post.region
+          %tr
+            %th 希望日時
+            %td
+              = @post.datetime
+          %tr
+            %th 希望料金
+            %td
+              = @post.charge
+          %tr
+            %th お支払い方法
+            %td
+              = @post.payment
+      .Post_head.Bold
+        = "-リクエスト内容-"
+      .Post_content.Text
+        = simple_format(@post.content)
+      .Post_head.Bold
+        = "-地図-"
+      .Post_map#map.Text
+    - unless user_signed_in? && @user.id == current_user.id
+      - if @post.taker_ids.include?(current_user.id)
+        .Taken_btn.Bold
+          申し込み済み
+      - else
+        = link_to "申し込む", take_posts_g_path(@post.id), data: { confirm: "こちらの投稿に申し込みますか？" }, class: "Take_btn Bold"

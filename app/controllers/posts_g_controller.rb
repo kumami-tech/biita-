@@ -1,13 +1,12 @@
 class PostsGController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_post, only: :edit
+  before_action :set_post, except: [:index, :new, :create]
 
   def index
     @posts = PostG.includes(:giver).order("created_at DESC")
   end
 
   def show
-    @post = PostG.find(params[:id])
     @user = @post.giver
     reviews = Review.where(reviewee_id: @user.id)
     @count = reviews.count
@@ -34,12 +33,10 @@ class PostsGController < ApplicationController
   end
 
   def edit
-    @post = PostG.find(params[:id])
   end
 
   def update
-    post = PostG.find(params[:id])
-    if post.update(post_params)
+    if @post.update(post_params)
       flash[:notice] = '投稿を編集しました。'
       redirect_to root_path
     else
@@ -49,10 +46,15 @@ class PostsGController < ApplicationController
   end
 
   def destroy
-    post = PostG.find(params[:id])
-    post.destroy
+    @post.destroy
     flash[:notice] = '投稿を削除しました。'
     redirect_to root_path
+  end
+
+  def take
+    PostGTaker.create(post_g_id: @post.id, taker_id: current_user.id)
+    flash[:notice] = '申し込みが完了しました。'
+    redirect_to action: "show"
   end
 
   private

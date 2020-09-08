@@ -1,13 +1,12 @@
 class PostsCController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_post, only: [:edit]
+  before_action :set_post, except: [:index, :new, :create]
 
   def index
     @posts = PostC.includes(:giver).order("created_at DESC")
   end
 
   def show
-    @post = PostC.find(params[:id])
     @user = @post.giver
     reviews = Review.where(reviewee_id: @user.id)
     @count = reviews.count
@@ -34,12 +33,10 @@ class PostsCController < ApplicationController
   end
 
   def edit
-    @post = PostC.find(params[:id])
   end
 
   def update
-    post = PostC.find(params[:id])
-    if post.update(post_params)
+    if @post.update(post_params)
       flash[:notice] = '投稿を編集しました。'
       redirect_to root_path
     else
@@ -48,12 +45,16 @@ class PostsCController < ApplicationController
     end
   end
 
-
   def destroy
-    post = PostC.find(params[:id])
-    post.destroy
+    @post.destroy
     flash[:notice] = '投稿を削除しました。'
     redirect_to root_path
+  end
+
+  def take
+    PostCTaker.create(post_c_id: @post.id, taker_id: current_user.id)
+    flash[:notice] = '申し込みが完了しました。'
+    redirect_to action: "show"
   end
 
   private

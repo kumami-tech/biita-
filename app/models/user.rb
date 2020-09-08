@@ -9,8 +9,9 @@ class User < ApplicationRecord
   has_many :giving_post_gs, foreign_key: "giver_id", class_name: "PostG", dependent: :destroy
   has_many :giving_post_cs, foreign_key: "giver_id", class_name: "PostC", dependent: :destroy
 
-  has_many :taking_post_gs, foreign_key: "taker_id", class_name: "PostG", dependent: :destroy
-  has_many :taking_post_cs, foreign_key: "taker_id", class_name: "PostC", dependent: :destroy
+  has_many :post_g_takers
+  has_many :taking_post_gs, dependent: :destroy, through: :post_g_takers
+  has_many :taking_post_cs, dependent: :destroy, through: :post_c_takers
 
   has_many :group_users, dependent: :destroy
   has_many :groups, through: :group_users
