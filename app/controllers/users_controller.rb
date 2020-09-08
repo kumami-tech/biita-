@@ -3,8 +3,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @post_gs = @user.post_gs
-    @post_cs = @user.post_cs
+    @post_gs = @user.giving_post_gs
+    @post_cs = @user.giving_post_cs
     reviews = Review.where(reviewee_id: @user.id)
     @count = reviews.count
 

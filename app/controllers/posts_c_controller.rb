@@ -3,12 +3,12 @@ class PostsCController < ApplicationController
   before_action :set_post, only: [:edit]
 
   def index
-    @posts = PostC.includes(:user).order("created_at DESC")
+    @posts = PostC.includes(:giver).order("created_at DESC")
   end
 
   def show
     @post = PostC.find(params[:id])
-    @user = @post.user
+    @user = @post.giver
     reviews = Review.where(reviewee_id: @user.id)
     @count = reviews.count
 
@@ -58,7 +58,7 @@ class PostsCController < ApplicationController
 
   private
   def post_params
-    params.require(:post_c).permit(:title, :region, :datetime, :content, :charge, :payment).merge(user_id: current_user.id)
+    params.require(:post_c).permit(:title, :region, :datetime, :content, :charge, :payment).merge(giver_id: current_user.id)
   end
 
   def set_post

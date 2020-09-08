@@ -2,21 +2,21 @@
   .Post_box.Link
     .Post_box__Left
       .Post_box__Left__Image
-        - if post.user.profile_image?
-          = image_tag post.user.profile_image.url, class: "Post_box__Left__Image"
+        - if post.giver.profile_image?
+          = image_tag post.giver.profile_image.url, class: "Post_box__Left__Image"
         - else
           = image_tag "no-image.jpg", class: "Post_box__Left__Image"
       .Post_box__Left__Other
         .Post_index_username
-          = post.user.name
+          = post.giver.name
         .Post_index_review
           .Star_rating
-            = image_tag "stars.jpg", class: "Front", width: "#{post.user.avg_score*20}%"
+            = image_tag "stars.jpg", class: "Front", width: "#{post.giver.avg_score*20}%"
             = image_tag "stars_gray.jpg"
           .Review_info
-            = post.user.avg_score
+            = post.giver.avg_score
         .Text
-          = "(#{post.user.reviews.count}件のレビュー)"
+          = "(#{post.giver.reviews.count}件のレビュー)"
     .Post_box__Right
       .Post_box__Right__Title
         = post[:title]
