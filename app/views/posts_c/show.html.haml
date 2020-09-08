@@ -27,11 +27,11 @@
   .Post_main
     .Post_show_title.Bold
       = @post.title
-    .Post_table
+    .Post_table.Text
       %table
         %tr
           %th 対応可能な場所
-          %td
+          %td#address
             = @post.region
         %tr
           %th 対応可能な日時
@@ -45,7 +45,10 @@
           %th お支払い方法
           %td
             = @post.payment
-    .Post_request.Bold
+    .Post_head.Bold
       = "-対応可能なリクエスト内容-"
-    .Post_content
+    .Post_content.Text
       = simple_format(@post.content)
+    .Post_head.Bold
+      = "-地図-"
+    .Post_map#map.Text
