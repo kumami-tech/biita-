@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @giving_post_cs = @user.giving_post_cs
     @taking_post_gs = @user.taking_post_gs
     @taking_post_cs = @user.taking_post_cs
-    
+
     reviews = Review.where(reviewee_id: @user.id)
     @count = reviews.count
 
