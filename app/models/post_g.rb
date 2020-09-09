@@ -9,4 +9,12 @@ class PostG < ApplicationRecord
   belongs_to :giver, class_name: 'User', foreign_key: 'giver_id'
   has_many :post_g_takers
   has_many :takers, through: :post_g_takers
+
+  def self.search(search)
+    if search != ""
+      PostG.where('title LIKE(?)', "%#{search}%")
+    else
+      PostG.all
+    end
+  end
 end

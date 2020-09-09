@@ -1,6 +1,6 @@
 class PostsGController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_post, except: [:index, :new, :create]
+  before_action :authenticate_user!, except: [:index, :show, :search]
+  before_action :set_post, except: [:index, :new, :create, :search]
 
   def index
     @posts = PostG.includes(:giver).order("created_at DESC")
@@ -64,6 +64,10 @@ class PostsGController < ApplicationController
     post_taker.destroy
     flash[:notice] = 'キャンセルが完了しました。'
     redirect_to action: "show"
+  end
+
+  def search
+    @posts = PostG.search(params[:keyword])
   end
 
   private

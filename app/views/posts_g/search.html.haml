@@ -7,7 +7,7 @@
         = button_tag type: 'submit', class: "Search__Form__Input__Btn" do
           = icon('fas', 'search')
 - if @posts.empty?
-  .Empty 投稿されていません
+  .Empty 該当する投稿がありません
 - else
   .Post_index
     - @posts.each do |post|

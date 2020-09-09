@@ -14,6 +14,9 @@ Rails.application.routes.draw do
       get 'take'
       get 'cancel'
     end
+    collection do
+      get 'search'
+    end
   end
 
   resources :posts_c do
@@ -21,9 +24,12 @@ Rails.application.routes.draw do
       get 'take'
       get 'cancel'
     end
+    collection do
+      get 'search'
+    end
   end
 
-  resources :groups, only: [:index] do
+  resources :groups, only: :index do
     resources :messages, only: [:index, :create]
     namespace :api do
       resources :messages, only: :index, defaults: { format: 'json' }
