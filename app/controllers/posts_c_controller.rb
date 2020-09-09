@@ -27,7 +27,7 @@ class PostsCController < ApplicationController
     @post = PostC.create(post_params)
     if @post.save
       flash[:notice] = '投稿しました。'
-      redirect_to root_path
+      redirect_to posts_c_path(@post)
     else
       flash[:alert] = '入力に不備があります。'
       redirect_to action: "new"
@@ -40,7 +40,7 @@ class PostsCController < ApplicationController
   def update
     if @post.update(post_params)
       flash[:notice] = '投稿を編集しました。'
-      redirect_to root_path
+      redirect_to posts_c_path(@post)
     else
       flash[:alert] = '入力に不備があります。'
       redirect_to action: "edit"
