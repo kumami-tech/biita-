@@ -17,6 +17,9 @@ $orange2: #ffa500;
   color: black;
 }
 
+
+// ユーザー登録
+
 #error_explanation{
   font-size: 14px;
   margin-bottom: 20px;
@@ -51,6 +54,9 @@ $orange2: #ffa500;
   margin: 50px auto 30px;
   cursor: pointer;
 }
+
+
+// マイページ上部
 
 .Profile {
   width: 840px;
@@ -116,24 +122,59 @@ $orange2: #ffa500;
   }
 }
 
-.User_page_tabs {
-  display: flex;
-  margin: 20px 10px;
-  .User_page_tab {
-    margin-right: 30px;
+
+// マイページ下部
+
+.Mypage_lower {
+  position: relative;
+  &__Btns {
+    position: absolute;
+    top: 50px;
+    left: -120px;
+    .Post_type_btn {
+      color: gray;
+      font-weight: bold;
+      margin-bottom: 30px;
+      display: block;
+    }
+    .Active1 {
+      color: $orange1;
+    }
   }
-  .Active{
-    font-weight: bold;
+  .User_page_tabs {
+    width: 880px;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    .User_page_tab {
+      height: 33px;
+      width: 170px;
+      text-align: center;
+      font-weight: bold;
+      color: gray;
+    }
+    .Active2 {
+      color: $orange1;
+      border-bottom: solid 2px $orange1;
+    }
+  }
+  .Mypage_lower__Content {
+    display: none;
+    .User_posts {
+      display: none;
+    }
+    .Show2 {
+      display: block;
+    }
+  }
+  .Show1 {
+    display: block;
   }
 }
 
-.User_posts {
-  display: none;
-}
 
-.Show {
-  display: block;
-}
+// プロフィール編集
 
 .Edit_profile_image {
   width: 130px;

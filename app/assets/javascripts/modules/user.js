@@ -1,14 +1,31 @@
+// マイページのタブ切り替え
+
+$(function() {
+  let btns = $(".Post_type_btn");
+
+  function btnSwitch() {
+    $(".Active1").removeClass("Active1");
+    $(this).addClass("Active1");
+    const index = btns.index(this);
+    $(".Mypage_lower__Content").removeClass("Show1").eq(index).addClass("Show1");
+  }
+  btns.click(btnSwitch);
+});
+
 $(function() {
   let tabs = $(".User_page_tab");
 
   function tabSwitch() {
-    $(".Active").removeClass("Active");
-    $(this).addClass("Active");
+    $(".Active2").removeClass("Active2");
+    $(this).addClass("Active2");
     const index = tabs.index(this);
-    $(".User_posts").removeClass("Show").eq(index).addClass("Show");
+    $(".User_posts").removeClass("Show2").eq(index).addClass("Show2");
   }
   tabs.click(tabSwitch);
 });
+
+
+// プロフィール画像のプレビュー
 
 $(function() {
   function readURL(input) {
