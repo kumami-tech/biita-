@@ -187,7 +187,7 @@ $gray: #f5f5f5;
       display: block;
     }
   }
-  .Post_main {
+  .Post_main__Box {
     width: 100%;
     border: solid 1px silver;
     border-radius: 30px;
@@ -226,5 +226,25 @@ $gray: #f5f5f5;
       margin-bottom: 10px;
       text-align: center;
     }
+  }
+  .Taken_btn {
+    width: 170px;
+    color: $orange2;
+    text-align: center;
+    padding: 10px 30px;
+    border: solid 1px $orange2;
+    display: block;
+    margin: 50px auto 30px;
+  }
+  .Take_btn {
+    width: 170px;
+    background-color: $orange2;
+    color: white;
+    text-align: center;
+    padding: 10px 30px;
+    border-style: none;
+    display: block;
+    margin: 50px auto 30px;
+    cursor: pointer;
   }
 }

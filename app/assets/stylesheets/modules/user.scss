@@ -116,11 +116,12 @@ $orange2: #ffa500;
   }
 }
 
-.Position {
-  width: 230px;
+.User_page_tabs {
   display: flex;
-  justify-content: space-between;
   margin: 20px 10px;
+  .User_page_tab {
+    margin-right: 30px;
+  }
   .Active{
     font-weight: bold;
   }

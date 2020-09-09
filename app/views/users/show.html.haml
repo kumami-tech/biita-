@@ -26,21 +26,38 @@
     .Profile__Content__Text.Text
       = simple_format(@user.profile)
 
-.Position
-  = link_to "ツアーゲスト", "#", class: "Position__Name Link Active"
-  = link_to "ツアーキャスト", "#", class: "Position__Name Link"
+.User_page_tabs
+  = link_to "ツアーゲスト", "#", class: "User_page_tab Link Active"
+  = link_to "ツアーキャスト", "#", class: "User_page_tab Link"
+  - if user_signed_in? && @user.id == current_user.id
+    = link_to "申込済み(ツアーゲスト)", "#", class: "User_page_tab Link"
+    = link_to "申込済み(ツアーキャスト)", "#", class: "User_page_tab Link"
 
 .User_posts.Show
-  - if @post_gs.empty?
-    .Empty 投稿されていません
+  - if @giving_post_gs.empty?
+    .Empty 投稿がありません
   - else
     .Post_index
-      - @post_gs.each do |post|
+      - @giving_post_gs.each do |post|
         = render partial: "posts_g/post", locals: { post: post }
 .User_posts
-  - if @post_cs.empty?
-    .Empty 投稿されていません
+  - if @giving_post_cs.empty?
+    .Empty 投稿がありません
   - else
     .Post_index
-      - @post_cs.each do |post|
+      - @giving_post_cs.each do |post|
+        = render partial: "posts_c/post", locals: { post: post }
+.User_posts
+  - if @taking_post_gs.empty?
+    .Empty 投稿がありません
+  - else
+    .Post_index
+      - @taking_post_gs.each do |post|
+        = render partial: "posts_g/post", locals: { post: post }
+.User_posts
+  - if @taking_post_cs.empty?
+    .Empty 投稿がありません
+  - else
+    .Post_index
+      - @taking_post_cs.each do |post|
         = render partial: "posts_c/post", locals: { post: post }

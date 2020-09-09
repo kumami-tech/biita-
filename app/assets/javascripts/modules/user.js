@@ -1,5 +1,5 @@
 $(function() {
-  let tabs = $(".Position__Name");
+  let tabs = $(".User_page_tab");
 
   function tabSwitch() {
     $(".Active").removeClass("Active");
