@@ -12,12 +12,14 @@ Rails.application.routes.draw do
   resources :posts_g do
     member do
       get 'take'
+      get 'cancel'
     end
   end
 
   resources :posts_c do
     member do
       get 'take'
+      get 'cancel'
     end
   end
 

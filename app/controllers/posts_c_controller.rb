@@ -15,6 +15,8 @@ class PostsCController < ApplicationController
     group_users = GroupUser.where(group_id: group_ids)
     group_user = group_users.where(user_id: current_user.id)
     @group_id = group_user.pluck(:group_id).first
+
+    @takers = @post.takers
   end
 
   def new
@@ -54,6 +56,13 @@ class PostsCController < ApplicationController
   def take
     PostCTaker.create(post_c_id: @post.id, taker_id: current_user.id)
     flash[:notice] = '申し込みが完了しました。'
+    redirect_to action: "show"
+  end
+
+  def cancel
+    post_taker = PostCTaker.find_by(post_c_id: @post.id, taker_id: current_user.id)
+    post_taker.destroy
+    flash[:notice] = 'キャンセルが完了しました。'
     redirect_to action: "show"
   end
 

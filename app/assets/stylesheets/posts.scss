@@ -4,6 +4,8 @@ $orange3: #FFE2B2;
 $orange4: #FFC882;
 $gray: #f5f5f5;
 
+
+// 新規投稿ページ
 .Post_form {
   width: 450px;
   margin: 50px auto;
@@ -37,95 +39,102 @@ $gray: #f5f5f5;
   }
 }
 
-.Post_box {
-  color: #4a4a4a;
-  width: 100%;
-  border: solid 1px silver;
-  border-radius: 30px;
-  padding: 25px 40px;
-  margin-bottom: 20px;
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-  display: flex;
-  &__Left {
-    height: 100px;
-    width: 310px;
+
+// 投稿一覧
+.Post_index {
+  width: 880px;
+  .Post_box {
+    color: #4a4a4a;
+    width: 880px;
+    border: solid 1px silver;
+    border-radius: 30px;
+    padding: 25px 40px;
+    margin-bottom: 20px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
     display: flex;
-    margin: auto 0;
-    > a  {
-      height: 90px;
-      width: 90px;
-      margin: auto 30px auto 0;
-    }
-    &__Image {
+    // ユーザー情報
+    &__Left {
       height: 100px;
-      width: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: auto 30px auto 0;
-    }
-    &__Other {
-      line-height: 18px;
+      width: 310px;
+      display: flex;
       margin: auto 0;
-      .Post_index_username {
-        font-weight: bold;
-        font-size: 15px;
-        margin-bottom: 15px;
+      > a  {
+        height: 90px;
+        width: 90px;
+        margin: auto 30px auto 0;
       }
-      .Post_index_review {
-        display: flex;
-        .Star_rating {
-          width: 111px;
-          position: relative;
-          margin: 0 5px 5px 0;
-          img {
-            height: 18px;
-          }
-          .Front {
-            position: absolute;
-            top: 0px;
-            left: 0;
-            object-fit: cover;
-            object-position: 0% 0%;
+      &__Image {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: auto 30px auto 0;
+      }
+      &__Other {
+        line-height: 18px;
+        margin: auto 0;
+        .Post_index_username {
+          font-weight: bold;
+          font-size: 15px;
+          margin-bottom: 15px;
+        }
+        .Post_index_review {
+          display: flex;
+          .Star_rating {
+            width: 111px;
+            position: relative;
+            margin: 0 5px 5px 0;
+            img {
+              height: 18px;
+            }
+            .Front {
+              position: absolute;
+              top: 0px;
+              left: 0;
+              object-fit: cover;
+              object-position: 0% 0%;
+            }
           }
         }
       }
     }
-  }
-  &__Right {
-    width: 490px;
-    &__Title {
+    // 投稿の中身
+    &__Right {
       width: 490px;
-      height: 24px;
-      font-weight: bold;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      margin-bottom: 10px;
-    }
-    &__Text {
-      margin: 0 auto;
-      &__Lists {
-        display: flex;
-        margin: 5px;
-        &__List {
-          margin-right: 5px;
-        }
-      }
-      th {
-        width: 120px;
-        height: 31px;
-        color: gray;
-        width: 120px;
-        padding: 5px 0;
-        margin-right: 15px;
-      }
-      td {
-        max-width: 370px;
-        height: 31px;
+      &__Title {
+        width: 490px;
+        height: 24px;
+        font-weight: bold;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        padding: 5px 0;
+        margin-bottom: 10px;
+      }
+      &__Text {
+        margin: 0 auto;
+        &__Lists {
+          display: flex;
+          margin: 5px;
+          &__List {
+            margin-right: 5px;
+          }
+        }
+        th {
+          width: 120px;
+          height: 31px;
+          color: gray;
+          width: 120px;
+          padding: 5px 0;
+          margin-right: 15px;
+        }
+        td {
+          max-width: 370px;
+          height: 31px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          padding: 5px 0;
+        }
       }
     }
   }
@@ -136,11 +145,13 @@ $gray: #f5f5f5;
   margin-left: 10px;
 }
 
+// 投稿詳細ページ
 .Post_show_wrapper {
   width: 100%;
   display: flex;
   justify-content: space-between;
   overflow: scroll;
+  // 投稿者の情報
   .Post_user_info {
     width: 280px;
     margin-top: 30px;
@@ -186,7 +197,36 @@ $gray: #f5f5f5;
       margin: 20px auto;
       display: block;
     }
+    // 申込済みのユーザー
+    .Takers {
+      margin-top: 40px;
+      .Takers_empty {
+        margin: 20px auto;
+      }
+      > a {
+        color: black;
+      }
+      .Taker_box {
+        width: 160px;
+        height: 60px;
+        display: flex;
+        margin: 20px auto;
+        &__Image {
+          height: 60px;
+          width: 60px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin-left: 0;
+          margin-right: 10px;
+        }
+        &__Name {
+          width: 90px;
+          margin: auto;
+        }
+      }
+    }
   }
+  // 投稿の詳細
   .Post_main__Box {
     width: 100%;
     border: solid 1px silver;
@@ -220,6 +260,9 @@ $gray: #f5f5f5;
       text-align: center;
       margin: 15px 0;
     }
+    .Post_content {
+      text-align: center;
+    }
     .Post_map {
       width: 527.98px;
       height: 350px;
@@ -227,8 +270,10 @@ $gray: #f5f5f5;
       text-align: center;
     }
   }
+
+  // 申込ボタン
   .Taken_btn {
-    width: 170px;
+    width: 270px;
     color: $orange2;
     text-align: center;
     padding: 10px 30px;
