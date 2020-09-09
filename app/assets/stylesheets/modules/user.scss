@@ -130,7 +130,7 @@ $orange2: #ffa500;
   &__Btns {
     position: absolute;
     top: 50px;
-    left: -120px;
+    left: -110px;
     .Post_type_btn {
       color: gray;
       font-weight: bold;
@@ -161,7 +161,9 @@ $orange2: #ffa500;
   }
   .Mypage_lower__Content {
     display: none;
-    .User_posts {
+    .User_giving_posts, 
+    .User_taken_posts,
+    .User_taking_posts {
       display: none;
     }
     .Show2 {

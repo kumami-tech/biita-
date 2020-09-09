@@ -19,7 +19,9 @@ $(function() {
     $(".Active2").removeClass("Active2");
     $(this).addClass("Active2");
     const index = tabs.index(this);
-    $(".User_posts").removeClass("Show2").eq(index).addClass("Show2");
+    $(".User_giving_posts").removeClass("Show2").eq(index).addClass("Show2");
+    $(".User_taken_posts").removeClass("Show2").eq(index).addClass("Show2");
+    $(".User_taking_posts").removeClass("Show2").eq(index).addClass("Show2");
   }
   tabs.click(tabSwitch);
 });

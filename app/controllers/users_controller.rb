@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @giving_post_gs = @user.giving_post_gs
     @giving_post_cs = @user.giving_post_cs
+
+    @taken_post_gs = @user.taken_post_gs
+    @taken_post_cs = @user.taken_post_cs
+
     @taking_post_gs = @user.taking_post_gs
     @taking_post_cs = @user.taking_post_cs
 

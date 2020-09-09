@@ -31,6 +31,7 @@
   - if user_signed_in? && @user.id == current_user.id
     .Mypage_lower__Btns
       = link_to "投稿一覧", "#", class: "Post_type_btn Active1"
+      = link_to "申込あり", "#", class: "Post_type_btn"
       = link_to "申込済み", "#", class: "Post_type_btn"
   .User_page_tabs
     = link_to "ツアーゲストの投稿", "#", class: "User_page_tab Active2"
@@ -38,14 +39,14 @@
 
   
   .Mypage_lower__Content.Show1
-    .User_posts.Show2
+    .User_giving_posts.Show2
       - if @giving_post_gs.empty?
         .Empty 投稿がありません
       - else
         .Post_index
           - @giving_post_gs.each do |post|
             = render partial: "posts_g/post", locals: { post: post }
-    .User_posts
+    .User_giving_posts
       - if @giving_post_cs.empty?
         .Empty 投稿がありません
       - else
@@ -54,14 +55,30 @@
             = render partial: "posts_c/post", locals: { post: post }
 
   .Mypage_lower__Content
-    .User_posts.Show2
+    .User_taken_posts.Show2
+      - if @taken_post_gs.empty?
+        .Empty 投稿がありません
+      - else
+        .Post_index
+          - @taken_post_gs.each do |post|
+            = render partial: "posts_g/post", locals: { post: post }
+    .User_taken_posts
+      - if @taken_post_cs.empty?
+        .Empty 投稿がありません
+      - else
+        .Post_index
+          - @taken_post_cs.each do |post|
+            = render partial: "posts_c/post", locals: { post: post }
+
+  .Mypage_lower__Content
+    .User_taking_posts.Show2
       - if @taking_post_gs.empty?
         .Empty 投稿がありません
       - else
         .Post_index
           - @taking_post_gs.each do |post|
             = render partial: "posts_g/post", locals: { post: post }
-    .User_posts
+    .User_taking_posts
       - if @taking_post_cs.empty?
         .Empty 投稿がありません
       - else
