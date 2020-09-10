@@ -11,15 +11,6 @@ $gray: #f5f5f5;
 }
 
 
-// タグ
-.Post_show_tag_list {
-  margin: 5px 0;
-  .tag {
-    color: $orange1;
-  }
-}
-
-
 // 新規投稿ページ
 .Post_form {
   width: 450px;
@@ -160,6 +151,12 @@ $gray: #f5f5f5;
         height: 24px;
         font-weight: bold;
         @include texthidden();
+      }
+      .Post_show_tag_list {
+        margin: 5px 0;
+        .tag {
+          color: $orange1;
+        }
       }
       &__Text {
         margin: 0 auto;
@@ -304,6 +301,12 @@ $gray: #f5f5f5;
       font-size: 18px;
       text-align: center;
       margin-bottom: 10px;
+    }
+    .Post_show_tag_list {
+      text-align: center;
+      .tag {
+        color: $orange1;
+      }
     }
     .Post_table {
       width: 100%;
