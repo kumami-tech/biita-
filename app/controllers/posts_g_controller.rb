@@ -1,11 +1,15 @@
 class PostsGController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show, :search]
-  before_action :set_post, except: [:index, :new, :create, :search]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_post, except: [:index, :new, :create]
+  layout 'no_wrapper', only: :index
 
   def index
     @posts = PostG.includes(:giver).order("created_at DESC")
+    @tags = PostG.all_tags.pluck(:name)
 
-    if params[:tag_name]
+    if params[:keyword]
+      @posts = PostG.search(params[:keyword])
+    elsif params[:tag_name]
       @posts = PostG.tagged_with("#{params[:tag_name]}")
     end
   end
@@ -68,10 +72,6 @@ class PostsGController < ApplicationController
     post_taker.destroy
     flash[:notice] = 'キャンセルが完了しました。'
     redirect_to action: "show"
-  end
-
-  def search
-    @posts = PostG.search(params[:keyword])
   end
 
   private

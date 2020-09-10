@@ -20,7 +20,7 @@
     .Post_box__Right
       .Post_box__Right__Title
         = post[:title]
-      .Post_show_tag_list
+      .Tag_list
         - post.tag_list.each do |tag|
           .tag.Text
             = tag

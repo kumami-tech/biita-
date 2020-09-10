@@ -49,7 +49,7 @@
     .Post_main__Box
       .Post_show_title.Bold
         = @post.title
-      .Post_show_tag_list
+      .Tag_list
         - @post.tag_list.each do |tag|
           = link_to posts_c_index_path(tag_name: tag) do
             .tag.Text

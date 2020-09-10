@@ -1,14 +1,24 @@
-.Post_index_Upper
-  .Post_index_Upper__Title ツアーゲストの投稿一覧
-  .Search
-    = form_with(url: search_posts_g_index_path, local: true, method: :get, class: "Search__Form") do |f|
-      .Search__Form__Input
-        = f.text_field :keyword, placeholder: "キーワードで検索", class: "Search__Form__Input__Text"
-        = button_tag type: 'submit', class: "Search__Form__Input__Btn" do
-          = icon('fas', 'search')
-- if @posts.empty?
-  .Empty 投稿されていません
-- else
-  .Post_index
-    - @posts.each do |post|
-      = render partial: "post", locals: { post: post }
+.Post_index_wrapper
+  .Post_index_wrapper__Inner
+    .Post_index_left
+      .Search_title.Bold
+        条件で絞り込む
+      .Keyword
+        = form_with(url: posts_g_index_path, local: true, method: :get, class: "Keyword__Form") do |f|
+          .Keyword__Form__Input
+            = f.text_field :keyword, placeholder: "キーワードを入力", class: "Keyword__Form__Input__Text"
+            = button_tag type: 'submit', class: "Keyword__Form__Input__Btn" do
+              = icon('fas', 'search')
+      .Tag_list
+        - @tags.each do |tag|
+          = link_to posts_g_index_path(tag_name: tag) do
+            .tag
+              = tag
+    .Post_index_right
+      .Title ツアーゲストの投稿一覧
+      - if @posts.empty?
+        .Empty 投稿されていません
+      - else
+        .Post_index
+          - @posts.each do |post|
+            = render partial: "post", locals: { post: post }

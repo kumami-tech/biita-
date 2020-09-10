@@ -10,8 +10,7 @@ $gray: #f5f5f5;
   text-overflow: ellipsis;
 }
 
-
-// 新規投稿ページ
+// NEW
 .Post_form {
   width: 450px;
   margin: 50px auto;
@@ -45,155 +44,177 @@ $gray: #f5f5f5;
   }
 }
 
-// 投稿検索
-.Post_index_Upper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 10px;
-  margin-bottom: 15px;
-  &__Title {
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: underline;
-  }
-  .Search {
-    &__Form {
-      &__Input {
-        padding-bottom: 5px;
-        display: flex;
-        border-bottom: solid 2px $orange1;
-        &__Text {
-          padding: 0 5px;
-          font-size: 15px;
-          border-style: none;
-          outline: none;
-        }
-        &__Btn {
-          color: $orange1;
-          background-color: white;
-          font-size: 20px;
-          border-style: none;
-          display: block;
-          cursor: pointer;
-          margin-left: 10px;
-          outline: none;
-        }
-      }
-    }
-  }
-}
 
-
-// 投稿一覧表示
-.Post_index {
-  width: 880px;
-  .Post_box {
-    color: #4a4a4a;
-    width: 880px;
-    border: solid 1px silver;
-    border-radius: 30px;
-    padding: 25px 40px;
-    margin-bottom: 20px;
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+// INDEX
+.Post_index_wrapper {
+  height: calc(100vh - 60px);
+  overflow: scroll;
+  &__Inner {
+    width: 1140px;
+    padding: 30px 0;
+    margin: 0 auto;
     display: flex;
-    // ユーザー情報
-    &__Left {
-      height: 100px;
-      width: 310px;
-      display: flex;
-      margin: auto 0;
-      > a  {
-        height: 90px;
-        width: 90px;
-        margin: auto 30px auto 0;
+    // 投稿検索
+    .Post_index_left {
+      width: 220px;
+      margin-right: 40px;
+      .Search_title {
+        font-size: 17px;
+        margin-top: 5px;
+        margin-left: 5px;
       }
-      &__Image {
-        height: 100px;
-        width: 100px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin: auto 30px auto 0;
-      }
-      &__Other {
-        line-height: 18px;
-        margin: auto 0;
-        .Post_index_username {
-          font-weight: bold;
-          font-size: 15px;
-          margin-bottom: 15px;
-        }
-        .Post_index_review {
-          display: flex;
-          .Star_rating {
-            width: 111px;
-            position: relative;
-            margin: 0 5px 5px 0;
-            img {
-              height: 18px;
+      .Keyword {
+        margin: 30px 0;
+        &__Form {
+          &__Input {
+            display: flex;
+            &__Text {
+              width: 100%;
+              padding: 0 5px 5px;
+              font-size: 15px;
+              border-style: none;
+              outline: none;
+              border-bottom: solid 2px silver;
             }
-            .Front {
-              position: absolute;
-              top: 0px;
-              left: 0;
-              object-fit: cover;
-              object-position: 0% 0%;
+            &__Text:focus {
+              border-bottom: solid 2px $orange1;
+            }
+            &__Text:focus ~
+            .Keyword__Form__Input__Btn{
+              color: $orange1;
+            }
+            &__Btn {
+              color: silver;
+              background-color: white;
+              font-size: 22px;
+              border-style: none;
+              display: block;
+              cursor: pointer;
+              outline: none;
             }
           }
+        }
+      }
+      .Tag_list {
+        .tag {
+          font-size: 14px;
+          color: $orange1;
+          margin-right: 5px;
+          margin-bottom: 10px;
         }
       }
     }
-    // 投稿の中身
-    &__Right {
-      width: 490px;
-      &__Title {
-        width: 490px;
-        height: 24px;
-        font-weight: bold;
-        @include texthidden();
-      }
-      .Post_show_tag_list {
-        margin: 5px 0;
-        .tag {
-          color: $orange1;
-        }
-      }
-      &__Text {
-        margin: 0 auto;
-        &__Lists {
+    // 投稿一覧表示
+    .Post_index_right {
+      width: 880px;
+      .Post_box {
+        color: #4a4a4a;
+        width: 880px;
+        border: solid 1px silver;
+        border-radius: 20px;
+        padding: 25px 40px;
+        margin-bottom: 20px;
+        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+        display: flex;
+        // ユーザー情報
+        &__Left {
+          height: 100px;
+          width: 310px;
           display: flex;
-          margin: 5px;
-          &__List {
-            margin-right: 5px;
+          margin: auto 0;
+          > a  {
+            height: 90px;
+            width: 90px;
+            margin: auto 30px auto 0;
           }
-        }
-        .tr {
-          height: 31px;
-          padding: 5px 0;
-          display: flex;
-          .th {
-            color: gray;
-            margin-right: 12px;
+          &__Image {
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: auto 30px auto 0;
           }
-          .td {
-            max-width: 450px;
-            @include texthidden();
-          }
-        }
-        .table_lower {
-          display: flex;
-          > .tr {
-            max-width: 490px;
-            height: 31px;
-            padding: 5px 0;
-            display: flex;
-            @include texthidden();
-            .td_date {
-              margin-right: 20px;
-              @include texthidden();
+          &__Other {
+            line-height: 18px;
+            margin: auto 0;
+            .Post_index_username {
+              font-weight: bold;
+              font-size: 15px;
+              margin-bottom: 15px;
             }
-            .td_charge {
-              @include texthidden();
+            .Post_index_review {
+              display: flex;
+              .Star_rating {
+                width: 111px;
+                position: relative;
+                margin: 0 5px 5px 0;
+                img {
+                  height: 18px;
+                }
+                .Front {
+                  position: absolute;
+                  top: 0px;
+                  left: 0;
+                  object-fit: cover;
+                  object-position: 0% 0%;
+                }
+              }
+            }
+          }
+        }
+        // 投稿の中身
+        &__Right {
+          width: 490px;
+          &__Title {
+            width: 490px;
+            height: 24px;
+            font-weight: bold;
+            @include texthidden();
+          }
+          .Tag_list {
+            margin: 5px 0;
+            .tag {
+              color: $orange1;
+            }
+          }
+          &__Text {
+            margin: 0 auto;
+            &__Lists {
+              display: flex;
+              margin: 5px;
+              &__List {
+                margin-right: 5px;
+              }
+            }
+            .tr {
+              height: 31px;
+              padding: 5px 0;
+              display: flex;
+              .th {
+                color: gray;
+                margin-right: 12px;
+              }
+              .td {
+                max-width: 450px;
+                @include texthidden();
+              }
+            }
+            .table_lower {
+              display: flex;
+              > .tr {
+                max-width: 490px;
+                height: 31px;
+                padding: 5px 0;
+                display: flex;
+                @include texthidden();
+                .td_date {
+                  margin-right: 20px;
+                  @include texthidden();
+                }
+                .td_charge {
+                  @include texthidden();
+                }
+              }
             }
           }
         }
@@ -208,7 +229,7 @@ $gray: #f5f5f5;
 }
 
 
-// 投稿詳細ページ
+// SHOW
 .Post_show_wrapper {
   width: 100%;
   display: flex;
@@ -216,7 +237,7 @@ $gray: #f5f5f5;
   overflow: scroll;
   // 投稿者の情報
   .Post_user_info {
-    width: 280px;
+    width: 160px;
     margin-top: 30px;
     margin-right: 50px;
     text-align: center;
@@ -291,9 +312,9 @@ $gray: #f5f5f5;
   }
   // 投稿の詳細
   .Post_main__Box {
-    width: 100%;
+    width: 99%;
     border: solid 1px silver;
-    border-radius: 30px;
+    border-radius: 20px;
     padding: 30px 50px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     margin: 0 10px 10px 0;
@@ -302,7 +323,7 @@ $gray: #f5f5f5;
       text-align: center;
       margin-bottom: 10px;
     }
-    .Post_show_tag_list {
+    .Tag_list {
       text-align: center;
       .tag {
         color: $orange1;
