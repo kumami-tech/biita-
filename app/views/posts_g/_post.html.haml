@@ -20,17 +20,22 @@
     .Post_box__Right
       .Post_box__Right__Title
         = post[:title]
+      .Post_show_tag_list
+        - post.tag_list.each do |tag|
+          .tag.Text
+            = tag
       .Post_box__Right__Text.Text
-        %table
-          %tr
-            %th 旅行したい場所
-            %td
+        .table
+          .tr
+            .th 場所
+            .td
               = post.region
-          %tr
-            %th 希望日時
-            %td
-              = post.datetime
-          %tr
-            %th 希望料金
-            %td
-              = post.charge
+          .table_lower
+            .tr
+              .th 日時
+              .td_date
+                = post.datetime
+            .tr
+              .th 料金
+              .td_charge
+                = post.charge

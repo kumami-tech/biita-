@@ -10,6 +10,8 @@ class PostC < ApplicationRecord
   has_many :post_c_takers
   has_many :takers, through: :post_c_takers
 
+  acts_as_taggable
+
   def self.search(search)
     if search != ""
       PostC.where('title LIKE(?)', "%#{search}%")

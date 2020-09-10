@@ -5,7 +5,11 @@
       %br/
       = f.text_field :title, autofocus: true, class: "Post_form__Content__Field"
     .Post_form__Content.Text
-      = f.label "対応可能な国と都市"
+      = f.label "タグ　※スペースかカンマで区切ってください"
+      %br/
+      = f.text_field :tag_list, value: @post.tag_list.join(' '), class: "Post_form__Content__Field"
+    .Post_form__Content.Text
+      = f.label "対応可能な場所"
       %br/
       = f.text_field :region, class: "Post_form__Content__Field"
     .Post_form__Content.Text

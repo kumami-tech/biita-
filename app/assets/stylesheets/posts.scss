@@ -4,6 +4,21 @@ $orange3: #FFE2B2;
 $orange4: #FFC882;
 $gray: #f5f5f5;
 
+@mixin texthidden() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+// タグ
+.Post_show_tag_list {
+  margin: 5px 0;
+  .tag {
+    color: $orange1;
+  }
+}
+
 
 // 新規投稿ページ
 .Post_form {
@@ -144,10 +159,7 @@ $gray: #f5f5f5;
         width: 490px;
         height: 24px;
         font-weight: bold;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        margin-bottom: 10px;
+        @include texthidden();
       }
       &__Text {
         margin: 0 auto;
@@ -158,21 +170,35 @@ $gray: #f5f5f5;
             margin-right: 5px;
           }
         }
-        th {
-          width: 120px;
+        .tr {
           height: 31px;
-          color: gray;
-          width: 120px;
           padding: 5px 0;
-          margin-right: 15px;
+          display: flex;
+          .th {
+            color: gray;
+            margin-right: 12px;
+          }
+          .td {
+            max-width: 450px;
+            @include texthidden();
+          }
         }
-        td {
-          max-width: 370px;
-          height: 31px;
-          overflow: hidden;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          padding: 5px 0;
+        .table_lower {
+          display: flex;
+          > .tr {
+            max-width: 490px;
+            height: 31px;
+            padding: 5px 0;
+            display: flex;
+            @include texthidden();
+            .td_date {
+              margin-right: 20px;
+              @include texthidden();
+            }
+            .td_charge {
+              @include texthidden();
+            }
+          }
         }
       }
     }
@@ -183,6 +209,7 @@ $gray: #f5f5f5;
   margin-top: 100px;
   margin-left: 10px;
 }
+
 
 // 投稿詳細ページ
 .Post_show_wrapper {
@@ -276,6 +303,7 @@ $gray: #f5f5f5;
     .Post_show_title {
       font-size: 18px;
       text-align: center;
+      margin-bottom: 10px;
     }
     .Post_table {
       width: 100%;
