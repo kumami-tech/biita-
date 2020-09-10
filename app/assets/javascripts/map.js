@@ -5,7 +5,7 @@ $(function(){
   geocoder.geocode( { 'address': Address}, function(results, status) {
     if (status == 'OK') {
       map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 15
+        zoom: 13
       });
       map.setCenter(results[0].geometry.location);
       var marker = new google.maps.Marker({
