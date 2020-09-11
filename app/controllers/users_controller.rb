@@ -5,9 +5,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @giving_post_gs = @user.giving_post_gs
     @giving_post_cs = @user.giving_post_cs
-
-    @taken_post_gs = @user.taken_post_gs
-    @taken_post_cs = @user.taken_post_cs
+    
+    post_g_ids = PostGTaker.pluck(:post_g_id)
+    @taken_post_gs = PostG.where(id: post_g_ids).where(giver_id: @user.id)
+    post_c_ids = PostCTaker.pluck(:post_c_id)
+    @taken_post_cs = PostC.where(id: post_c_ids).where(giver_id: @user.id)
 
     @taking_post_gs = @user.taking_post_gs
     @taking_post_cs = @user.taking_post_cs

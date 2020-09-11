@@ -54,21 +54,21 @@
           - @giving_post_cs.each do |post|
             = render partial: "posts_c/post", locals: { post: post }
 
-  -# .Mypage_lower__Content
-  -#   .User_taken_posts.Show2
-  -#     - if @taken_post_gs.empty?
-  -#       .Empty 投稿がありません
-  -#     - else
-  -#       .Post_index
-  -#         - @taken_post_gs.each do |post|
-  -#           = render partial: "posts_g/post", locals: { post: post }
-  -#   .User_taken_posts
-  -#     - if @taken_post_cs.empty?
-  -#       .Empty 投稿がありません
-  -#     - else
-  -#       .Post_index
-  -#         - @taken_post_cs.each do |post|
-  -#           = render partial: "posts_c/post", locals: { post: post }
+  .Mypage_lower__Content
+    .User_taken_posts.Show2
+      - if @taken_post_gs.empty?
+        .Empty 投稿がありません
+      - else
+        .Post_index
+          - @taken_post_gs.each do |post|
+            = render partial: "posts_g/post", locals: { post: post }
+    .User_taken_posts
+      - if @taken_post_cs.empty?
+        .Empty 投稿がありません
+      - else
+        .Post_index
+          - @taken_post_cs.each do |post|
+            = render partial: "posts_c/post", locals: { post: post }
 
   .Mypage_lower__Content
     .User_taking_posts.Show2
