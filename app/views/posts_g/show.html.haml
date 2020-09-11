@@ -56,7 +56,7 @@
           = link_to posts_g_favorite_gs_path(@post.id), method: :post do
             = icon('far', 'bookmark', class: "Post_bookmark")
         - else
-          = link_to posts_g_favorite_cs_path(@post.id), method: :delete do
+          = link_to posts_g_favorite_gs_path(@post.id), method: :delete do
             = icon('fas', 'bookmark', class: "Post_bookmark")
       .Post_show_title.Bold
         = @post.title
