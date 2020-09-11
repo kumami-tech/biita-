@@ -26,16 +26,20 @@
         = link_to "メッセージを送る", "/groups/#{@user.id}/create", class: "Post_user_info__Btn"
       - else
         = link_to "メッセージを送る", group_messages_path(@group_id, user_id: @user.id), class: "Post_user_info__Btn"
-    - if user_signed_in? && @user.id == current_user.id
-      .Takers
-        .Bold
-          申込済みのユーザー
-        - if @takers.empty?
-          .Takers_empty.Text
-            申込済みのユーザーは
-            %br
-            いません。
-        - else
+    .Takers
+      .Takers_title.Bold
+        申込済みのユーザー
+      - if @takers.empty?
+        .Takers_empty.Text
+          申込済みのユーザーは
+          %br
+          いません。
+      - else
+        .Takers_count
+          = icon('fas', 'user', class: "Taker_icon")
+          %span
+            = "#{@takers.count}人"
+        - if user_signed_in? && @user.id == current_user.id
           - @takers.each do |taker|
             = link_to user_path(taker) do
               .Taker_box

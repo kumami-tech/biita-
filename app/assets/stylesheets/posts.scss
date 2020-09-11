@@ -200,9 +200,9 @@ $gray: #f5f5f5;
               }
             }
             .table_lower {
+              max-width: 490px;
               display: flex;
               > .tr {
-                max-width: 490px;
                 height: 31px;
                 padding: 5px 0;
                 display: flex;
@@ -284,8 +284,19 @@ $gray: #f5f5f5;
     // 申込済みのユーザー
     .Takers {
       margin-top: 40px;
+      .Takers_title {
+        margin-bottom: 15px;
+      }
       .Takers_empty {
         margin: 20px auto;
+      }
+      .Takers_count {
+        height: 30px;
+        .Taker_icon {
+          color: $orange1;
+          font-size: 28px;
+          margin-right: 5px;
+        }
       }
       > a {
         color: black;
