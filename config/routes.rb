@@ -14,18 +14,13 @@ Rails.application.routes.draw do
       get 'take'
       get 'cancel'
     end
-    collection do
-      get 'search'
-    end
+    resource :favorite_gs, only: [:create, :destroy]
   end
 
   resources :posts_c do
     member do
       get 'take'
       get 'cancel'
-    end
-    collection do
-      get 'search'
     end
   end
 

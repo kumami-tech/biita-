@@ -7,8 +7,9 @@ class PostG < ApplicationRecord
   validates :payment, presence: true
 
   belongs_to :giver, class_name: 'User', foreign_key: 'giver_id'
-  has_many :post_g_takers
-  has_many :takers, through: :post_g_takers
+  has_many :post_g_takers, dependent: :destroy
+  has_many :takers, through: :post_g_takers, dependent: :destroy
+  has_many :favorite_gs, dependent: :destroy
   
   acts_as_taggable
 

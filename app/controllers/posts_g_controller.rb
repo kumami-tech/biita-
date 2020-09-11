@@ -25,6 +25,8 @@ class PostsGController < ApplicationController
     @group_id = group_user.pluck(:group_id).first
 
     @takers = @post.takers
+
+    @favorite = @post.favorite_gs.where(user_id: current_user.id)
   end
 
   def new

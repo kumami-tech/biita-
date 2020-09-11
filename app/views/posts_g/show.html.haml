@@ -51,6 +51,13 @@
                   = taker.name
   .Post_main
     .Post_main__Box
+      - unless user_signed_in? && @user.id == current_user.id
+        - if @favorite.empty?
+          = link_to posts_g_favorite_gs_path(@post.id), method: :post do
+            = icon('far', 'bookmark', class: "Post_bookmark")
+        - else
+          = link_to posts_g_favorite_cs_path(@post.id), method: :delete do
+            = icon('fas', 'bookmark', class: "Post_bookmark")
       .Post_show_title.Bold
         = @post.title
       .Tag_list
