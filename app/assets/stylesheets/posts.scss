@@ -288,15 +288,12 @@ $gray: #f5f5f5;
         margin-bottom: 15px;
       }
       .Takers_empty {
-        margin: 20px auto;
+        margin: 15px auto;
       }
-      .Takers_count {
-        height: 30px;
-        .Taker_icon {
-          color: $orange1;
-          font-size: 28px;
-          margin-right: 5px;
-        }
+      .Taker_icon {
+        color: $orange1;
+        font-size: 28px;
+        margin-right: 5px;
       }
       > a {
         color: black;
