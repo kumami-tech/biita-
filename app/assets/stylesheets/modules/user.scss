@@ -1,6 +1,12 @@
 $orange1: #FF6D05;
 $orange2: #ffa500;
 
+@mixin texthidden() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .Text {
   font-size: 14px;
 }
@@ -16,6 +22,9 @@ $orange2: #ffa500;
 .Link {
   color: black;
 }
+
+
+// ユーザー登録
 
 #error_explanation{
   font-size: 14px;
@@ -51,6 +60,9 @@ $orange2: #ffa500;
   margin: 50px auto 30px;
   cursor: pointer;
 }
+
+
+// マイページ上部
 
 .Profile {
   width: 840px;
@@ -116,23 +128,178 @@ $orange2: #ffa500;
   }
 }
 
-.Position {
-  width: 230px;
-  display: flex;
-  justify-content: space-between;
-  margin: 20px 10px;
-  .Active{
-    font-weight: bold;
+
+// マイページ下部
+
+.Mypage_lower {
+  position: relative;
+  &__Btns {
+    position: absolute;
+    top: 50px;
+    left: -110px;
+    text-align: center;
+    .Post_type_btn {
+      color: gray;
+      font-weight: bold;
+      margin-bottom: 30px;
+      display: block;
+    }
+    .Active1 {
+      color: $orange1;
+    }
+  }
+  .User_page_tabs {
+    width: 880px;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    .User_page_tab {
+      height: 33px;
+      width: 170px;
+      text-align: center;
+      font-weight: bold;
+      color: gray;
+    }
+    .Active2 {
+      color: $orange1;
+      border-bottom: solid 2px $orange1;
+    }
+  }
+  .Mypage_lower__Content {
+    display: none;
+    position: sticky;
+    top: 30px;
+    .User_giving_posts, 
+    .User_taken_posts,
+    .User_taking_posts,
+    .User_favorite_posts {
+      display: none;
+    }
+    .Show2 {
+      display: block;
+    }
+  }
+  .Show1 {
+    display: block;
   }
 }
 
-.User_posts {
-  display: none;
+.Post_box {
+  color: #4a4a4a;
+  width: 880px;
+  border: solid 1px silver;
+  border-radius: 20px;
+  padding: 25px 40px;
+  margin-bottom: 20px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  // ユーザー情報
+  &__Left {
+    height: 100px;
+    width: 310px;
+    display: flex;
+    margin: auto 0;
+    > a  {
+      height: 90px;
+      width: 90px;
+      margin: auto 30px auto 0;
+    }
+    &__Image {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: auto 30px auto 0;
+    }
+    &__Other {
+      line-height: 18px;
+      margin: auto 0;
+      .Post_index_username {
+        font-weight: bold;
+        font-size: 15px;
+        margin-bottom: 15px;
+      }
+      .Post_index_review {
+        display: flex;
+        .Star_rating {
+          width: 111px;
+          position: relative;
+          margin: 0 5px 5px 0;
+          img {
+            height: 18px;
+          }
+          .Front {
+            position: absolute;
+            top: 0px;
+            left: 0;
+            object-fit: cover;
+            object-position: 0% 0%;
+          }
+        }
+      }
+    }
+  }
+  // 投稿の中身
+  &__Right {
+    width: 490px;
+    &__Title {
+      width: 490px;
+      height: 24px;
+      font-weight: bold;
+      @include texthidden();
+    }
+    .Tag_list {
+      margin: 5px 0;
+      .tag {
+        color: $orange1;
+      }
+    }
+    &__Text {
+      margin: 0 auto;
+      &__Lists {
+        display: flex;
+        margin: 5px;
+        &__List {
+          margin-right: 5px;
+        }
+      }
+      .tr {
+        height: 31px;
+        padding: 5px 0;
+        display: flex;
+        .th {
+          color: gray;
+          margin-right: 12px;
+        }
+        .td {
+          max-width: 450px;
+          @include texthidden();
+        }
+      }
+      .table_lower {
+        display: flex;
+        > .tr {
+          max-width: 490px;
+          height: 31px;
+          padding: 5px 0;
+          display: flex;
+          @include texthidden();
+          .td_date {
+            margin-right: 20px;
+            @include texthidden();
+          }
+          .td_charge {
+            @include texthidden();
+          }
+        }
+      }
+    }
+  }
 }
 
-.Show {
-  display: block;
-}
+
+// プロフィール編集
 
 .Edit_profile_image {
   width: 130px;

@@ -70,6 +70,7 @@ $orange3: #FFE2B2;
           width: 100%;
           border: solid 1px black;
           padding: 7px 35px 0 10px;
+          outline: none;
         }
         &__image {
           position: absolute;
@@ -87,6 +88,7 @@ $orange3: #FFE2B2;
         margin-left: 15px;
         border-style: none;
         cursor: pointer;
+        outline: none;
       }
     }
   }

@@ -1,0 +1,2 @@
+module FavoriteCsHelper
+end

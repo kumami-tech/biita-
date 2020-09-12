@@ -1,20 +1,31 @@
 Rails.application.routes.draw do
-  get 'reviews/create'
-  get 'reviews/show'
   devise_for :users
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-  root "home#index"
+  root 'home#index'
   resources :users do
     resources :reviews, only: [:index, :new, :create]
   end
-  resources :posts_g, except: :show
-  resources :posts_c, except: :show
-  
 
-  resources :groups, only: [:index] do
+  resources :posts_g do
+    member do
+      get 'take'
+      get 'cancel'
+    end
+    resource :favorite_gs, only: [:create, :destroy]
+  end
+
+  resources :posts_c do
+    member do
+      get 'take'
+      get 'cancel'
+    end
+    resource :favorite_cs, only: [:create, :destroy]
+  end
+
+  resources :groups, only: :index do
     resources :messages, only: [:index, :create]
     namespace :api do
       resources :messages, only: :index, defaults: { format: 'json' }

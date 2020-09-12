@@ -1,0 +1,92 @@
+= javascript_include_tag 'map'
+
+.Post_show_wrapper
+  .Post_user_info
+    .Post_user_info__Person
+      投稿者
+    = link_to user_path(@user) do
+      - if @user.profile_image?
+        = image_tag @user.profile_image.url, class: "Post_user_info__Image"
+      - else
+        = image_tag "no-image.jpg", class: "Post_user_info__Image"
+    .Post_user_info__Name.Bold
+      = @user.name
+    .Post_user_info__Review
+      .Star_rating
+        = image_tag "stars.jpg", class: "Front", width: "#{@user.avg_score*20}%"
+        = image_tag "stars_gray.jpg"
+      = @user.avg_score
+    = link_to "(#{@count}件のレビュー)", "/users/#{@user.id}/reviews"
+    %br
+    - if user_signed_in? && @user.id == current_user.id
+      = link_to '投稿を編集する', edit_posts_g_path(@post.id), method: :get, class: "Post_user_info__Btn"
+      = link_to '投稿を削除する', "/posts_g/#{@post.id}/destroy", data: { confirm: "削除しますか？" }, class: "Post_user_info__Btn"
+    - else
+      - if @group_id.nil?
+        = link_to "メッセージを送る", "/groups/#{@user.id}/create", class: "Post_user_info__Btn"
+      - else
+        = link_to "メッセージを送る", group_messages_path(@group_id, user_id: @user.id), class: "Post_user_info__Btn"
+    .Takers
+      .Takers_title.Bold
+        申込済みのユーザー
+      - if @takers.empty?
+        .Takers_empty.Text
+          申込済みのユーザーは
+          %br
+          いません。
+      - else
+        .Takers_count
+          = icon('fas', 'user', class: "Taker_icon")
+          %span
+            = "#{@takers.count}人"
+        - if user_signed_in? && @user.id == current_user.id
+          - @takers.each do |taker|
+            = link_to user_path(taker) do
+              .Taker_box
+                - if taker.profile_image?
+                  = image_tag taker.profile_image.url, class: "Taker_box__Image"
+                - else
+                  = image_tag "no-image.jpg", class: "Taker_box__Image"
+                .Taker_box__Name.Text
+                  = taker.name
+  .Post_main
+    .Post_main__Box
+      .Post_bookmark
+        = render partial: 'favorite', locals: { user: @user, favorite: @favorite, post: @post }
+      .Post_show_title.Bold
+        = @post.title
+      .Tag_list
+        - @post.tag_list.each do |tag|
+          = link_to posts_g_index_path(tag_name: tag) do
+            .tag.Text
+              = tag
+      .Post_table.Text
+        %table
+          %tr
+            %th 旅行したい場所
+            %td#address
+              = @post.region
+          %tr
+            %th 希望日時
+            %td
+              = @post.datetime
+          %tr
+            %th 希望料金
+            %td
+              = @post.charge
+          %tr
+            %th お支払い方法
+            %td
+              = @post.payment
+      .Post_head.Bold
+        = "-リクエスト内容-"
+      .Post_content.Text
+        = simple_format(@post.content)
+      .Post_head.Bold
+        = "-地図-"
+      .Post_map#map.Text
+    - unless user_signed_in? && @user.id == current_user.id
+      - if @post.taker_ids.include?(current_user.id)
+        = link_to "申し込みをキャンセルする", cancel_posts_g_path(@post.id), data: { confirm: "こちらの投稿の申し込みをキャンセルしますか？" }, class: "Taken_btn Bold"
+      - else
+        = link_to "申し込む", take_posts_g_path(@post.id), data: { confirm: "こちらの投稿に申し込みますか？" }, class: "Take_btn Bold"

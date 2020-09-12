@@ -5,7 +5,8 @@ class CreatePostCs < ActiveRecord::Migration[6.0]
       t.string :datetime, null:false
       t.text :content, null:false
       t.string :charge, null:false
-      t.references :user, foreign_key: true
+      t.references :giver, null: false, foreign_key: {to_table: :users}
+      t.references :taker, foreign_key: {to_table: :users}
       t.timestamps
     end
   end

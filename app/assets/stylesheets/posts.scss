@@ -4,95 +4,401 @@ $orange3: #FFE2B2;
 $orange4: #FFC882;
 $gray: #f5f5f5;
 
-.Form__Content__Field--large {
-  width: 350px;
+@mixin texthidden() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-.Post_box {
-  border: solid 1px silver;
-  border-radius: 30px;
-  background-color: white;
-  padding: 20px 40px;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: start;
-  position: relative;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  &__User_info {
-    margin-right: 25px;
-    &__Image {
-      height: 90px;
-      width: 90px;
-      border-radius: 50%;
-      object-fit: cover;
+// NEW
+.Post_form {
+  width: 450px;
+  margin: 50px auto;
+  &__Content {
+    margin-bottom: 40px;
+    font-size: 15px;
+    &__Field {
+      height: 45px;
+      width: 450px;
       margin-bottom: 5px;
-    }
-    &__Name {
-      font-weight: bold;
-      text-align: center;
-    }
-  }
-  &__Text {
-    margin: auto 0;
-    font-weight: bold;
-    &__Lists {
-      display: flex;
-      margin: 5px;
-      &__List {
-        margin-right: 5px;
+      padding: 5px;
+      &--Large {
+        width: 450px;
+        padding: 5px;
       }
     }
+    select {
+      width: 450px;
+      height: 45px;
+    }
   }
-  .more {
-    color: gray;
-    position: absolute;
+  &__Btn {
+    width: 100px;
+    background-color: $orange2;
+    color: white;
+    padding: 10px 15px;
+    border-style: none;
+    display: block;
+    margin: 60px auto 30px;
     cursor: pointer;
-    top: 20px;
-    right: 30px;
-    height: 100px;
-    width: 80px;
-    text-align: right;
   }
-  
-  .more:hover ul.more_list {
-    display: block;
-  }
-  
-  .more ul.more_list {
-    position: absolute;
-    text-align: left;
-    width: 50px;
-    right: 0;
-    font-size: 12px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    display: none;
-  }
-  
-  .more ul.more_list li {
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .more ul.more_list li:last-child {
-    border-bottom: 0;
-  }
-  
-  .more ul.more_list li a {
-    display: block;
-    padding: 5px;
-    text-align: center;
-  }
-  
-  .more ul.more_list li a:hover {
-    background-color: $orange4;
-  }
+}
 
-  .down_btn {
-    color: black;
+
+// INDEX
+.Post_index_wrapper {
+  height: calc(100vh - 60px);
+  overflow: scroll;
+  &__Inner {
+    width: 1140px;
+    padding: 30px 0;
+    margin: 0 auto;
+    display: flex;
+    // 投稿検索
+    .Post_index_left {
+      width: 220px;
+      margin-right: 40px;
+      .Search_title {
+        font-size: 17px;
+        margin-top: 5px;
+        margin-left: 5px;
+      }
+      .Keyword {
+        margin: 30px 0;
+        &__Form {
+          &__Input {
+            display: flex;
+            &__Text {
+              width: 100%;
+              padding: 0 5px 5px;
+              font-size: 15px;
+              border-style: none;
+              outline: none;
+              border-bottom: solid 2px silver;
+            }
+            &__Text:focus {
+              border-bottom: solid 2px $orange1;
+            }
+            &__Text:focus ~
+            .Keyword__Form__Input__Btn{
+              color: $orange1;
+            }
+            &__Btn {
+              color: silver;
+              background-color: white;
+              font-size: 22px;
+              border-style: none;
+              display: block;
+              cursor: pointer;
+              outline: none;
+            }
+          }
+        }
+      }
+      .Tag_list {
+        .tag {
+          font-size: 14px;
+          color: $orange1;
+          margin-right: 5px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+    // 投稿一覧表示
+    .Post_index_right {
+      width: 880px;
+      .Post_box {
+        color: #4a4a4a;
+        width: 880px;
+        border: solid 1px silver;
+        border-radius: 20px;
+        padding: 25px 40px;
+        margin-bottom: 20px;
+        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+        display: flex;
+        // ユーザー情報
+        &__Left {
+          height: 100px;
+          width: 310px;
+          display: flex;
+          margin: auto 0;
+          > a  {
+            height: 90px;
+            width: 90px;
+            margin: auto 30px auto 0;
+          }
+          &__Image {
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: auto 30px auto 0;
+          }
+          &__Other {
+            line-height: 18px;
+            margin: auto 0;
+            .Post_index_username {
+              font-weight: bold;
+              font-size: 15px;
+              margin-bottom: 15px;
+            }
+            .Post_index_review {
+              display: flex;
+              .Star_rating {
+                width: 111px;
+                position: relative;
+                margin: 0 5px 5px 0;
+                img {
+                  height: 18px;
+                }
+                .Front {
+                  position: absolute;
+                  top: 0px;
+                  left: 0;
+                  object-fit: cover;
+                  object-position: 0% 0%;
+                }
+              }
+            }
+          }
+        }
+        // 投稿の中身
+        &__Right {
+          width: 490px;
+          &__Title {
+            width: 490px;
+            height: 24px;
+            font-weight: bold;
+            @include texthidden();
+          }
+          .Tag_list {
+            margin: 5px 0;
+            .tag {
+              color: $orange1;
+            }
+          }
+          &__Text {
+            margin: 0 auto;
+            &__Lists {
+              display: flex;
+              margin: 5px;
+              &__List {
+                margin-right: 5px;
+              }
+            }
+            .tr {
+              height: 31px;
+              padding: 5px 0;
+              display: flex;
+              .th {
+                color: gray;
+                margin-right: 12px;
+              }
+              .td {
+                max-width: 450px;
+                @include texthidden();
+              }
+            }
+            .table_lower {
+              max-width: 490px;
+              display: flex;
+              > .tr {
+                height: 31px;
+                padding: 5px 0;
+                display: flex;
+                @include texthidden();
+                .td_date {
+                  margin-right: 20px;
+                  @include texthidden();
+                }
+                .td_charge {
+                  @include texthidden();
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 
 .Empty {
-  margin-top: 30px;
+  margin-top: 100px;
   margin-left: 10px;
+}
+
+
+// SHOW
+.Post_show_wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  overflow: scroll;
+  // 投稿者の情報
+  .Post_user_info {
+    width: 160px;
+    margin-top: 30px;
+    margin-right: 50px;
+    text-align: center;
+    &__Image {
+      height: 120px;
+      width: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 15px auto 5px;
+    }
+    .Post_user_info__Review {
+      width: 150px;
+      height: 19.45px;
+      line-height: 19.45px;
+      display: flex;
+      justify-content: space-between;
+      margin: 20px auto 8px;
+      .Star_rating {
+        width: 120px;
+        position: relative;
+        img {
+          height: 19.45px;
+        }
+        .Front {
+          position: absolute;
+          top: 0px;
+          left: 0;
+          object-fit: cover;
+          object-position: 0% 0%;
+        }
+      }
+    }
+    > a {
+      font-size: 15px;
+    }
+    &__Btn {
+      width: 160px;
+      color: $orange1;
+      line-height: 35px;
+      border: solid 1.3px $orange1;
+      margin: 20px auto;
+      display: block;
+    }
+    // 申込済みのユーザー
+    .Takers {
+      margin-top: 40px;
+      .Takers_title {
+        margin-bottom: 15px;
+      }
+      .Takers_empty {
+        margin: 15px auto;
+      }
+      .Taker_icon {
+        color: $orange1;
+        font-size: 28px;
+        margin-right: 5px;
+      }
+      > a {
+        color: black;
+      }
+      .Taker_box {
+        width: 160px;
+        height: 60px;
+        display: flex;
+        margin: 20px auto;
+        &__Image {
+          height: 60px;
+          width: 60px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin-left: 0;
+          margin-right: 10px;
+        }
+        &__Name {
+          width: 90px;
+          margin: auto;
+        }
+      }
+    }
+  }
+  // 投稿の詳細
+  .Post_main__Box {
+    width: 99%;
+    border: solid 1px silver;
+    border-radius: 20px;
+    padding: 30px 50px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 0 10px 10px 0;
+    position: relative;
+    .Post_bookmark--Icon {
+      position: absolute;
+      top: 30px;
+      right: 50px;
+      font-size: 35px;
+      color: $orange1;
+      cursor: pointer;
+    }
+    .Post_show_title {
+      width: 400px;
+      font-size: 18px;
+      text-align: center;
+      margin: 0 auto 10px;
+    }
+    .Tag_list {
+      text-align: center;
+      .tag {
+        color: $orange1;
+      }
+    }
+    .Post_table {
+      width: 100%;
+      margin: 20px 0;
+      table {
+        width: 100%;
+        text-align: center;
+        th {
+          width: 30%;
+          background-color: #eee;
+          padding: 10px;
+          border: 1px solid #dedede;
+        }
+        td {
+          padding: 10px;
+          border: 1px solid #dedede;
+        }
+      }
+    }
+    .Post_head {
+      text-align: center;
+      margin: 15px 0;
+    }
+    .Post_content {
+      text-align: center;
+    }
+    .Post_map {
+      width: 527.98px;
+      height: 350px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  }
+
+  // 申込ボタン
+  .Taken_btn {
+    width: 270px;
+    color: $orange2;
+    text-align: center;
+    padding: 10px 30px;
+    border: solid 1px $orange2;
+    display: block;
+    margin: 50px auto 30px;
+  }
+  .Take_btn {
+    width: 170px;
+    background-color: $orange2;
+    color: white;
+    text-align: center;
+    padding: 10px 30px;
+    border-style: none;
+    display: block;
+    margin: 50px auto 30px;
+    cursor: pointer;
+  }
 }
