@@ -1,0 +1,7 @@
+- unless user_signed_in? && user.id == current_user.id
+  - if favorite.empty?
+    = link_to posts_c_favorite_cs_path(post.id), method: :post do
+      = icon('far', 'bookmark', class: "Post_bookmark--Icon")
+  - else
+    = link_to posts_c_favorite_cs_path(post.id), method: :delete do
+      = icon('fas', 'bookmark', class: "Post_bookmark--Icon")

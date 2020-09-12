@@ -51,6 +51,8 @@
                   = taker.name
   .Post_main
     .Post_main__Box
+      .Post_bookmark
+        = render partial: 'favorite', locals: { user: @user, favorite: @favorite, post: @post }
       .Post_show_title.Bold
         = @post.title
       .Tag_list

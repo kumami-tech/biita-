@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       get 'take'
       get 'cancel'
     end
+    resource :favorite_cs, only: [:create, :destroy]
   end
 
   resources :groups, only: :index do

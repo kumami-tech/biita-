@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many :taking_post_cs, through: :post_c_takers, source: :taking_post_c, dependent: :destroy
 
   has_many :favorite_gs, dependent: :destroy
+  has_many :favorite_cs, dependent: :destroy
 
   # メッセージ
   has_many :group_users, dependent: :destroy
