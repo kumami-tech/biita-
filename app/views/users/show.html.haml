@@ -33,6 +33,7 @@
       = link_to "投稿一覧", "#", class: "Post_type_btn Active1"
       = link_to "申込あり", "#", class: "Post_type_btn"
       = link_to "申込済み", "#", class: "Post_type_btn"
+      = link_to "お気に入り", "#", class: "Post_type_btn"
   .User_page_tabs
     = link_to "ツアーゲストの投稿", "#", class: "User_page_tab Active2"
     = link_to "ツアーキャストの投稿", "#", class: "User_page_tab"
@@ -72,7 +73,7 @@
 
   .Mypage_lower__Content
     .User_taking_posts.Show2
-      - if @taking_post_gs.empty?
+      - if @favorite_gs.empty?
         .Empty 投稿がありません
       - else
         .Post_index
@@ -84,4 +85,20 @@
       - else
         .Post_index
           - @taking_post_cs.each do |post|
+            = render partial: "posts_c/post", locals: { post: post }
+
+  .Mypage_lower__Content
+    .User_favorite_posts.Show2
+      - if @favorite_gs.empty?
+        .Empty 投稿がありません
+      - else
+        .Post_index
+          - @favorite_gs.each do |post|
+            = render partial: "posts_g/post", locals: { post: post }
+    .User_favorite_posts
+      - if @favorite_cs.empty?
+        .Empty 投稿がありません
+      - else
+        .Post_index
+          - @favorite_cs.each do |post|
             = render partial: "posts_c/post", locals: { post: post }

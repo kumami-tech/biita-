@@ -22,6 +22,7 @@ $(function() {
     $(".User_giving_posts").removeClass("Show2").eq(index).addClass("Show2");
     $(".User_taken_posts").removeClass("Show2").eq(index).addClass("Show2");
     $(".User_taking_posts").removeClass("Show2").eq(index).addClass("Show2");
+    $(".User_favorite_posts").removeClass("Show2").eq(index).addClass("Show2");
   }
   tabs.click(tabSwitch);
 });

@@ -3,20 +3,32 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+
+    # 投稿一覧
     @giving_post_gs = @user.giving_post_gs
     @giving_post_cs = @user.giving_post_cs
     
+    # 申込あり
     post_g_ids = PostGTaker.pluck(:post_g_id)
     @taken_post_gs = PostG.where(id: post_g_ids).where(giver_id: @user.id)
     post_c_ids = PostCTaker.pluck(:post_c_id)
     @taken_post_cs = PostC.where(id: post_c_ids).where(giver_id: @user.id)
 
+    # 申込済み
     @taking_post_gs = @user.taking_post_gs
     @taking_post_cs = @user.taking_post_cs
 
+    # お気に入り
+    favorite_g_ids = @user.favorite_gs.pluck(:post_g_id)
+    @favorite_gs = PostG.where(id: favorite_g_ids)
+    favorite_c_ids = @user.favorite_cs.pluck(:post_c_id)
+    @favorite_cs = PostC.where(id: favorite_c_ids)
+
+    #レビュー
     reviews = Review.where(reviewee_id: @user.id)
     @count = reviews.count
 
+    # メッセージ
     group_ids = @user.groups.pluck(:id)
     group_users = GroupUser.where(group_id: group_ids)
     group_user = group_users.where(user_id: current_user.id)
