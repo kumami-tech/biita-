@@ -1,0 +1,3 @@
+-# $('.Post_bookmark').html("= render partial: 'posts_g/favorite', locals: { user: @user, favorite: @favorite, post: @post }");
+-# $('.Post_bookmark').html("= escape_javascript(render partial: 'posts_g/favorite', locals: { user: @user, favorite: @favorite, post: @post })");
+$('.Post_bookmark').html("#{j(render partial: 'posts_g/favorite', locals: { user: @user, favorite: @favorite, post: @post })}");
