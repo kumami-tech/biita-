@@ -7,7 +7,6 @@ $orange2: #ffa500;
 .Header {
   background-color: #ffff80;
   padding: 0 150px;
-  // border-bottom: solid 1px #B3B8BB;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
   &__Bar {
     height: 60px;
@@ -107,6 +106,7 @@ $orange2: #ffa500;
         padding-top: 5px;
         display: none;
         position: absolute;
+        z-index: 2;
         &__Content {
           padding: 7px 15px;
           font-size: 14px;
