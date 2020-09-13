@@ -17,7 +17,7 @@
     .Post_index_right
       .Title ツアーゲストの投稿一覧
       - if @posts.empty?
-        .Empty 投稿されていません
+        = render "layouts/empty"
       - else
         .Post_index
           - @posts.each do |post|
