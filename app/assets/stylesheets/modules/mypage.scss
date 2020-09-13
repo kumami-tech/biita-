@@ -138,16 +138,15 @@ $gray3: #D4D6D5;
         .User_page_tabs {
           width: 880px;
           display: flex;
-          justify-content: center;
           margin: 0 auto;
           margin-bottom: 15px;
           .User_page_tab {
             height: 33px;
-            width: 440px;
+            width: 170px;
             text-align: center;
             font-weight: bold;
             color: gray;
-            border-bottom: solid 2px $gray3;
+            margin: 0 10px;
           }
           .Active2 {
             color: $orange1;
