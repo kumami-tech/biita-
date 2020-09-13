@@ -1,7 +1,9 @@
+$gray2: #B3B8BB;
+
 .Side_bar {
   height: calc(100vh - 60px);
   width: 20vw;
-  border-right: solid 1px #B3B8BB;
+  border-right: solid 1px $gray2;
   overflow: scroll;
   .Group_box {
     height: 95px;

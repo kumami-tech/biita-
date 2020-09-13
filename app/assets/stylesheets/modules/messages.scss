@@ -3,6 +3,8 @@ $black: #333333;
 $orange1: #FF6D05;
 $orange2: #ffa500;
 $orange3: #FFE2B2;
+$gray1:  #A4A8B1;
+$gray2: #CBD0D3;
 
 * {
   box-sizing: border-box;
@@ -42,7 +44,7 @@ $orange3: #FFE2B2;
   &__form {
     height: 90px;
     width: 100%;
-    border-top: solid 1px #B3B8BB;
+    border-top: solid 1px $gray2;
     display: flex;
     align-items: center;
     &__Form {
