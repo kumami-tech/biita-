@@ -73,6 +73,14 @@ $orange2: #ffa500;
   }
 }
 
+.Profile_image {
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 30px;
+}
+
 .Edit_profile_form {
   width: 350px;
   margin: 5px auto 0;
