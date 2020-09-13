@@ -1,4 +1,5 @@
 class FavoriteCsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set
 
   def create

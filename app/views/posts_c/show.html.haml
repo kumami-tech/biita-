@@ -85,8 +85,11 @@
       .Post_head.Bold
         = "-地図-"
       .Post_map#map.Text
-    - unless user_signed_in? && @user.id == current_user.id
-      - if @post.taker_ids.include?(current_user.id)
-        = link_to "申し込みをキャンセルする", cancel_posts_c_path(@post.id), data: { confirm: "こちらの投稿の申し込みをキャンセルしますか？" }, class: "Taken_btn Bold"
-      - else
-        = link_to "申し込む", take_posts_c_path(@post.id), data: { confirm: "こちらの投稿に申し込みますか？" }, class: "Take_btn Bold"
+    - if user_signed_in?
+      - if @user.id != current_user.id
+        - if @post.taker_ids.include?(current_user.id)
+          = link_to "申し込みをキャンセルする", cancel_posts_c_path(@post.id), data: { confirm: "こちらの投稿の申し込みをキャンセルしますか？" }, class: "Taken_btn Bold"
+        - else
+          = link_to "申し込む", take_posts_c_path(@post.id), data: { confirm: "こちらの投稿に申し込みますか？" }, class: "Take_btn Bold"
+    - else
+      = link_to "申し込む", take_posts_c_path(@post.id), class: "Take_btn Bold"
