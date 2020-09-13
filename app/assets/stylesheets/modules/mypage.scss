@@ -40,9 +40,10 @@ $gray3: #D4D6D5;
       }
       .Post_type_btns_title_row {
         width: 170px;
+        height: 33px;
         border-bottom: solid 2px $gray3;
-        padding-bottom: 9px;
-        margin: 3px 0 25px;
+        padding-top: 2px;
+        margin: 0 0 25px;
         display: flex;
         .Post_type_btns_title {
           color: $gray1;
@@ -64,7 +65,7 @@ $gray3: #D4D6D5;
         width: 880px;
         margin: 0 auto;
         .Profile {
-          width: 820px;
+          width: 840px;
           margin: 0px auto 20px;
           &__Upper {
             height: 130px;
@@ -144,15 +145,16 @@ $gray3: #D4D6D5;
         .User_page_tabs {
           width: 880px;
           display: flex;
-          justify-content: space-around;
+          justify-content: center;
           margin: 0 auto;
           margin-bottom: 15px;
           .User_page_tab {
             height: 33px;
-            width: 170px;
+            width: 440px;
             text-align: center;
             font-weight: bold;
             color: gray;
+            border-bottom: solid 2px $gray3;
           }
           .Active2 {
             color: $orange1;
