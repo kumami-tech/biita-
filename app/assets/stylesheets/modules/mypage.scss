@@ -1,0 +1,186 @@
+$orange1: #FF6D05;
+$orange2: #ffa500;
+$gray1: #A4A8B1;
+$gray2: #B3B8BB;
+$gray3: #D4D6D5;
+
+@mixin texthidden() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.Mypage_wrapper {
+  height: calc(100vh - 60px);
+  overflow: scroll;
+  &__Inner {
+    width: 1100px;
+    padding: 35px 0;
+    margin: 0 auto;
+
+    // サイドバー
+    .Mypage_side_bar {
+      width: 220px;
+      .Mypage_side_bar_row {
+        margin-bottom: 30px;
+        display: flex;
+        .Mypage_side_bar_btn {
+          color: gray;
+          font-weight: bold;
+          line-height: 20px;
+        }
+        > i {
+          width: 35px;
+          font-size: 20px;
+          display: block;
+        }
+        .Active1 {
+          color: $orange1;
+        }
+      }
+      .Post_type_btns_title_row {
+        width: 170px;
+        height: 33px;
+        border-bottom: solid 2px $gray3;
+        padding-top: 2px;
+        margin: 0 0 25px;
+        display: flex;
+        .Post_type_btns_title {
+          color: $gray1;
+          font-weight: bold;
+          line-height: 20px;
+        }
+        > i {
+          width: 35px;
+          font-size: 20px;
+          display: block;
+        }
+      }
+    }
+
+    // マイページ上部
+    .Mypage_upper {
+      display: flex;
+      &__Main {
+        width: 880px;
+        margin: 0 auto;
+        .Profile {
+          width: 840px;
+          margin: 0px auto 20px;
+          &__Upper {
+            height: 130px;
+            margin-bottom: 20px;
+            display: flex;
+            .Profile_image {
+              height: 130px;
+              width: 130px;
+              border-radius: 50%;
+              object-fit: cover;
+              margin-right: 30px;
+            }
+            .Profile_content {
+              width: 680px;
+              justify-content: space-between;
+              margin: auto 0;
+              position: relative;
+              .Name {
+                width: 150px;
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 20px;
+              }
+              .Mypage_review {
+                display: flex;
+                text-align: center;
+                .Star_rating {
+                  width: 130px;
+                  height: 21.08px;
+                  position: relative;
+                  margin: auto 5px auto 0;
+                  .Front {
+                    height: 21.08px;
+                    position: absolute;
+                    top: 0px;
+                    left: 0;
+                    object-fit: cover;
+                    object-position: 0% 0%;
+                  }
+                }
+                .Review_info {
+                  line-height: 21.08px;
+                  margin: auto 20px auto 0;
+                }
+              }
+              .Mypage_btn {
+                width: 160px;
+                height: 35px;
+                color: $orange1;
+                line-height: 35px;
+                border: solid 1.3px $orange1;
+                text-align: center;
+                margin: 0px 7px;
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 0;
+              }
+            }
+          }
+          &__Lower {
+            width: 100%;
+            font-size: 15px;
+            overflow: hidden;
+            margin-bottom: 45px;
+          }
+        }
+      }
+    }
+
+    // マイページ下部
+    .Mypage_lower {
+      display: flex;
+      &__Main {
+        width: 880px;
+        margin: 0 auto;
+        .User_page_tabs {
+          width: 880px;
+          display: flex;
+          justify-content: center;
+          margin: 0 auto;
+          margin-bottom: 15px;
+          .User_page_tab {
+            height: 33px;
+            width: 440px;
+            text-align: center;
+            font-weight: bold;
+            color: gray;
+            border-bottom: solid 2px $gray3;
+          }
+          .Active2 {
+            color: $orange1;
+            border-bottom: solid 2px $orange1;
+          }
+        }
+        .Mypage_lower__Content {
+          display: none;
+          position: sticky;
+          top: 30px;
+          .User_giving_posts, 
+          .User_taken_posts,
+          .User_taking_posts,
+          .User_favorite_posts {
+            display: none;
+          }
+          .Show2 {
+            display: block;
+          }
+        }
+        .Show1 {
+          display: block;
+        }
+      }
+    }
+
+
+  }
+}
