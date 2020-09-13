@@ -61,6 +61,22 @@ $orange2: #ffa500;
   cursor: pointer;
 }
 
+.White_btn {
+  width: 180px;
+  color: $orange1;
+  background-color: white;
+  line-height: 35px;
+  text-align: center;
+  border: solid 1.3px $orange1;
+  margin: 30px auto;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+}
+.White_btn:hover {
+  color: $orange1;
+}
+
 
 // プロフィール編集
 

@@ -4,6 +4,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :name, presence: true, length: {maximum: 10}
 
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com', name: "ゲスト") do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
+
   mount_uploader :profile_image, ImageUploader
 
   # 投稿
