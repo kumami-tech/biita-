@@ -9,7 +9,9 @@ class PostC < ApplicationRecord
   belongs_to :giver, class_name: 'User', foreign_key: 'giver_id'
   has_many :post_c_takers
   has_many :takers, through: :post_c_takers
+  
   has_many :favorite_cs, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   acts_as_taggable
 
