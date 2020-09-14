@@ -78,8 +78,11 @@ $orange2: #ffa500;
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      .Left{
+      .Left {
         margin-left: 0;
+      }
+      .Right {
+        margin: auto 0;
       }
       &__Btn {
         color: black;
@@ -93,14 +96,19 @@ $orange2: #ffa500;
           line-height: 40px;
           padding: 6px 0;
         }
+        .fa-bell {
+          margin: 0 5px;
+        }
         &__Image{
           width: 40px;
           height: 40px;
           border-radius: 50%;
           object-fit: cover;
           margin: auto 0;
-          margin: 0 5px;
         }
+      }
+      .Menu_box_right {
+        margin-left: 25px;
       }
       .Menu {
         padding-top: 5px;
