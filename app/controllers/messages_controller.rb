@@ -15,6 +15,7 @@ class MessagesController < ApplicationController
     @message = @group.messages.new(message_params)
     @user = @group.users.last
     if @message.save
+      @message.create_notification_message!(current_user, @user, @group)
       respond_to do |format|
         format.json
       end

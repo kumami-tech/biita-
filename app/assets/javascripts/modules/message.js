@@ -117,4 +117,6 @@ $(function(){
       $('.Main__form__contents__btn').prop('disabled', false);
     })
   });
+
+  $('.Main__content').animate({ scrollTop: $('.Main__content')[0].scrollHeight});
 });
