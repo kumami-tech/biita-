@@ -33,7 +33,7 @@ class User < ApplicationRecord
   has_many :reviews, foreign_key: "reviewee_id", dependent: :destroy
 
   # 通知
-  has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
+  has_many :active_notifications, class_name: "Notification", foreign_key: "visitor_id", dependent: :destroy
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
   def avg_score
