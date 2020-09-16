@@ -14,6 +14,7 @@ hr {
   padding: 20px 40px;
   border-bottom: 2px solid $gray3;
   display: flex;
+  position: relative;
   .Notification_user_image {
     height: 80px;
     width: 80px;
@@ -23,28 +24,24 @@ hr {
   }
   &__Text {
     width: 690px;
-    height: 80px;
     font-size: 15px;
     line-height: 25px;
     margin: auto 0;
-    position: relative;
-    > span {
+    > a {
+      color: #4a4a4a;
       font-weight: bold;
-      > a {
-        color: #4a4a4a;
-      }
     }
     .Notification_time {
       width: 300px;
       font-size: 14px;
       color: #7B7D7F;
     }
-    > i {
-      position: absolute;
-      right: 0px;
-      bottom: 3px;
-      color: $orange1;
-      font-size: 20px;
-    }
+  }
+  > i {
+    position: absolute;
+    right: 45px;
+    bottom: 25px;
+    color: $orange1;
+    font-size: 20px;
   }
 }
