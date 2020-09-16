@@ -7,6 +7,12 @@ class NotificationsController < ApplicationController
     @notifications = notifications.where.not(visitor_id: current_user.id)
   end
 
+  def destroy
+    notification = Notification.find(params[:id])
+    notification.destroy
+    redirect_to notifications_path
+  end
+
   def destroy_all
     @notifications = current_user.passive_notifications.destroy_all
     redirect_to notifications_path
