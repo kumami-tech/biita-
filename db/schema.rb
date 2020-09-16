@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_12_070834) do
+ActiveRecord::Schema.define(version: 2020_09_14_092706) do
 
   create_table "favorite_cs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -49,6 +49,18 @@ ActiveRecord::Schema.define(version: 2020_09_12_070834) do
     t.bigint "group_id", null: false
     t.index ["group_id"], name: "index_messages_on_group_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "visitor_id", null: false
+    t.integer "visited_id", null: false
+    t.integer "post_g_id"
+    t.integer "post_c_id"
+    t.integer "group_id"
+    t.string "action", default: "", null: false
+    t.boolean "checked", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "post_c_takers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

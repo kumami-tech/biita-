@@ -1,0 +1,75 @@
+$orange1: #FF6D05;
+$orange2: #ffa500;
+$gray1: #A4A8B1;
+$gray2: #B3B8BB;
+$gray3: #D4D6D5;
+
+.Notification_head {
+  display: flex;
+  justify-content: space-between;
+  .Notification_destroy {
+    font-size: 15px;
+    line-height: 18px;
+    color: #7B7D7F;
+    margin: 5px 0 0px 40px;
+    > i {
+      color: $gray1;
+      font-size: 18px;
+      margin-right: 5px;
+    }
+  }
+}
+
+hr {
+  width: 880px;
+  background-color: $gray3;
+  margin: 0 auto;
+}
+
+.Notification1 {
+  padding: 20px 40px;
+  border-bottom: 2px solid $gray3;
+  display: flex;
+  position: relative;
+  &__User_image {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: auto 30px auto 0;
+  }
+  &__Text {
+    width: 650px;
+    font-size: 15px;
+    line-height: 25px;
+    margin: auto 0;
+    > a {
+      color: #4a4a4a;
+      font-weight: bold;
+    }
+    .Notification_time {
+      width: 300px;
+      font-size: 14px;
+      color: #7B7D7F;
+    }
+  }
+  &__Destroy {
+    position: absolute;
+    right: 46px;
+    top: 12px;
+    font-size: 22px;
+    color: $gray1;
+    display: none;
+  }
+  &__Icon {
+    position: absolute;
+    right: 45px;
+    bottom: 25px;
+    color: $orange1;
+    font-size: 20px;
+  }
+}
+.Notification1:hover
+.Notification1__Destroy {
+  display: block;
+}

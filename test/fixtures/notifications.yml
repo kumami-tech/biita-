@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  visiter_id: 1
+  visited_id: 1
+
+two:
+  visiter_id: 1
+  visited_id: 1

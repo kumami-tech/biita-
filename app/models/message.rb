@@ -5,4 +5,16 @@ class Message < ApplicationRecord
   validates :text, presence: true, unless: :image?
 
   mount_uploader :image, ImageUploader
+
+  def create_notification_message!(current_user, user, group)
+    notification = current_user.active_notifications.new(
+      group_id: group.id,
+      visited_id: user.id,
+      action: 'message'
+    )
+    if notification.visitor_id == notification.visited_id
+      notification.checked = true
+    end
+    notification.save if notification.valid?
+  end
 end
