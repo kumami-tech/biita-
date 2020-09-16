@@ -59,6 +59,7 @@ hr {
     top: 12px;
     font-size: 22px;
     color: $gray1;
+    display: none;
   }
   &__Icon {
     position: absolute;
@@ -67,4 +68,8 @@ hr {
     color: $orange1;
     font-size: 20px;
   }
+}
+.Notification1:hover
+.Notification1__Destroy {
+  display: block;
 }
