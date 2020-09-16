@@ -1,0 +1,6 @@
+.Title 通知一覧
+- if @notifications.exists?
+  %hr
+  = render @notifications
+- else
+  = "通知はありません"
