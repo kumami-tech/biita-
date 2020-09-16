@@ -4,6 +4,7 @@ class FavoriteGsController < ApplicationController
 
   def create
     FavoriteG.create(user_id: current_user.id, post_g_id: params[:posts_g_id])
+    @post.create_notification_favorite_g!(current_user, @user, @post)
   end
 
   def destroy

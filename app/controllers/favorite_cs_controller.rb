@@ -4,6 +4,7 @@ class FavoriteCsController < ApplicationController
 
   def create
     FavoriteC.create(user_id: current_user.id, post_c_id: params[:posts_c_id])
+    @post.create_notification_favorite_c!(current_user, @user, @post)
   end
 
   def destroy
