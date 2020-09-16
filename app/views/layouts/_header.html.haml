@@ -22,10 +22,15 @@
       - if user_signed_in?
         .Header__Bar__Btns__Btn
           = link_to groups_path do
-            = icon('far', 'paper-plane',  class: "Header__Bar__Btns__Btn--icon Link")
+            = icon('far', 'paper-plane', class: "Header__Bar__Btns__Btn--icon Link")
         .Header__Bar__Btns__Btn
           = link_to notifications_path do
-            = icon('far', 'bell',  class: "Header__Bar__Btns__Btn--icon Link")
+            - if unchecked_notifications.any?
+              %span.fa-stack
+                = icon('far', 'bell',  class: "fa-stack-2x Link")
+                = icon('fas', 'circle',  class: "fa-stack-1x")
+            - else
+              = icon('far', 'bell', class: "Header__Bar__Btns__Btn--icon Bell Link")
         .Menu_box.Menu_box_right
           .Header__Bar__Btns__Btn.Right
             - if current_user.profile_image?

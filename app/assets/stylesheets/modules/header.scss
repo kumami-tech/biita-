@@ -96,8 +96,15 @@ $orange2: #ffa500;
           line-height: 40px;
           padding: 6px 0;
         }
-        .fa-bell {
+        .Bell {
           margin: 0 5px;
+        }
+        .fa-circle {
+          font-size: 12px;
+          color: $orange1;
+          position: absolute;
+          left: 10px;
+          top: 9px;
         }
         &__Image{
           width: 40px;
