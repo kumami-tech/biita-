@@ -36,7 +36,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :notifications, only: :index
+  resources :notifications, only: [:index, :destroy]
+  get '/notifications/destroy_all', to: 'notifications#destroy_all'
 
   get '/posts_g/:id/destroy', to: 'posts_g#destroy'
   get '/posts_c/:id/destroy', to: 'posts_c#destroy'

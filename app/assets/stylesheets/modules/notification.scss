@@ -4,6 +4,22 @@ $gray1: #A4A8B1;
 $gray2: #B3B8BB;
 $gray3: #D4D6D5;
 
+.Notification_head {
+  display: flex;
+  justify-content: space-between;
+  .Notification_destroy {
+    font-size: 15px;
+    line-height: 18px;
+    color: #7B7D7F;
+    margin: 5px 0 0px 40px;
+    > i {
+      color: $gray1;
+      font-size: 18px;
+      margin-right: 5px;
+    }
+  }
+}
+
 hr {
   width: 880px;
   background-color: $gray3;

@@ -1,4 +1,9 @@
-.Title 通知一覧
+.Notification_head
+  .Title 通知一覧
+  = link_to notifications_destroy_all_path, data: { confirm: "通知を全て消去しますか？" } do
+    .Notification_destroy
+      = icon('fas', 'trash')
+      = "全ての通知を消去する"
 - if @notifications.exists?
   %hr
   = render @notifications

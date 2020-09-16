@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = @group.messages.new(message_params)
-    @user = @group.users.last
+    @user = @group.users.where.not(id: current_user.id).first
     if @message.save
       @message.create_notification_message!(current_user, @user, @group)
       respond_to do |format|
