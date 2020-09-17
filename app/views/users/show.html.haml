@@ -7,24 +7,32 @@
 
       -# ========== サイドバー（ユーザー） ==========
       - if user_signed_in? && @user.id == current_user.id
-        .Mypage_side_bar 
-          .Mypage_side_bar_row
-            = icon('fas', 'paper-plane', class: 'Mypage_side_bar_btn')
-            = link_to "トークルーム", groups_path, class: "Mypage_side_bar_btn"
-          .Mypage_side_bar_row
-            - if unchecked_notifications.any?
-              %span.fa-stack
-                = icon('fas', 'bell',  class: "fa-stack-2x Mypage_side_bar_btn")
-                = icon('fas', 'circle',  class: "fa-stack-1x")
-            - else
-              = icon('fas', 'bell', class: 'Mypage_side_bar_btn Bell')
-            = link_to "通知", notifications_path, class: "Mypage_side_bar_btn"
-          .Mypage_side_bar_row
-            = icon('fas', 'user-edit', class: 'Mypage_side_bar_btn')
-            = link_to "アカウントの編集", edit_user_registration_path, class: "Mypage_side_bar_btn"
-          .Mypage_side_bar_row
-            = icon('fas', 'sign-out-alt', class: 'Mypage_side_bar_btn')
-            = link_to "ログアウト", users_sign_out_path, method: :delete, data: { confirm: "ログアウトしますか？" }, class: "Mypage_side_bar_btn"
+        .Mypage_side_bar
+          = link_to groups_path do
+            .Mypage_side_bar_row
+              = icon('fas', 'paper-plane')
+              .Mypage_side_bar_btn
+                = "トークルーム"
+          = link_to notifications_path do
+            .Mypage_side_bar_row
+              - if unchecked_notifications.any?
+                %span.fa-stack
+                  = icon('fas', 'bell',  class: "fa-stack-2x")
+                  = icon('fas', 'circle',  class: "fa-stack-1x")
+              - else
+                = icon('fas', 'bell', class: 'Bell')
+              .Mypage_side_bar_btn
+                = "通知"
+          = link_to edit_user_registration_path do
+            .Mypage_side_bar_row
+              = icon('fas', 'user-edit')
+              .Mypage_side_bar_btn
+                = "アカウントの編集"
+          = link_to users_sign_out_path, method: :delete, data: { confirm: "ログアウトしますか？" } do
+            .Mypage_side_bar_row
+              = icon('fas', 'sign-out-alt')
+              .Mypage_side_bar_btn
+                = "ログアウト"
 
       -# ========== プロフィール ==========
       .Mypage_upper__Main

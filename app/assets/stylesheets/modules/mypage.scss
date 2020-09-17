@@ -21,12 +21,15 @@ $gray3: #D4D6D5;
     // サイドバー
     .Mypage_side_bar {
       width: 220px;
+      height: 220px;
+      a {
+        color: gray;
+      }
       .Mypage_side_bar_row {
         height: 20px;
         margin-bottom: 30px;
         display: flex;
         .Mypage_side_bar_btn {
-          color: gray;
           font-weight: bold;
           line-height: 20px;
           text-align: start;
@@ -34,6 +37,7 @@ $gray3: #D4D6D5;
         > i {
           width: 35px;
           font-size: 20px;
+          color: gray;
           display: inline-block;
         }
         span {
@@ -44,6 +48,7 @@ $gray3: #D4D6D5;
           font-size: 20px;
           padding-left: 0;
           display: inline-block;
+          color: gray;
         }
         .fa-circle {
           width: 10px;
