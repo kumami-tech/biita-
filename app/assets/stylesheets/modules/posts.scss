@@ -245,7 +245,7 @@ $gray2: #CBD0D3;
   overflow: scroll;
   // 投稿者の情報
   .Post_user_info {
-    width: 160px;
+    width: 180px;
     margin-top: 30px;
     margin-right: 50px;
     text-align: center;
@@ -278,16 +278,36 @@ $gray2: #CBD0D3;
         }
       }
     }
+    &__Follow_counts {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px auto 30px;
+      .Follow_count {
+        font-size: 14px;
+        span {
+          font-size: 15px;
+          font-weight: bold;
+        }
+      }
+    }
     > a {
       font-size: 15px;
     }
     &__Btn {
       width: 160px;
-      color: $orange1;
+      height: 38px;
+      color: $orange2;
+      font-weight: bold;
       line-height: 35px;
-      border: solid 1.3px $orange1;
+      border: solid 1.3px $orange2;
       margin: 20px auto;
       display: block;
+    }
+    .Following {
+      font-weight: bold;
+      color: white;
+      background-color: $orange2;
+      border: solid 1px $orange2;
     }
     // 申込済みのユーザー
     .Takers {

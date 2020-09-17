@@ -17,11 +17,21 @@
         = image_tag "stars_gray.jpg"
       = @user.avg_score
     = link_to "(#{@count}件のレビュー)", "/users/#{@user.id}/reviews"
-    %br
+    .Post_user_info__Follow_counts
+      .Follow_count
+        %span
+          = "10"
+        = "フォロー"
+      .Follow_count
+        %span
+          = "13"
+        = "フォロワー"
     - if user_signed_in? && @user.id == current_user.id
       = link_to '投稿を編集する', edit_posts_g_path(@post.id), method: :get, class: "Post_user_info__Btn"
       = link_to '投稿を削除する', "/posts_g/#{@post.id}/destroy", data: { confirm: "削除しますか？" }, class: "Post_user_info__Btn"
     - else
+      = link_to "フォローする", "#", class: "Post_user_info__Btn"
+      = link_to "フォロー中", "#", class: "Post_user_info__Btn Following", style: "display: none;"
       - if @group_id.nil?
         = link_to "メッセージを送る", "/groups/#{@user.id}/create", class: "Post_user_info__Btn"
       - else
