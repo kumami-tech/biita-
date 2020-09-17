@@ -66,6 +66,7 @@ class PostsCController < ApplicationController
   end
 
   def take
+    @post.create_notification_apply_c!(current_user, @post.giver, @post)
     PostCTaker.create(post_c_id: @post.id, taker_id: current_user.id)
     flash[:notice] = '申し込みが完了しました。'
     redirect_to action: "show"
