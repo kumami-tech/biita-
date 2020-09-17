@@ -23,6 +23,24 @@ class PostG < ApplicationRecord
     end
   end
 
+  def create_notification_apply_g!(current_user, user, post)
+    notification = current_user.active_notifications.new(
+      post_g_id: post.id,
+      visited_id: user.id,
+      action: 'apply_g'
+    )
+    notification.save if notification.valid?
+  end
+
+  def create_notification_cancel_g!(current_user, user, post)
+    notification = current_user.active_notifications.new(
+      post_g_id: post.id,
+      visited_id: user.id,
+      action: 'cancel_g'
+    )
+    notification.save if notification.valid?
+  end
+
   def create_notification_favorite_g!(current_user, user, post)
     temp = Notification.where(["visitor_id = ? and visited_id = ? and post_g_id = ? and action = ? ", current_user.id, user.id, post.id, 'favorite'])
     if temp.blank?
@@ -31,9 +49,6 @@ class PostG < ApplicationRecord
         visited_id: user.id,
         action: 'favorite_g'
       )
-      if notification.visitor_id == notification.visited_id
-        notification.checked = true
-      end
       notification.save if notification.valid?
     end
   end

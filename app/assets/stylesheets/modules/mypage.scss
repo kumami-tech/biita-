@@ -22,17 +22,40 @@ $gray3: #D4D6D5;
     .Mypage_side_bar {
       width: 220px;
       .Mypage_side_bar_row {
+        height: 20px;
         margin-bottom: 30px;
         display: flex;
         .Mypage_side_bar_btn {
           color: gray;
           font-weight: bold;
           line-height: 20px;
+          text-align: start;
         }
         > i {
           width: 35px;
           font-size: 20px;
-          display: block;
+          display: inline-block;
+        }
+        span {
+          width: 35px;
+        }
+        .fa-bell {
+          width: 10px;
+          font-size: 20px;
+          padding-left: 0;
+          display: inline-block;
+        }
+        .fa-circle {
+          width: 10px;
+          line-height: 10px;
+          font-size: 8px;
+          color: $orange1;
+          position: absolute;
+          left: 10px;
+          top: 9px;
+        }
+        .Bell {
+          width: 35px;
         }
         .Active1 {
           color: $orange1;

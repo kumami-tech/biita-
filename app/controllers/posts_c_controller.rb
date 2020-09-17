@@ -66,12 +66,14 @@ class PostsCController < ApplicationController
   end
 
   def take
+    @post.create_notification_apply_c!(current_user, @post.giver, @post)
     PostCTaker.create(post_c_id: @post.id, taker_id: current_user.id)
     flash[:notice] = '申し込みが完了しました。'
     redirect_to action: "show"
   end
 
   def cancel
+    @post.create_notification_cancel_c!(current_user, @post.giver, @post)
     post_taker = PostCTaker.find_by(post_c_id: @post.id, taker_id: current_user.id)
     post_taker.destroy
     flash[:notice] = 'キャンセルが完了しました。'

@@ -42,6 +42,78 @@
     = link_to "×", notification_path(notification.id), method: :delete, class: "Notification1__Destroy"
     = icon('fas', 'pen', class: "Notification1__Icon")
 
+- when "apply_g" then
+  .Notification1
+    = link_to user_path(visitor) do
+      - if visitor.profile_image?
+        = image_tag visitor.profile_image.url, class: "Notification1__User_image"
+      - else
+        = image_tag "no-image.jpg", class: "Notification1__User_image"
+    .Notification1__Text
+      = link_to visitor.name, user_path(visitor)
+      = "さんが"
+      = "あなたのツアーゲストの投稿"
+      = link_to "「#{post_g.title}」", posts_g_path(post_g)
+      = "を申し込みました。"
+      .Notification_time
+        = notification.created_at.strftime("%Y年%-m月%-d日 %H時%M分")
+    = link_to "×", notification_path(notification.id), method: :delete, class: "Notification1__Destroy"
+    = icon('fas', 'check-circle', class: "Notification1__Icon")
+
+- when "apply_c" then
+  .Notification1
+    = link_to user_path(visitor) do
+      - if visitor.profile_image?
+        = image_tag visitor.profile_image.url, class: "Notification1__User_image"
+      - else
+        = image_tag "no-image.jpg", class: "Notification1__User_image"
+    .Notification1__Text
+      = link_to visitor.name, user_path(visitor)
+      = "さんが"
+      = "あなたのツアーキャストの投稿"
+      = link_to "「#{post_c.title}」", posts_c_path(post_c)
+      = "を申し込みました。"
+      .Notification_time
+        = notification.created_at.strftime("%Y年%-m月%-d日 %H時%M分")
+    = link_to "×", notification_path(notification.id), method: :delete, class: "Notification1__Destroy"
+    = icon('fas', 'check-circle', class: "Notification1__Icon")
+
+- when "cancel_g" then
+  .Notification1
+    = link_to user_path(visitor) do
+      - if visitor.profile_image?
+        = image_tag visitor.profile_image.url, class: "Notification1__User_image"
+      - else
+        = image_tag "no-image.jpg", class: "Notification1__User_image"
+    .Notification1__Text
+      = link_to visitor.name, user_path(visitor)
+      = "さんが"
+      = "あなたのツアーゲストの投稿"
+      = link_to "「#{post_g.title}」", posts_g_path(post_g)
+      = "をキャンセルしました。"
+      .Notification_time
+        = notification.created_at.strftime("%Y年%-m月%-d日 %H時%M分")
+    = link_to "×", notification_path(notification.id), method: :delete, class: "Notification1__Destroy"
+    = icon('fas', 'times-circle', class: "Notification1__Icon")
+
+- when "cancel_c" then
+  .Notification1
+    = link_to user_path(visitor) do
+      - if visitor.profile_image?
+        = image_tag visitor.profile_image.url, class: "Notification1__User_image"
+      - else
+        = image_tag "no-image.jpg", class: "Notification1__User_image"
+    .Notification1__Text
+      = link_to visitor.name, user_path(visitor)
+      = "さんが"
+      = "あなたのツアーキャストの投稿"
+      = link_to "「#{post_c.title}」", posts_c_path(post_c)
+      = "をキャンセルしました。"
+      .Notification_time
+        = notification.created_at.strftime("%Y年%-m月%-d日 %H時%M分")
+    = link_to "×", notification_path(notification.id), method: :delete, class: "Notification1__Destroy"
+    = icon('fas', 'times-circle', class: "Notification1__Icon")
+
 - when "favorite_g" then
   .Notification1
     = link_to user_path(visitor) do
