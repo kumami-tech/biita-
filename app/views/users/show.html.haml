@@ -12,6 +12,14 @@
             = icon('fas', 'paper-plane', class: 'Mypage_side_bar_btn')
             = link_to "トークルーム", groups_path, class: "Mypage_side_bar_btn"
           .Mypage_side_bar_row
+            - if unchecked_notifications.any?
+              %span.fa-stack
+                = icon('fas', 'bell',  class: "fa-stack-2x Mypage_side_bar_btn")
+                = icon('fas', 'circle',  class: "fa-stack-1x")
+            - else
+              = icon('fas', 'bell', class: 'Mypage_side_bar_btn')
+            = link_to "通知", notifications_path, class: "Mypage_side_bar_btn"
+          .Mypage_side_bar_row
             = icon('fas', 'user-edit', class: 'Mypage_side_bar_btn')
             = link_to "アカウントの編集", edit_user_registration_path, class: "Mypage_side_bar_btn"
           .Mypage_side_bar_row
