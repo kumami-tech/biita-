@@ -36,6 +36,8 @@ class UsersController < ApplicationController
       group_user = group_users.where(user_id: current_user.id)
       @group_id = group_user.pluck(:group_id).first
     end
+
+    @following_relationship = current_user.following_relationships.new
   end
 
   def edit
