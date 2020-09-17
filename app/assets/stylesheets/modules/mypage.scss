@@ -154,23 +154,6 @@ $gray3: #D4D6D5;
                 right: 0;
                 display: flex;
                 justify-content: flex-end;
-                .Mypage_btn {
-                  width: 160px;
-                  height: 38px;
-                  color: $orange2;
-                  font-weight: bold;
-                  font-size: 15px;
-                  line-height: 35px;
-                  border: solid 1.5px $orange2;
-                  text-align: center;
-                  display: block;
-                }
-                .Following {
-                  font-weight: bold;
-                  line-height: 35px;
-                  color: white;
-                  background-color: $orange2;
-                }
                 .Left {
                   margin-right: 20px;
                 }
@@ -187,6 +170,7 @@ $gray3: #D4D6D5;
       }
     }
 
+    
     // マイページ下部
     .Mypage_lower {
       display: flex;
@@ -230,7 +214,32 @@ $gray3: #D4D6D5;
         }
       }
     }
-
-
+    
+    
   }
+}
+
+.White_btn {
+  width: 160px;
+  height: 38px;
+  color: $orange2;
+  background-color: white;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 35px;
+  border: solid 1.5px $orange2;
+  text-align: center;
+  display: block;
+  cursor: pointer;
+  outline: none;
+  margin-bottom: 20px;
+  &:hover {
+    color: $orange2;
+  }
+}
+.Following {
+  font-weight: bold;
+  line-height: 35px;
+  color: white;
+  background-color: $orange2;
 }

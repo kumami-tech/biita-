@@ -27,15 +27,14 @@
           = "13"
         = "フォロワー"
     - if user_signed_in? && @user.id == current_user.id
-      = link_to '投稿を編集する', edit_posts_g_path(@post.id), method: :get, class: "Post_user_info__Btn"
-      = link_to '投稿を削除する', "/posts_g/#{@post.id}/destroy", data: { confirm: "削除しますか？" }, class: "Post_user_info__Btn"
+      = link_to '投稿を編集する', edit_posts_g_path(@post.id), method: :get, class: "White_btn"
+      = link_to '投稿を削除する', "/posts_g/#{@post.id}/destroy", data: { confirm: "削除しますか？" }, class: "White_btn"
     - else
-      = link_to "フォローする", "#", class: "Post_user_info__Btn"
-      = link_to "フォロー中", "#", class: "Post_user_info__Btn Following", style: "display: none;"
+      = render "users/follow"
       - if @group_id.nil?
-        = link_to "メッセージを送る", "/groups/#{@user.id}/create", class: "Post_user_info__Btn"
+        = link_to "メッセージを送る", "/groups/#{@user.id}/create", class: "White_btn"
       - else
-        = link_to "メッセージを送る", group_messages_path(@group_id, user_id: @user.id), class: "Post_user_info__Btn"
+        = link_to "メッセージを送る", group_messages_path(@group_id, user_id: @user.id), class: "White_btn"
     .Takers
       .Takers_title.Bold
         申込済みのユーザー
