@@ -73,6 +73,7 @@ class PostsGController < ApplicationController
   end
 
   def cancel
+    @post.create_notification_cancel_g!(current_user, @post.giver, @post)
     post_taker = PostGTaker.find_by(post_g_id: @post.id, taker_id: current_user.id)
     post_taker.destroy
     flash[:notice] = 'キャンセルが完了しました。'

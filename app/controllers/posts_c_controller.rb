@@ -73,6 +73,7 @@ class PostsCController < ApplicationController
   end
 
   def cancel
+    @post.create_notification_cancel_c!(current_user, @post.giver, @post)
     post_taker = PostCTaker.find_by(post_c_id: @post.id, taker_id: current_user.id)
     post_taker.destroy
     flash[:notice] = 'キャンセルが完了しました。'
