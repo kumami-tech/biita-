@@ -39,6 +39,8 @@ Rails.application.routes.draw do
   resources :notifications, only: [:index, :destroy]
   get '/notifications/destroy_all', to: 'notifications#destroy_all'
 
+  resources :relationships, only: [:create, :destroy]
+
   get '/posts_g/:id/destroy', to: 'posts_g#destroy'
   get '/posts_c/:id/destroy', to: 'posts_c#destroy'
 
