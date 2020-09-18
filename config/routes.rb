@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :users do
     resources :reviews, only: [:index, :new, :create]
+    member do
+      resources :relationships, only: :index
+    end
   end
 
   resources :posts_g do
