@@ -18,13 +18,13 @@
       = @user.avg_score
     = link_to "(#{@count}件のレビュー)", "/users/#{@user.id}/reviews"
     .Post_user_info__Follow_counts
-      .Follow_count
+      .Follow_count.Left
         %span
-          = "10"
+          = @user.followings.count
         = "フォロー"
       .Follow_count
         %span
-          = "13"
+          = @user.followers.count
         = "フォロワー"
     .Btns
       - if user_signed_in? && @user.id == current_user.id

@@ -245,7 +245,7 @@ $gray2: #CBD0D3;
   overflow: scroll;
   // 投稿者の情報
   .Post_user_info {
-    width: 180px;
+    width: 190px;
     margin-top: 30px;
     margin-right: 50px;
     text-align: center;
@@ -280,14 +280,17 @@ $gray2: #CBD0D3;
     }
     &__Follow_counts {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       margin: 10px auto 30px;
       .Follow_count {
         font-size: 14px;
         span {
-          font-size: 15px;
+          font-size: 16px;
           font-weight: bold;
         }
+      }
+      .Left {
+        margin-right: 10px;
       }
     }
     .Btns {

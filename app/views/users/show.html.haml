@@ -55,11 +55,11 @@
               .Mypage_follow_counts
                 .Mypage_follow_count
                   %span
-                    = "10"
+                    = @user.followings.count
                   = "フォロー"
                 .Mypage_follow_count
                   %span
-                    = "13"
+                    = @user.followers.count
                   = "フォロワー"
               .Mypage_btns
                 - if user_signed_in? && @user.id == current_user.id
