@@ -31,7 +31,8 @@
         = link_to '投稿を編集する', edit_posts_g_path(@post.id), method: :get, class: "White_btn"
         = link_to '投稿を削除する', "/posts_g/#{@post.id}/destroy", data: { confirm: "削除しますか？" }, class: "White_btn"
       - else
-        = render "relationships/follow"
+        .Follow
+          = render "relationships/follow"
         - if @group_id.nil?
           = link_to "メッセージを送る", "/groups/#{@user.id}/create", class: "White_btn"
         - else

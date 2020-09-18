@@ -65,7 +65,8 @@
                 - if user_signed_in? && @user.id == current_user.id
                   = link_to "プロフィールの編集", edit_user_path(current_user), class: "White_btn"
                 - else
-                  = render "relationships/follow"
+                  .Follow
+                    = render "relationships/follow"
                   - if @group_id.nil?
                     = link_to "メッセージを送る", "/groups/#{@user.id}/create", class: "White_btn"
                   - else
