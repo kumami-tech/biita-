@@ -290,18 +290,12 @@ $gray2: #CBD0D3;
         }
       }
     }
-    > a {
-      font-size: 15px;
-    }
-    &__Btn {
+    .Btns {
       width: 160px;
-      height: 38px;
-      color: $orange2;
-      font-weight: bold;
-      line-height: 35px;
-      border: solid 1.3px $orange2;
-      margin: 20px auto;
-      display: block;
+      margin: 0 auto;
+      a {
+        font-size: 15px;
+      }
     }
     .Following {
       font-weight: bold;

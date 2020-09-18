@@ -242,4 +242,7 @@ $gray3: #D4D6D5;
   line-height: 35px;
   color: white;
   background-color: $orange2;
+  &:hover {
+    color: white;
+  }
 }
