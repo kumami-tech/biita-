@@ -1,8 +1,0 @@
-- if current_user.following?(@user)
-  = form_with(model: @following_relationship, method: :delete) do |f|
-    = f.hidden_field :follower_id, value: @user.id
-    = f.submit 'フォロー中', class: "White_btn Following Left"
-- else
-  = form_with(model: @following_relationship) do |f|
-    = f.hidden_field :follower_id, value: @user.id
-    = f.submit 'フォロー', class: "White_btn Left"
