@@ -1,0 +1,29 @@
+.Title 
+  = "#{@user.name}さんのフォローリスト"
+.Follow_tabs
+  = link_to "フォロー中(#{@followings.count})", "#", class: "Follow_tab"
+  = link_to "フォロワー(#{@followers.count})", "#", class: "Follow_tab Active"
+
+.Follow_list
+  - if @followings.empty?
+    .Empty
+      = image_tag "foot.jpg", width: "120px"
+      %br
+      = "フォロー中の"
+      %br
+      = "ユーザーはいません"
+  - else
+    %hr
+    = render partial: 'following', collection: @followings
+
+.Follow_list.Show
+  - if @followers.empty?
+    .Empty
+      = image_tag "foot.jpg", width: "120px"
+      %br
+      = "フォロー中の"
+      %br
+      = "ユーザーはいません"
+  - else
+    %hr
+    = render partial: 'follower', collection: @followers
