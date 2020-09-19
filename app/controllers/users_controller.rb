@@ -1,10 +1,9 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: :show
+  before_action :set_user, except: :update
   layout 'no_wrapper', only: :show
 
   def show
-    @user = User.find(params[:id])
-
     # 投稿一覧
     @giving_post_gs = @user.giving_post_gs
     @giving_post_cs = @user.giving_post_cs
@@ -39,7 +38,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
@@ -51,6 +49,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def set_user
+    @user =User.find(params[:id])
+  end
 
   def user_params
     params.require(:user).permit(:id, :name, :email, :profile_image, :profile)
