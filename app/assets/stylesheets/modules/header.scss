@@ -5,10 +5,11 @@ $orange1: #FF6D05;
 $orange2: #ffa500;
 
 .Header {
-  background-color: #ffff80;
+  background-color: $yellow;
   padding: 0 150px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
   &__Bar {
+    width: 1140px;
     height: 60px;
     display: flex;
     justify-content: space-between;

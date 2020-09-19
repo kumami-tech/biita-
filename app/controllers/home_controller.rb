@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  layout 'no_wrapper'
+  layout 'no_header'
 
   def index
   end

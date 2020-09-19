@@ -1,23 +1,90 @@
-.Wrapper_l
-  = image_tag "home7.jpg", alt: "表示されません", class: "Home_image"
-  .Wrapper_s
-    .Home_box
-      .Title Biita!とは？
-      %p.Home_box__Box.Text.Bold
-        Biita!は、海外旅行がしたい日本人（ツアーゲスト）と、海外在住で旅行の手助けが可能な日本人（ツアーキャスト）を
-        %br
-        マッチングさせるサービスです。
-    .Home_box
-      .Title Biita!の魅力
-      .Home_box__Box.Bold
-        %p.Sub_title.Text ●旅行したい方にとっての魅力
-        .Home_box__Box__Content
-          %ul.Text
-            %li 1. 現地をよく知っている日本人が対応してくれるので、海外でも安心して旅行できます。
-            %li 2. 旅行会社のツアーに参加するより、安い費用で済むことが多いです。
-            %li 3. ちょっとした距離の車の運転から、2日以上の観光案内まで、多岐に渡るサービスを依頼できます。
-        %p.Sub_title.Text ●海外在住の方にとっての魅力
-        .Home_box__Box__Content
-          %ul.Text
-            %li 1. スキマ時間や休日を使って、ちょっとしたお小遣いを稼ぐことができます。
-            %li 2. 現地で日本人と話す機会が少ない方は、日本人と接することで充実した時間を過ごすことができます。
+.Header
+  .Header__Bar
+    .Header__Bar__Content
+      %h1
+        = link_to "/", class: "Header__Bar__Title" do
+          %i.fas.fa-shoe-prints.fa-rotate-270.fa-orange
+          %span Biita!
+    .Header__Bar__Btns
+    
+      .Menu_box
+        .Header__Bar__Btns__Btn.Left
+          = icon('far', 'edit',  class: "Header__Bar__Btns__Btn--icon")
+        .Menu
+          =link_to new_posts_g_path do
+            .Menu__Content
+              ツアーゲストとして投稿する
+          =link_to new_posts_c_path do
+            .Menu__Content
+              ツアーキャストとして投稿する
+      - if user_signed_in?
+        .Header__Bar__Btns__Btn
+          = link_to groups_path do
+            = icon('far', 'paper-plane', class: "Header__Bar__Btns__Btn--icon Link")
+        .Header__Bar__Btns__Btn
+          = link_to notifications_path do
+            - if unchecked_notifications.any?
+              %span.fa-stack
+                = icon('far', 'bell',  class: "fa-stack-2x Link")
+                = icon('fas', 'circle',  class: "fa-stack-1x")
+            - else
+              = icon('far', 'bell', class: "Header__Bar__Btns__Btn--icon Bell Link")
+        .Menu_box.Menu_box_right
+          .Header__Bar__Btns__Btn.Right
+            - if current_user.profile_image?
+              = image_tag current_user.profile_image.url, class: "Header__Bar__Btns__Btn__Image"
+            - else
+              = image_tag "no-image.jpg", class: "Header__Bar__Btns__Btn__Image"
+          .Menu
+            =link_to user_path(current_user.id) do
+              .Menu__Content
+                マイページ
+            =link_to edit_user_registration_path do
+              .Menu__Content
+                アカウントを編集する
+            =link_to users_sign_out_path, method: :delete, data: { confirm: "ログアウトしますか？" } do
+              .Menu__Content
+                ログアウト
+      - else
+        =link_to new_user_registration_path do
+          .Header__Bar__Btns__Btn
+            新規登録
+        =link_to new_user_session_path do
+          .Header__Bar__Btns__Btn
+            ログイン
+= render 'layouts/notifications'
+
+.Wrapper
+  .Yellow
+    .Home_upper
+      .Home_images
+        = image_tag "home2.jpg", alt: "表示されません", class: "Home_image"
+        = image_tag "home1.jpg", alt: "表示されません", class: "Home_image"
+        = image_tag "home4.jpg", alt: "表示されません", class: "Home_image"
+        = image_tag "home3.jpg", alt: "表示されません", class: "Home_image"
+      .Home_text
+        - if user_signed_in?
+          .Home_text__Title
+            さあ、始めよう。
+          .Home_text__Introduction
+            新しい旅と出会いが、あなたを待っています。
+            %br
+            あなたにぴったりなプランを探してみましょう。
+        - else
+          .Home_text__Title
+            旅と出会いを、もっと気軽に。
+          .Home_text__Introduction
+            %span
+              Biita!
+            は、海外旅行がしたい人（ツアーゲスト）と
+            %br
+            旅行の手助けが可能な人（ツアーキャスト）が
+            %br
+            簡単に出会えるサービスです。
+        .Home_btns
+          = link_to "ツアーゲストを探す", posts_g_index_path, class: "Home_btn"
+          = link_to "ツアーキャストを探す", posts_c_index_path, class: "Home_btn"
+    
+  
+
+
