@@ -9,47 +9,47 @@
 - case notification.action
 
 - when "message" then
-  .Notification1
+  .User_box
     = link_to user_path(visitor) do
       - if visitor.profile_image?
-        = image_tag visitor.profile_image.url, class: "Notification1__User_image"
+        = image_tag visitor.profile_image.url, class: "User_box__Image"
       - else
-        = image_tag "no-image.jpg", class: "Notification1__User_image"
-    .Notification1__Text
+        = image_tag "no-image.jpg", class: "User_box__Image"
+    .User_box__Text
       = link_to visitor.name, user_path(visitor)
       = "さんから"
       = link_to "メッセージ", group_messages_path(group, user_id: visitor.id)
       = "が届きました。"
       .Notification_time
         = notification.created_at.strftime("%Y年%-m月%-d日 %H時%M分")
-    = link_to "×", notification_path(notification.id), method: :delete, class: "Notification1__Destroy"
-    = icon('fas', 'paper-plane', class: "Notification1__Icon")
+    = link_to "×", notification_path(notification.id), method: :delete, class: "User_box__Destroy"
+    = icon('fas', 'paper-plane', class: "User_box__Icon")
 
 - when "review" then
-  .Notification1
+  .User_box
     = link_to user_path(visitor) do
       - if visitor.profile_image?
-        = image_tag visitor.profile_image.url, class: "Notification1__User_image"
+        = image_tag visitor.profile_image.url, class: "User_box__Image"
       - else
-        = image_tag "no-image.jpg", class: "Notification1__User_image"
-    .Notification1__Text
+        = image_tag "no-image.jpg", class: "User_box__Image"
+    .User_box__Text
       = link_to visitor.name, user_path(visitor)
       = "さんがあなたの"
       = link_to "レビュー", user_reviews_path(user_id: current_user.id)
       = "を投稿しました。"
       .Notification_time
         = notification.created_at.strftime("%Y年%-m月%-d日 %H時%M分")
-    = link_to "×", notification_path(notification.id), method: :delete, class: "Notification1__Destroy"
-    = icon('fas', 'pen', class: "Notification1__Icon")
+    = link_to "×", notification_path(notification.id), method: :delete, class: "User_box__Destroy"
+    = icon('fas', 'pen', class: "User_box__Icon")
 
 - when "apply_g" then
-  .Notification1
+  .User_box
     = link_to user_path(visitor) do
       - if visitor.profile_image?
-        = image_tag visitor.profile_image.url, class: "Notification1__User_image"
+        = image_tag visitor.profile_image.url, class: "User_box__Image"
       - else
-        = image_tag "no-image.jpg", class: "Notification1__User_image"
-    .Notification1__Text
+        = image_tag "no-image.jpg", class: "User_box__Image"
+    .User_box__Text
       = link_to visitor.name, user_path(visitor)
       = "さんが"
       = "あなたのツアーゲストの投稿"
@@ -57,17 +57,17 @@
       = "を申し込みました。"
       .Notification_time
         = notification.created_at.strftime("%Y年%-m月%-d日 %H時%M分")
-    = link_to "×", notification_path(notification.id), method: :delete, class: "Notification1__Destroy"
-    = icon('fas', 'check-circle', class: "Notification1__Icon")
+    = link_to "×", notification_path(notification.id), method: :delete, class: "User_box__Destroy"
+    = icon('fas', 'check-circle', class: "User_box__Icon")
 
 - when "apply_c" then
-  .Notification1
+  .User_box
     = link_to user_path(visitor) do
       - if visitor.profile_image?
-        = image_tag visitor.profile_image.url, class: "Notification1__User_image"
+        = image_tag visitor.profile_image.url, class: "User_box__Image"
       - else
-        = image_tag "no-image.jpg", class: "Notification1__User_image"
-    .Notification1__Text
+        = image_tag "no-image.jpg", class: "User_box__Image"
+    .User_box__Text
       = link_to visitor.name, user_path(visitor)
       = "さんが"
       = "あなたのツアーキャストの投稿"
@@ -75,17 +75,17 @@
       = "を申し込みました。"
       .Notification_time
         = notification.created_at.strftime("%Y年%-m月%-d日 %H時%M分")
-    = link_to "×", notification_path(notification.id), method: :delete, class: "Notification1__Destroy"
-    = icon('fas', 'check-circle', class: "Notification1__Icon")
+    = link_to "×", notification_path(notification.id), method: :delete, class: "User_box__Destroy"
+    = icon('fas', 'check-circle', class: "User_box__Icon")
 
 - when "cancel_g" then
-  .Notification1
+  .User_box
     = link_to user_path(visitor) do
       - if visitor.profile_image?
-        = image_tag visitor.profile_image.url, class: "Notification1__User_image"
+        = image_tag visitor.profile_image.url, class: "User_box__Image"
       - else
-        = image_tag "no-image.jpg", class: "Notification1__User_image"
-    .Notification1__Text
+        = image_tag "no-image.jpg", class: "User_box__Image"
+    .User_box__Text
       = link_to visitor.name, user_path(visitor)
       = "さんが"
       = "あなたのツアーゲストの投稿"
@@ -93,17 +93,17 @@
       = "をキャンセルしました。"
       .Notification_time
         = notification.created_at.strftime("%Y年%-m月%-d日 %H時%M分")
-    = link_to "×", notification_path(notification.id), method: :delete, class: "Notification1__Destroy"
-    = icon('fas', 'times-circle', class: "Notification1__Icon")
+    = link_to "×", notification_path(notification.id), method: :delete, class: "User_box__Destroy"
+    = icon('fas', 'times-circle', class: "User_box__Icon")
 
 - when "cancel_c" then
-  .Notification1
+  .User_box
     = link_to user_path(visitor) do
       - if visitor.profile_image?
-        = image_tag visitor.profile_image.url, class: "Notification1__User_image"
+        = image_tag visitor.profile_image.url, class: "User_box__Image"
       - else
-        = image_tag "no-image.jpg", class: "Notification1__User_image"
-    .Notification1__Text
+        = image_tag "no-image.jpg", class: "User_box__Image"
+    .User_box__Text
       = link_to visitor.name, user_path(visitor)
       = "さんが"
       = "あなたのツアーキャストの投稿"
@@ -111,17 +111,17 @@
       = "をキャンセルしました。"
       .Notification_time
         = notification.created_at.strftime("%Y年%-m月%-d日 %H時%M分")
-    = link_to "×", notification_path(notification.id), method: :delete, class: "Notification1__Destroy"
-    = icon('fas', 'times-circle', class: "Notification1__Icon")
+    = link_to "×", notification_path(notification.id), method: :delete, class: "User_box__Destroy"
+    = icon('fas', 'times-circle', class: "User_box__Icon")
 
 - when "favorite_g" then
-  .Notification1
+  .User_box
     = link_to user_path(visitor) do
       - if visitor.profile_image?
-        = image_tag visitor.profile_image.url, class: "Notification1__User_image"
+        = image_tag visitor.profile_image.url, class: "User_box__Image"
       - else
-        = image_tag "no-image.jpg", class: "Notification1__User_image"
-    .Notification1__Text
+        = image_tag "no-image.jpg", class: "User_box__Image"
+    .User_box__Text
       = link_to visitor.name, user_path(visitor)
       = "さんが"
       = "あなたのツアーゲストの投稿"
@@ -129,17 +129,17 @@
       = "をお気に入りに追加しました。"
       .Notification_time
         = notification.created_at.strftime("%Y年%-m月%-d日 %H時%M分")
-    = link_to "×", notification_path(notification.id), method: :delete, class: "Notification1__Destroy"
-    = icon('fas', 'bookmark', class: "Notification1__Icon")
+    = link_to "×", notification_path(notification.id), method: :delete, class: "User_box__Destroy"
+    = icon('fas', 'bookmark', class: "User_box__Icon")
 
 - when "favorite_c" then
-  .Notification1
+  .User_box
     = link_to user_path(visitor) do
       - if visitor.profile_image?
-        = image_tag visitor.profile_image.url, class: "Notification1__User_image"
+        = image_tag visitor.profile_image.url, class: "User_box__Image"
       - else
-        = image_tag "no-image.jpg", class: "Notification1__User_image"
-    .Notification1__Text
+        = image_tag "no-image.jpg", class: "User_box__Image"
+    .User_box__Text
       = link_to visitor.name, user_path(visitor)
       = "さんが"
       = "あなたのツアーキャストの投稿"
@@ -147,5 +147,21 @@
       = "をお気に入りに追加しました。"
       .Notification_time
         = notification.created_at.strftime("%Y年%-m月%-d日 %H時%M分")
-    = link_to "×", notification_path(notification.id), method: :delete, class: "Notification1__Destroy"
-    = icon('fas', 'bookmark', class: "Notification1__Icon")
+    = link_to "×", notification_path(notification.id), method: :delete, class: "User_box__Destroy"
+    = icon('fas', 'bookmark', class: "User_box__Icon")
+
+- when "follow" then
+  .User_box
+    = link_to user_path(visitor) do
+      - if visitor.profile_image?
+        = image_tag visitor.profile_image.url, class: "User_box__Image"
+      - else
+        = image_tag "no-image.jpg", class: "User_box__Image"
+    .User_box__Text
+      = link_to visitor.name, user_path(visitor)
+      = "さんが"
+      = "あなたをフォローしました。"
+      .Notification_time
+        = notification.created_at.strftime("%Y年%-m月%-d日 %H時%M分")
+    = link_to "×", notification_path(notification.id), method: :delete, class: "User_box__Destroy"
+    = icon('fas', 'user-plus', class: "User_box__Icon")

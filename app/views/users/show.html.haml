@@ -52,13 +52,24 @@
                 .Review_info
                   = @user.avg_score
                   = link_to "(#{@count}件のレビュー)", "/users/#{@user.id}/reviews"
-              - if user_signed_in? && @user.id == current_user.id
-                = link_to "プロフィールの編集", edit_user_path(current_user), class: "Mypage_btn"
-              - else
-                - if @group_id.nil?
-                  = link_to "メッセージを送る", "/groups/#{@user.id}/create", class: "Mypage_btn"
+              .Mypage_follow_counts
+                .Mypage_follow_count
+                  = link_to followings_user_path(@user.id) do
+                    %span
+                      = @user.followings.count
+                    = "フォロー"
+                .Mypage_follow_count#Follower_count
+                  = render "relationships/follower_count"
+              .Mypage_btns
+                - if user_signed_in? && @user.id == current_user.id
+                  = link_to "プロフィールの編集", edit_user_path(current_user), class: "White_btn"
                 - else
-                  = link_to "メッセージを送る", group_messages_path(@group_id, user_id: @user.id), class: "Mypage_btn"
+                  .Follow
+                    = render "relationships/follow", user: @user
+                  - if @group_id.nil?
+                    = link_to "メッセージを送る", "/groups/#{@user.id}/create", class: "White_btn"
+                  - else
+                    = link_to "メッセージを送る", group_messages_path(@group_id, user_id: @user.id), class: "White_btn"
           .Profile__Lower
             = simple_format(@user.profile)
 

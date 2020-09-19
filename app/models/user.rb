@@ -32,10 +32,6 @@ class User < ApplicationRecord
   # レビュー
   has_many :reviews, foreign_key: "reviewee_id", dependent: :destroy
 
-  # 通知
-  has_many :active_notifications, class_name: "Notification", foreign_key: "visitor_id", dependent: :destroy
-  has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
-
   def avg_score
     unless self.reviews.empty?
       reviews.average(:score).round(1)
@@ -44,4 +40,36 @@ class User < ApplicationRecord
     end
   end
 
+  # 通知
+  has_many :active_notifications, class_name: "Notification", foreign_key: "visitor_id", dependent: :destroy
+  has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
+
+  # フォロー
+  has_many :following_relationships, foreign_key: "following_id", class_name: "Relationship",  dependent: :destroy
+  has_many :followings, through: :following_relationships, source: :follower
+  has_many :follower_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
+  has_many :followers, through: :follower_relationships, source: :following
+ 
+  def following?(other_user)
+    self.followings.include?(other_user)
+  end
+
+  def follow(other_user)
+    self.following_relationships.create(follower_id: other_user.id)
+  end
+
+  def unfollow(other_user)
+    self.following_relationships.find_by(follower_id: other_user.id).destroy
+  end
+
+  def create_notification_follow!(current_user, user)
+    notification = current_user.active_notifications.new(
+      visited_id: user.id,
+      action: 'follow'
+    )
+    if notification.visitor_id == notification.visited_id
+      notification.checked = true
+    end
+    notification.save if notification.valid?
+  end
 end

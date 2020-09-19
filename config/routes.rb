@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :users do
     resources :reviews, only: [:index, :new, :create]
+    member do
+      get 'followings', to: 'relationships#followings'
+      get 'followers', to: 'relationships#followers'
+    end
   end
 
   resources :posts_g do
@@ -38,6 +42,8 @@ Rails.application.routes.draw do
 
   resources :notifications, only: [:index, :destroy]
   get '/notifications/destroy_all', to: 'notifications#destroy_all'
+
+  resources :relationships, only: [:create, :destroy]
 
   get '/posts_g/:id/destroy', to: 'posts_g#destroy'
   get '/posts_c/:id/destroy', to: 'posts_c#destroy'

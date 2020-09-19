@@ -14,5 +14,5 @@
           = f.check_box :remember_me
           = f.label "ログイン情報を保持する", class: "Check Text"
     = f.submit "ログイン", class: "Btn Text"
-    = link_to "ゲストログイン(閲覧用)", users_guest_sign_in_path, method: :post, class: "White_btn Text"
+    = link_to "ゲストログイン(閲覧用)", users_guest_sign_in_path, method: :post, class: "White_login_btn Text"
   = render "devise/shared/links"

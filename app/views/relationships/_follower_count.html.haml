@@ -1,0 +1,4 @@
+= link_to followers_user_path(@user.id) do
+  %span
+    = @user.followers.count
+  = "フォロワー"

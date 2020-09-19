@@ -1,0 +1,15 @@
+- @user = follower
+
+.User_box
+  = link_to user_path(@user) do
+    - if @user.profile_image?
+      = image_tag @user.profile_image.url, class: "User_box__Image"
+    - else
+      = image_tag "no-image.jpg", class: "User_box__Image"
+  .User_box__Text
+    = link_to @user.name, user_path(@user), class: "Follow_name"
+    .Follow_profile
+      = simple_format(@user.profile)
+  - if @user != current_user
+    .Follow.Follow_list_btn
+      = render partial: "relationships/follow", locals: { user: @user }

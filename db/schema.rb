@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_14_092706) do
+ActiveRecord::Schema.define(version: 2020_09_17_062801) do
 
   create_table "favorite_cs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -111,6 +111,16 @@ ActiveRecord::Schema.define(version: 2020_09_14_092706) do
     t.index ["region"], name: "index_post_gs_on_region"
   end
 
+  create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "follower_id"
+    t.bigint "following_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["follower_id", "following_id"], name: "index_relationships_on_follower_id_and_following_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
+    t.index ["following_id"], name: "index_relationships_on_following_id"
+  end
+
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content", null: false
     t.bigint "reviewer_id", null: false
@@ -174,6 +184,8 @@ ActiveRecord::Schema.define(version: 2020_09_14_092706) do
   add_foreign_key "post_cs", "users", column: "giver_id"
   add_foreign_key "post_g_takers", "post_gs"
   add_foreign_key "post_g_takers", "users", column: "taker_id"
+  add_foreign_key "relationships", "users", column: "follower_id"
+  add_foreign_key "relationships", "users", column: "following_id"
   add_foreign_key "reviews", "users", column: "reviewee_id"
   add_foreign_key "reviews", "users", column: "reviewer_id"
   add_foreign_key "taggings", "tags"
