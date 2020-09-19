@@ -10,8 +10,4 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application'
   %body
-    = render 'layouts/header'
-    = render 'layouts/notifications'
-    .Wrapper
-      .Wrapper__Inner
-        = yield
+    = yield
