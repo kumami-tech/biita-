@@ -3,6 +3,18 @@ $gray: #f5f5f5;
 $orange: #FFC882;
 $orange1: #FF6D05;
 $orange2: #ffa500;
+$gray1: #A4A8B1;
+$gray2: #B3B8BB;
+$gray3: #D4D6D5;
+
+@mixin foot() {
+  .fa-rotate-270 {
+    transform: rotate(270deg);
+  }
+  .fa-orange {
+    color: $orange1;
+  }
+}
 
 .Header {
   background-color: $yellow;
@@ -67,12 +79,7 @@ $orange2: #ffa500;
       font-size: 33px;
       font-weight: bold;
       line-height: 70px;
-      .fa-rotate-270 {
-        transform: rotate(270deg);
-      }
-      .fa-orange {
-        color: $orange1;
-      }
+      @include foot()
     }
     &__Btns {
       color: black;
@@ -141,6 +148,26 @@ $orange2: #ffa500;
       .Menu_box:hover .Menu {
         display: inline-block;
       }
+    }
+  }
+}
+
+.Footer {
+  width: 100%;
+  height: 150px;
+  background-image: image-url("footer.jpeg");
+  background-position: center;
+  text-align: center;
+  &__Content {
+    padding: 30px 0;
+    .Footer_title {
+      height: 50px;
+      width: 400px;
+      color: black;
+      font-size: 25px;
+      font-weight: bold;
+      line-height: 50px;
+      @include foot()
     }
   }
 }

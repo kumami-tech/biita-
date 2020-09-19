@@ -5,7 +5,7 @@ $orange2: #ffa500;
 
 .Yellow {
   width: 100%;
-  height: 730px;
+  min-height: calc(100vh - 210px);
   background-color: $yellow;
   .Home_upper {
     width: 1140px;
