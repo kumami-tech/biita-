@@ -149,3 +149,19 @@
         = notification.created_at.strftime("%Y年%-m月%-d日 %H時%M分")
     = link_to "×", notification_path(notification.id), method: :delete, class: "User_box__Destroy"
     = icon('fas', 'bookmark', class: "User_box__Icon")
+
+- when "follow" then
+  .User_box
+    = link_to user_path(visitor) do
+      - if visitor.profile_image?
+        = image_tag visitor.profile_image.url, class: "User_box__Image"
+      - else
+        = image_tag "no-image.jpg", class: "User_box__Image"
+    .User_box__Text
+      = link_to visitor.name, user_path(visitor)
+      = "さんが"
+      = "あなたをフォローしました。"
+      .Notification_time
+        = notification.created_at.strftime("%Y年%-m月%-d日 %H時%M分")
+    = link_to "×", notification_path(notification.id), method: :delete, class: "User_box__Destroy"
+    = icon('fas', 'user-plus', class: "User_box__Icon")

@@ -61,4 +61,15 @@ class User < ApplicationRecord
   def unfollow(other_user)
     self.following_relationships.find_by(follower_id: other_user.id).destroy
   end
+
+  def create_notification_follow!(current_user, user)
+    notification = current_user.active_notifications.new(
+      visited_id: user.id,
+      action: 'follow'
+    )
+    if notification.visitor_id == notification.visited_id
+      notification.checked = true
+    end
+    notification.save if notification.valid?
+  end
 end

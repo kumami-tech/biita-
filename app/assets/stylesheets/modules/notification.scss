@@ -71,6 +71,15 @@ hr {
     color: $orange1;
     font-size: 20px;
   }
+  .fa-check-circle,
+  .fa-times-circle {
+    position: absolute;
+    right: 42px;
+  }
+  .fa-user-plus {
+    position: absolute;
+    right: 40px;
+  }
 }
 .User_box:hover
 .User_box__Destroy {
