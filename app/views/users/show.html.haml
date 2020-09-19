@@ -132,7 +132,7 @@
 
         .Mypage_lower__Content
           .User_taking_posts.Show2
-            - if @favorite_gs.empty?
+            - if @taking_post_gs.empty?
               = render "layouts/empty"
             - else
               .Post_index
