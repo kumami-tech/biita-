@@ -1,4 +1,4 @@
-- if current_user.following?(@user)
-  = link_to 'フォロー中', {controller: "relationships", action: "destroy", id: @user.id}, method: :delete, remote: true, class: "White_btn Following Left"
+- if current_user.following?(user)
+  = link_to 'フォロー中', {controller: "relationships", action: "destroy", id: user.id}, method: :delete, remote: true, class: "White_btn Following Left"
 - else
-  = link_to 'フォロー', {controller: "relationships", action: "create", id: @user.id}, method: :post, remote: true, class: "White_btn Left"
+  = link_to 'フォロー', {controller: "relationships", action: "create", id: user.id}, method: :post, remote: true, class: "White_btn Left"

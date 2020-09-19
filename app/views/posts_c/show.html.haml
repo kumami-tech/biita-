@@ -19,20 +19,19 @@
     = link_to "(#{@count}件のレビュー)", "/users/#{@user.id}/reviews"
     .Post_user_info__Follow_counts
       .Follow_count.Left
-        %span
-          = @user.followings.count
-        = "フォロー"
-      .Follow_count
-        %span
-          = @user.followers.count
-        = "フォロワー"
+        = link_to followings_user_path(@user.id) do
+          %span
+            = @user.followings.count
+          = "フォロー"
+      .Follow_count#Follower_count
+        = render "relationships/follower_count"
     .Btns
       - if user_signed_in? && @user.id == current_user.id
         = link_to '投稿を編集する', edit_posts_c_path(@post.id), method: :get, class: "White_btn"
         = link_to '投稿を削除する', "/posts_c/#{@post.id}/destroy", data: { confirm: "削除しますか？" }, class: "White_btn"
       - else
         .Follow
-          = render "relationships/follow"
+          = render "relationships/follow", user: @user
         - if @group_id.nil?
           = link_to "メッセージを送る", "/groups/#{@user.id}/create", class: "White_btn"
         - else
