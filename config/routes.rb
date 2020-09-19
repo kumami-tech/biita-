@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   resources :users do
     resources :reviews, only: [:index, :new, :create]
     member do
-      resources :relationships, only: :index
+      get 'followings', to: 'relationships#followings'
+      get 'followers', to: 'relationships#followers'
     end
   end
 

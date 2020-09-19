@@ -1,7 +1,12 @@
 class RelationshipsController < ApplicationController
   before_action :set_user
 
-  def index
+  def followings
+    @followings = @user.followings
+    @followers = @user.followers
+  end
+
+  def followers
     @followings = @user.followings
     @followers = @user.followers
   end
