@@ -7,12 +7,6 @@ $orange2: #ffa500;
   width: 100%;
   height: 730px;
   background-color: $yellow;
-  .background_image {
-    width: 100%;
-    height: calc(100vh - 60px);
-    background-image: image-url("home6.jpg");
-    background-size:contain;
-  }
   .Home_upper {
     width: 1140px;
     height: 730px;
@@ -22,6 +16,7 @@ $orange2: #ffa500;
     padding: 70px 0;
     .Home_images {
       width: 610px;
+      height: 610px;
       display: flex;
       flex-wrap: wrap;
       .Home_image {
@@ -37,8 +32,8 @@ $orange2: #ffa500;
     }
     .Home_text {
       width: 480px;
-      height: 285px;
-      margin: auto 0;
+      height: 242px;
+      margin-top: 160px;
       &__Title {
         color: $orange1;
         font-weight: bold;
