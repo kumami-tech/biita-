@@ -4,7 +4,7 @@ class PostsGController < ApplicationController
   layout 'no_wrapper', only: :index
 
   def index
-    @posts = PostG.includes(:giver).order("created_at DESC")
+    @posts = PostG.includes(:giver)
     @tags = PostG.all_tags.pluck(:name)
 
     if params[:keyword]

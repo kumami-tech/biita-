@@ -10,6 +10,6 @@
     = link_to @user.name, user_path(@user), class: "Follow_name"
     .Follow_profile
       = simple_format(@user.profile)
-  - if @user != current_user
+  - if user_signed_in? && @user != current_user
     .Follow.Follow_list_btn
       = render partial: "relationships/follow", locals: { user: @user }
