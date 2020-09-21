@@ -26,16 +26,17 @@
       .Follow_count#Follower_count
         = render "relationships/follower_count"
     .Btns
-      - if user_signed_in? && @user.id == current_user.id
-        = link_to '投稿を編集する', edit_posts_g_path(@post.id), method: :get, class: "White_btn"
-        = link_to '投稿を削除する', "/posts_g/#{@post.id}/destroy", data: { confirm: "削除しますか？" }, class: "White_btn"
-      - else
-        .Follow
-          = render "relationships/follow", user: @user
-        - if @group_id.nil?
-          = link_to "メッセージを送る", "/groups/#{@user.id}/create", class: "White_btn"
+      - if user_signed_in?
+        - if @user.id == current_user.id
+          = link_to '投稿を編集する', edit_posts_g_path(@post.id), method: :get, class: "White_btn"
+          = link_to '投稿を削除する', "/posts_g/#{@post.id}/destroy", data: { confirm: "削除しますか？" }, class: "White_btn"
         - else
-          = link_to "メッセージを送る", group_messages_path(@group_id, user_id: @user.id), class: "White_btn"
+          .Follow
+            = render "relationships/follow", user: @user
+          - if @group_id.nil?
+            = link_to "メッセージを送る", "/groups/#{@user.id}/create", class: "White_btn"
+          - else
+            = link_to "メッセージを送る", group_messages_path(@group_id, user_id: @user.id), class: "White_btn"
     .Takers
       .Takers_title.Bold
         申込済みのユーザー
