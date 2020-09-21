@@ -12,4 +12,4 @@
       = simple_format(@user.profile)
   - if user_signed_in? && @user != current_user
     .Follow.Follow_list_btn
-      = render partial: "relationships/follow", locals: { user: @user }
+      = render "relationships/follow", user: @user

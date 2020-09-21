@@ -5,7 +5,7 @@
         = icon('fas', 'user-check')
         = 'フォロー中'
 - else
-  = link_to relationships_path(user.id), method: :post, remote: true do
+  = link_to relationships_path(id: user.id), method: :post, remote: true do
     .White_btn
       .White_btn__Content
         = icon('fas', 'user-plus')
