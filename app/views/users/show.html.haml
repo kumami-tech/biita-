@@ -93,14 +93,26 @@
           .Post_type_btns_title_row
             = icon('fas', 'edit', class: 'Post_type_btns_title')
             .Post_type_btns_title 投稿
-          .Mypage_side_bar_row
-            = link_to "投稿一覧", "#", class: "Mypage_side_bar_btn Post_type_btn Active1"
-          .Mypage_side_bar_row
-            = link_to "申込あり", "#", class: "Mypage_side_bar_btn Post_type_btn"
-          .Mypage_side_bar_row
-            = link_to "申込済み", "#", class: "Mypage_side_bar_btn Post_type_btn"
-          .Mypage_side_bar_row
-            = link_to "お気に入り", "#", class: "Mypage_side_bar_btn Post_type_btn"
+          = link_to "#" do
+            .Mypage_side_bar_row.Post_type_btn.Active1
+              = icon('fas', 'list')
+              .Mypage_side_bar_btn
+                = "投稿一覧"
+          = link_to "#" do
+            .Mypage_side_bar_row.Post_type_btn
+              = icon('fas', 'user')
+              .Mypage_side_bar_btn
+                = "申込あり"
+          = link_to "#" do
+            .Mypage_side_bar_row.Post_type_btn
+              = icon('fas', 'check-circle')
+              .Mypage_side_bar_btn
+                = "申込済み"
+          = link_to "#" do
+            .Mypage_side_bar_row.Post_type_btn
+              = icon('fas', 'bookmark')
+              .Mypage_side_bar_btn
+                = "お気に入り"
 
       -# ========== 投稿一覧 ==========
       .Mypage_lower__Main
