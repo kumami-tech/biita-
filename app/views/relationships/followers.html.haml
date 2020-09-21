@@ -13,7 +13,6 @@
       %br
       = "ユーザーはいません"
   - else
-    %hr
     = render partial: 'following', collection: @followings
 
 .Follow_list.Show
@@ -25,5 +24,4 @@
       %br
       = "ユーザーはいません"
   - else
-    %hr
     = render partial: 'follower', collection: @followers
