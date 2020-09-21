@@ -1,5 +1,4 @@
-$orange1: #FF6D05;
-$orange2: #ffa500;
+$orange: #FF8C00;
 
 @mixin texthidden() {
   overflow: hidden;
@@ -52,7 +51,7 @@ $orange2: #ffa500;
 
 .Btn {
   width: 100px;
-  background-color: $orange2;
+  background-color: $orange;
   color: white;
   padding: 10px 15px;
   border-style: none;
@@ -63,18 +62,18 @@ $orange2: #ffa500;
 
 .White_login_btn {
   width: 180px;
-  color: $orange1;
+  color: $orange;
   background-color: white;
   line-height: 35px;
   text-align: center;
-  border: solid 1.3px $orange1;
+  border: solid 1.3px $orange;
   margin: 30px auto;
   display: block;
   text-decoration: none;
   cursor: pointer;
 }
 .White_login_btn:hover {
-  color: $orange1;
+  color: $orange;
 }
 
 

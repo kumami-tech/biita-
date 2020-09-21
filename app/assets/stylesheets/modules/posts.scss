@@ -1,7 +1,4 @@
-$orange1: #FF6D05;
-$orange2: #ffa500;
-$orange3: #FFE2B2;
-$orange4: #FFC882;
+$orange: #FF8C00;
 $gray1:  #A4A8B1;
 $gray2: #CBD0D3;
 
@@ -35,7 +32,7 @@ $gray2: #CBD0D3;
   }
   &__Btn {
     width: 100px;
-    background-color: $orange2;
+    background-color: $orange;
     color: white;
     padding: 10px 15px;
     border-style: none;
@@ -78,11 +75,11 @@ $gray2: #CBD0D3;
               border-bottom: solid 2px silver;
             }
             &__Text:focus {
-              border-bottom: solid 2px $orange1;
+              border-bottom: solid 2px $orange;
             }
             &__Text:focus ~
             .Keyword__Form__Input__Btn{
-              color: $orange1;
+              color: $orange;
             }
             &__Btn {
               color: silver;
@@ -99,7 +96,7 @@ $gray2: #CBD0D3;
       .Tag_list {
         .tag {
           font-size: 14px;
-          color: $orange1;
+          color: $orange;
           margin-right: 5px;
           margin-bottom: 10px;
         }
@@ -180,7 +177,7 @@ $gray2: #CBD0D3;
     .Tag_list {
       margin: 5px 0;
       .tag {
-        color: $orange1;
+        color: $orange;
       }
     }
     &__Text {
@@ -313,7 +310,7 @@ $gray2: #CBD0D3;
         margin: 15px auto;
       }
       .Taker_icon {
-        color: $orange1;
+        color: $orange;
         font-size: 28px;
         margin-right: 5px;
       }
@@ -354,7 +351,7 @@ $gray2: #CBD0D3;
       top: 30px;
       right: 50px;
       font-size: 35px;
-      color: $orange1;
+      color: $orange;
       cursor: pointer;
     }
     .Post_show_title {
@@ -366,7 +363,7 @@ $gray2: #CBD0D3;
     .Tag_list {
       text-align: center;
       .tag {
-        color: $orange1;
+        color: $orange;
       }
     }
     .Post_table {
@@ -405,16 +402,16 @@ $gray2: #CBD0D3;
   // 申込ボタン
   .Taken_btn {
     width: 270px;
-    color: $orange2;
+    color: $orange;
     text-align: center;
     padding: 10px 30px;
-    border: solid 1px $orange2;
+    border: solid 1px $orange;
     display: block;
     margin: 50px auto 30px;
   }
   .Take_btn {
     width: 170px;
-    background-color: $orange2;
+    background-color: $orange;
     color: white;
     text-align: center;
     padding: 10px 30px;

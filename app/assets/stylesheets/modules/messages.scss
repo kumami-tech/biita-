@@ -1,8 +1,6 @@
 $white: #ffffff;
 $black: #333333;
-$orange1: #FF6D05;
-$orange2: #ffa500;
-$orange3: #FFE2B2;
+$orange: #FF8C00;
 $gray1:  #A4A8B1;
 $gray2: #CBD0D3;
 
@@ -84,7 +82,7 @@ $gray2: #CBD0D3;
         }
       }
       &__btn {
-        color: $orange1;
+        color: $orange;
         background-color: white;
         font-size: 30px;
         margin-left: 15px;

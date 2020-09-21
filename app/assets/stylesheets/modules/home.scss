@@ -1,6 +1,7 @@
 $yellow: #ffff80;
 $orange1: #FF6D05;
 $orange2: #ffa500;
+$orange: #FF8C00;
 
 
 .Yellow {
@@ -54,7 +55,7 @@ $orange2: #ffa500;
         .Home_btn {
           width: 200px;
           height: 50px;
-          background-color: $orange2;
+          background-color: $orange;
           color: white;
           font-weight: bold;
           line-height: 50px;

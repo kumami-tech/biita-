@@ -1,5 +1,4 @@
-$orange1: #FF6D05;
-$orange2: #ffa500;
+$orange: #FF8C00;
 $gray1: #A4A8B1;
 $gray2: #B3B8BB;
 $gray3: #D4D6D5;
@@ -40,6 +39,15 @@ $gray3: #D4D6D5;
           color: gray;
           display: inline-block;
         }
+        .fa-user {
+          padding-left: 2px;
+        }
+        .fa-check-circle {
+          padding-left: 1px;
+        }
+        .fa-bookmark {
+          padding-left: 4px;
+        }
         span {
           width: 35px;
         }
@@ -54,7 +62,7 @@ $gray3: #D4D6D5;
           width: 10px;
           line-height: 10px;
           font-size: 8px;
-          color: $orange1;
+          color: $orange;
           position: absolute;
           left: 10px;
           top: 9px;
@@ -62,8 +70,11 @@ $gray3: #D4D6D5;
         .Bell {
           width: 35px;
         }
-        .Active1 {
-          color: $orange1;
+      }
+      .Active1 {
+        color: $orange;
+        i {
+          color: $orange;
         }
       }
       .Post_type_btns_title_row {
@@ -194,8 +205,8 @@ $gray3: #D4D6D5;
             margin: 0 10px;
           }
           .Active2 {
-            color: $orange1;
-            border-bottom: solid 2px $orange1;
+            color: $orange;
+            border-bottom: solid 2px $orange;
           }
         }
         .Mypage_lower__Content {
@@ -225,12 +236,11 @@ $gray3: #D4D6D5;
 .White_btn {
   width: 190px;
   height: 40px;
-  color: $orange2;
+  color: $orange;
   background-color: white;
   font-weight: bold;
   font-size: 15px;
-  border: solid 1.5px $orange2;
-  text-align: center;
+  border: solid 1.5px $orange;
   display: block;
   cursor: pointer;
   outline: none;
@@ -239,9 +249,9 @@ $gray3: #D4D6D5;
   position: relative;
   &__Content {
     margin: 0 auto;
+    line-height: 35px;
     a {
-      color: $orange2;
-      line-height: 30px;
+      color: $orange;
     }
     i {
       line-height: 35px;
@@ -253,6 +263,6 @@ $gray3: #D4D6D5;
     }
   }
   &:hover {
-    color: $orange2;
+    color: $orange;
   }
 }
