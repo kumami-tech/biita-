@@ -4,7 +4,7 @@ class PostsCController < ApplicationController
   layout 'no_wrapper', only: :index
 
   def index
-    @posts = PostC.includes(:giver).order("created_at DESC")
+    @posts = PostC.includes(:giver)
     @tags = PostC.all_tags.pluck(:name)
 
     if params[:keyword]
