@@ -1,3 +1,9 @@
+$orange1: #FF6D05;
+$orange2: #ffa500;
+$gray1: #A4A8B1;
+$gray2: #B3B8BB;
+$gray3: #D4D6D5;
+
 .Header_r {
   height: 60px;
   border-bottom: solid 1px #B3B8BB;
@@ -13,29 +19,41 @@
   .Wrapper_header_r {
     width: 880px;
     margin: 0 auto;
+    position: relative;
     display: flex;
-    justify-content: space-between;
     .Title_r {
       font-size: 18px;
       font-weight: bold;
       text-decoration: underline;
       line-height: 60px;
+      margin-right: 50px;
     }
     .Position_r {
+      height: 60px;
       margin: auto 0px;
+      display: flex;
       &__Name {
-        font-size: 14px;
-        color: black;
-        margin: 0 15px;
+        height: 60px;
+        font-size: 15px;
+        font-weight: bold;
+        color: gray;
+        line-height: 60px;
+        padding: 0 20px;
+        display: block;
       }
       .Active {
-        font-weight: bold;
+        line-height: 60px;
+        color: $orange1;
+        border-bottom: solid 2px $orange1;
       }
     }
     .Write_review {
       font-size: 14px;
       font-weight: bold;
+      line-height: 60px;
       margin: auto 0;
+      position: absolute;
+      right: 0;
     }
   }
 }
