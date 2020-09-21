@@ -151,14 +151,14 @@ $gray3: #D4D6D5;
                 }
               }
               .Mypage_btns {
-                width: 340px;
+                // width: 340px;
                 position: absolute;
                 top: 0;
                 right: 0;
-                display: flex;
-                justify-content: flex-end;
+                // display: flex;
+                // justify-content: flex-end;
                 .Left {
-                  margin-right: 20px;
+                  // margin-right: 20px;
                 }
               }
             }
@@ -223,29 +223,36 @@ $gray3: #D4D6D5;
 }
 
 .White_btn {
-  width: 160px;
-  height: 38px;
+  width: 190px;
+  height: 40px;
   color: $orange2;
   background-color: white;
   font-weight: bold;
   font-size: 15px;
-  line-height: 35px;
   border: solid 1.5px $orange2;
   text-align: center;
   display: block;
   cursor: pointer;
   outline: none;
   margin-bottom: 20px;
+  display: flex;
+  position: relative;
+  &__Content {
+    margin: 0 auto;
+    a {
+      color: $orange2;
+      line-height: 30px;
+    }
+    i {
+      line-height: 35px;
+      font-size: 18px;
+      margin-right: 3px;
+    }
+    .fa-user-check {
+      color: white;
+    }
+  }
   &:hover {
     color: $orange2;
-  }
-}
-.Following {
-  font-weight: bold;
-  line-height: 35px;
-  color: white;
-  background-color: $orange2;
-  &:hover {
-    color: white;
   }
 }
