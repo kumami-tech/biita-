@@ -25,19 +25,19 @@ $gray2: #CBD0D3;
       width: 450px;
       margin-bottom: 5px;
       padding: 5px;
-      border: solid 1px #A4A8B1;
+      border: solid 1px $gray1;
       border-radius: 3px;
       &--Large {
         width: 450px;
         padding: 5px;
-        border: solid 1px #A4A8B1;
+        border: solid 1px $gray1;
         border-radius: 3px;
       }
     }
     select {
       width: 450px;
       height: 45px;
-      border: solid 1px #A4A8B1;
+      border: solid 1px $gray1;
       border-radius: 3px;
     }
   }
@@ -273,7 +273,7 @@ $gray2: #CBD0D3;
         }
         .Front {
           position: absolute;
-          top: 0px;
+          top: 0;
           left: 0;
           object-fit: cover;
           object-position: 0% 0%;

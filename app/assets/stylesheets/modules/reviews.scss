@@ -5,7 +5,7 @@ $gray3: #D4D6D5;
 
 .Header_r {
   height: 60px;
-  border-bottom: solid 1px #B3B8BB;
+  border-bottom: solid 1px $gray2;
   margin-bottom: 15px;
   position: relative;
   .Back_btn {
@@ -172,7 +172,7 @@ $gray3: #D4D6D5;
   &__Text {
     width: 500px;
     padding: 5px;
-    border: solid 1px #A4A8B1;
+    border: solid 1px $gray1;
     border-radius: 3px;
   }
 }
