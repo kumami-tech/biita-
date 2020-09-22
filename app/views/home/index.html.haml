@@ -55,8 +55,8 @@
 = render 'layouts/notifications'
 
 .Wrapper
-  .Yellow
-    .Home_upper
+  .Home_upper
+    .Home_upper__Content
       .Home_images
         = image_tag "home1.jpg", alt: "表示されません", class: "Home_image"
         = image_tag "home2.jpg", alt: "表示されません", class: "Home_image"
@@ -76,14 +76,47 @@
           .Home_text__Introduction
             %span
               Biita!
-            は、海外旅行がしたい人（ツアーゲスト）と
+            は、海外旅行がしたい日本人（ツアーゲスト）と
             %br
-            旅行の手助けが可能な人（ツアーキャスト）が
+            旅行の手助けが可能な海外在住者（ツアーキャスト）が
             %br
             簡単に出会えるサービスです。
         .Home_btns
           = link_to "ツアーゲストを探す", posts_g_index_path, class: "Home_btn"
           = link_to "ツアーキャストを探す", posts_c_index_path, class: "Home_btn"
+  - unless user_signed_in?
+    .Home_lower
+      .Home_lower__Content
+        .Merits_title
+          = "- "
+          %span
+            = "Biita!"
+          = "を利用する3つのメリット -"
+        .Merits
+          .Merit
+            = image_tag "home5.jpg", alt: "表示されません", class: "Home_image"
+            .Merit__Title
+              %span
+                = "1. "
+              = "海外でも安心"
+            .Merit__Content
+              現地をよく知っている日本人が対応するので、日本語が通じない海外でも安心して旅行できます。
+          .Merit
+            = image_tag "home6.jpg", alt: "表示されません", class: "Home_image"
+            .Merit__Title
+              %span
+                = "2. "
+              = "リーズナブル"
+            .Merit__Content
+              旅行会社を介さず個人と直接契約するので、比較的リーズナブルな価格で利用できます。
+          .Merit
+            = image_tag "home7.jpg", alt: "表示されません", class: "Home_image"
+            .Merit__Title
+              %span
+                = "3. "
+              = "幅広いサービス"
+            .Merit__Content
+              旅行先での短い距離の車の運転から本格的な観光案内まで、多岐に渡るサービスに対応しています。
     
   .Footer
     .Footer__Content
