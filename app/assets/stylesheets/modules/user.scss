@@ -1,26 +1,11 @@
 $orange: #FF8C00;
 $gray1: #A4A8B1;
+$black: #4A4A4A;
 
 @mixin texthidden() {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-}
-
-.Text {
-  font-size: 14px;
-}
-
-.Text_s {
-  font-size: 12px;
-}
-
-.Bold {
-  font-weight: bold;
-}
-
-.Link {
-  color: black;
 }
 
 
@@ -47,12 +32,12 @@ $gray1: #A4A8B1;
       width: 350px;
       margin-bottom: 5px;
       padding: 5px;
-      border: solid 1px #A4A8B1;
+      border: solid 1px $gray1;
       border-radius: 3px;
       &--Large {
         width: 350px;
         padding: 5px;
-        border: solid 1px #A4A8B1;
+        border: solid 1px $gray1;
         border-radius: 3px;
       }
     }

@@ -1,8 +1,7 @@
 $yellow: #ffff80;
-$orange1: #FF6D05;
-$orange3: #FFC882;
 $orange: #FF8C00;
-$gray: #f5f5f5;
+$orange1: #FF6D05;
+$orange2: #FFC882;
 $gray1: #A4A8B1;
 $gray2: #B3B8BB;
 $gray3: #D4D6D5;
@@ -94,6 +93,7 @@ $black: #4A4A4A;
           font-size: 28px;
           line-height: 40px;
           padding: 6px 0;
+          color: black;
         }
         .Bell {
           margin: 0 5px;
@@ -141,7 +141,7 @@ $black: #4A4A4A;
           }
         }
         &__Content:hover {
-          background-color: $orange3;
+          background-color: $orange2;
           font-size: 14px;
         }
         > a {

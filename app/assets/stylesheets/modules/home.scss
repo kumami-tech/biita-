@@ -2,6 +2,46 @@ $yellow: #ffff80;
 $orange1: #FF6D05;
 $orange2: #ffa500;
 $orange: #FF8C00;
+$black: #4A4A4A;
+
+.Wrapper {
+  height: calc(100vh - 60px);
+  overflow: scroll;
+  &__Inner {
+    padding: 30px 0;
+    width: 880px;
+    margin: 0 auto;
+  }
+}
+
+.Title {
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-bottom: 15px;
+}
+
+.Bold {
+  font-weight: bold;
+}
+
+a {
+  color: $black;
+}
+a:hover {
+  color: $black;
+}
+
+.Text {
+  font-size: 14px;
+}
+
+.Text_s {
+  font-size: 12px;
+}
+
+
+
 
 .Home_upper {
   width: 100%;
@@ -113,25 +153,4 @@ $orange: #FF8C00;
       }
     }
   }
-}
-
-.Wrapper {
-  height: calc(100vh - 60px);
-  overflow: scroll;
-  &__Inner {
-    padding: 30px 0;
-    width: 880px;
-    margin: 0 auto;
-  }
-}
-
-.Title {
-  font-size: 18px;
-  font-weight: bold;
-  text-decoration: underline;
-  margin-bottom: 15px;
-}
-
-.Bold {
-  font-weight: bold;
 }
