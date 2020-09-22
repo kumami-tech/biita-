@@ -20,8 +20,6 @@
     .Empty
       = image_tag "foot.jpg", width: "120px"
       %br
-      = "フォロー中の"
-      %br
-      = "ユーザーはいません"
+      = "フォロワーはいません"
   - else
     = render partial: 'follower', collection: @followers
