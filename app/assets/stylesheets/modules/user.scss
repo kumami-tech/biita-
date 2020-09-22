@@ -1,4 +1,5 @@
 $orange: #FF8C00;
+$gray1: #A4A8B1;
 
 @mixin texthidden() {
   overflow: hidden;
@@ -36,14 +37,23 @@ $orange: #FF8C00;
   &__Content {
     margin-bottom: 40px;
     font-size: 15px;
+    > label {
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 3px;
+    }
     &__Field {
       height: 40px;
       width: 350px;
       margin-bottom: 5px;
       padding: 5px;
+      border: solid 1px #A4A8B1;
+      border-radius: 3px;
       &--Large {
         width: 350px;
         padding: 5px;
+        border: solid 1px #A4A8B1;
+        border-radius: 3px;
       }
     }
   }
@@ -104,6 +114,12 @@ $orange: #FF8C00;
 .Edit_profile_form {
   width: 350px;
   margin: 5px auto 0;
+  font-size: 15px;
+  .Profile_label {
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 3px;
+  }
   &__Btn{
     width: 90px;
     font-size: 14px;

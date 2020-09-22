@@ -15,19 +15,30 @@ $gray2: #CBD0D3;
   &__Content {
     margin-bottom: 40px;
     font-size: 15px;
+    label {
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 3px;
+    }
     &__Field {
       height: 45px;
       width: 450px;
       margin-bottom: 5px;
       padding: 5px;
+      border: solid 1px #A4A8B1;
+      border-radius: 3px;
       &--Large {
         width: 450px;
         padding: 5px;
+        border: solid 1px #A4A8B1;
+        border-radius: 3px;
       }
     }
     select {
       width: 450px;
       height: 45px;
+      border: solid 1px #A4A8B1;
+      border-radius: 3px;
     }
   }
   &__Btn {
