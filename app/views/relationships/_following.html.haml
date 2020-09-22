@@ -11,5 +11,5 @@
     .Follow_profile
       = simple_format(@user.profile)
   - if user_signed_in? && @user != current_user
-    .Follow.Follow_list_btn
+    %div{class: "Follow-#{@user.id} Follow_list_btn"}
       = render "relationships/follow", user: @user
