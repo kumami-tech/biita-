@@ -1,11 +1,12 @@
 $yellow: #ffff80;
-$gray: #f5f5f5;
 $orange1: #FF6D05;
 $orange3: #FFC882;
 $orange: #FF8C00;
+$gray: #f5f5f5;
 $gray1: #A4A8B1;
 $gray2: #B3B8BB;
 $gray3: #D4D6D5;
+$black: #4A4A4A;
 
 @mixin foot() {
   .fa-rotate-270 {
@@ -20,19 +21,23 @@ $gray3: #D4D6D5;
   background-color: $yellow;
   padding: 0 150px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-  &__Bar {
+  &__Content {
     width: 1140px;
     height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: auto;
-    &__Content{
-      height: 60px;
-      display: flex;
-      align-items: center;
+    .Header_title {
+      height: 70px;
+      width: 400px;
+      color: black;
+      font-size: 33px;
+      font-weight: bold;
+      line-height: 70px;
+      @include foot()
     }
-    &__Search{
+    .Header_search_btns{
       width: 340px;
       font-size: 15px;
       display: flex;
@@ -72,34 +77,20 @@ $gray3: #D4D6D5;
         width: 50%;
       }
     }
-    &__Title {
-      height: 70px;
-      width: 400px;
-      color: black;
-      font-size: 33px;
-      font-weight: bold;
-      line-height: 70px;
-      @include foot()
-    }
-    &__Btns {
+    .Header_btns {
       color: black;
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      .Left {
-        margin-left: 0;
-      }
-      .Right {
-        margin: auto 0;
-      }
-      &__Btn {
+      .Header_btn {
         color: black;
         font-size: 14px;
         font-weight: bold;
         display: flex;
         align-items: center;
         margin-left: 25px;
-        &--icon {
+        cursor: pointer;
+        i {
           font-size: 28px;
           line-height: 40px;
           padding: 6px 0;
@@ -119,24 +110,37 @@ $gray3: #D4D6D5;
           height: 40px;
           border-radius: 50%;
           object-fit: cover;
-          margin: auto 0;
         }
-      }
-      .Menu_box_right {
-        margin-left: 25px;
       }
       .Menu {
-        padding-top: 5px;
+        background-color: white;
+        border: solid 1px $gray3;
         display: none;
         position: absolute;
+        top: 55px;
+        right: 150px;
         z-index: 2;
+        box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
         &__Content {
-          padding: 7px 15px;
+          padding: 8px 15px;
           font-size: 14px;
-          background-color: $gray;
+          display: flex;
+          color: $black;
+          > i {
+            width: 25px;
+            font-size: 17px;
+            padding-top: 2px;
+            margin-right: 5px;
+            display: inline-block;
+          }
+          .fa-user {
+            padding-left: 2px;
+          }
+          .fa-sign-out-alt {
+            padding-left: 1px;
+          }
         }
         &__Content:hover {
-          padding: 7px 15px;
           background-color: $orange3;
           font-size: 14px;
         }
@@ -144,9 +148,6 @@ $gray3: #D4D6D5;
           text-decoration: none;
           color: black;
         }
-      }
-      .Menu_box:hover .Menu {
-        display: inline-block;
       }
     }
   }
