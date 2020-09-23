@@ -52,7 +52,19 @@ $gray3: #D4D6D5;
       line-height: 60px;
       margin: auto 0;
       position: absolute;
+      top: 13px;
       right: 0;
+      .White_btn {
+        width: 155px;
+        height: 36px;
+        &__Content {
+          line-height: 18px;
+          i {
+            font-size: 17px;
+            line-height: 32px;
+          }
+        }
+      }
     }
   }
 }

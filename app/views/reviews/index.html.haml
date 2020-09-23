@@ -10,8 +10,10 @@
       = link_to "ツアーキャスト(#{@review_cs.count})", "#", class: "Position_r__Name"
     - unless user_signed_in? && current_user.id == @user.id
       = link_to new_user_review_path(@user), class: "Write_review" do
-        = icon('fas', 'pen', class: 'Review_icon')
-        %span レビューを書く
+        .White_btn
+          .White_btn__Content
+            = icon('fas', 'pen', class: 'Review_icon')
+            = "レビューを書く"
 .Wrapper_r
   .Wrapper_r_inner
     .Reviews.Show
