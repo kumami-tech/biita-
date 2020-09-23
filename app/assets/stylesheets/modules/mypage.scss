@@ -2,6 +2,7 @@ $orange: #FF8C00;
 $gray1: #A4A8B1;
 $gray2: #B3B8BB;
 $gray3: #D4D6D5;
+$blue: #3273dc;
 
 @mixin texthidden() {
   overflow: hidden;
@@ -143,6 +144,7 @@ $gray3: #D4D6D5;
                   line-height: 19.45px;
                   margin: auto 20px auto 0;
                   a {
+                    color: $blue;
                     font-size: 15px;
                   }
                 }
@@ -152,9 +154,6 @@ $gray3: #D4D6D5;
                 .Mypage_follow_count {
                   font-size: 15px;
                   margin-right: 20px;
-                  a {
-                    color: #4A4A4A;
-                  }
                   span {
                     font-size: 17px;
                     font-weight: bold;

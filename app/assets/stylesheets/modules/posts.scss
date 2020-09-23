@@ -2,6 +2,7 @@ $orange: #FF8C00;
 $gray1:  #A4A8B1;
 $gray2: #CBD0D3;
 $black: #4A4A4A;
+$blue: #3273dc;
 
 @mixin texthidden() {
   overflow: hidden;
@@ -285,15 +286,15 @@ $black: #4A4A4A;
         }
       }
     }
+    > a {
+      color: $blue;
+    }
     &__Follow_counts {
       display: flex;
       justify-content: center;
       margin: 10px auto 30px;
       .Follow_count {
         font-size: 14px;
-        a {
-          color: $black;
-        }
         span {
           font-size: 16px;
           font-weight: bold;
@@ -322,9 +323,6 @@ $black: #4A4A4A;
         color: $orange;
         font-size: 28px;
         margin-right: 5px;
-      }
-      > a {
-        color: $black;
       }
       .Taker_box {
         width: 160px;
