@@ -1,56 +1,9 @@
 .Header
-  .Header__Bar
-    .Header__Bar__Content
-      %h1
-        = link_to "/", class: "Header__Bar__Title" do
-          %i.fas.fa-shoe-prints.fa-rotate-270.fa-orange
-          %span Biita!
-    .Header__Bar__Search
-      = link_to "ツアーゲストを探す", posts_g_index_path, class: "Btns__btn"
-      = link_to "ツアーキャストを探す", posts_c_index_path, class: "Btns__btn"
-    .Header__Bar__Btns
-      .Menu_box
-        .Header__Bar__Btns__Btn.Left
-          = icon('far', 'edit',  class: "Header__Bar__Btns__Btn--icon")
-        .Menu
-          =link_to new_posts_g_path do
-            .Menu__Content
-              ツアーゲストとして投稿する
-          =link_to new_posts_c_path do
-            .Menu__Content
-              ツアーキャストとして投稿する
-      - if user_signed_in?
-        .Header__Bar__Btns__Btn
-          = link_to groups_path do
-            = icon('far', 'paper-plane', class: "Header__Bar__Btns__Btn--icon Link")
-        .Header__Bar__Btns__Btn
-          = link_to notifications_path do
-            - if unchecked_notifications.any?
-              %span.fa-stack
-                = icon('far', 'bell',  class: "fa-stack-2x Link")
-                = icon('fas', 'circle',  class: "fa-stack-1x")
-            - else
-              = icon('far', 'bell', class: "Header__Bar__Btns__Btn--icon Bell Link")
-        .Menu_box.Menu_box_right
-          .Header__Bar__Btns__Btn.Right
-            - if current_user.profile_image?
-              = image_tag current_user.profile_image.url, class: "Header__Bar__Btns__Btn__Image"
-            - else
-              = image_tag "no-image.jpg", class: "Header__Bar__Btns__Btn__Image"
-          .Menu
-            =link_to user_path(current_user.id) do
-              .Menu__Content
-                マイページ
-            =link_to edit_user_registration_path do
-              .Menu__Content
-                アカウントを編集する
-            =link_to users_sign_out_path, method: :delete, data: { confirm: "ログアウトしますか？" } do
-              .Menu__Content
-                ログアウト
-      - else
-        =link_to new_user_registration_path do
-          .Header__Bar__Btns__Btn
-            新規登録
-        =link_to new_user_session_path do
-          .Header__Bar__Btns__Btn
-            ログイン
+  .Header__Content
+    = link_to "/", class: "Header_title" do
+      %i.fas.fa-shoe-prints.fa-rotate-270.fa-orange
+      %span Biita!
+    .Header_search_btns
+      = link_to "ツアーゲストを探す", posts_g_index_path
+      = link_to "ツアーキャストを探す", posts_c_index_path
+    = render "layouts/header_btns"

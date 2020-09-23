@@ -5,7 +5,9 @@
       %br/
       = f.text_field :title, autofocus: true, class: "Post_form__Content__Field"
     .Post_form__Content.Text
-      = f.label "タグ　※スペースかカンマで区切ってください"
+      = f.label "タグ"
+      %span
+        = "※スペースかカンマで区切ってください"
       %br/
       = f.text_field :tag_list, value: @post.tag_list.join(' '), class: "Post_form__Content__Field"
     .Post_form__Content.Text
@@ -28,4 +30,4 @@
       = f.label "リクエスト内容"
       %br/
       = f.text_area :content, rows: "15", class: "Post_form__Content__Field--Large"
-    = f.submit "投稿", class: "Post_form__Btn Text"
+    = f.submit "投稿", class: "Post_form__Btn Btn Text"

@@ -1,5 +1,6 @@
 $orange1: #FF6D05;
 $orange2: #ffa500;
+$orange: #FF8C00;
 $gray1: #A4A8B1;
 $gray2: #B3B8BB;
 $gray3: #D4D6D5;
@@ -9,19 +10,31 @@ $gray3: #D4D6D5;
   display: flex;
   justify-content: center;
   margin: 25px auto 0;
-  margin-bottom: 15px;
   .Follow_tab {
-    height: 33px;
-    width: 140px;
+    height: 40px;
+    width: 440px;
     text-align: center;
     font-weight: bold;
     color: gray;
-    margin: 0 20px;
+    border-bottom: 2px solid $gray3;
     display: block;
   }
   .Active {
-    color: $orange1;
-    border-bottom: solid 2px $orange1;
+    color: $orange;
+    border-bottom: solid 2px $orange;
+  }
+}
+
+.Following {
+  font-weight: bold;
+  line-height: 35px;
+  color: white;
+  background-color: $orange;
+  a {
+    color: white;
+  }
+  &:hover {
+    color: white;
   }
 }
 

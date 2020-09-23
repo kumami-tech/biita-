@@ -1,14 +1,17 @@
-$orange1: #FF6D05;
-$orange2: #ffa500;
-$orange3: #FFE2B2;
-$orange4: #FFC882;
+$orange: #FF8C00;
 $gray1:  #A4A8B1;
 $gray2: #CBD0D3;
+$black: #4A4A4A;
+$blue: #3273dc;
 
 @mixin texthidden() {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+@mixin shadow() {
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
 }
 
 // NEW
@@ -18,30 +21,34 @@ $gray2: #CBD0D3;
   &__Content {
     margin-bottom: 40px;
     font-size: 15px;
+    label {
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 3px;
+    }
     &__Field {
       height: 45px;
       width: 450px;
       margin-bottom: 5px;
       padding: 5px;
+      border: solid 1px $gray1;
+      border-radius: 3px;
       &--Large {
         width: 450px;
         padding: 5px;
+        border: solid 1px $gray1;
+        border-radius: 3px;
       }
     }
     select {
       width: 450px;
       height: 45px;
+      border: solid 1px $gray1;
+      border-radius: 3px;
     }
   }
   &__Btn {
-    width: 100px;
-    background-color: $orange2;
-    color: white;
-    padding: 10px 15px;
-    border-style: none;
-    display: block;
     margin: 60px auto 30px;
-    cursor: pointer;
   }
 }
 
@@ -78,11 +85,11 @@ $gray2: #CBD0D3;
               border-bottom: solid 2px silver;
             }
             &__Text:focus {
-              border-bottom: solid 2px $orange1;
+              border-bottom: solid 2px $orange;
             }
             &__Text:focus ~
             .Keyword__Form__Input__Btn{
-              color: $orange1;
+              color: $orange;
             }
             &__Btn {
               color: silver;
@@ -99,7 +106,7 @@ $gray2: #CBD0D3;
       .Tag_list {
         .tag {
           font-size: 14px;
-          color: $orange1;
+          color: $orange;
           margin-right: 5px;
           margin-bottom: 10px;
         }
@@ -114,13 +121,13 @@ $gray2: #CBD0D3;
 
 // INDEX, USERS#SHOW
 .Post_box {
-  color: #4a4a4a;
+  color: $black;
   width: 880px;
   border: solid 1px silver;
-  border-radius: 20px;
+  border-radius: 30px;
   padding: 25px 40px;
   margin-bottom: 20px;
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  @include shadow();
   display: flex;
   // ユーザー情報
   &__Left {
@@ -180,7 +187,7 @@ $gray2: #CBD0D3;
     .Tag_list {
       margin: 5px 0;
       .tag {
-        color: $orange1;
+        color: $orange;
       }
     }
     &__Text {
@@ -272,12 +279,15 @@ $gray2: #CBD0D3;
         }
         .Front {
           position: absolute;
-          top: 0px;
+          top: 0;
           left: 0;
           object-fit: cover;
           object-position: 0% 0%;
         }
       }
+    }
+    > a {
+      color: $blue;
     }
     &__Follow_counts {
       display: flex;
@@ -285,9 +295,6 @@ $gray2: #CBD0D3;
       margin: 10px auto 30px;
       .Follow_count {
         font-size: 14px;
-        a {
-          color: #4A4A4A;
-        }
         span {
           font-size: 16px;
           font-weight: bold;
@@ -298,17 +305,10 @@ $gray2: #CBD0D3;
       }
     }
     .Btns {
-      width: 160px;
       margin: 0 auto;
       a {
         font-size: 15px;
       }
-    }
-    .Following {
-      font-weight: bold;
-      color: white;
-      background-color: $orange2;
-      border: solid 1px $orange2;
     }
     // 申込済みのユーザー
     .Takers {
@@ -320,12 +320,9 @@ $gray2: #CBD0D3;
         margin: 15px auto;
       }
       .Taker_icon {
-        color: $orange1;
+        color: $orange;
         font-size: 28px;
         margin-right: 5px;
-      }
-      > a {
-        color: black;
       }
       .Taker_box {
         width: 160px;
@@ -351,17 +348,17 @@ $gray2: #CBD0D3;
   .Post_main__Box {
     width: 99%;
     border: solid 1px silver;
-    border-radius: 20px;
+    border-radius: 30px;
     padding: 30px 50px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    margin: 0 10px 10px 0;
+    @include shadow();
+    margin: 5px 10px 10px 0;
     position: relative;
     .Post_bookmark--Icon {
       position: absolute;
       top: 30px;
       right: 50px;
       font-size: 35px;
-      color: $orange1;
+      color: $orange;
       cursor: pointer;
     }
     .Post_show_title {
@@ -373,7 +370,7 @@ $gray2: #CBD0D3;
     .Tag_list {
       text-align: center;
       .tag {
-        color: $orange1;
+        color: $orange;
       }
     }
     .Post_table {
@@ -412,16 +409,16 @@ $gray2: #CBD0D3;
   // 申込ボタン
   .Taken_btn {
     width: 270px;
-    color: $orange2;
+    color: $orange;
     text-align: center;
     padding: 10px 30px;
-    border: solid 1px $orange2;
+    border: solid 1px $orange;
     display: block;
     margin: 50px auto 30px;
   }
   .Take_btn {
     width: 170px;
-    background-color: $orange2;
+    background-color: $orange;
     color: white;
     text-align: center;
     padding: 10px 30px;

@@ -12,7 +12,7 @@ $gray2: #B3B8BB;
       display: flex;
       justify-content: start;
       position: relative;
-      &__User_image{
+      .Side_bar_user_image{
         height: 65px;
         width: 65px;
         border-radius: 50%;
@@ -20,23 +20,26 @@ $gray2: #B3B8BB;
         margin: auto 15px auto 0;
         display: block;
       }
-      &__Text{
+      .Side_bar_text{
         width: 100%;
         margin: auto 0;
-        &__Info{        
+        &__Upper {
+          font-size: 13px;
           margin-bottom: 3px;
           display: flex;
           justify-content: space-between;
-          &__Name{
+          .Side_bar_user_name{
             font-weight: bold;
+            margin-bottom: 3px;
           }
-          &__Time{
+          .Side_bar_time{
             font-size: 12px;
             color: #7B7D7F;
           }
         }
-        &__Message{
+        .Side_bar_message{
           width: 100%;
+          font-size: 13px;
           max-height: 36px;
           overflow: hidden;
           display: -webkit-box;

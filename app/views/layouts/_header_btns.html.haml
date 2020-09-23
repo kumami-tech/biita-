@@ -1,0 +1,50 @@
+.Header_btns
+  .Header_btn#Post_btn
+    = icon('far', 'edit')
+  .Menu#Post_menu
+    =link_to new_posts_g_path do
+      .Menu__Content
+        = icon('fas', 'edit')
+        = "ツアーゲストとして投稿する"
+    =link_to new_posts_c_path do
+      .Menu__Content
+        = icon('fas', 'edit')
+        = "ツアーキャストとして投稿する"
+  - if user_signed_in?
+    .Header_btn
+      = link_to groups_path do
+        = icon('far', 'paper-plane', class: "Link")
+    .Header_btn
+      = link_to notifications_path do
+        - if unchecked_notifications.any?
+          %span.fa-stack
+            = icon('far', 'bell',  class: "fa-stack-2x Link")
+            = icon('fas', 'circle',  class: "fa-stack-1x")
+        - else
+          = icon('far', 'bell', class: "Bell Link")
+    .Header_btn#Header_user_image
+      - if current_user.profile_image?
+        = image_tag current_user.profile_image.url, class: "Header_btn__Image"
+      - else
+        = image_tag "no-image.jpg", class: "Header_btn__Image"
+    .Menu#User_menu
+      =link_to user_path(current_user.id) do
+        .Menu__Content
+          = icon('fas', 'user')
+          = "マイページ"
+      =link_to edit_user_registration_path do
+        .Menu__Content
+          = icon('fas', 'user-edit')
+          = "アカウントを編集する"
+      =link_to users_sign_out_path, method: :delete, data: { confirm: "ログアウトしますか？" } do
+        .Menu__Content
+          = icon('fas', 'sign-out-alt')
+          = "ログアウト"
+
+  - else
+    =link_to new_user_registration_path do
+      .Header_btn
+        新規登録
+    =link_to new_user_session_path do
+      .Header_btn
+        ログイン

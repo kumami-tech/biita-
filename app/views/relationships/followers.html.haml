@@ -13,7 +13,6 @@
       %br
       = "ユーザーはいません"
   - else
-    %hr
     = render partial: 'following', collection: @followings
 
 .Follow_list.Show
@@ -21,9 +20,6 @@
     .Empty
       = image_tag "foot.jpg", width: "120px"
       %br
-      = "フォロー中の"
-      %br
-      = "ユーザーはいません"
+      = "フォロワーはいません"
   - else
-    %hr
     = render partial: 'follower', collection: @followers

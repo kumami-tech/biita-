@@ -1,26 +1,10 @@
-$orange1: #FF6D05;
-$orange2: #ffa500;
+$orange: #FF8C00;
+$gray1: #A4A8B1;
 
 @mixin texthidden() {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-}
-
-.Text {
-  font-size: 14px;
-}
-
-.Text_s {
-  font-size: 12px;
-}
-
-.Bold {
-  font-weight: bold;
-}
-
-.Link {
-  color: black;
 }
 
 
@@ -37,14 +21,23 @@ $orange2: #ffa500;
   &__Content {
     margin-bottom: 40px;
     font-size: 15px;
+    > label {
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 3px;
+    }
     &__Field {
       height: 40px;
       width: 350px;
       margin-bottom: 5px;
       padding: 5px;
+      border: solid 1px $gray1;
+      border-radius: 3px;
       &--Large {
         width: 350px;
         padding: 5px;
+        border: solid 1px $gray1;
+        border-radius: 3px;
       }
     }
   }
@@ -52,29 +45,34 @@ $orange2: #ffa500;
 
 .Btn {
   width: 100px;
-  background-color: $orange2;
+  background-color: $orange;
   color: white;
+  font-weight: bold;
   padding: 10px 15px;
   border-style: none;
+  border-radius: 5px;
   display: block;
   margin: 50px auto 30px;
   cursor: pointer;
 }
 
 .White_login_btn {
-  width: 180px;
-  color: $orange1;
+  width: 190px;
+  height: 40px;
+  color: $orange;
+  font-weight: bold;
   background-color: white;
-  line-height: 35px;
+  line-height: 37px;
   text-align: center;
-  border: solid 1.3px $orange1;
+  border: solid 1.3px $orange;
+  border-radius: 5px;
   margin: 30px auto;
   display: block;
   text-decoration: none;
   cursor: pointer;
 }
 .White_login_btn:hover {
-  color: $orange1;
+  color: $orange;
 }
 
 
@@ -100,6 +98,12 @@ $orange2: #ffa500;
 .Edit_profile_form {
   width: 350px;
   margin: 5px auto 0;
+  font-size: 15px;
+  .Profile_label {
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 3px;
+  }
   &__Btn{
     width: 90px;
     font-size: 14px;

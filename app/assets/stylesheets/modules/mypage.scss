@@ -1,8 +1,8 @@
-$orange1: #FF6D05;
-$orange2: #ffa500;
+$orange: #FF8C00;
 $gray1: #A4A8B1;
 $gray2: #B3B8BB;
 $gray3: #D4D6D5;
+$blue: #3273dc;
 
 @mixin texthidden() {
   overflow: hidden;
@@ -40,6 +40,15 @@ $gray3: #D4D6D5;
           color: gray;
           display: inline-block;
         }
+        .fa-user {
+          padding-left: 2px;
+        }
+        .fa-check-circle {
+          padding-left: 1px;
+        }
+        .fa-bookmark {
+          padding-left: 4px;
+        }
         span {
           width: 35px;
         }
@@ -54,7 +63,7 @@ $gray3: #D4D6D5;
           width: 10px;
           line-height: 10px;
           font-size: 8px;
-          color: $orange1;
+          color: $orange;
           position: absolute;
           left: 10px;
           top: 9px;
@@ -62,8 +71,11 @@ $gray3: #D4D6D5;
         .Bell {
           width: 35px;
         }
-        .Active1 {
-          color: $orange1;
+      }
+      .Active1 {
+        color: $orange;
+        i {
+          color: $orange;
         }
       }
       .Post_type_btns_title_row {
@@ -122,7 +134,7 @@ $gray3: #D4D6D5;
                   .Front {
                     height: 19.45px;
                     position: absolute;
-                    top: 0px;
+                    top: 0;
                     left: 0;
                     object-fit: cover;
                     object-position: 0% 0%;
@@ -132,6 +144,7 @@ $gray3: #D4D6D5;
                   line-height: 19.45px;
                   margin: auto 20px auto 0;
                   a {
+                    color: $blue;
                     font-size: 15px;
                   }
                 }
@@ -141,9 +154,6 @@ $gray3: #D4D6D5;
                 .Mypage_follow_count {
                   font-size: 15px;
                   margin-right: 20px;
-                  a {
-                    color: #4A4A4A;
-                  }
                   span {
                     font-size: 17px;
                     font-weight: bold;
@@ -151,15 +161,9 @@ $gray3: #D4D6D5;
                 }
               }
               .Mypage_btns {
-                width: 340px;
                 position: absolute;
                 top: 0;
                 right: 0;
-                display: flex;
-                justify-content: flex-end;
-                .Left {
-                  margin-right: 20px;
-                }
               }
             }
           }
@@ -194,8 +198,8 @@ $gray3: #D4D6D5;
             margin: 0 10px;
           }
           .Active2 {
-            color: $orange1;
-            border-bottom: solid 2px $orange1;
+            color: $orange;
+            border-bottom: solid 2px $orange;
           }
         }
         .Mypage_lower__Content {
@@ -223,29 +227,36 @@ $gray3: #D4D6D5;
 }
 
 .White_btn {
-  width: 160px;
-  height: 38px;
-  color: $orange2;
+  width: 190px;
+  height: 40px;
+  color: $orange;
   background-color: white;
   font-weight: bold;
   font-size: 15px;
-  line-height: 35px;
-  border: solid 1.5px $orange2;
-  text-align: center;
+  border: solid 1.5px $orange;
   display: block;
   cursor: pointer;
   outline: none;
   margin-bottom: 20px;
-  &:hover {
-    color: $orange2;
+  display: flex;
+  position: relative;
+  border-radius: 5px;
+  &__Content {
+    margin: 0 auto;
+    line-height: 35px;
+    a {
+      color: $orange;
+    }
+    i {
+      line-height: 35px;
+      font-size: 18px;
+      margin-right: 3px;
+    }
+    .fa-user-check {
+      color: white;
+    }
   }
-}
-.Following {
-  font-weight: bold;
-  line-height: 35px;
-  color: white;
-  background-color: $orange2;
   &:hover {
-    color: white;
+    color: $orange;
   }
 }

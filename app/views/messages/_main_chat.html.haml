@@ -1,17 +1,16 @@
-.Main
-  .Main__Header
+.Message_main
+  .Message_header
     .Title1
       = "#{@user.name}さんとのトークルーム"
-  .Main__content
-    .Main__content__Wrapper
+  .Main_chat
+    .Main_chat__Wrapper
       = render @messages
-  .Main__form
-    = form_with model: [@group, @message], html: {class: "Main__form__Form"}, local: true do |f|
-      .Main__form__contents
-        .Main__form__contents__input
-          = f.text_area :text, class: 'Main__form__contents__input__text'
-          = f.label :image, class: 'Main__form__contents__input__image' do
-            = icon('far', 'image', class: 'Main__form__contents__input__icon')
-            = f.file_field :image, class: 'Main__form__contents__input__image__file'
-        = button_tag type: 'submit', class: "Main__form__contents__btn" do
-          = icon('fas', 'paper-plane')
+  .Message_form
+    = form_with model: [@group, @message], html: {class: "Message_form__Content"}, local: true do |f|
+      .Message_input
+        = f.text_area :text, class: 'Message_input__Text'
+        = f.label :image, class: 'Message_input__Image' do
+          = icon('far', 'image')
+          = f.file_field :image, class: 'Message_file_btn'
+      = button_tag type: 'submit', class: "Message_submit_btn" do
+        = icon('fas', 'paper-plane')

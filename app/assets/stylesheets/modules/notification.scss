@@ -1,5 +1,4 @@
-$orange1: #FF6D05;
-$orange2: #ffa500;
+$orange: #FF8C00;
 $gray1: #A4A8B1;
 $gray2: #B3B8BB;
 $gray3: #D4D6D5;
@@ -68,7 +67,7 @@ hr {
     position: absolute;
     right: 45px;
     bottom: 25px;
-    color: $orange1;
+    color: $orange;
     font-size: 20px;
   }
   .fa-check-circle,
@@ -76,7 +75,7 @@ hr {
     position: absolute;
     right: 42px;
   }
-  .fa-user-plus {
+  > .fa-user-plus {
     position: absolute;
     right: 38px;
   }
