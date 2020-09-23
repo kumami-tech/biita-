@@ -93,7 +93,7 @@ $(function(){
     }
   }
 
-  $('.Main__form__Form').on('submit', function(e){
+  $('.Message_form__Content').on('submit', function(e){
     e.preventDefault();
     let formData = new FormData(this);
     let url = $(this).attr('action');
@@ -107,16 +107,16 @@ $(function(){
     })
     .done(function(data){
       let html = buildHTML(data);
-      $('.Main__content__Wrapper').append(html);
-      $('.Main__content').animate({ scrollTop: $('.Main__content')[0].scrollHeight});
+      $('.Main_chat__Wrapper').append(html);
+      $('.Main_chat').animate({ scrollTop: $('.Main_chat')[0].scrollHeight});
       $('form')[0].reset();
-      $('.Main__form__contents__btn').prop('disabled', false);
+      $('.Message_submit_btn').prop('disabled', false);
     })
     .fail(function() {
       alert("メッセージを入力してください");
-      $('.Main__form__contents__btn').prop('disabled', false);
+      $('.Message_submit_btn').prop('disabled', false);
     })
   });
 
-  $('.Main__content').animate({ scrollTop: $('.Main__content')[0].scrollHeight});
+  $('.Main_chat').animate({ scrollTop: $('.Main_chat')[0].scrollHeight});
 });

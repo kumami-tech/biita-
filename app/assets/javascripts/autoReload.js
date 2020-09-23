@@ -107,8 +107,8 @@ $(function(){
         $.each(messages, function(i, message) {
           insertHTML += buildHTML(message)
         });
-        $('.Main__content__Wrapper').append(insertHTML);
-        $('.Main__content').animate({ scrollTop: $('.Main__content')[0].scrollHeight});
+        $('.Main_chat__Wrapper').append(insertHTML);
+        $('.Main_chat').animate({ scrollTop: $('.Main_chat')[0].scrollHeight});
       }
     })
     .fail(function() {

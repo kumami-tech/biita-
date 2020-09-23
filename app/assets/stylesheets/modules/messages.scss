@@ -22,15 +22,15 @@ $gray2: #CBD0D3;
   overflow: scroll;
 }
 
-.Main {
+.Message_main {
   height: calc(100vh - 60px);
   width: 80vw;
-  &__Header {
+  .Message_header {
     width: 80vw;
     height: 50px;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   }
-  &__content {
+  .Main_chat {
     width: 80vw;
     height: calc(100vh - 200px);
     overflow: scroll;
@@ -39,23 +39,21 @@ $gray2: #CBD0D3;
       padding: 15px 0px 0px 80px;
     }
   }
-  &__form {
+  .Message_form {
     height: 90px;
     width: 100%;
     border-top: solid 1px $gray2;
     display: flex;
     align-items: center;
-    &__Form {
+    &__Content {
       width: 100%;
       padding-left: 80px;
       padding-right: 150px;
-    }
-    &__contents {
       height: 40px;
       width: 100%;
       display: flex;
       justify-content: space-between;
-      &__input {
+      .Message_input {
         height: 40px;
         width: 100%;
         display: flex;
@@ -64,7 +62,7 @@ $gray2: #CBD0D3;
         .field_with_errors {
           display: contents;
         }
-        &__text {
+        &__Text {
           background-color: #F4F4F4;
           height: 40px;
           width: 100%;
@@ -72,16 +70,16 @@ $gray2: #CBD0D3;
           padding: 7px 35px 0 10px;
           outline: none;
         }
-        &__image {
+        &__Image {
           position: absolute;
           right: 10px;
           cursor: pointer;
-          &__file {
+          .Message_file_btn {
             display: none;
           }
         }
       }
-      &__btn {
+      .Message_submit_btn {
         color: $orange;
         background-color: white;
         font-size: 30px;
