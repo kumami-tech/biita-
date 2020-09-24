@@ -14,17 +14,21 @@
  *= require_self
  */
 
- @import "bulma";
- @import "reset";
- @import "modules/header_footer";
- @import "modules/user";
- @import "modules/home";
- @import "modules/mypage.scss";
- @import "modules/posts";
- @import "modules/messages";
- @import "modules/reviews";
- @import "modules/side_bar.scss";
- @import "modules/notification.scss";
- @import "modules/relationships.scss";
- @import "font-awesome-sprockets";
- @import "font-awesome";
+@import "bulma";
+@import "reset";
+@import "modules/base";
+@import "modules/header_footer";
+@import "modules/user";
+@import "modules/home";
+@import "modules/mypage.scss";
+@import "modules/posts";
+@import "modules/messages";
+@import "modules/reviews";
+@import "modules/side_bar.scss";
+@import "modules/notification.scss";
+@import "modules/relationships.scss";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+
+@import "breakpoints/600up";

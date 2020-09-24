@@ -1,0 +1,17 @@
+$content_width_s: 82vw;
+
+
+@media (max-width: 700px) {
+
+  html{
+    font-size: 50%;
+  }
+
+
+  .Wrapper {
+    height: calc(100vh - 50px);
+    overflow: scroll;
+  }
+
+
+}
