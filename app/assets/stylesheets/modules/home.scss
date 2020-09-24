@@ -4,126 +4,103 @@ $orange2: #ffa500;
 $orange: #FF8C00;
 $black: #4A4A4A;
 
-.Wrapper {
-  height: calc(100vh - 60px);
-  overflow: scroll;
-  &__Inner {
-    padding: 30px 0;
-    width: 880px;
-    margin: 0 auto;
-  }
-}
-
-.Title {
-  font-size: 18px;
-  font-weight: bold;
-  text-decoration: underline;
-  margin-bottom: 15px;
-}
-
-.Bold {
-  font-weight: bold;
-}
-
-a {
-  color: $black;
-}
-a:hover {
-  color: $black;
-}
-
-.Text {
-  font-size: 14px;
-}
-
-.Text_s {
-  font-size: 12px;
-}
-
-
-
-
 .Home_upper {
-  width: 100%;
-  min-height: calc(100vh - 210px);
+  width: 100vw;
+  height: 100vh;
+  max-height: 730px;
   background-color: $yellow;
   &__Content {
-    width: 1140px;
-    min-height: calc(100vh - 210px);
+    width: 79vw;
+    height: 730px;
     display: flex;
     justify-content: space-between;
     margin: 0px auto;
     padding: 70px 0;
     .Home_images {
-      width: 610px;
-      height: 610px;
-      display: flex;
-      flex-wrap: wrap;
+      width: 51%;
       .Home_image {
-        width: 270px;
-        height: 270px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin: 0 35px 35px 0;
-      }
-    }
-    .Home_text {
-      width: 480px;
-      height: 242px;
-      margin-top: 160px;
-      &__Title {
-        color: $orange1;
-        font-weight: bold;
-        font-size: 28px;
-        margin-left: 3px;
-      }
-      &__Introduction {
-        font-weight: bold;
-        line-height: 35px;
-        margin: 30px 0 40px;
-        margin-left: 3px;
-        span {
-          font-size: 18px;
+        width: 46%;
+        height: 46%;
+        min-width: 137px;
+        min-height: 137px;
+        img {
+          border-radius: 50%;
+          object-fit: cover;
         }
       }
-      .Home_btns {
-        width: 420px;
-        display: flex;
-        justify-content: space-between;
-        .Home_btn {
-          width: 200px;
-          height: 50px;
-          background-color: $orange;
-          color: white;
+      .Margin_right {
+        width: 8%;
+        min-width: 16px;
+      }
+      .Margin_bottom {
+        height: 6%;
+        min-height: 14px;
+      }
+    }
+    .Home_right {
+      width: 42%;
+      min-width: 296px;
+      .Home_text {
+        width: calc(100vw / 3);
+        height: 40%;
+        min-width: 307.5px;
+        margin-top: 11vw;
+        &__Title {
+          color: $orange1;
           font-weight: bold;
-          line-height: 50px;
-          border-radius: 10px;
-          text-align: center;
-          cursor: pointer;
+          font-size: 2.8rem;
+          margin-left: 3px;
+        }
+        &__Introduction {
+          font-weight: bold;
+          line-height: 3.5rem;
+          margin: 30px 0 40px;
+          margin-left: 3px;
+          span {
+            font-size: 1.8rem;
+          }
+        }
+        .Home_btns {
+          width: 29vw;
+          min-width: 296px;
+          display: flex;
+          justify-content: space-between;
+          .Home_btn {
+            width: 200px;
+            height: 50px;
+            background-color: $orange;
+            color: white;
+            font-weight: bold;
+            line-height: 50px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+          }
         }
       }
     }
-  }
+    }
 }
 .Home_lower {
-  width: 100%;
+  width: 100vw;
   background-color: white;
   padding: 70px 0 80px;
   &__Content {
-    width: 1140px;
+    width: 79vw;
     margin: 0 auto;
     .Merits_title {
-      font-size: 24px;
+      font-size: 2.4rem;
       font-weight: bold;
       color: $orange;
       text-align: center;
       margin-bottom: 60px;
       span {
-        font-size: 26px;
+        font-size: 2.7rem;
       }
     }
     .Merits {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       .Merit {
         width: 250px;
@@ -137,11 +114,11 @@ a:hover {
           margin: 0 auto;
         }
         &__Title {
-          font-size: 19px;
+          font-size: 1.9rem;
           font-weight: bold;
           margin: 20px auto 15px;
           span {
-            font-size: 21px;
+            font-size: 2.1rem;
           }
         }
         &__Content {
@@ -149,6 +126,84 @@ a:hover {
           margin: 0 auto;
           text-align: left;
           line-height: 30px;
+        }
+      }
+    }
+  }
+}
+
+
+
+// ===============レスポンシブ=================
+
+
+$content_width_s: 82vw;
+
+
+@media (max-width: 700px) {
+
+  .Home_upper {
+    height: calc(300px + 66vw);
+    &__Content {
+      width: $content_width_s;
+      height: 100%;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 20px 0 35px;
+      .Home_images {
+        width: 100%;
+        margin: 0 auto;
+      }
+      .Home_right {
+        width: 100%;
+        margin-top: 5vw;
+        .Home_text {
+          width: 100%;
+          margin-top: 0px;
+          &__Title {
+            font-size: 2.6rem;
+          }
+          &__Introduction {
+            font-size: 1.5rem;
+            margin: 15px 0 20px 3px;
+            span {
+              font-size: 1.7rem;
+            }
+          }
+          .Home_btns {
+            width: 100%;
+            min-width: 307.5px;
+            margin: 0 auto;
+            .Home_btn {
+              width: 48%;
+              height: 40px;
+              font-size: 1.5rem;
+              line-height: 40px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .Home_lower {
+    padding: 35px 0;
+    &__Content {
+      .Merits_title {
+        font-size: 2.3rem;
+        margin-bottom: 15px;
+        span {
+          font-size: 2.5rem;
+        }
+      }
+      .Merits {
+        .Merit {
+          margin: 15px auto 10px;
+          &__Title {
+            margin: 10px auto;
+          }
+          &__Content {
+            line-height: 3rem;
+          }
         }
       }
     }
