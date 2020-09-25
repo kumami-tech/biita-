@@ -1,41 +1,42 @@
 = link_to posts_c_path(post) do
-  .Post_box
-    .Post_box__Left
-      .Post_box__Left__Image
-        - if post.giver.profile_image?
-          = image_tag post.giver.profile_image.url, class: "Post_box__Left__Image"
-        - else
-          = image_tag "no-image.jpg", class: "Post_box__Left__Image"
-      .Post_box__Left__Other
-        .Post_index_username
-          = post.giver.name
-        .Post_index_review
-          .Star_rating
-            = image_tag "stars.jpg", class: "Front", width: "#{post.giver.avg_score*20}%"
-            = image_tag "stars_gray.jpg"
-          .Review_info
-            = post.giver.avg_score
-        .Text
-          = "(#{post.giver.reviews.count}件のレビュー)"
-    .Post_box__Right
-      .Post_box__Right__Title
-        = post[:title]
-      .Tag_list
-        - post.tag_list.each do |tag|
-          .tag.Text
-            = tag
-      .Post_box__Right__Text.Text
-        .table
-          .tr
-            .th 場所
-            .td
-              = post.region
-          .table_lower
+  .Post_box_outer
+    .Post_box
+      .Post_box__Left
+        .Post_box__Left__Image
+          - if post.giver.profile_image?
+            = image_tag post.giver.profile_image.url, class: "Post_box__Left__Image"
+          - else
+            = image_tag "no-image.jpg", class: "Post_box__Left__Image"
+        .Post_box__Left__Other
+          .Post_index_username
+            = post.giver.name
+          .Post_index_review
+            .Star_rating
+              = image_tag "stars.jpg", class: "Front", width: "#{post.giver.avg_score*20}%"
+              = image_tag "stars_gray.jpg"
+            .Review_info
+              = post.giver.avg_score
+          .Text
+            = "(#{post.giver.reviews.count}件のレビュー)"
+      .Post_box__Right
+        .Post_box__Right__Title
+          = post[:title]
+        .Tag_list
+          - post.tag_list.each do |tag|
+            .tag.Text
+              = tag
+        .Post_box__Right__Text.Text
+          .table
             .tr
-              .th 日時
-              .td_date
-                = post.datetime
-            .tr
-              .th 料金
-              .td_charge
-                = post.charge
+              .th 場所
+              .td
+                = post.region
+            .table_lower
+              .tr
+                .th 日時
+                .td_date
+                  = post.datetime
+              .tr
+                .th 料金
+                .td_charge
+                  = post.charge
