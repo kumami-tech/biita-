@@ -1,14 +1,14 @@
-.Header_btns
+.Header_btns.Header_btns_l
   .Header_btn#Post_btn
     = icon('far', 'edit')
   .Menu#Post_menu
     =link_to new_posts_g_path do
       .Menu__Content
-        = icon('fas', 'edit')
+        = icon('fas', 'chevron-right')
         = "ツアーゲストとして投稿する"
     =link_to new_posts_c_path do
       .Menu__Content
-        = icon('fas', 'edit')
+        = icon('fas', 'chevron-right')
         = "ツアーキャストとして投稿する"
   - if user_signed_in?
     .Header_btn
@@ -48,3 +48,80 @@
     =link_to new_user_session_path do
       .Header_btn
         ログイン
+
+
+
+-# ===============レスポンシブ=================
+
+.Header_btns.Header_btns_s
+  .Header_btn.Left#Post_btn_s
+    = icon('fas', 'edit')
+  .Menu#Post_menu_s
+    =link_to new_posts_g_path do
+      .Menu__Content
+        = icon('fas', 'chevron-right')
+        = "ツアーゲストとして投稿する"
+    =link_to new_posts_c_path do
+      .Menu__Content
+        = icon('fas', 'chevron-right')
+        = "ツアーキャストとして投稿する"
+
+  .Header_btn.Left#Search_btn
+    = icon('fas', 'search')
+  .Menu#Search_menu
+    = link_to posts_g_index_path do
+      .Menu__Content
+        = icon('fas', 'chevron-right')
+        = "ツアーゲストを探す"
+    = link_to posts_c_index_path do
+      .Menu__Content
+        = icon('fas', 'chevron-right')
+        = "ツアーキャストを探す"
+
+  - if user_signed_in?
+    -# .Header_btn#Menu_btn
+    -#   = icon('fas', 'bars')
+    .Header_btn.Right#Header_user_image_s
+      - if current_user.profile_image?
+        = image_tag current_user.profile_image.url, class: "Header_btn__Image"
+      - else
+        = image_tag "no-image.jpg", class: "Header_btn__Image"
+    .Menu#Menu_login
+      =link_to user_path(current_user.id) do
+        .Menu__Content
+          = icon('fas', 'user')
+          = "マイページ"
+      = link_to groups_path do
+        .Menu__Content
+          = icon('fas', 'paper-plane')
+          = "トークルーム"
+      = link_to notifications_path do
+        .Menu__Content
+          - if unchecked_notifications.any?
+            %span.fa-stack
+              = icon('fas', 'bell',  class: "fa-stack-2x")
+              = icon('fas', 'circle',  class: "fa-stack-1x")
+          - else
+            = icon('fas', 'bell', class: 'Bell')
+          = "通知"
+      =link_to edit_user_registration_path do
+        .Menu__Content
+          = icon('fas', 'user-edit')
+          = "アカウントを編集する"
+      =link_to users_sign_out_path, method: :delete, data: { confirm: "ログアウトしますか？" } do
+        .Menu__Content
+          = icon('fas', 'sign-out-alt')
+          = "ログアウト"
+
+  - else
+    .Header_btn#Menu_btn
+      = icon('fas', 'bars')
+    .Menu#Menu_logout
+      = link_to new_user_registration_path do
+        .Menu__Content
+          = icon('fas', 'user-plus')
+          = "新規登録"
+      = link_to new_user_session_path do
+        .Menu__Content
+          = icon('fas', 'sign-in-alt')
+          = "ログイン"

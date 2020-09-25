@@ -18,10 +18,9 @@ $black: #4A4A4A;
 
 .Header {
   background-color: $yellow;
-  padding: 0 150px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
   &__Content {
-    width: 1140px;
+    width: 79vw;
     height: 60px;
     display: flex;
     justify-content: space-between;
@@ -29,16 +28,17 @@ $black: #4A4A4A;
     margin: auto;
     .Header_title {
       height: 70px;
-      width: 400px;
+      width: 28%;
       color: black;
-      font-size: 33px;
+      font-size: 3.3rem;
       font-weight: bold;
       line-height: 70px;
+      display: block;
       @include foot()
     }
     .Header_search_btns{
       width: 340px;
-      font-size: 15px;
+      font-size: 1.5rem;
       display: flex;
       justify-content: space-between;
       position: absolute;
@@ -83,27 +83,38 @@ $black: #4A4A4A;
       align-items: center;
       .Header_btn {
         color: black;
-        font-size: 14px;
+        font-size: 1.4rem;
         font-weight: bold;
         display: flex;
         align-items: center;
         margin-left: 25px;
         cursor: pointer;
         i {
-          font-size: 28px;
+          font-size: 2.8rem;
           line-height: 40px;
           padding: 6px 0;
           color: black;
+        }
+        .fa-stack {
+          position: relative;
+          .fa-stack-2x::before {
+            height: 29px;
+            position: absolute;
+            top: -6px;
+            left: 5px;
+          }
         }
         .Bell {
           margin: 0 5px;
         }
         .fa-circle {
-          font-size: 12px;
+          width: 13px;
+          height: 13px;
+          font-size: 1.2rem;
           color: $orange1;
           position: absolute;
-          left: 10px;
-          top: 9px;
+          left: 20px;
+          top: -2px;
         }
         &__Image{
           width: 40px;
@@ -123,15 +134,21 @@ $black: #4A4A4A;
         box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
         &__Content {
           padding: 8px 15px;
-          font-size: 14px;
+          font-size: 1.4rem;
           display: flex;
           color: $black;
           > i {
             width: 25px;
-            font-size: 17px;
+            font-size: 1.7rem;
             padding-top: 2px;
             margin-right: 5px;
             display: inline-block;
+          }
+          .fa-chevron-right {
+            width: 12px;
+            font-size: 1.4rem;
+            color: gray;
+            padding-top: 4px;
           }
           .fa-user {
             padding-left: 2px;
@@ -142,13 +159,16 @@ $black: #4A4A4A;
         }
         &__Content:hover {
           background-color: $orange2;
-          font-size: 14px;
+          font-size: 1.4rem;
         }
         > a {
           text-decoration: none;
           color: black;
         }
       }
+    }
+    .Header_btns_s{
+      display: none;
     }
   }
 }
@@ -163,12 +183,136 @@ $black: #4A4A4A;
     padding: 30px 0;
     .Footer_title {
       height: 50px;
-      width: 400px;
       color: black;
-      font-size: 25px;
+      font-size: 2.5rem;
       font-weight: bold;
       line-height: 50px;
+      text-align: center;
+      display: block;
       @include foot()
     }
   }
+}
+
+
+
+// ===============レスポンシブ=================
+
+
+$content_width_s: 82vw;
+
+
+@media (max-width: 700px) {
+
+
+  .Header {
+    &__Content {
+      height: 50px;
+      width: $content_width_s;
+      .Header_title {
+        height: 50px;
+        width: 100px;
+        font-size: 3.2rem;
+        line-height: 48px;
+        .fa-orange::before {
+          font-size: 2.9rem;
+          margin-bottom: 10px;
+        }
+      }
+      .Header_search_btns,
+      .Header_btns_l{
+        display: none;
+      }
+      .Header_btns_s{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        .Header_btn {
+          width: 25px;
+          height: 25px;
+          margin-left: 0;
+          i {
+            color: gray;
+            font-size: 23px;
+          }
+          &__Image {
+            width: 30px;
+            height: 30px;
+          }
+        }
+        .Left {
+          margin-right: 15px;
+        }
+        .Right {
+          width: 30px;
+        }
+        .Menu {
+          top: 45px;
+          right: 4vw;
+          &__Content {
+            font-size: 1.8rem;
+            padding: 8px 12px;
+            i {
+              width: 20px;
+              font-size: 1.9rem;
+              padding-top: 3px;
+            }
+            .fa-chevron-right {
+              width: 9px;
+              font-size: 1.4rem;
+              color: gray;
+              padding-top: 5px;
+            }
+            .fa-bell {
+              width: 21px;
+              padding-left: 0px;
+              
+            }
+            .fa-stack {
+              width: 26px;
+              height: 15px;
+            }
+            .fa-stack-2x {
+              width: 15px;
+              height: 15px;
+              padding-left: 0px;
+            }
+            .Bell {
+              width: 21px;
+              padding-left: 1px;
+            }
+            .fa-circle {
+              width: 5px;
+              height: 5px;
+              font-size: 5px;
+              color: $orange1;
+              position: absolute;
+              left: 7px;
+              top: -2px;
+            }
+            &:hover {
+              font-size: 1.8rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+
+
+  .Footer {
+    height: 90px;
+    &__Content {
+      height: 100%;
+      padding: 16px;
+      .Footer_title {
+        height: 35px;
+        line-height: 35px;
+      }
+    }
+  }
+
 }
