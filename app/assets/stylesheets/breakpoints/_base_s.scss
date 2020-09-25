@@ -1,0 +1,32 @@
+$media_width: 768px;
+
+$content_width_s: 82vw;
+
+@mixin two-lines() {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  white-space: normal;
+}
+
+@mixin three-lines() {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  white-space: normal;
+}
+
+
+@media (max-width: 768px) {
+
+  html{
+    font-size: 60%;
+  }
+
+
+  .Wrapper {
+    height: calc(100vh - 50px);
+    overflow: scroll;
+  }
+
+}

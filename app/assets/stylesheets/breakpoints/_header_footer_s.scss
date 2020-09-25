@@ -1,0 +1,120 @@
+// ===============レスポンシブ=================
+
+@import "modules/base";
+@import "breakpoints/base_s";
+
+
+@media (max-width: $media_width) {
+
+
+  .Header {
+    &__Content {
+      height: 50px;
+      width: $content_width_s;
+      .Header_title {
+        height: 50px;
+        width: 100px;
+        font-size: 2.68rem;
+        line-height: 48px;
+        .fa-orange::before {
+          font-size: 2.5rem;
+          margin-bottom: 10px;
+        }
+      }
+      .Header_search_btns,
+      .Header_btns_l{
+        display: none;
+      }
+      .Header_btns_s{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        .Header_btn {
+          width: 25px;
+          height: 25px;
+          margin-left: 0;
+          i {
+            color: gray;
+            font-size: 23px;
+          }
+          &__Image {
+            width: 30px;
+            height: 30px;
+          }
+        }
+        .Left {
+          margin-right: 15px;
+        }
+        .Right {
+          width: 30px;
+        }
+        .Menu {
+          top: 45px;
+          right: 4vw;
+          &__Content {
+            font-size: 1.8rem;
+            padding: 10px 12px;
+            i {
+              width: 25px;
+              font-size: 1.9rem;
+              padding-top: 3px;
+            }
+            .fa-chevron-right {
+              width: 9px;
+              font-size: 1.4rem;
+              color: gray;
+              padding-top: 5px;
+            }
+            .fa-bell {
+              width: 26px;
+              padding-left: 0px;
+              
+            }
+            .fa-stack {
+              width: 31px;
+              height: 15px;
+            }
+            .fa-stack-2x {
+              width: 15px;
+              height: 15px;
+              padding-left: 0px;
+            }
+            .Bell {
+              margin-right: 5px;
+              padding-left: 1px;
+            }
+            .fa-circle {
+              width: 5px;
+              height: 5px;
+              font-size: 5px;
+              color: $orange1;
+              position: absolute;
+              left: 9px;
+              top: -3px;
+            }
+            &:hover {
+              font-size: 1.8rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+
+
+  .Footer {
+    height: 90px;
+    &__Content {
+      height: 100%;
+      padding: 16px;
+      .Footer_title {
+        height: 35px;
+        line-height: 35px;
+      }
+    }
+  }
+
+}

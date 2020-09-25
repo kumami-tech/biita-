@@ -1,4 +1,24 @@
+$yellow: #ffff80;
+$orange: #FF8C00;
+$orange1: #FF6D05;
+$orange2: #FFC882;
+$gray1: #A4A8B1;
+$gray2: #B3B8BB;
+$gray3: #D4D6D5;
 $black: #4A4A4A;
+
+$content_width_s: 82vw;
+
+@mixin foot() {
+  .fa-rotate-270 {
+    transform: rotate(270deg);
+  }
+  .fa-orange {
+    color: $orange1;
+  }
+}
+
+
 
 .Wrapper {
   height: calc(100vh - 60px);
