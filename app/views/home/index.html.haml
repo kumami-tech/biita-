@@ -1,4 +1,4 @@
-.Header
+.Header.Header_home
   .Header__Content
     = link_to "/", class: "Header_title" do
       %i.fas.fa-shoe-prints.fa-rotate-270.fa-orange
@@ -39,20 +39,20 @@
               %span
                 Biita!
               は、海外旅行がしたい日本人〈ツアーゲスト〉と
-              %br
+              %br{class: "br-pc"}
               旅行の手助けが可能な海外在住者〈ツアーキャスト〉が
-              %br
+              %br{class: "br-pc"}
               簡単に出会えるサービスです。
           .Home_btns
-            = link_to "ツアーゲストを探す", posts_g_index_path, class: "Home_btn"
-            = link_to "ツアーキャストを探す", posts_c_index_path, class: "Home_btn"
+            = link_to "ツアーゲストを探す", posts_g_index_path, class: "Home_btn Home_btn1"
+            = link_to "ツアーキャストを探す", posts_c_index_path, class: "Home_btn Home_btn2"
   .Home_lower
     .Home_lower__Content
       .Merits_title
         = "- "
         %span
           = "Biita!"
-        = "を利用する3つのメリット -"
+        = "の3つの特長 -"
       .Merits
         .Merit
           = image_tag "home5.jpg", class: "Home_image"
