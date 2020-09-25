@@ -259,7 +259,7 @@ $content_width_s: 82vw;
             font-size: 1.8rem;
             padding: 8px 12px;
             i {
-              width: 20px;
+              width: 25px;
               font-size: 1.9rem;
               padding-top: 3px;
             }
@@ -270,12 +270,12 @@ $content_width_s: 82vw;
               padding-top: 5px;
             }
             .fa-bell {
-              width: 21px;
+              width: 26px;
               padding-left: 0px;
               
             }
             .fa-stack {
-              width: 26px;
+              width: 31px;
               height: 15px;
             }
             .fa-stack-2x {
@@ -284,7 +284,7 @@ $content_width_s: 82vw;
               padding-left: 0px;
             }
             .Bell {
-              width: 21px;
+              margin-right: 5px;
               padding-left: 1px;
             }
             .fa-circle {
@@ -293,8 +293,8 @@ $content_width_s: 82vw;
               font-size: 5px;
               color: $orange1;
               position: absolute;
-              left: 7px;
-              top: -2px;
+              left: 9px;
+              top: -3px;
             }
             &:hover {
               font-size: 1.8rem;

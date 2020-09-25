@@ -79,8 +79,6 @@
         = "ツアーキャストを探す"
 
   - if user_signed_in?
-    -# .Header_btn#Menu_btn
-    -#   = icon('fas', 'bars')
     .Header_btn.Right#Header_user_image_s
       - if current_user.profile_image?
         = image_tag current_user.profile_image.url, class: "Header_btn__Image"
