@@ -1,31 +1,5 @@
-$orange: #FF8C00;
-$orange1: #FF6D05;
-$gray1:  #A4A8B1;
-$gray2: #CBD0D3;
-$black: #4A4A4A;
-$blue: #3273dc;
+@import "modules/base";
 
-@mixin texthidden() {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-@mixin two-lines() {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-}
-
-@mixin three-lines() {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-}
-
-@mixin shadow() {
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
-}
 
 // NEW
 .Post_form {
@@ -439,26 +413,30 @@ $blue: #3273dc;
       }
     }
   }
+  
+  // 境界線
+  hr {
+    display: none;
+  }
 
   // 申込ボタン
+  .Apply_btn {
+    text-align: center;
+    padding: 10px 30px;
+    border-radius: 5px;
+    display: block;
+    margin: 50px auto 30px;
+  }
   .Taken_btn {
     width: 270px;
     color: $orange;
-    text-align: center;
-    padding: 10px 30px;
     border: solid 1px $orange;
-    display: block;
-    margin: 50px auto 30px;
   }
   .Take_btn {
     width: 170px;
     background-color: $orange;
     color: white;
-    text-align: center;
-    padding: 10px 30px;
     border-style: none;
-    display: block;
-    margin: 50px auto 30px;
     cursor: pointer;
   }
 }

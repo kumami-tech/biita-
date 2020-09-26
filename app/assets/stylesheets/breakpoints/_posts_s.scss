@@ -145,7 +145,8 @@
     flex-direction: column-reverse;
     // 投稿者の情報
     .Post_user_info {
-      margin: 25px auto 15px;
+      // border-top: solid 2px silver;
+      margin: 25px auto;
       // 申込済みのユーザー
       .Takers {
         .Taker_box {
@@ -162,14 +163,21 @@
     }
     // 投稿の詳細
     .Post_main {
+      padding-top: 10px;
       &__Box {
+        width: 100%;
         min-width: 300px;
-        border-radius: 20px;
-        padding: 20px 25px;
+        border: none;
+        box-shadow: none;
+        padding: 0 5px;
+        margin: 0;
         .Post_bookmark--Icon {
-          top: 20px;
-          right: 25px;
+          top: 0;
+          right: 5px;
           font-size: 3.2rem;
+        }
+        .Post_show_title {
+          margin-bottom: 15px;
         }
         .Post_table {
           table {
@@ -187,11 +195,16 @@
       }
     }
     // 申込ボタン
-    .Taken_btn {
-      margin: 35px auto 20px;
+    .Apply_btn {
+      margin: 30px auto 0;
     }
-    .Take_btn {
-      margin: 35px auto 20px;
+    // 境界線
+    hr {
+      width: 100%;
+      color: silver;
+      size: 2px;
+      margin: 30px 0 15px;
+      display: block;
     }
   }
 }

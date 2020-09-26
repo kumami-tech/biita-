@@ -17,7 +17,7 @@ $content_width_s: 82vw;
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: $media_width) {
 
   html{
     font-size: 60%;

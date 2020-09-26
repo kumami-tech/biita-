@@ -76,6 +76,7 @@
                   = image_tag "no-image.jpg", class: "Taker_box__Image"
                 .Taker_box__Name.Text
                   = taker.name
+  %hr
   .Post_main
     .Post_main__Box
       .Post_bookmark
@@ -115,8 +116,8 @@
     - if user_signed_in?
       - if @user.id != current_user.id
         - if @post.taker_ids.include?(current_user.id)
-          = link_to "申し込みをキャンセルする", cancel_posts_g_path(@post.id), data: { confirm: "こちらの投稿の申し込みをキャンセルしますか？" }, class: "Taken_btn Bold"
+          = link_to "申し込みをキャンセルする", cancel_posts_g_path(@post.id), data: { confirm: "こちらの投稿の申し込みをキャンセルしますか？" }, class: "Apply_btn Taken_btn Bold"
         - else
-          = link_to "申し込む", take_posts_g_path(@post.id), data: { confirm: "こちらの投稿に申し込みますか？" }, class: "Take_btn Bold"
+          = link_to "申し込む", take_posts_g_path(@post.id), data: { confirm: "こちらの投稿に申し込みますか？" }, class: "Apply_btn Take_btn Bold"
     - else
       = link_to "申し込む", take_posts_g_path(@post.id), class: "Take_btn Bold"
