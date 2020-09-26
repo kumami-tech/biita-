@@ -142,10 +142,11 @@
 
   // SHOW
   .Post_show_wrapper {
+    width: $content_width_s;
     flex-direction: column-reverse;
+    margin: 0 auto;
     // 投稿者の情報
     .Post_user_info {
-      // border-top: solid 2px silver;
       margin: 25px auto;
       // 申込済みのユーザー
       .Takers {
