@@ -139,4 +139,60 @@
       }
     }
   }
+
+  // SHOW
+  .Post_show_wrapper {
+    flex-direction: column-reverse;
+    // 投稿者の情報
+    .Post_user_info {
+      margin: 25px auto 15px;
+      // 申込済みのユーザー
+      .Takers {
+        .Taker_box {
+          width: 95%;
+          &__Image {
+            margin-right: 15px;
+          }
+          &__Name {
+            width: 100%;
+            text-align: left;
+          }
+        }
+      }
+    }
+    // 投稿の詳細
+    .Post_main {
+      &__Box {
+        min-width: 300px;
+        border-radius: 20px;
+        padding: 20px 25px;
+        .Post_bookmark--Icon {
+          top: 20px;
+          right: 25px;
+          font-size: 3.2rem;
+        }
+        .Post_table {
+          table {
+            th {
+              padding: 7px;
+            }
+            td {
+              padding: 7px;
+            }
+          }
+        }
+        .Post_map {
+          height: 200px;
+        }
+      }
+    }
+    // 申込ボタン
+    .Taken_btn {
+      margin: 35px auto 20px;
+    }
+    .Take_btn {
+      margin: 35px auto 20px;
+    }
+  }
 }
+

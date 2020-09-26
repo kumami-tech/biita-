@@ -345,6 +345,7 @@ $blue: #3273dc;
         margin-bottom: 15px;
       }
       .Takers_empty {
+        font-size: 1.5rem;
         margin: 15px auto;
       }
       .Taker_icon {
@@ -373,64 +374,69 @@ $blue: #3273dc;
     }
   }
   // 投稿の詳細
-  .Post_main__Box {
-    width: 99%;
-    border: solid 1px silver;
-    border-radius: 30px;
-    padding: 30px 50px;
-    @include shadow();
-    margin: 5px 10px 10px 0;
-    position: relative;
-    .Post_bookmark--Icon {
-      position: absolute;
-      top: 30px;
-      right: 50px;
-      font-size: 35px;
-      color: $orange;
-      cursor: pointer;
-    }
-    .Post_show_title {
-      width: 400px;
-      font-size: 18px;
-      text-align: center;
-      margin: 0 auto 10px;
-    }
-    .Tag_list {
-      text-align: center;
-      .tag {
+  .Post_main {
+    &__Box {
+      width: 99%;
+      min-width: 633px;
+      border: solid 1px silver;
+      border-radius: 30px;
+      padding: 30px 50px;
+      @include shadow();
+      margin: 5px 10px 10px 0;
+      position: relative;
+      .Post_bookmark--Icon {
+        position: absolute;
+        top: 30px;
+        right: 50px;
+        font-size: 3.5rem;
         color: $orange;
+        cursor: pointer;
       }
-    }
-    .Post_table {
-      width: 100%;
-      margin: 20px 0;
-      table {
-        width: 100%;
+      .Post_show_title {
+        width: 75%;
+        font-size: 18px;
         text-align: center;
-        th {
-          width: 30%;
-          background-color: #eee;
-          padding: 10px;
-          border: 1px solid #dedede;
-        }
-        td {
-          padding: 10px;
-          border: 1px solid #dedede;
+        margin: 0 auto 10px;
+      }
+      .Tag_list {
+        text-align: center;
+        .tag {
+          color: $orange;
+          font-size: 1.3rem;
+          margin-bottom: 5px;
         }
       }
-    }
-    .Post_head {
-      text-align: center;
-      margin: 10px 0;
-    }
-    .Post_content {
-      margin-bottom: 20px;
-    }
-    .Post_map {
-      width: 527.98px;
-      height: 350px;
-      margin-bottom: 10px;
-      text-align: center;
+      .Post_table {
+        width: 100%;
+        margin: 15px 0 20px;
+        table {
+          width: 100%;
+          text-align: center;
+          th {
+            width: 30%;
+            background-color: #eee;
+            padding: 10px;
+            border: 1px solid #dedede;
+          }
+          td {
+            padding: 10px;
+            border: 1px solid #dedede;
+          }
+        }
+      }
+      .Post_head {
+        text-align: center;
+        margin: 10px 0;
+      }
+      .Post_content {
+        margin-bottom: 20px;
+      }
+      .Post_map {
+        width: 100%;
+        height: 350px;
+        margin-bottom: 10px;
+        text-align: center;
+      }
     }
   }
 

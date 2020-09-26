@@ -27,6 +27,12 @@ $content_width_s: 82vw;
   .Wrapper {
     height: calc(100vh - 50px);
     overflow: scroll;
+    &__Inner {
+      padding: 20px 0;
+      width: 90vw;
+      max-width: 880px;
+      margin: 0 auto;
+    }
   }
 
 }
