@@ -89,7 +89,7 @@
 
       -# ========== サイドバー（投稿） ==========
       - if user_signed_in? && @user.id == current_user.id
-        .Mypage_side_bar
+        .Mypage_side_bar.Mypage_side_bar_post
           .Post_type_btns_title_row
             = icon('fas', 'edit', class: 'Post_type_btns_title')
             .Post_type_btns_title 投稿

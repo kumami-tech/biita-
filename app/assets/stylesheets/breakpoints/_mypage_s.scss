@@ -13,11 +13,59 @@
     height: calc(100vh - 50px);
     &__Inner {
       width: 100%;
-      padding: 25px 0;
+      padding: 25px 0 0;
 
       // サイドバー
       .Mypage_side_bar {
         display: none;
+      }
+      .Mypage_side_bar_post {
+        width: 100%;
+        height: 50px;
+        background-color: white;
+        border-top: solid 1px silver;
+        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin: 25px auto;
+        position: fixed;
+        bottom: 0;
+        z-index: 1;
+        margin-bottom: 0;
+        .Post_type_btns_title_row {
+          display: none;
+        }
+        a {
+          width: 50px;
+          height: 34px;
+          margin: auto 0;
+          .Mypage_side_bar_row {
+            width: 100%;
+            flex-direction: column;
+            text-align: center;
+            i {
+              width: auto;
+              margin: 0;
+            }
+            .fa-user {
+              padding-right: 3px;
+            }
+            .fa-check-circle {
+              padding-right: 2px;
+            }
+            .fa-bookmark {
+              padding-right: 5px;
+            }
+            .Mypage_side_bar_btn {
+              width: 100%;
+              font-size: 1rem;
+              line-height: 1.3rem;
+              text-align: center;
+              margin-top: 3px;
+            }
+          }
+        }
       }
     
       // マイページ上部
@@ -74,6 +122,7 @@
       // マイページ下部
       .Mypage_lower {
         width: 100%;
+        flex-direction: column-reverse;
         &__Main {
           width: 100%;
           .User_page_tabs {
