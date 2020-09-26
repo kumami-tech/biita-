@@ -6,7 +6,8 @@
 @media (max-width: $media_width) {
 
   .Home_upper {
-    height: 605px;
+    height: auto;
+    padding-bottom: 35px;
     &__Content {
       width: $content_width_s;
       height: 100%;
