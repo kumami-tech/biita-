@@ -2,3 +2,102 @@
 
 @import "modules/base";
 @import "breakpoints/base_s";
+
+
+@media (max-width: $media_width) {
+
+  .All {
+    height: calc(100vh - 50px);
+    .Group_side_bar {
+      width: 100%;
+      .Side_bar_header {
+        height: $mini_header_height;
+        display: block;
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        .Title1 {
+          line-height: $mini_header_height;
+          margin-left: 20px;
+        }
+      }
+      .Side_bar {
+        width: 100%;
+        height: calc(100vh - 90px);
+        overflow: scroll;
+      }
+    }
+
+    .Message_side_bar {
+      display: none;
+    }
+
+    .My_talkroom {
+      display: none;
+    }
+  
+    .Message_main {
+      width: 100%;
+      height: calc(100vh - 50px);
+      .Message_header {
+        height: $mini_header_height;
+        &__Content {
+          width: $content_width_s;
+          display: flex;
+          margin: 0 auto;
+          .Back_btn {
+            color: gray;
+            font-size: 2rem;
+            line-height: $mini_header_height;
+            display: block;
+          }
+          .Title1 {
+            font-size: 1.5rem;
+            line-height: $mini_header_height;
+            margin-left: 15px;
+          }
+        }
+      }
+      .Main_chat {
+        width: 100%;
+        height: calc(100vh - 150px);
+        &__Wrapper {
+          width: 100%;
+          padding: 10px 0; 
+          .Message_box {
+            width: $content_width_s;
+            padding: 10px 0;
+            margin: 0 auto 10px;
+            &__User_image {
+              height: 55px;
+              width: 55px;
+              margin-right: 15px;
+            }
+            &__Content {
+              width: calc(100vw - 120px);
+              &__Info {
+                &__Name {
+                  margin-right: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .Message_form {
+        height: 60px;
+        margin-bottom: 0;
+        &__Content {
+          width: $content_width_s;
+          height: 30px;
+          padding: 0;
+          margin: 0 auto;
+          .Message_submit_btn {
+            font-size: 2.3rem;
+            padding: 0;
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
+
+}

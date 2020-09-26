@@ -1,3 +1,6 @@
+.Message_header.Side_bar_header
+  .Title1
+    = "#{current_user.name}さんのトークルーム"
 .Side_bar
   - @groups.each do |group|
     - user = group.users.where.not(id: current_user.id).first

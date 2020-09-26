@@ -1,7 +1,10 @@
 .All
-  = render "side_bar"
+  .Group_side_bar
+    = render "side_bar"
   .My_talkroom
-    = image_tag "foot.jpg", width: "200px"
+    = image_tag "foot.jpg"
     %br
     .My_talkroom__Text
-      = "#{current_user.name}さんのトークルーム"
+      = "#{current_user.name}さんの"
+      %br
+      = "トークルーム"

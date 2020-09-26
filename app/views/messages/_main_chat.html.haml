@@ -1,7 +1,10 @@
 .Message_main
   .Message_header
-    .Title1
-      = "#{@user.name}さんとのトークルーム"
+    .Message_header__Content
+      = link_to groups_path do
+        = icon('fas', 'chevron-left', class: "Back_btn")
+      .Title1
+        = "#{@user.name}さんとのトークルーム"
   .Main_chat
     .Main_chat__Wrapper
       = render @messages

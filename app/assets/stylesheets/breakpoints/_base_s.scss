@@ -2,6 +2,9 @@ $media_width: 768px;
 
 $content_width_s: 85vw;
 
+$header_height: 50px;
+$mini_header_height: 40px;
+
 @mixin two-lines() {
   display: -webkit-box;
   -webkit-box-orient: vertical;
