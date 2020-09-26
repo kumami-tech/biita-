@@ -1,8 +1,4 @@
-$orange: #FF8C00;
-$gray1: #A4A8B1;
-$gray2: #B3B8BB;
-$gray3: #D4D6D5;
-$blue: #3273dc;
+@import "modules/base";
 
 @mixin texthidden() {
   overflow: hidden;
@@ -102,23 +98,32 @@ $blue: #3273dc;
     .Mypage_upper {
       display: flex;
       &__Main {
-        width: 880px;
+        width: 80%;
+        max-width: 880px;
         margin: 0 auto;
         .Profile {
-          width: 840px;
+          width: 96%;
+          max-width: 840px;
           margin: 0px auto 20px;
           &__Upper {
+            width: 100%;
             height: 130px;
             margin-bottom: 20px;
             display: flex;
+            position: relative;
+            .Mypage_btns {
+              position: absolute;
+              top: 18px;
+              right: 0;
+            }
             .Profile_content {
-              width: 680px;
+              width: 81%;
+              max-width: 680px;
               justify-content: space-between;
               margin-top: 23px;
-              position: relative;
               .Name {
                 width: 150px;
-                font-size: 18px;
+                font-size: 1.8rem;
                 font-weight: bold;
                 margin-bottom: 15px;
               }
@@ -145,25 +150,20 @@ $blue: #3273dc;
                   margin: auto 20px auto 0;
                   a {
                     color: $blue;
-                    font-size: 15px;
+                    font-size: 1.5rem;
                   }
                 }
               }
               .Mypage_follow_counts {
                 display: flex;
                 .Mypage_follow_count {
-                  font-size: 15px;
+                  font-size: 1.5rem;
                   margin-right: 20px;
                   span {
-                    font-size: 17px;
+                    font-size: 1.7rem;
                     font-weight: bold;
                   }
                 }
-              }
-              .Mypage_btns {
-                position: absolute;
-                top: 0;
-                right: 0;
               }
             }
           }
@@ -177,17 +177,18 @@ $blue: #3273dc;
       }
     }
 
-    
     // マイページ下部
     .Mypage_lower {
       display: flex;
       &__Main {
-        width: 880px;
+        width: 80%;
+        max-width: 880px;
         margin: 0 auto;
         .User_page_tabs {
-          width: 880px;
+          width: 80%;
+          min-width: 320px;
+          max-width: 880px;
           display: flex;
-          margin: 0 auto;
           margin-bottom: 15px;
           .User_page_tab {
             height: 33px;
@@ -232,12 +233,12 @@ $blue: #3273dc;
   color: $orange;
   background-color: white;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 1.5rem;
   border: solid 1.5px $orange;
   display: block;
   cursor: pointer;
   outline: none;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   display: flex;
   position: relative;
   border-radius: 5px;
@@ -249,7 +250,7 @@ $blue: #3273dc;
     }
     i {
       line-height: 35px;
-      font-size: 18px;
+      font-size: 1.8rem;
       margin-right: 3px;
     }
     .fa-user-check {

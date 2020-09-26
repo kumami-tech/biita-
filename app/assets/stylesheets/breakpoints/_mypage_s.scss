@@ -2,3 +2,92 @@
 
 @import "modules/base";
 @import "breakpoints/base_s";
+
+
+
+
+
+@media (max-width: $media_width) {
+
+  .Mypage_wrapper {
+    height: calc(100vh - 50px);
+    &__Inner {
+      width: 100%;
+      padding: 25px 0;
+
+      // サイドバー
+      .Mypage_side_bar {
+        display: none;
+      }
+    
+      // マイページ上部
+      .Mypage_upper {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+        &__Main {
+          width: $content_width_s;
+          .Profile {
+            width: 100%;
+            margin-bottom: 15px;
+            &__Upper {
+              height: 210px;
+              margin-bottom: 15px;
+              flex-direction: column;
+              .Mypage_btns {
+                top: 13px;
+                right: -7px;
+                .White_btn {
+                  width: 185px;
+                  height: 38px;
+                  margin-bottom: 10px;
+                  &__Content {
+                    line-height: 32px;
+                    i {
+                      line-height: 32px;
+                      margin-right: 2px;
+                    }
+                  }
+                }
+              }
+              .Profile_image {
+                width: 110px;
+                height: 110px;
+              }
+              .Profile_content {
+                width: 100%;
+                margin-top: 10px;
+                .Name {
+                  margin-bottom: 10px;
+                }
+                .Mypage_review {
+                }
+              }
+            }
+            &__Lower {
+              margin-bottom: 0px;
+            }
+          }
+        }
+      }
+
+      // マイページ下部
+      .Mypage_lower {
+        width: 100%;
+        &__Main {
+          width: 100%;
+          .User_page_tabs {
+            justify-content: space-between;
+            margin: 0 auto 15px; 
+            .User_page_tab {
+              width: 49%;
+              height: 30px;
+              margin: 0 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
