@@ -83,7 +83,6 @@ $review_header_height: 60px;
 .Wrapper_r {
   height: calc(100vh - 120px);
   overflow: scroll;
-  padding-top: 15px;
   .Wrapper_r_inner {
     width: 61vw;
     height: 100%;
@@ -166,46 +165,55 @@ $review_header_height: 60px;
 }
 
 // 新規レビューの投稿
-.Form_review {
+.New_review_wrapper {
   width: 500px;
-  margin: 40px auto;
-  .Position_btns {
-    width: 250px;
-    margin: 0 auto;
-    line-height: 30px;
-    font-size: 15px;
-    font-weight: bold;
-    input {
-      width: 18px;
-      height: 18px;
-      line-height: 30px;
-      top: 3px;
-      position: relative;
-      border: solid bold;
-      cursor: pointer;
+  margin: 0 auto;
+  .Flex {
+    .Back_btn_new {
+      display: none;
     }
   }
-  .main-rating {
-    display: flex;
-    width: 210px;
-    margin: 30px auto;
-    .ratings {
-      margin-right: 10px;
-      .Star {
-        font-size: 25px;
-        color: silver;
+  .Form_review {
+    width: 100%;
+    margin: 40px 0;
+    .Position_btns {
+      width: 250px;
+      margin: 0 0;
+      line-height: 30px;
+      font-size: 15px;
+      font-weight: bold;
+      input {
+        width: 18px;
+        height: 18px;
+        line-height: 30px;
+        top: 3px;
+        position: relative;
+        border: solid bold;
         cursor: pointer;
       }
     }
-    .rating-value-display {
-      line-height: 30px;
+    .main-rating {
+      display: flex;
+      width: 210px;
+      margin: 30px 0;
+      .ratings {
+        margin-right: 10px;
+        .Star {
+          font-size: 25px;
+          color: silver;
+          cursor: pointer;
+        }
+      }
+      .rating-value-display {
+        line-height: 30px;
+      }
     }
-  }
-  &__Text {
-    width: 500px;
-    padding: 5px;
-    border: solid 1px $gray1;
-    border-radius: 3px;
+    &__Text {
+      width: 100%;
+      padding: 5px;
+      border: solid 1px $gray1;
+      border-radius: 3px;
+    }
   }
 }
 
