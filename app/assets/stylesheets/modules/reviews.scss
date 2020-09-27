@@ -1,55 +1,60 @@
-$orange: #FF8C00;
-$gray1: #A4A8B1;
-$gray2: #B3B8BB;
-$gray3: #D4D6D5;
+@import "modules/base";
 
+$review_header_height: 60px;
+
+
+// ヘッダー
 .Header_r {
-  height: 60px;
+  height: $review_header_height;
   border-bottom: solid 1px $gray2;
-  margin-bottom: 15px;
   position: relative;
   .Back_btn {
     position: absolute;
-    font-size: 30px;
+    font-size: 3rem;
     color: gray;
     top: 15px;
     left: 50px;
   }
+  .Back_btn_s {
+    display: none;
+  }
   .Wrapper_header_r {
-    width: 880px;
+    width: 61vw;
+    max-width: 880px;
     margin: 0 auto;
     position: relative;
     display: flex;
     .Title_r {
-      font-size: 18px;
+      font-size: 1.7rem;
       font-weight: bold;
-      text-decoration: underline;
-      line-height: 60px;
+      line-height: $review_header_height;
       margin-right: 50px;
     }
+    // タブ
     .Position_r {
-      height: 60px;
+      height: 100%;
       margin: auto 0px;
       display: flex;
       &__Name {
-        height: 60px;
-        font-size: 15px;
+        height: $review_header_height;
+        font-size: 1.5rem;
         font-weight: bold;
         color: gray;
-        line-height: 60px;
+        line-height: $review_header_height;
         padding: 0 20px;
         display: block;
       }
       .Active {
-        line-height: 60px;
+        line-height: $review_header_height;
         color: $orange;
         border-bottom: solid 2px $orange;
       }
     }
+    // 投稿ボタン
     .Write_review {
-      font-size: 14px;
+      font-size: 1.4rem;
       font-weight: bold;
-      line-height: 60px;
+      line-height: $review_header_height;
       margin: auto 0;
       position: absolute;
       top: 13px;
@@ -60,7 +65,7 @@ $gray3: #D4D6D5;
         &__Content {
           line-height: 18px;
           i {
-            font-size: 17px;
+            font-size: 1.7rem;
             line-height: 32px;
           }
         }
@@ -68,11 +73,20 @@ $gray3: #D4D6D5;
     }
   }
 }
+
+// 投稿ボタン（レスポンシブ）
+.Write_review_s {
+  display: none;
+}
+
+// メイン
 .Wrapper_r {
   height: calc(100vh - 120px);
   overflow: scroll;
+  padding-top: 15px;
   .Wrapper_r_inner {
-    width: 880px;
+    width: 61vw;
+    max-width: 880px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -80,6 +94,8 @@ $gray3: #D4D6D5;
       width: 100%;
       margin-top: 20px;
       display: none;
+
+      // 個々のレビュー
       .Review_box {
         margin-bottom: 60px;
         display: flex;
@@ -113,7 +129,7 @@ $gray3: #D4D6D5;
             &__Time{
               height: 14px;
               line-height: 16px;
-              color: #7B7D7F;
+              color: $gray4;
               margin: auto 0;
               position: absolute;
               top: 5px;
@@ -128,6 +144,8 @@ $gray3: #D4D6D5;
     }
   }
 }
+
+
 
 .Star_rating_r {
   font-size: 16px;

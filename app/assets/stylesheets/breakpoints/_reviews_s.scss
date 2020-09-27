@@ -2,3 +2,81 @@
 
 @import "modules/base";
 @import "breakpoints/base_s";
+
+$review_header_height: 50px;
+
+@media (max-width: $media_width) {
+  .Header_r {
+    height: 90px;
+    .Back_btn {
+      display: none;
+    }
+    .Wrapper_header_r {
+      width: 100%;
+      height: $review_header_height;
+      flex-direction: column;
+      &__Content {
+        width: $content_width_s;
+        margin: 0 auto;
+        display: flex;
+        .Back_btn_s {
+          display: block;
+          font-size: 2rem;
+          color: gray;
+          line-height: $review_header_height;
+        }
+        .Title_r {
+          line-height: $review_header_height;
+          margin-left: 15px;
+        }
+      }
+      .Position_r {
+        width: 100vw;
+        height: 40px;
+        justify-content: space-between;
+        &__Name {
+          height: 40px;
+          line-height: 40px;
+          text-align: center;
+          padding: 0;
+        }
+        .Position_all {
+          width: 26%;
+        }
+        .Position_g {
+          width: 35%;
+        }
+        .Position_c {
+          width: 39%;
+        }
+        .Active {
+          line-height: 40px;
+        }
+      }
+      .Write_review {
+        display: none;
+      }
+    }
+  }
+
+
+  // 投稿ボタン（レスポンシブ）
+  .Write_review_s {
+    width: 55px;
+    height: 55px;
+    display: block;
+    background-color: $orange;
+    border-radius: 50%;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    text-align: center;
+    i {
+      color: white;
+      line-height: 55px;
+      font-size: 2rem;
+    }
+  }
+
+
+}

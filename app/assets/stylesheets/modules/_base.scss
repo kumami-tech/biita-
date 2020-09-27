@@ -11,6 +11,8 @@ $blue: #3273dc;
 
 $content_width_s: 82vw;
 
+$mini_header_height: 50px;
+
 @mixin foot() {
   .fa-rotate-270 {
     transform: rotate(270deg);

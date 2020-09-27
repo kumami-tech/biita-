@@ -5,6 +5,8 @@ $content_width_s: 85vw;
 $header_height: 50px;
 $mini_header_height: 40px;
 
+$review_header_height: 50px;
+
 @mixin two-lines() {
   display: -webkit-box;
   -webkit-box-orient: vertical;
