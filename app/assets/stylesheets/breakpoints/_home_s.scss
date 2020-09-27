@@ -17,6 +17,9 @@
       .Home_images {
         width: 100%;
         margin: 0 auto;
+        .Margin_bottom {
+          min-height: 10px;
+        }
       }
       .Home_right {
         width: 100%;
@@ -26,10 +29,12 @@
           margin-top: 0px;
           &__Title {
             font-size: 2.26rem;
+            padding: 0 2px;
           }
           &__Introduction {
+            padding: 0 5px;
             font-size: 1.5rem;
-            margin: 15px 0 20px 3px;
+            margin: 15px 0 20px;
             span {
               font-size: 1.7rem;
             }

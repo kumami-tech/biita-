@@ -10,13 +10,15 @@
     max-height: 730px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin: 0px auto;
     padding: 70px 0;
     .Home_images {
       width: 51%;
+      height: 100%;
       .Home_image {
-        width: 46%;
-        height: 46%;
+        width: 47%;
+        height: 47%;
         min-width: 137px;
         min-height: 137px;
         img {
@@ -25,12 +27,12 @@
         }
       }
       .Margin_right {
-        width: 8%;
+        width: 6%;
         min-width: 16px;
       }
       .Margin_bottom {
-        height: 5%;
-        min-height: 14px;
+        height: 4%;
+        min-height: 20px;
       }
     }
     .Home_right {
@@ -40,7 +42,6 @@
         width: calc(100vw / 3);
         height: 40%;
         min-width: 307.5px;
-        margin-top: 11vw;
         &__Title {
           color: $orange1;
           font-weight: bold;
@@ -50,7 +51,7 @@
         &__Introduction {
           font-weight: bold;
           line-height: 3.5rem;
-          margin: 30px 0 40px;
+          margin: 25px 0 35px;
           margin-left: 3px;
           span {
             font-size: 1.8rem;
