@@ -115,6 +115,9 @@
               position: absolute;
               top: 18px;
               right: 0;
+              a:hover {
+                color: $orange;
+              }
             }
             .Profile_content {
               width: 81%;
