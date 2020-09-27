@@ -115,16 +115,7 @@ $review_header_height: 40px;
               }
               .Star_rating_r {
                 width: 103px;
-                position: relative;
                 margin: 0;
-                .Front_r {
-                  height: 24px;
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                }
-                .Back_r {
-                }
               }
             }
             &__Review {
@@ -139,6 +130,11 @@ $review_header_height: 40px;
     }
   }
 
-
-
+  // 新規レビューの投稿
+  .Form_review {
+    width: 100%;
+    &__Text {
+      width: 100%;
+    }
+  }
 }
