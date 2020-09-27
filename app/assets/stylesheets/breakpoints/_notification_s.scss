@@ -2,3 +2,27 @@
 
 @import "modules/base";
 @import "breakpoints/base_s";
+
+
+@media (max-width: $media_width) {
+
+  .Notification_head {
+    width: $content_width_s;
+    margin: 0 auto;
+  }
+  .User_box {
+    padding: 15px 0;
+    &__Content {
+      width: $content_width_s;
+      margin: 0 auto;
+      &__Image {
+        width: 55px;
+        height: 55px;
+        margin-right: 15px;
+      }
+      &__Text {
+        width: calc(100% - 70px);
+      }
+    }
+  }
+}
