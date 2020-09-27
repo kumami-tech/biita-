@@ -55,7 +55,9 @@
                   = "メッセージを送る"
     .Takers
       .Takers_title.Bold
-        申込済みのユーザー
+        この投稿の
+        %br
+        申込済みユーザー
       - if @takers.empty?
         .Takers_empty
           申込済みのユーザーは
