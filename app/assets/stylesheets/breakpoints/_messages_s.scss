@@ -23,6 +23,10 @@
         width: 100%;
         height: calc(100vh - 90px);
         overflow: scroll;
+        .Empty {
+          margin-top: 160px;
+          display: block;
+        }
       }
     }
 

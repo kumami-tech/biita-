@@ -2,20 +2,26 @@
   .Title1
     = "#{current_user.name}さんのトークルーム"
 .Side_bar
-  - @groups.each do |group|
-    - user = group.users.where.not(id: current_user.id).first
-    = link_to group_messages_path(group.id, user_id: user.id) do
-      .Group_box
-        .Group_box__Content
-          - if user.profile_image?
-            = image_tag user.profile_image.url, class: "Side_bar_user_image"
-          - else
-            = image_tag "no-image.jpeg", class: "Side_bar_user_image"
-          .Side_bar_text
-            .Side_bar_text__Upper
-              .Side_bar_user_name
-                = user.name
-              .Side_bar_time
-                = group.messages.last.created_at.strftime("%-m月%-d日")
-            .Side_bar_message
-              = simple_format(group.show_last_message)
+  - if @groups.empty?
+    .Empty
+      = image_tag "foot.jpg"
+      %br
+      = "メッセージがありません"
+  - else
+    - @groups.each do |group|
+      - user = group.users.where.not(id: current_user.id).first
+      = link_to group_messages_path(group.id, user_id: user.id) do
+        .Group_box
+          .Group_box__Content
+            - if user.profile_image?
+              = image_tag user.profile_image.url, class: "Side_bar_user_image"
+            - else
+              = image_tag "no-image.jpeg", class: "Side_bar_user_image"
+            .Side_bar_text
+              .Side_bar_text__Upper
+                .Side_bar_user_name
+                  = user.name
+                .Side_bar_time
+                  = group.messages.last.created_at.strftime("%-m月%-d日")
+              .Side_bar_message
+                = simple_format(group.show_last_message)
