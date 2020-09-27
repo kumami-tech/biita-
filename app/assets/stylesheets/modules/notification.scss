@@ -6,7 +6,7 @@
   .Notification_destroy_all {
     font-size: 15px;
     line-height: 18px;
-    color: #7B7D7F;
+    color: $gray4;
     margin: 5px 0 0px 40px;
     > i {
       color: $gray1;
@@ -27,6 +27,8 @@ hr {
   border-bottom: 2px solid $gray3;
   position: relative;
   &__Content {
+    width: 100%;
+    height: 100%;
     display: flex;
     > a {
       height: 80px;
@@ -49,9 +51,8 @@ hr {
         font-weight: bold;
       }
       .Notification_time {
-        width: 300px;
         font-size: 14px;
-        color: #7B7D7F;
+        color: $gray4;
       }
     }
     &__Destroy {
@@ -67,7 +68,7 @@ hr {
       right: 45px;
       bottom: 25px;
       color: $orange;
-      font-size: 20px;
+      font-size: 2rem;
     }
     .fa-check-circle,
     .fa-times-circle {

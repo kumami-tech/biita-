@@ -15,6 +15,7 @@
     &__Content {
       width: $content_width_s;
       margin: 0 auto;
+      position: relative;
       &__Image {
         width: 55px;
         height: 55px;
@@ -22,6 +23,17 @@
       }
       &__Text {
         width: calc(100% - 70px);
+      }
+      &__Icon {
+        right: 11px;
+        bottom: 5px;
+      }
+      .fa-check-circle,
+      .fa-times-circle {
+        right: 8px;
+      }
+      > .fa-user-plus {
+        right: 4px;
       }
     }
   }

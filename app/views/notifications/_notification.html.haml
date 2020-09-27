@@ -161,7 +161,7 @@
         - else
           = image_tag "no-image.jpg", class: "User_box__Content__Image"
       .User_box__Content__Text
-        = link_to visitor.name, user_path(visitor) do
+        = link_to visitor.name, user_path(visitor)
         = "さんがあなたをフォローしました。"
         .Notification_time
           = notification.created_at.strftime("%Y年%-m月%-d日 %-H:%M")
