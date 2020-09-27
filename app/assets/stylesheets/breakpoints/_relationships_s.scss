@@ -2,3 +2,60 @@
 
 @import "modules/base";
 @import "breakpoints/base_s";
+
+
+
+@media (max-width: $media_width) {
+
+  .Flex {
+    .Back_btn_follow {
+      font-size: 2.5rem;
+      color: gray;
+      line-height: 25px;
+      margin-right: 15px;
+      display: block;
+    }
+  }
+
+  .Follow_tabs {
+    width: 100%;
+    margin: 15px auto 0;
+    .Follow_tab {
+      height: 30px;
+    }
+  }
+
+  .Follow_list {
+    .Follow_name {
+      margin-bottom: 5px;
+      display: inline-block;
+    } 
+    .Follow_profile {
+      width: 100%;
+    }
+    .Follow_list_btn {
+      right: 0px;
+    }
+  }
+
+  .User_box {
+    &__Content {
+      > a {
+        height: 55px;
+      }
+      .White_btn {
+        width: 120px;
+        height: 30px;
+        font-size: 1.4rem;
+        &__Content {
+          line-height: 25px;
+          i {
+            font-size: 1.6rem;
+            line-height: 25px;
+          }
+        }
+      }
+    }
+  }
+  
+}
