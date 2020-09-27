@@ -24,6 +24,6 @@
           =icon('fas', 'star')
           =icon('fas', 'star')
       .Review_box__Content__Info__Time.Text_s
-        = review.created_at.strftime("%Y年%-m月%-d日 %H時%M分")
+        = review.created_at.strftime("%Y年%-m月%-d日 %H:%M")
     .Review_box__Content__Review.Text
       = simple_format(review.content)
