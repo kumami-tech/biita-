@@ -1,7 +1,8 @@
-.Title プロフィールの編集
+.Title.Form_title
+  = link_to 'javascript:history.back()' do
+    = icon('fas', 'chevron-left', class: "Back_btn")
+  = "プロフィールを編集する"
 .Edit_profile_image
-  .Edit_profile_image__Text.Text
-    プロフィール画像
   - if current_user.profile_image?
     = image_tag current_user.profile_image.url, class: "Profile_image Img_prev"
   - else

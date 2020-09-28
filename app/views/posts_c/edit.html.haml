@@ -1,2 +1,5 @@
-.Title 投稿を編集する
+.Title.Form_title
+  = link_to 'javascript:history.back()' do
+    = icon('fas', 'chevron-left', class: "Back_btn")
+  = "投稿を編集する"
 = render partial: "form"

@@ -1,6 +1,10 @@
 .Post_index_wrapper
   .Post_index_wrapper__Inner
     .Post_index_left
+      .Title
+        = link_to 'javascript:history.back()' do
+          = icon('fas', 'chevron-left', class: "Back_btn")
+        = "ツアーキャストを探す"
       .Search_title.Bold
         条件で絞り込む
       .Keyword
@@ -12,10 +16,13 @@
       .Tag_list
         - @tags.each do |tag|
           = link_to posts_c_index_path(tag_name: tag) do
-            .tag.Text
+            .tag
               = tag
     .Post_index_right
       .Title ツアーキャストの投稿一覧
+      .Post_index_title
+        = icon('fas', 'list')
+        = "投稿一覧"
       - if @posts.empty?
         = render "layouts/empty"
       - else

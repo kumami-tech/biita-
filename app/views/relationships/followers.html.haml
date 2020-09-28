@@ -1,4 +1,6 @@
-.Title 
+.Title.Flex
+  = link_to 'javascript:history.back()' do
+    = icon('fas', 'chevron-left', class: "Back_btn")
   = "#{@user.name}さんのフォローリスト"
 .Follow_tabs
   = link_to "フォロー中(#{@followings.count})", "#", class: "Follow_tab"

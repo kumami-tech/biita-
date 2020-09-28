@@ -1,0 +1,116 @@
+$yellow: #ffff80;
+$orange: #FF8C00;
+$orange1: #FF6D05;
+$orange2: #FFC882;
+$gray1: #A4A8B1;
+$gray2: #B3B8BB;
+$gray3: #D4D6D5;
+$gray4: #7B7D7F; /* 時間 */
+$black: #4A4A4A;
+$blue: #3273dc;
+
+$content_width_s: 82vw;
+$mini_header_height: 50px;
+
+@mixin foot() {
+  .fa-rotate-270 {
+    transform: rotate(270deg);
+  }
+  .fa-orange {
+    color: $orange1;
+  }
+}
+
+@mixin texthidden() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin two-lines() {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+@mixin three-lines() {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+@mixin shadow() {
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.Wrapper {
+  height: calc(100vh - 60px);
+  overflow: scroll;
+  &__Inner {
+    padding: 30px 0;
+    width: 880px;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+}
+
+.Title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: $orange;
+  margin-bottom: 15px;
+  padding-left: 10px;
+}
+
+.Bold {
+  font-weight: bold;
+}
+
+.Link {
+  color: $blue;
+}
+
+.Flex {
+  display: flex;
+}
+
+a {
+  color: $black;
+}
+
+a:hover {
+  color: $black;
+}
+
+.Text {
+  font-size: 1.4rem;
+}
+
+.Text_s {
+  font-size: 1.2rem;
+}
+
+.Back_btn {
+  display: none;
+}
+
+// フォーム
+
+.Form_title {
+  text-align: center;
+}
+
+.Btn {
+  width: 100px;
+  background-color: $orange;
+  color: white;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-style: none;
+  border-radius: 5px;
+  display: block;
+  margin: 50px auto 30px;
+  cursor: pointer;
+}

@@ -1,27 +1,12 @@
-$yellow: #ffff80;
-$orange: #FF8C00;
-$orange1: #FF6D05;
-$orange2: #FFC882;
-$gray1: #A4A8B1;
-$gray2: #B3B8BB;
-$gray3: #D4D6D5;
-$black: #4A4A4A;
-
-@mixin foot() {
-  .fa-rotate-270 {
-    transform: rotate(270deg);
-  }
-  .fa-orange {
-    color: $orange1;
-  }
-}
+@import "modules/base";
 
 .Header {
   background-color: $yellow;
-  padding: 0 150px;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1;
   &__Content {
-    width: 1140px;
+    width: 79vw;
+    max-width: 1138px;
     height: 60px;
     display: flex;
     justify-content: space-between;
@@ -29,16 +14,17 @@ $black: #4A4A4A;
     margin: auto;
     .Header_title {
       height: 70px;
-      width: 400px;
+      width: 28%;
       color: black;
-      font-size: 33px;
+      font-size: 3.3rem;
       font-weight: bold;
       line-height: 70px;
+      display: block;
       @include foot()
     }
     .Header_search_btns{
       width: 340px;
-      font-size: 15px;
+      font-size: 1.5rem;
       display: flex;
       justify-content: space-between;
       position: absolute;
@@ -83,27 +69,38 @@ $black: #4A4A4A;
       align-items: center;
       .Header_btn {
         color: black;
-        font-size: 14px;
+        font-size: 1.4rem;
         font-weight: bold;
         display: flex;
         align-items: center;
         margin-left: 25px;
         cursor: pointer;
         i {
-          font-size: 28px;
+          font-size: 2.8rem;
           line-height: 40px;
           padding: 6px 0;
           color: black;
+        }
+        .fa-stack {
+          position: relative;
+          .fa-stack-2x::before {
+            height: 29px;
+            position: absolute;
+            top: -6px;
+            left: 5px;
+          }
         }
         .Bell {
           margin: 0 5px;
         }
         .fa-circle {
-          font-size: 12px;
+          width: 13px;
+          height: 13px;
+          font-size: 1.2rem;
           color: $orange1;
           position: absolute;
-          left: 10px;
-          top: 9px;
+          left: 20px;
+          top: -2px;
         }
         &__Image{
           width: 40px;
@@ -123,15 +120,21 @@ $black: #4A4A4A;
         box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
         &__Content {
           padding: 8px 15px;
-          font-size: 14px;
+          font-size: 1.4rem;
           display: flex;
           color: $black;
           > i {
             width: 25px;
-            font-size: 17px;
+            font-size: 1.7rem;
             padding-top: 2px;
             margin-right: 5px;
             display: inline-block;
+          }
+          .fa-chevron-right {
+            width: 12px;
+            font-size: 1.4rem;
+            color: gray;
+            padding-top: 4px;
           }
           .fa-user {
             padding-left: 2px;
@@ -142,7 +145,7 @@ $black: #4A4A4A;
         }
         &__Content:hover {
           background-color: $orange2;
-          font-size: 14px;
+          font-size: 1.4rem;
         }
         > a {
           text-decoration: none;
@@ -150,7 +153,14 @@ $black: #4A4A4A;
         }
       }
     }
+    .Header_btns_s{
+      display: none;
+    }
   }
+}
+
+.Header_home {
+  position:static;
 }
 
 .Footer {
@@ -163,11 +173,12 @@ $black: #4A4A4A;
     padding: 30px 0;
     .Footer_title {
       height: 50px;
-      width: 400px;
       color: black;
-      font-size: 25px;
+      font-size: 2.5rem;
       font-weight: bold;
       line-height: 50px;
+      text-align: center;
+      display: block;
       @include foot()
     }
   }

@@ -1,26 +1,28 @@
-$orange: #FF8C00;
-$gray1: #A4A8B1;
-$gray2: #B3B8BB;
-$gray3: #D4D6D5;
+@import "modules/base";
 
 .Notification_head {
   display: flex;
   justify-content: space-between;
+  &__Content {
+    .Title {
+      margin-bottom: 10px;
+    }
+  }
   .Notification_destroy_all {
-    font-size: 15px;
-    line-height: 18px;
-    color: #7B7D7F;
-    margin: 5px 0 0px 40px;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    color: $gray4;
+    margin: 2px 5px 0 0;
     > i {
       color: $gray1;
-      font-size: 18px;
+      font-size: 1.8rem;
       margin-right: 5px;
     }
   }
 }
 
 hr {
-  width: 880px;
+  width: 100%;
   background-color: $gray3;
   margin: 0 auto;
 }
@@ -28,56 +30,59 @@ hr {
 .User_box {
   padding: 25px 40px;
   border-bottom: 2px solid $gray3;
-  display: flex;
   position: relative;
-  > a {
-    height: 80px;
-  }
-  &__Image {
-    height: 80px;
-    width: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: auto 30px auto 0;
-  }
-  &__Text {
-    width: 650px;
-    font-size: 15px;
-    line-height: 25px;
-    margin: auto 0;
+  &__Content {
+    width: 100%;
+    height: 100%;
+    display: flex;
     > a {
-      color: #4a4a4a;
-      font-weight: bold;
+      height: 80px;
     }
-    .Notification_time {
-      width: 300px;
-      font-size: 14px;
-      color: #7B7D7F;
+    &__Image {
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: auto 30px auto 0;
+      display: block;
     }
-  }
-  &__Destroy {
-    position: absolute;
-    right: 46px;
-    top: 12px;
-    font-size: 22px;
-    color: $gray1;
-    display: none;
-  }
-  &__Icon {
-    position: absolute;
-    right: 45px;
-    bottom: 25px;
-    color: $orange;
-    font-size: 20px;
-  }
-  .fa-check-circle,
-  .fa-times-circle {
-    position: absolute;
-    right: 42px;
-  }
-  > .fa-user-plus {
-    position: absolute;
-    right: 38px;
+    &__Text {
+      width: 650px;
+      font-size: 1.5rem;
+      line-height: 25px;
+      margin: auto 0;
+      > a {
+        font-weight: bold;
+      }
+      .Notification_time {
+        font-size: 1.4rem;
+        color: $gray4;
+      }
+    }
+    &__Destroy {
+      position: absolute;
+      right: 46px;
+      top: 12px;
+      font-size: 22px;
+      color: $gray1;
+      display: none;
+    }
+    &__Icon {
+      position: absolute;
+      right: 45px;
+      bottom: 25px;
+      color: $orange;
+      font-size: 2rem;
+    }
+    .fa-check-circle,
+    .fa-times-circle {
+      position: absolute;
+      right: 42px;
+    }
+    > .fa-user-plus {
+      position: absolute;
+      right: 38px;
+    }
   }
 }
 .User_box:hover

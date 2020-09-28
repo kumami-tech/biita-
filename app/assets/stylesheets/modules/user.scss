@@ -1,5 +1,4 @@
-$orange: #FF8C00;
-$gray1: #A4A8B1;
+@import "modules/base";
 
 @mixin texthidden() {
   overflow: hidden;
@@ -20,7 +19,7 @@ $gray1: #A4A8B1;
   margin: 50px auto;
   &__Content {
     margin-bottom: 40px;
-    font-size: 15px;
+    font-size: 1.5rem;
     > label {
       font-weight: bold;
       display: inline-block;
@@ -41,19 +40,6 @@ $gray1: #A4A8B1;
       }
     }
   }
-}
-
-.Btn {
-  width: 100px;
-  background-color: $orange;
-  color: white;
-  font-weight: bold;
-  padding: 10px 15px;
-  border-style: none;
-  border-radius: 5px;
-  display: block;
-  margin: 50px auto 30px;
-  cursor: pointer;
 }
 
 .White_login_btn {
@@ -80,7 +66,7 @@ $gray1: #A4A8B1;
 
 .Edit_profile_image {
   width: 130px;
-  margin: 0 auto;
+  margin: 30px auto 0;
   text-align: center;
   &__Text {
     margin-bottom: 10px;
@@ -88,8 +74,8 @@ $gray1: #A4A8B1;
 }
 
 .Profile_image {
-  height: 130px;
   width: 130px;
+  height: 130px;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 30px;
@@ -98,7 +84,7 @@ $gray1: #A4A8B1;
 .Edit_profile_form {
   width: 350px;
   margin: 5px auto 0;
-  font-size: 15px;
+  font-size: 1.5rem;
   .Profile_label {
     font-weight: bold;
     display: inline-block;

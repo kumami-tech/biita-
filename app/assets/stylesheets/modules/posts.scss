@@ -1,64 +1,13 @@
-$orange: #FF8C00;
-$gray1:  #A4A8B1;
-$gray2: #CBD0D3;
-$black: #4A4A4A;
-$blue: #3273dc;
-
-@mixin texthidden() {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-@mixin shadow() {
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
-}
-
-// NEW
-.Post_form {
-  width: 450px;
-  margin: 50px auto;
-  &__Content {
-    margin-bottom: 40px;
-    font-size: 15px;
-    label {
-      font-weight: bold;
-      display: inline-block;
-      margin-bottom: 3px;
-    }
-    &__Field {
-      height: 45px;
-      width: 450px;
-      margin-bottom: 5px;
-      padding: 5px;
-      border: solid 1px $gray1;
-      border-radius: 3px;
-      &--Large {
-        width: 450px;
-        padding: 5px;
-        border: solid 1px $gray1;
-        border-radius: 3px;
-      }
-    }
-    select {
-      width: 450px;
-      height: 45px;
-      border: solid 1px $gray1;
-      border-radius: 3px;
-    }
-  }
-  &__Btn {
-    margin: 60px auto 30px;
-  }
-}
+@import "modules/base";
 
 
 // INDEX
 .Post_index_wrapper {
+  width: 100%;
   height: calc(100vh - 60px);
   overflow: scroll;
   &__Inner {
-    width: 1140px;
+    width: 79vw;
     padding: 30px 0;
     margin: 0 auto;
     display: flex;
@@ -66,8 +15,11 @@ $blue: #3273dc;
     .Post_index_left {
       width: 220px;
       margin-right: 40px;
+      .Title {
+        display: none;
+      }
       .Search_title {
-        font-size: 17px;
+        font-size: 1.7rem;
         margin-top: 5px;
         margin-left: 5px;
       }
@@ -79,7 +31,7 @@ $blue: #3273dc;
             &__Text {
               width: 100%;
               padding: 0 5px 5px;
-              font-size: 15px;
+              font-size: 1.5rem;
               border-style: none;
               outline: none;
               border-bottom: solid 2px silver;
@@ -94,7 +46,7 @@ $blue: #3273dc;
             &__Btn {
               color: silver;
               background-color: white;
-              font-size: 22px;
+              font-size: 2.2rem;
               border-style: none;
               display: block;
               cursor: pointer;
@@ -105,7 +57,7 @@ $blue: #3273dc;
       }
       .Tag_list {
         .tag {
-          font-size: 14px;
+          font-size: 1.4rem;
           color: $orange;
           margin-right: 5px;
           margin-bottom: 10px;
@@ -114,118 +66,130 @@ $blue: #3273dc;
     }
     // 投稿一覧表示
     .Post_index_right {
-      width: 880px;
+      max-width: 880px;
+      width: 100%;
+      .Post_index_title {
+        display: none;
+      }
     }
   }
 }
 
+// =================================================
+
 // INDEX, USERS#SHOW
-.Post_box {
+.Post_index {
+  max-width: 880px;
+  width: 100%;
+}
+.Post_box_outer {
   color: $black;
-  width: 880px;
+  background-color: white;
+  max-width: 880px;
+  width: 100%;
   border: solid 1px silver;
   border-radius: 30px;
-  padding: 25px 40px;
   margin-bottom: 20px;
+  padding: 25px 40px;
   @include shadow();
-  display: flex;
-  // ユーザー情報
-  &__Left {
-    height: 100px;
-    width: 310px;
+  .Post_box {
+    width: 100%;
     display: flex;
-    margin: auto 0;
-    > a  {
-      height: 90px;
-      width: 90px;
-      margin: auto 30px auto 0;
-    }
-    &__Image {
+
+    // ユーザー情報
+    &__Left {
       height: 100px;
-      width: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: auto 30px auto 0;
-    }
-    &__Other {
-      line-height: 18px;
+      width: 310px;
+      display: flex;
       margin: auto 0;
-      .Post_index_username {
-        font-weight: bold;
-        font-size: 15px;
-        margin-bottom: 15px;
+      > a  {
+        height: 90px;
+        width: 90px;
+        margin: auto 30px auto 0;
       }
-      .Post_index_review {
-        display: flex;
-        .Star_rating {
-          width: 111px;
-          position: relative;
-          margin: 0 5px 5px 0;
-          img {
-            height: 18px;
+      &__Image {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: auto 30px auto 0;
+      }
+      &__Other {
+        line-height: 18px;
+        margin: auto 0;
+        .Post_index_username {
+          font-weight: bold;
+          font-size: 1.5rem;
+          margin-bottom: 15px;
+        }
+        .Post_index_review {
+          display: flex;
+          .Star_rating {
+            width: 111px;
+            position: relative;
+            margin: 0 5px 5px 0;
+            img {
+              height: 18px;
+            }
+            .Front {
+              position: absolute;
+              top: 0;
+              left: 0;
+              object-fit: cover;
+              object-position: 0% 0%;
+            }
           }
-          .Front {
-            position: absolute;
-            top: 0px;
-            left: 0;
-            object-fit: cover;
-            object-position: 0% 0%;
-          }
         }
       }
     }
-  }
-  // 投稿の中身
-  &__Right {
-    width: 490px;
-    &__Title {
-      width: 490px;
-      height: 24px;
-      font-weight: bold;
-      @include texthidden();
-    }
-    .Tag_list {
-      margin: 5px 0;
-      .tag {
-        color: $orange;
-      }
-    }
-    &__Text {
-      margin: 0 auto;
-      &__Lists {
-        display: flex;
-        margin: 5px;
-        &__List {
-          margin-right: 5px;
-        }
-      }
-      .tr {
-        height: 31px;
-        padding: 5px 0;
-        display: flex;
-        .th {
-          color: gray;
-          margin-right: 12px;
-        }
-        .td {
-          max-width: 450px;
-          @include texthidden();
-        }
-      }
-      .table_lower {
+    // 投稿の中身
+    &__Right {
+      width: 100%;
+      max-width: 490px;
+      &__Title {
+        width: 100%;
         max-width: 490px;
-        display: flex;
-        > .tr {
+        height: 24px;
+        font-weight: bold;
+        @include texthidden();
+      }
+      .Tag_list {
+        margin: 5px 0;
+        .tag {
+          color: $orange;
+          font-size: 1.2rem;
+        }
+      }
+      &__Text {
+        margin: 0 auto;
+        .tr {
           height: 31px;
           padding: 5px 0;
           display: flex;
-          @include texthidden();
-          .td_date {
-            margin-right: 20px;
+          .th {
+            color: gray;
+            margin-right: 12px;
+          }
+          .td {
+            max-width: 450px;
             @include texthidden();
           }
-          .td_charge {
+        }
+        .table_lower {
+          max-width: 490px;
+          display: flex;
+          > .tr {
+            height: 31px;
+            padding: 5px 0;
+            display: flex;
             @include texthidden();
+            .td_date {
+              margin-right: 20px;
+              @include texthidden();
+            }
+            .td_charge {
+              @include texthidden();
+            }
           }
         }
       }
@@ -235,15 +199,18 @@ $blue: #3273dc;
 
 .Empty {
   color: $gray1;
-  font-size: 18px;
+  font-size: 1.8rem;
   margin-top: 80px;
   margin-left: 10px;
   text-align: center;
   > img {
+    width: 120px;
     margin-bottom: 5px;
   }
 }
 
+
+// =================================================
 
 // SHOW
 .Post_show_wrapper {
@@ -314,117 +281,181 @@ $blue: #3273dc;
     .Takers {
       margin-top: 40px;
       .Takers_title {
+        font-size: 1.5rem;
         margin-bottom: 15px;
       }
       .Takers_empty {
+        font-size: 1.5rem;
         margin: 15px auto;
       }
-      .Taker_icon {
-        color: $orange;
-        font-size: 28px;
-        margin-right: 5px;
+      .Takers_count {
+        font-size: 1.5rem;
+        i {
+          color: $orange;
+          font-size: 28px;
+          margin-right: 5px;
+        }
       }
       .Taker_box {
         width: 160px;
         height: 60px;
         display: flex;
-        margin: 20px auto;
+        margin: 15px auto;
         &__Image {
-          height: 60px;
-          width: 60px;
+          height: 55px;
+          width: 55px;
           border-radius: 50%;
           object-fit: cover;
           margin-left: 0;
-          margin-right: 10px;
+          margin-right: 15px;
         }
         &__Name {
           width: 90px;
+          text-align: left;
           margin: auto;
         }
       }
     }
   }
   // 投稿の詳細
-  .Post_main__Box {
-    width: 99%;
-    border: solid 1px silver;
-    border-radius: 30px;
-    padding: 30px 50px;
-    @include shadow();
-    margin: 5px 10px 10px 0;
-    position: relative;
-    .Post_bookmark--Icon {
-      position: absolute;
-      top: 30px;
-      right: 50px;
-      font-size: 35px;
-      color: $orange;
-      cursor: pointer;
-    }
-    .Post_show_title {
-      width: 400px;
-      font-size: 18px;
-      text-align: center;
-      margin: 0 auto 10px;
-    }
-    .Tag_list {
-      text-align: center;
-      .tag {
+  .Post_main {
+    &__Box {
+      width: 99%;
+      min-width: 633px;
+      border: solid 1px silver;
+      border-radius: 30px;
+      padding: 30px 50px;
+      @include shadow();
+      margin: 5px 10px 10px 0;
+      position: relative;
+      .Back_btn {
+        position: absolute;
+        top: -7px;
+        left: 5px;
+      }
+      .Post_bookmark--Icon {
+        position: absolute;
+        top: 30px;
+        right: 50px;
+        font-size: 3.5rem;
         color: $orange;
+        cursor: pointer;
       }
-    }
-    .Post_table {
-      width: 100%;
-      margin: 20px 0;
-      table {
-        width: 100%;
+      .Post_show_title {
+        width: 80%;
+        font-size: 18px;
         text-align: center;
-        th {
-          width: 30%;
-          background-color: #eee;
-          padding: 10px;
-          border: 1px solid #dedede;
-        }
-        td {
-          padding: 10px;
-          border: 1px solid #dedede;
+        margin: 0 auto 10px;
+      }
+      .Tag_list {
+        text-align: center;
+        .tag {
+          color: $orange;
+          font-size: 1.3rem;
+          margin-bottom: 5px;
         }
       }
-    }
-    .Post_head {
-      text-align: center;
-      margin: 10px 0;
-    }
-    .Post_content {
-      margin-bottom: 20px;
-    }
-    .Post_map {
-      width: 527.98px;
-      height: 350px;
-      margin-bottom: 10px;
-      text-align: center;
+      .Post_table {
+        width: 100%;
+        margin: 15px 0 20px;
+        table {
+          width: 100%;
+          text-align: center;
+          th {
+            width: 30%;
+            background-color: #eee;
+            padding: 10px;
+            border: 1px solid #dedede;
+          }
+          td {
+            padding: 10px;
+            border: 1px solid #dedede;
+          }
+        }
+      }
+      .Post_head {
+        text-align: center;
+        margin: 10px 0;
+      }
+      .Post_content {
+        margin-bottom: 20px;
+      }
+      .Post_map {
+        width: 100%;
+        height: 350px;
+        margin-bottom: 10px;
+        text-align: center;
+      }
     }
   }
 
+  // 境界線
+  hr {
+    display: none;
+  }
+
   // 申込ボタン
+  .Apply_btn {
+    text-align: center;
+    padding: 10px 30px;
+    border-radius: 5px;
+    display: block;
+    margin: 50px auto 30px;
+  }
   .Taken_btn {
     width: 270px;
     color: $orange;
-    text-align: center;
-    padding: 10px 30px;
     border: solid 1px $orange;
-    display: block;
-    margin: 50px auto 30px;
   }
   .Take_btn {
     width: 170px;
     background-color: $orange;
     color: white;
-    text-align: center;
-    padding: 10px 30px;
     border-style: none;
-    display: block;
-    margin: 50px auto 30px;
     cursor: pointer;
+  }
+}
+
+// =================================================
+
+// NEW
+.Post_new_title {
+  margin-top: 5px;
+  text-align: center;
+}
+.Post_form {
+  width: 450px;
+  margin: 30px auto;
+  &__Content {
+    margin-bottom: 35px;
+    font-size: 1.5rem;
+    label {
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 3px;
+    }
+    &__Field {
+      height: 45px;
+      width: 100%;
+      margin-bottom: 5px;
+      padding: 5px;
+      border: solid 1px $gray1;
+      border-radius: 3px;
+      &--Large {
+        width: 100%;
+        padding: 5px;
+        border: solid 1px $gray1;
+        border-radius: 3px;
+      }
+    }
+    select {
+      width: 100%;
+      height: 45px;
+      border: solid 1px $gray1;
+      border-radius: 3px;
+    }
+  }
+  &__Btn {
+    margin: 50px auto 30px;
   }
 }

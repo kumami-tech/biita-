@@ -7,7 +7,7 @@
   .Review_box__Content
     .Review_box__Content__Info
       .Review_box__Content__Info__Name
-        = link_to "#{review.reviewer.name}", user_path(review.reviewer_id), class: "Link Text"
+        = link_to "#{review.reviewer.name}", user_path(review.reviewer_id), class: "Text"
       .Position_text
         = review.display_position
       .Star_rating_r
@@ -24,6 +24,6 @@
           =icon('fas', 'star')
           =icon('fas', 'star')
       .Review_box__Content__Info__Time.Text_s
-        = review.created_at.strftime("%Y年%-m月%-d日 %H時%M分")
+        = review.created_at.strftime("%Y年%-m月%-d日 %H:%M")
     .Review_box__Content__Review.Text
       = simple_format(review.content)

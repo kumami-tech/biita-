@@ -1,0 +1,157 @@
+// ===============レスポンシブ=================
+
+@import "modules/base";
+@import "breakpoints/base_s";
+
+
+@media (max-width: $media_width) {
+
+  .Mypage_wrapper {
+    height: calc(100vh - 50px);
+    .Mypage_header {
+      height: $mini_header_height;
+      display: block;
+      @include shadow();
+      &__Content {
+        width: $content_width_s;
+        margin: 0 auto;
+        display: flex;
+        position: relative;
+        .Header_user_name {
+          line-height: $mini_header_height;
+        }
+      }
+    }
+    &__Inner {
+      width: 100%;
+      padding: 20px 0 60px;
+
+      // サイドバー
+      .Mypage_side_bar {
+        display: none;
+      }
+      .Mypage_side_bar_post {
+        width: 100%;
+        height: 50px;
+        background-color: white;
+        border-top: solid 1px silver;
+        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin: 25px auto;
+        position: fixed;
+        bottom: 0;
+        z-index: 1;
+        margin-bottom: 0;
+        .Post_type_btns_title_row {
+          display: none;
+        }
+        a {
+          width: 50px;
+          height: 34px;
+          margin: auto 0;
+          .Mypage_side_bar_row {
+            width: 100%;
+            flex-direction: column;
+            text-align: center;
+            i {
+              width: auto;
+              margin: 0;
+            }
+            .fa-user {
+              padding-right: 3px;
+            }
+            .fa-check-circle {
+              padding-right: 2px;
+            }
+            .fa-bookmark {
+              padding-right: 5px;
+            }
+            .Mypage_side_bar_btn {
+              width: 100%;
+              font-size: 1rem;
+              line-height: 1.3rem;
+              text-align: center;
+              margin-top: 3px;
+            }
+          }
+        }
+      }
+    
+      // マイページ上部
+      .Mypage_upper {
+        width: 100%;
+        height: auto;
+        margin-bottom: 15px;
+        &__Main {
+          width: $content_width_s;
+          position: relative;
+          .Profile {
+            width: 100%;
+            margin-bottom: 15px;
+            &__Upper {
+              height: 210px;
+              margin-bottom: 5px;
+              flex-direction: column;
+              .Mypage_btns {
+                top: 13px;
+                right: -7px;
+                .White_btn {
+                  width: 170px;
+                  height: 38px;
+                  margin-bottom: 10px;
+                  &__Content {
+                    line-height: 32px;
+                    i {
+                      line-height: 32px;
+                      margin-right: 2px;
+                    }
+                  }
+                }
+                .Profile_edit_btn {
+                  width: 185px;
+                }
+              }
+              .Profile_image {
+                width: 110px;
+                height: 110px;
+              }
+              .Profile_content {
+                width: 100%;
+                margin-top: 10px;
+                .Name {
+                  margin-bottom: 10px;
+                }
+                .Mypage_review {
+                }
+              }
+            }
+            &__Lower {
+              margin-bottom: 0px;
+            }
+          }
+        }
+      }
+
+      // マイページ下部
+      .Mypage_lower {
+        width: 100%;
+        flex-direction: column-reverse;
+        &__Main {
+          width: 100%;
+          .User_page_tabs {
+            justify-content: space-between;
+            margin: 0 auto 15px; 
+            .User_page_tab {
+              width: 49%;
+              height: 30px;
+              margin: 0 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

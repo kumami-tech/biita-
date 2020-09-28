@@ -1,6 +1,8 @@
 = javascript_include_tag 'map'
 
 .Post_show_wrapper
+
+  -# 投稿者の情報
   .Post_user_info
     .Post_user_info__Person
       投稿者
@@ -25,6 +27,8 @@
           = "フォロー"
       .Follow_count#Follower_count
         = render "relationships/follower_count"
+
+    -# ボタン
     .Btns
       - if user_signed_in?
         - if @user.id == current_user.id
@@ -53,17 +57,21 @@
                 .White_btn__Content
                   = icon('fas', 'paper-plane')
                   = "メッセージを送る"
+
+    -# 申込済みユーザー
     .Takers
       .Takers_title.Bold
-        申込済みのユーザー
+        この投稿の
+        %br
+        申込済みユーザー
       - if @takers.empty?
-        .Takers_empty.Text
+        .Takers_empty
           申込済みのユーザーは
           %br
           いません。
       - else
         .Takers_count
-          = icon('fas', 'user', class: "Taker_icon")
+          = icon('fas', 'user')
           %span
             = "#{@takers.count}人"
         - if user_signed_in? && @user.id == current_user.id
@@ -76,8 +84,16 @@
                   = image_tag "no-image.jpg", class: "Taker_box__Image"
                 .Taker_box__Name.Text
                   = taker.name
+
+  %hr
+
+  -# ====================================================================================================
+
+  -# 投稿詳細
   .Post_main
     .Post_main__Box
+      = link_to 'javascript:history.back()' do
+        = icon('fas', 'chevron-left', class: "Back_btn")
       .Post_bookmark
         = render partial: 'favorite', locals: { user: @user, favorite: @favorite, post: @post }
       .Post_show_title.Bold
@@ -112,11 +128,13 @@
       .Post_head.Bold
         = "-地図-"
       .Post_map#map.Text
+    
+    -# 申込ボタン
     - if user_signed_in?
       - if @user.id != current_user.id
         - if @post.taker_ids.include?(current_user.id)
-          = link_to "申し込みをキャンセルする", cancel_posts_g_path(@post.id), data: { confirm: "こちらの投稿の申し込みをキャンセルしますか？" }, class: "Taken_btn Bold"
+          = link_to "申し込みをキャンセルする", cancel_posts_g_path(@post.id), data: { confirm: "こちらの投稿の申し込みをキャンセルしますか？" }, class: "Apply_btn Taken_btn Bold"
         - else
-          = link_to "申し込む", take_posts_g_path(@post.id), data: { confirm: "こちらの投稿に申し込みますか？" }, class: "Take_btn Bold"
+          = link_to "申し込む", take_posts_g_path(@post.id), data: { confirm: "こちらの投稿に申し込みますか？" }, class: "Apply_btn Take_btn Bold"
     - else
-      = link_to "申し込む", take_posts_g_path(@post.id), class: "Take_btn Bold"
+      = link_to "申し込む", take_posts_g_path(@post.id), class: "Apply_btn Take_btn Bold"

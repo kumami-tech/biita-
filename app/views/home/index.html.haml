@@ -1,4 +1,4 @@
-.Header
+.Header.Header_home
   .Header__Content
     = link_to "/", class: "Header_title" do
       %i.fas.fa-shoe-prints.fa-rotate-270.fa-orange
@@ -7,46 +7,56 @@
 = render 'layouts/notifications'
 
 .Wrapper
-  .Home_upper
-    .Home_upper__Content
-      .Home_images
-        = image_tag "home1.jpg", alt: "表示されません", class: "Home_image"
-        = image_tag "home2.jpg", alt: "表示されません", class: "Home_image"
-        = image_tag "home3.jpg", alt: "表示されません", class: "Home_image"
-        = image_tag "home4.jpg", alt: "表示されません", class: "Home_image"
-      .Home_text
-        - if user_signed_in?
-          .Home_text__Title
-            さあ、始めよう。
-          .Home_text__Introduction
-            新しい旅と出会いが、あなたを待っています。
-            %br
-            あなたにぴったりなプランを探してみましょう。
-        - else
-          .Home_text__Title
-            旅と出会いを、もっと気軽に。
-          .Home_text__Introduction
-            %span
-              Biita!
-            は、海外旅行がしたい日本人（ツアーゲスト）と
-            %br
-            旅行の手助けが可能な海外在住者（ツアーキャスト）が
-            %br
-            簡単に出会えるサービスです。
-        .Home_btns
-          = link_to "ツアーゲストを探す", posts_g_index_path, class: "Home_btn"
-          = link_to "ツアーキャストを探す", posts_c_index_path, class: "Home_btn"
-  - unless user_signed_in?
+  .Home_wrapper
+    .Home_upper
+      .Home_upper__Content
+        .Home_images
+          .Flex
+            .Home_image.Left.Upper
+              = image_tag "home1.jpg"
+            .Margin_right
+            .Home_image.Upper
+              = image_tag "home2.jpg"
+          .Margin_bottom
+          .Flex
+            .Home_image.Left
+              = image_tag "home3.jpg"
+            .Margin_right
+            .Home_image
+              = image_tag "home4.jpg"
+        .Home_right
+          .Home_text
+            - if user_signed_in?
+              .Home_text__Title
+                さあ、始めよう。
+              .Home_text__Introduction
+                新しい旅と出会いが、あなたを待っています。
+                %br
+                あなたにぴったりなプランを探してみましょう。
+            - else
+              .Home_text__Title
+                旅と出会いを、もっと気軽に。
+              .Home_text__Introduction
+                %span Biita!
+                は、海外旅行がしたい日本人〈ツアーゲスト〉と
+                %br{class: "br-pc"}
+                旅行の手助けが可能な海外在住者〈ツアーキャスト〉が
+                %br{class: "br-pc"}
+                簡単に出会えるサービスです。
+            .Home_btns
+              = link_to "ツアーゲストを探す", posts_g_index_path, class: "Home_btn Home_btn1"
+              = link_to "ツアーキャストを探す", posts_c_index_path, class: "Home_btn Home_btn2"
     .Home_lower
       .Home_lower__Content
         .Merits_title
           = "- "
-          %span
-            = "Biita!"
-          = "を利用する3つのメリット -"
+          %span> Biita!
+          = "の"
+          %span> 3
+          = "つの特長 -"
         .Merits
           .Merit
-            = image_tag "home5.jpg", alt: "表示されません", class: "Home_image"
+            = image_tag "home5.jpg", class: "Home_image"
             .Merit__Title
               %span
                 = "1. "
@@ -54,7 +64,7 @@
             .Merit__Content
               現地をよく知っている日本人が対応するので、日本語が通じない海外でも安心して旅行できます。
           .Merit
-            = image_tag "home6.jpg", alt: "表示されません", class: "Home_image"
+            = image_tag "home6.jpg", class: "Home_image"
             .Merit__Title
               %span
                 = "2. "
@@ -62,18 +72,17 @@
             .Merit__Content
               旅行会社を介さず個人と直接契約するので、比較的リーズナブルな価格で利用できます。
           .Merit
-            = image_tag "home7.jpg", alt: "表示されません", class: "Home_image"
+            = image_tag "home7.jpg", class: "Home_image"
             .Merit__Title
               %span
                 = "3. "
               = "幅広いサービス"
             .Merit__Content
               旅行先での短い距離の車の運転から本格的な観光案内まで、多岐に渡るサービスに対応しています。
-    
+  
   .Footer
     .Footer__Content
-      %h1
-        = link_to "/", class: "Footer_title" do
-          %i.fas.fa-shoe-prints.fa-rotate-270.fa-orange
-          %span Biita!
+      = link_to "/", class: "Footer_title" do
+        %i.fas.fa-shoe-prints.fa-rotate-270.fa-orange
+        %span Biita!
       Copyright © 2020 Biita! All rights reserved.

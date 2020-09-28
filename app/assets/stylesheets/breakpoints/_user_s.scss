@@ -1,0 +1,64 @@
+// ===============レスポンシブ=================
+
+@import "modules/base";
+@import "breakpoints/base_s";
+
+@media (max-width: $media_width) {
+
+  // ユーザー登録
+
+  .Form {
+    width: $content_width_s;
+    margin: 50px auto;
+    &__Content {
+      width: 90%;
+      margin: 0 auto;
+      margin-bottom: 30px;
+      > label {
+        font-weight: bold;
+        display: inline-block;
+        margin-bottom: 3px;
+      }
+      &__Field {
+        height: 40px;
+        width: 100%;
+        margin-bottom: 5px;
+        padding: 5px;
+        border: solid 1px $gray1;
+        border-radius: 3px;
+        &--Large {
+          width: 100%;
+          padding: 5px;
+          border: solid 1px $gray1;
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+
+  .White_login_btn {
+    margin: 25px auto;
+  }
+
+  
+  // プロフィール編集
+  
+  .Edit_profile_image {
+    width: 120px;
+    margin: 20px auto 0;
+  }
+  
+  .Profile_image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .Edit_profile_form {
+    width: $content_width_s;
+    margin: 5px auto 0;
+    &__Btn{
+      margin: 0 auto 15px;
+    }
+  }
+
+}

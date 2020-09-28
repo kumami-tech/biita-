@@ -1,19 +1,32 @@
+-# ヘッダー
 .Header_r
-  = link_to user_path(@user) do
-    = icon('fas', 'chevron-left', class: "Back_btn")
   .Wrapper_header_r
-    .Title_r
-      = "#{@user.name}さんのレビュー"
+    .Wrapper_header_r__Content
+      = link_to 'javascript:history.back()' do
+        = icon('fas', 'chevron-left', class: "Back_btn")
+      .Title_r
+        = "#{@user.name}さんのレビュー"
+
+    -# タブ
     .Position_r
-      = link_to "全て(#{@reviews.count})", "#", class: "Position_r__Name Active"
-      = link_to "ツアーゲスト(#{@review_gs.count})", "#", class: "Position_r__Name"
-      = link_to "ツアーキャスト(#{@review_cs.count})", "#", class: "Position_r__Name"
+      = link_to "全て(#{@reviews.count})", "#", class: "Position_r__Name Position_all Active"
+      = link_to "ツアーゲスト(#{@review_gs.count})", "#", class: "Position_r__Name Position_g"
+      = link_to "ツアーキャスト(#{@review_cs.count})", "#", class: "Position_r__Name Position_c"
+
+    -# 投稿ボタン
     - unless user_signed_in? && current_user.id == @user.id
       = link_to new_user_review_path(@user), class: "Write_review" do
         .White_btn
           .White_btn__Content
             = icon('fas', 'pen', class: 'Review_icon')
             = "レビューを書く"
+
+-# 投稿ボタン（レスポンシブ）
+- unless user_signed_in? && current_user.id == @user.id
+  = link_to new_user_review_path(@user), class: "Write_review_s" do
+    = icon('fas', 'pen', class: 'Review_icon')
+
+-# メイン
 .Wrapper_r
   .Wrapper_r_inner
     .Reviews.Show
@@ -31,3 +44,4 @@
         = render "layouts/empty"
       - else
         = render partial: 'review', collection: @review_cs
+

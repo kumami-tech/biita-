@@ -1,154 +1,130 @@
-$yellow: #ffff80;
-$orange1: #FF6D05;
-$orange2: #ffa500;
-$orange: #FF8C00;
-$black: #4A4A4A;
+@import "modules/base";
 
-.Wrapper {
-  height: calc(100vh - 60px);
-  overflow: scroll;
-  &__Inner {
-    padding: 30px 0;
-    width: 880px;
-    margin: 0 auto;
-  }
-}
+.Home_wrapper {
+  min-height: calc(100vh - 90px);
 
-.Title {
-  font-size: 18px;
-  font-weight: bold;
-  text-decoration: underline;
-  margin-bottom: 15px;
-}
-
-.Bold {
-  font-weight: bold;
-}
-
-a {
-  color: $black;
-}
-a:hover {
-  color: $black;
-}
-
-.Text {
-  font-size: 14px;
-}
-
-.Text_s {
-  font-size: 12px;
-}
-
-
-
-
-.Home_upper {
-  width: 100%;
-  min-height: calc(100vh - 210px);
-  background-color: $yellow;
-  &__Content {
-    width: 1140px;
-    min-height: calc(100vh - 210px);
-    display: flex;
-    justify-content: space-between;
-    margin: 0px auto;
-    padding: 70px 0;
-    .Home_images {
-      width: 610px;
-      height: 610px;
-      display: flex;
-      flex-wrap: wrap;
-      .Home_image {
-        width: 270px;
-        height: 270px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin: 0 35px 35px 0;
-      }
-    }
-    .Home_text {
-      width: 480px;
-      height: 242px;
-      margin-top: 160px;
-      &__Title {
-        color: $orange1;
-        font-weight: bold;
-        font-size: 28px;
-        margin-left: 3px;
-      }
-      &__Introduction {
-        font-weight: bold;
-        line-height: 35px;
-        margin: 30px 0 40px;
-        margin-left: 3px;
-        span {
-          font-size: 18px;
-        }
-      }
-      .Home_btns {
-        width: 420px;
-        display: flex;
-        justify-content: space-between;
-        .Home_btn {
-          width: 200px;
-          height: 50px;
-          background-color: $orange;
-          color: white;
-          font-weight: bold;
-          line-height: 50px;
-          border-radius: 10px;
-          text-align: center;
-          cursor: pointer;
-        }
-      }
-    }
-  }
-}
-.Home_lower {
-  width: 100%;
-  background-color: white;
-  padding: 70px 0 80px;
-  &__Content {
-    width: 1140px;
-    margin: 0 auto;
-    .Merits_title {
-      font-size: 24px;
-      font-weight: bold;
-      color: $orange;
-      text-align: center;
-      margin-bottom: 60px;
-      span {
-        font-size: 26px;
-      }
-    }
-    .Merits {
+  .Home_upper {
+    width: 100vw;
+    height: 100vh;
+    max-height: 730px;
+    background-color: $yellow;
+    &__Content {
+      width: 79vw;
+      max-height: 730px;
       display: flex;
       justify-content: space-between;
-      .Merit {
-        width: 250px;
-        text-align: center;
-        margin: 0 55px;
+      align-items: center;
+      margin: 0px auto;
+      padding: 70px 0;
+      .Home_images {
+        width: 51%;
+        height: 100%;
         .Home_image {
-          width: 250px;
-          height: 250px;
-          border-radius: 50%;
-          object-fit: cover;
-          margin: 0 auto;
-        }
-        &__Title {
-          font-size: 19px;
-          font-weight: bold;
-          margin: 20px auto 15px;
-          span {
-            font-size: 21px;
+          width: 47%;
+          height: 47%;
+          min-width: 137px;
+          min-height: 137px;
+          img {
+            border-radius: 50%;
+            object-fit: cover;
           }
         }
-        &__Content {
-          width: 240px;
-          margin: 0 auto;
-          text-align: left;
-          line-height: 30px;
+        .Margin_right {
+          width: 6%;
+          min-width: 16px;
+        }
+        .Margin_bottom {
+          height: 4%;
+          min-height: 20px;
+        }
+      }
+      .Home_right {
+        width: 42%;
+        min-width: 296px;
+        .Home_text {
+          width: 100%;
+          height: 40%;
+          min-width: 307.5px;
+          &__Title {
+            color: $orange1;
+            font-weight: bold;
+            font-size: 2.8rem;
+            margin-left: 3px;
+          }
+          &__Introduction {
+            font-weight: bold;
+            line-height: 3.5rem;
+            margin: 25px 0 35px;
+            margin-left: 3px;
+            span {
+              font-size: 1.8rem;
+            }
+          }
+          .Home_btns {
+            width: 418px;
+            display: flex;
+            justify-content: space-between;
+            .Home_btn {
+              width: 200px;
+              height: 50px;
+              background-color: $orange;
+              color: white;
+              font-weight: bold;
+              line-height: 50px;
+              border-radius: 10px;
+              text-align: center;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+      }
+  }
+  .Home_lower {
+    width: 100vw;
+    background-color: white;
+    padding: 70px 0 80px;
+    &__Content {
+      width: 79vw;
+      margin: 0 auto;
+      .Merits_title {
+        font-size: 2.4rem;
+        font-weight: bold;
+        color: $orange;
+        text-align: center;
+        margin-bottom: 60px;
+        span {
+          font-size: 2.7rem;
+        }
+      }
+      .Merits {
+        display: flex;
+        justify-content: space-between;
+        .Merit {
+          width: 250px;
+          text-align: center;
+          margin: 0 55px;
+          .Home_image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto;
+          }
+          &__Title {
+            font-size: 1.9rem;
+            font-weight: bold;
+            margin: 20px auto 15px;
+            span {
+              font-size: 2.1rem;
+            }
+          }
+          &__Content {
+            width: 240px;
+            margin: 0 auto;
+            text-align: left;
+            line-height: 30px;
+          }
         }
       }
     }
