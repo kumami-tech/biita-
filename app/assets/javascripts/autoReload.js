@@ -10,7 +10,7 @@ $(function(){
           <div class="Message_box__Content">
             <div class="Message_box__Content__Info">
               <div class="Message_box__Content__Info__Name">
-                <a class="Link Text" href="/posts_g/${message.user_id}">${message.user_name}</a>
+                <a class="Text" href="/posts_g/${message.user_id}">${message.user_name}</a>
               </div>
               <div class="Message_box__Content__Info__Time Text_s">
                 ${message.created_at}
@@ -32,7 +32,7 @@ $(function(){
           <div class="Message_box__Content">
             <div class="Message_box__Content__Info">
               <div class="Message_box__Content__Info__Name">
-                <a class="Link Text" href="/posts_g/${message.user_id}">${message.user_name}</a>
+                <a class="Text" href="/posts_g/${message.user_id}">${message.user_name}</a>
               </div>
               <div class="Message_box__Content__Info__Time Text_s">
                 ${message.created_at}
@@ -55,7 +55,7 @@ $(function(){
           <div class="Message_box__Content">
             <div class="Message_box__Content__Info">
               <div class="Message_box__Content__Info__Name">
-                <a class="Link Text" href="/posts_g/${message.user_id}">${message.user_name}</a>
+                <a class="Text" href="/posts_g/${message.user_id}">${message.user_name}</a>
               </div>
               <div class="Message_box__Content__Info__Time Text_s">
                 ${message.created_at}
@@ -77,7 +77,7 @@ $(function(){
           <div class="Message_box__Content">
             <div class="Message_box__Content__Info">
               <div class="Message_box__Content__Info__Name">
-                <a class="Link Text" href="/posts_g/${message.user_id}">${message.user_name}</a>
+                <a class="Text" href="/posts_g/${message.user_id}">${message.user_name}</a>
               </div>
               <div class="Message_box__Content__Info__Time Text_s">
                 ${message.created_at}
