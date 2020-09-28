@@ -42,19 +42,6 @@
   }
 }
 
-.Btn {
-  width: 100px;
-  background-color: $orange;
-  color: white;
-  font-weight: bold;
-  padding: 10px 15px;
-  border-style: none;
-  border-radius: 5px;
-  display: block;
-  margin: 50px auto 30px;
-  cursor: pointer;
-}
-
 .White_login_btn {
   width: 190px;
   height: 40px;
@@ -77,10 +64,6 @@
 
 // プロフィール編集
 
-.Edit_profile_title {
-  text-align: center;
-}
-
 .Edit_profile_image {
   width: 130px;
   margin: 30px auto 0;
@@ -91,7 +74,7 @@
 }
 
 .Profile_image {
-  width: 100%;
+  width: 130px;
   height: 130px;
   border-radius: 50%;
   object-fit: cover;

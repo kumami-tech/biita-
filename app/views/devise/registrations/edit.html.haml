@@ -1,4 +1,4 @@
-.Title アカウント情報を編集する
+.Title.Form_title アカウント情報を編集する
 .Form
   = form_for(current_user, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
     = render "devise/shared/error_messages", resource: resource
@@ -33,7 +33,4 @@
       .Text_s ※アカウント情報を変更するには、現在のパスワードを入力する必要があります
       = f.password_field :current_password, autocomplete: "current-password", class: "Form__Content__Field"
     = f.submit "更新", class: "Btn Text"
-  -# %h3 Cancel my account
-  -# %p
-  -#   Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-  = link_to "戻る", :back, class: "Text"
+  = link_to "アカウントの削除", registration_path(resource_name), data: { confirm: "アカウントを削除しますか？" }, method: :delete, class: "Text Link"

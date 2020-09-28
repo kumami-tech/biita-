@@ -10,7 +10,6 @@ $black: #4A4A4A;
 $blue: #3273dc;
 
 $content_width_s: 82vw;
-
 $mini_header_height: 50px;
 
 @mixin foot() {
@@ -62,15 +61,25 @@ $mini_header_height: 50px;
   font-weight: bold;
   color: $orange;
   margin-bottom: 15px;
+  padding-left: 10px;
 }
 
 .Bold {
   font-weight: bold;
 }
 
+.Link {
+  color: $blue;
+}
+
+.Flex {
+  display: flex;
+}
+
 a {
   color: $black;
 }
+
 a:hover {
   color: $black;
 }
@@ -84,7 +93,21 @@ a:hover {
 }
 
 
+// フォーム
 
-.Flex {
-  display: flex;
+.Form_title {
+  text-align: center;
+}
+
+.Btn {
+  width: 100px;
+  background-color: $orange;
+  color: white;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-style: none;
+  border-radius: 5px;
+  display: block;
+  margin: 50px auto 30px;
+  cursor: pointer;
 }
