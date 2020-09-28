@@ -1,6 +1,9 @@
 .Message_header.Side_bar_header
-  .Title1
-    = "#{current_user.name}さんのトークルーム"
+  .Side_bar_header__Content
+    = link_to 'javascript:history.back()' do
+      = icon('fas', 'chevron-left', class: "Back_btn")
+    .Title1
+      = "#{current_user.name}さんのトークルーム"
 .Side_bar
   - if @groups.empty?
     .Empty

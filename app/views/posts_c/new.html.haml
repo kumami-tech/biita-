@@ -1,2 +1,5 @@
-.Title.Form_title ツアーキャストとして投稿する
+.Title.Form_title
+  = link_to 'javascript:history.back()' do
+    = icon('fas', 'chevron-left', class: "Back_btn")
+  = "ツアーキャストとして投稿する"
 = render partial: "form"

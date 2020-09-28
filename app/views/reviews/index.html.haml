@@ -1,11 +1,9 @@
 -# ヘッダー
 .Header_r
-  = link_to user_path(@user) do
-    = icon('fas', 'chevron-left', class: "Back_btn")
   .Wrapper_header_r
     .Wrapper_header_r__Content
-      = link_to user_path(@user) do
-        = icon('fas', 'chevron-left', class: "Back_btn_s")
+      = link_to 'javascript:history.back()' do
+        = icon('fas', 'chevron-left', class: "Back_btn")
       .Title_r
         = "#{@user.name}さんのレビュー"
 

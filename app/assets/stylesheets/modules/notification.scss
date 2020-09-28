@@ -3,14 +3,19 @@
 .Notification_head {
   display: flex;
   justify-content: space-between;
+  &__Content {
+    .Title {
+      margin-bottom: 10px;
+    }
+  }
   .Notification_destroy_all {
-    font-size: 15px;
-    line-height: 18px;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
     color: $gray4;
-    margin: 5px 0 0px 40px;
+    margin: 2px 5px 0 0;
     > i {
       color: $gray1;
-      font-size: 18px;
+      font-size: 1.8rem;
       margin-right: 5px;
     }
   }
@@ -43,15 +48,14 @@ hr {
     }
     &__Text {
       width: 650px;
-      font-size: 15px;
+      font-size: 1.5rem;
       line-height: 25px;
       margin: auto 0;
       > a {
-        color: #4a4a4a;
         font-weight: bold;
       }
       .Notification_time {
-        font-size: 14px;
+        font-size: 1.4rem;
         color: $gray4;
       }
     }

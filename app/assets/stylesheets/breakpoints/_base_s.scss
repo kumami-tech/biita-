@@ -7,8 +7,6 @@ $content_width_s: 85vw;
 $header_height: 50px;
 $mini_header_height: 40px;
 
-$review_header_height: 50px;
-
 @mixin two-lines() {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -59,6 +57,36 @@ $review_header_height: 50px;
       max-width: 880px;
       margin: 0 auto;
     }
+  }
+  
+  .Back_btn {
+    display: block;
+    font-size: 2rem;
+    color: gray;
+    line-height: $mini_header_height;
+    margin-right: 15px;
+  }
+
+  .Title {
+    font-size: 1.7rem;
+    padding-left: 0;
+  }
+
+  .Form_title {
+    width: $content_width_s;
+    margin: 0 auto;
+    position: relative;
+    .Back_btn {
+      position: absolute;
+      left: 0;
+      line-height: 25px;
+    }
+  }
+
+  .Btn {
+    width: 100px;
+    padding: 10px 15px;
+    margin: 25px auto;
   }
 
   img {

@@ -16,8 +16,13 @@
         width: $content_width_s;
         margin: 0 auto 20px auto;
         .Title {
+          font-size: 1.8rem;
           margin: 15px 0 25px;
           display: block;
+          display: flex;
+          i {
+            line-height: 25px;
+          }
         }
         .Search_title {
           font-size: 1.7rem;

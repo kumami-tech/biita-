@@ -1,4 +1,7 @@
-.Title.Form_title アカウント情報を編集する
+.Title.Form_title
+  = link_to 'javascript:history.back()' do
+    = icon('fas', 'chevron-left', class: "Back_btn")
+  = "アカウント情報を編集する"
 .Form
   = form_for(current_user, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
     = render "devise/shared/error_messages", resource: resource

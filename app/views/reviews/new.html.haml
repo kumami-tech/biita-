@@ -1,7 +1,7 @@
 .New_review_wrapper
-  = link_to user_reviews_path(@user) do
-    = icon('fas', 'chevron-left', class: "Back_btn_new")
   .Title
+    = link_to 'javascript:history.back()' do
+      = icon('fas', 'chevron-left', class: "Back_btn")
     = "#{@user.name}さんのレビューを投稿する"
   = form_with model: @review, url: user_reviews_path, local: true, class: "Form_review" do |f|
     .Position_btns

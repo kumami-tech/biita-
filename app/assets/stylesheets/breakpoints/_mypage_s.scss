@@ -4,16 +4,27 @@
 @import "breakpoints/base_s";
 
 
-
-
-
 @media (max-width: $media_width) {
 
   .Mypage_wrapper {
     height: calc(100vh - 50px);
+    .Mypage_header {
+      height: $mini_header_height;
+      display: block;
+      @include shadow();
+      &__Content {
+        width: $content_width_s;
+        margin: 0 auto;
+        display: flex;
+        position: relative;
+        .Header_user_name {
+          line-height: $mini_header_height;
+        }
+      }
+    }
     &__Inner {
       width: 100%;
-      padding: 25px 0 0;
+      padding: 20px 0 60px;
 
       // サイドバー
       .Mypage_side_bar {
@@ -72,21 +83,22 @@
       .Mypage_upper {
         width: 100%;
         height: auto;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         &__Main {
           width: $content_width_s;
+          position: relative;
           .Profile {
             width: 100%;
             margin-bottom: 15px;
             &__Upper {
               height: 210px;
-              margin-bottom: 15px;
+              margin-bottom: 5px;
               flex-direction: column;
               .Mypage_btns {
                 top: 13px;
                 right: -7px;
                 .White_btn {
-                  width: 185px;
+                  width: 170px;
                   height: 38px;
                   margin-bottom: 10px;
                   &__Content {
@@ -96,6 +108,9 @@
                       margin-right: 2px;
                     }
                   }
+                }
+                .Profile_edit_btn {
+                  width: 185px;
                 }
               }
               .Profile_image {

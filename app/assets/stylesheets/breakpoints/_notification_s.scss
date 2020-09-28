@@ -8,7 +8,24 @@
 
   .Notification_head {
     width: $content_width_s;
-    margin: 0 auto;
+    display: flex;
+    margin: 0 auto 8px;
+    &__Content {
+      height: 30px;
+      display: flex;
+      .Back_btn {
+        line-height: 30px;
+        margin-bottom: 10px;
+      }
+      .Title {
+        line-height: 30px;
+        margin-bottom: 0;
+      }
+    }
+    .Notification_destroy_all {
+      height: 30px;
+      line-height: 30px;
+    }
   }
   .User_box {
     padding: 15px 0;
@@ -23,17 +40,20 @@
       }
       &__Text {
         width: calc(100% - 70px);
+        font-size: 1.4rem;
+        line-height: 23px;
       }
       &__Icon {
-        right: 11px;
+        right: 7px;
         bottom: 5px;
+        font-size: 1.8rem;
       }
       .fa-check-circle,
       .fa-times-circle {
-        right: 8px;
+        right: 4px;
       }
       > .fa-user-plus {
-        right: 4px;
+        right: 0px;
       }
     }
   }

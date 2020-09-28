@@ -75,6 +75,8 @@
   }
 }
 
+// =================================================
+
 // INDEX, USERS#SHOW
 .Post_index {
   max-width: 880px;
@@ -208,6 +210,8 @@
 }
 
 
+// =================================================
+
 // SHOW
 .Post_show_wrapper {
   width: 100%;
@@ -324,6 +328,11 @@
       @include shadow();
       margin: 5px 10px 10px 0;
       position: relative;
+      .Back_btn {
+        position: absolute;
+        top: -7px;
+        left: 5px;
+      }
       .Post_bookmark--Icon {
         position: absolute;
         top: 30px;
@@ -407,6 +416,7 @@
   }
 }
 
+// =================================================
 
 // NEW
 .Post_new_title {

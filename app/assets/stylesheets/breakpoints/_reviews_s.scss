@@ -3,33 +3,21 @@
 @import "modules/base";
 @import "breakpoints/base_s";
 
-$review_header_height: 40px;
-
 @media (max-width: $media_width) {
   .Header_r {
     height: 75px;
     padding-top: 5px;
-    .Back_btn {
-      display: none;
-    }
     .Wrapper_header_r {
       width: 100%;
-      height: $review_header_height;
+      height: $mini_header_height;
       flex-direction: column;
       &__Content {
         width: $content_width_s;
         margin: 0 auto;
         display: flex;
-        .Back_btn_s {
-          display: block;
-          font-size: 2rem;
-          color: gray;
-          line-height: $review_header_height;
-        }
         .Title_r {
           font-size: 1.5rem;
-          line-height: $review_header_height;
-          margin-left: 15px;
+          line-height: $mini_header_height;
           margin-right: 0;
         }
       }
@@ -64,7 +52,7 @@ $review_header_height: 40px;
   }
 
 
-  // 投稿ボタン（レスポンシブ）
+  // 投稿ボタン
   .Write_review_s {
     width: 55px;
     height: 55px;
@@ -75,6 +63,7 @@ $review_header_height: 40px;
     right: 20px;
     bottom: 20px;
     text-align: center;
+    z-index: 1;
     i {
       color: white;
       line-height: 55px;
@@ -134,14 +123,9 @@ $review_header_height: 40px;
   // 新規レビューの投稿
   .New_review_wrapper {
     width: $content_width_s;
-    .Flex {
-      .Back_btn_new {
-        font-size: 2.7rem;
-        color: gray;
-        line-height: 25px;
-        margin-right: 15px;
-        display: block;
-      }
+    .Title {
+      margin: auto;
+      display: flex;
     }
     .Form_review {
       width: 100%;

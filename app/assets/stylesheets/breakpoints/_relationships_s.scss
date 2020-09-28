@@ -8,18 +8,15 @@
 @media (max-width: $media_width) {
 
   .Flex {
-    .Back_btn_follow {
-      font-size: 2.5rem;
-      color: gray;
+    .Back_btn {
       line-height: 25px;
-      margin-right: 15px;
-      display: block;
     }
   }
 
   .Follow_tabs {
     width: 100%;
-    margin: 15px auto 0;
+    font-size: 1.4rem;
+    margin: 20px auto 0;
     .Follow_tab {
       height: 30px;
     }
@@ -34,6 +31,7 @@
       width: 100%;
     }
     .Follow_list_btn {
+      top: -4px;
       right: 0px;
     }
   }
@@ -46,7 +44,6 @@
       .White_btn {
         width: 120px;
         height: 30px;
-        font-size: 1.4rem;
         &__Content {
           line-height: 25px;
           i {

@@ -1,7 +1,10 @@
 .Post_index_wrapper
   .Post_index_wrapper__Inner
     .Post_index_left
-      .Title ツアーキャストを探す
+      .Title
+        = link_to 'javascript:history.back()' do
+          = icon('fas', 'chevron-left', class: "Back_btn")
+        = "ツアーキャストを探す"
       .Search_title.Bold
         条件で絞り込む
       .Keyword

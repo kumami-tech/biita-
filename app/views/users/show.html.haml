@@ -1,4 +1,14 @@
 .Mypage_wrapper
+  .Mypage_header
+    .Mypage_header__Content
+      = link_to 'javascript:history.back()' do
+        = icon('fas', 'chevron-left', class: "Back_btn")
+      .Header_user_name
+        - if user_signed_in?
+          - if @user.id == current_user.id
+            = "マイページ"
+          - else
+            = @user.name
   .Mypage_wrapper__Inner
 
 
@@ -63,7 +73,7 @@
             .Mypage_btns
               - if user_signed_in?
                 - if @user.id == current_user.id
-                  .White_btn
+                  .White_btn.Profile_edit_btn
                     .White_btn__Content
                       = icon('fas', 'user-edit')
                       = link_to "プロフィールの編集", edit_user_path(current_user)

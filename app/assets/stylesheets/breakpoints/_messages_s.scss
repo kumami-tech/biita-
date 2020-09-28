@@ -14,9 +14,15 @@
         height: $mini_header_height;
         display: block;
         box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        .Title1 {
-          line-height: $mini_header_height;
-          margin-left: 20px;
+        &__Content {
+          width: $content_width_s;
+          margin: 0 auto;
+          display: flex;
+          .Title1 {
+            font-size: 1.5rem;
+            line-height: $mini_header_height;
+            margin-left: 0;
+          }
         }
       }
       .Side_bar {
@@ -48,15 +54,12 @@
           display: flex;
           margin: 0 auto;
           .Back_btn {
-            color: gray;
-            font-size: 2rem;
-            line-height: $mini_header_height;
             display: block;
           }
           .Title1 {
             font-size: 1.5rem;
             line-height: $mini_header_height;
-            margin-left: 15px;
+            margin-left: 0;
           }
         }
       }

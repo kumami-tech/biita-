@@ -1,7 +1,7 @@
 .Message_main
   .Message_header
     .Message_header__Content
-      = link_to groups_path do
+      = link_to 'javascript:history.back()' do
         = icon('fas', 'chevron-left', class: "Back_btn")
       .Title1
         = "#{@user.name}さんとのトークルーム"

@@ -1,4 +1,7 @@
-.Title.Form_title ログイン
+.Title.Form_title
+  = link_to 'javascript:history.back()' do
+    = icon('fas', 'chevron-left', class: "Back_btn")
+  = "ログイン"
 .Form
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .Form__Content
