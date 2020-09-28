@@ -13,15 +13,15 @@
   - if user_signed_in?
     .Header_btn
       = link_to groups_path do
-        = icon('far', 'paper-plane', class: "Link")
+        = icon('far', 'paper-plane')
     .Header_btn
       = link_to notifications_path do
         - if unchecked_notifications.any?
           %span.fa-stack
-            = icon('far', 'bell',  class: "fa-stack-2x Link")
+            = icon('far', 'bell',  class: "fa-stack-2x")
             = icon('fas', 'circle',  class: "fa-stack-1x")
         - else
-          = icon('far', 'bell', class: "Bell Link")
+          = icon('far', 'bell', class: "Bell")
     .Header_btn#Header_user_image
       - if current_user.profile_image?
         = image_tag current_user.profile_image.url, class: "Header_btn__Image"
