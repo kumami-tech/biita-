@@ -33,12 +33,6 @@ $mini_header_height: 40px;
     }
   }
 
-  img {
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
-  }
-
 }
 
 @media (max-width: $media_width) {
@@ -87,12 +81,6 @@ $mini_header_height: 40px;
     width: 100px;
     padding: 10px 15px;
     margin: 25px auto;
-  }
-
-  img {
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
   }
 
 }
