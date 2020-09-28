@@ -1,14 +1,13 @@
+.Mypage_header
+  .Mypage_header__Content
+    = link_to 'javascript:history.back()' do
+      = icon('fas', 'chevron-left', class: "Back_btn")
+    .Header_user_name
+      - if user_signed_in? && @user.id == current_user.id
+        = "マイページ"
+      - else
+        = @user.name
 .Mypage_wrapper
-  .Mypage_header
-    .Mypage_header__Content
-      = link_to 'javascript:history.back()' do
-        = icon('fas', 'chevron-left', class: "Back_btn")
-      .Header_user_name
-        - if user_signed_in?
-          - if @user.id == current_user.id
-            = "マイページ"
-          - else
-            = @user.name
   .Mypage_wrapper__Inner
 
 
