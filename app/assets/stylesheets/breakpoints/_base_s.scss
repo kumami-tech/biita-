@@ -1,3 +1,4 @@
+$media_width_s: 400px;
 $media_width: 768px;
 $media_width_l: 1024px;
 $media_width_ll: 1140px;
@@ -31,12 +32,6 @@ $mini_header_height: 40px;
       max-width: 880px;
       margin: 0 auto;
     }
-  }
-
-  img {
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
   }
 
 }
@@ -87,12 +82,6 @@ $mini_header_height: 40px;
     width: 100px;
     padding: 10px 15px;
     margin: 25px auto;
-  }
-
-  img {
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
   }
 
 }

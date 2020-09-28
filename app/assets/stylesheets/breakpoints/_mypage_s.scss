@@ -6,22 +6,22 @@
 
 @media (max-width: $media_width) {
 
-  .Mypage_wrapper {
-    height: calc(100vh - 50px);
-    .Mypage_header {
-      height: $mini_header_height;
-      display: block;
-      @include shadow();
-      &__Content {
-        width: $content_width_s;
-        margin: 0 auto;
-        display: flex;
-        position: relative;
-        .Header_user_name {
-          line-height: $mini_header_height;
-        }
+  .Mypage_header {
+    height: $mini_header_height;
+    display: block;
+    @include header_shadow();
+    &__Content {
+      width: $content_width_s;
+      margin: 0 auto;
+      display: flex;
+      position: relative;
+      .Header_user_name {
+        line-height: $mini_header_height;
       }
     }
+  }
+  .Mypage_wrapper {
+    height: calc(100vh - 90px);
     &__Inner {
       width: 100%;
       padding: 20px 0 60px;
@@ -98,19 +98,21 @@
                 top: 13px;
                 right: -7px;
                 .White_btn {
-                  width: 170px;
-                  height: 38px;
+                  width: 160px;
+                  height: 35px;
                   margin-bottom: 10px;
                   &__Content {
-                    line-height: 32px;
+                    font-size: 1.4rem;
+                    line-height: 30px;
                     i {
-                      line-height: 32px;
+                      font-size: 1.5rem;
+                      line-height: 30px;
                       margin-right: 2px;
                     }
                   }
                 }
                 .Profile_edit_btn {
-                  width: 185px;
+                  width: 175px;
                 }
               }
               .Profile_image {
@@ -121,9 +123,13 @@
                 width: 100%;
                 margin-top: 10px;
                 .Name {
+                  font-size: 1.7rem;
                   margin-bottom: 10px;
                 }
                 .Mypage_review {
+                  .Review_info {
+
+                  }
                 }
               }
             }
@@ -146,7 +152,17 @@
             .User_page_tab {
               width: 49%;
               height: 30px;
+              font-size: 1.5rem;
               margin: 0 0px;
+            }
+          }
+          .Mypage_lower__Content {
+            .Empty {
+              font-size: 1.5rem;
+              margin: 30px auto;
+              img {
+                width: 100px;
+              }
             }
           }
         }

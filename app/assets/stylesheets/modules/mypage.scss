@@ -6,12 +6,12 @@
   text-overflow: ellipsis;
 }
 
+.Mypage_header {
+  display: none;
+}
 .Mypage_wrapper {
   height: calc(100vh - 60px);
   overflow: scroll;
-  .Mypage_header {
-    display: none;
-  }
   &__Inner {
     width: 1100px;
     padding: 35px 0;
@@ -107,11 +107,11 @@
         .Profile {
           width: 96%;
           max-width: 840px;
-          margin: 0px auto 20px;
+          margin: 0px auto;
           &__Upper {
             width: 100%;
             height: 130px;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             display: flex;
             position: relative;
             .Mypage_btns {
@@ -178,6 +178,7 @@
             font-size: 15px;
             overflow: hidden;
             margin-bottom: 45px;
+            margin-top: 15px;
           }
         }
       }

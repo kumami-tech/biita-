@@ -13,7 +13,7 @@
       .Side_bar_header {
         height: $mini_header_height;
         display: block;
-        box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        @include header_shadow();
         &__Content {
           width: $content_width_s;
           margin: 0 auto;
@@ -49,6 +49,7 @@
       height: calc(100vh - 50px);
       .Message_header {
         height: $mini_header_height;
+        @include header_shadow();
         &__Content {
           width: $content_width_s;
           display: flex;
@@ -94,11 +95,24 @@
         margin-bottom: 0;
         &__Content {
           width: $content_width_s;
-          height: 30px;
+          height: 35px;
           padding: 0;
           margin: 0 auto;
+          .Message_input {
+            &__Text {
+              border-radius: 3px;
+              padding: 4px 35px 0 5px;
+            }
+            &__Image {
+              i {
+                font-size: 1.8rem;
+                line-height: 35px;
+              }
+            }
+          }
           .Message_submit_btn {
-            font-size: 2.3rem;
+            font-size: 2.5rem;
+            line-height: 35px;
             padding: 0;
             margin-left: 10px;
           }
