@@ -3,24 +3,11 @@
 @import "modules/base";
 @import "breakpoints/base_s";
 
-
-@media (max-width: $media_width) {
-
+@media (max-width: $media_width_l) {
 
   .Header {
     &__Content {
-      height: 50px;
       width: $content_width_s;
-      .Header_title {
-        height: 50px;
-        width: 100px;
-        font-size: 2.68rem;
-        line-height: 48px;
-        .fa-orange::before {
-          font-size: 2.5rem;
-          margin-bottom: 10px;
-        }
-      }
       .Header_search_btns,
       .Header_btns_l{
         display: none;
@@ -36,21 +23,20 @@
           margin-left: 0;
           i {
             color: gray;
-            font-size: 23px;
           }
           &__Image {
-            width: 30px;
-            height: 30px;
+            width: 35px;
+            height: 35px;
           }
         }
         .Left {
-          margin-right: 20px;
+          margin-right: 30px;
         }
         .Right {
-          width: 30px;
+          width: 35px;
         }
         .Menu {
-          top: 45px;
+          top: 53px;
           right: 4vw;
           &__Content {
             font-size: 1.6rem;
@@ -94,7 +80,7 @@
               top: -3px;
             }
             &:hover {
-              font-size: 1.8rem;
+              font-size: 1.6rem;
             }
           }
         }
@@ -102,17 +88,57 @@
     }
   }
 
-
-
-
   .Footer {
     height: 90px;
     &__Content {
       height: 100%;
       padding: 16px;
+      font-size: 1.4rem;
       .Footer_title {
         height: 35px;
         line-height: 35px;
+        font-size: 2.3rem;
+      }
+    }
+  }
+
+}
+
+@media (max-width: $media_width) {
+
+
+  .Header {
+    &__Content {
+      height: 50px;
+      .Header_title {
+        height: 50px;
+        width: 100px;
+        font-size: 2.68rem;
+        line-height: 48px;
+        .fa-orange::before {
+          font-size: 2.5rem;
+          margin-bottom: 10px;
+        }
+      }
+      .Header_btns_s{
+        .Header_btn {
+          i {
+            font-size: 23px;
+          }
+          &__Image {
+            width: 30px;
+            height: 30px;
+          }
+        }
+        .Left {
+          margin-right: 20px;
+        }
+        .Right {
+          width: 30px;
+        }
+        .Menu {
+          top: 45px;
+        }
       }
     }
   }

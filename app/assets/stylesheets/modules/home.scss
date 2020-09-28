@@ -39,7 +39,7 @@
       width: 42%;
       min-width: 296px;
       .Home_text {
-        width: calc(100vw / 3);
+        width: 100%;
         height: 40%;
         min-width: 307.5px;
         &__Title {
@@ -58,8 +58,7 @@
           }
         }
         .Home_btns {
-          width: 29vw;
-          min-width: 296px;
+          width: 418px;
           display: flex;
           justify-content: space-between;
           .Home_btn {
