@@ -7,6 +7,7 @@
     %script{src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyAKjQ5iQKIy6xo1Cp2Iqb7NMe9GYy38HmU"}
     = csrf_meta_tags
     = csp_meta_tag
+    = favicon_link_tag('favicon.ico')
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application'
   %body
