@@ -25,6 +25,6 @@
                 .Side_bar_user_name
                   = user.name
                 .Side_bar_time
-                  = group.messages.last.created_at.strftime("%-m月%-d日")
+                  = group.messages.first.created_at.strftime("%-m月%-d日")
               .Side_bar_message
                 = simple_format(group.show_last_message)
