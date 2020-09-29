@@ -72,23 +72,34 @@
             .Mypage_btns
               - if user_signed_in?
                 - if @user.id == current_user.id
-                  .White_btn.Profile_edit_btn
-                    .White_btn__Content
-                      = icon('fas', 'user-edit')
-                      = link_to "プロフィールの編集", edit_user_path(current_user)
+                  = link_to edit_user_path(current_user) do
+                    .White_btn.Profile_edit_btn
+                      .White_btn__Content
+                        = icon('fas', 'user-edit')
+                        = "プロフィールの編集"
                 - else
                   .Follow
                     = render "relationships/follow", user: @user
                   - if @group_id.nil?
-                    .White_btn
-                      .White_btn__Content
-                        = icon('fas', 'paper-plane')
-                        = link_to "メッセージを送る", "/groups/#{@user.id}/create"
+                    = link_to "/groups/#{@user.id}/create" do
+                      .White_btn
+                        .White_btn__Content
+                          = icon('fas', 'paper-plane')
+                          = "メッセージを送る"
                   - else
-                    .White_btn
-                      .White_btn__Content
-                        = icon('fas', 'paper-plane')
-                        = link_to "メッセージを送る", group_messages_path(@group_id, user_id: @user.id)
+                    = link_to group_messages_path(@group_id, user_id: @user.id) do
+                      .White_btn
+                        .White_btn__Content
+                          = icon('fas', 'paper-plane')
+                          = "メッセージを送る"
+              - else
+                .Follow
+                  = render "relationships/follow", user: @user
+                = link_to "/groups/#{@user.id}/create" do
+                  .White_btn
+                    .White_btn__Content
+                      = icon('fas', 'paper-plane')
+                      = "メッセージを送る"
           .Profile__Lower
             = simple_format(@user.profile)
 

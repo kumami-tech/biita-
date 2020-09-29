@@ -50,13 +50,21 @@
               .White_btn
                 .White_btn__Content
                   = icon('fas', 'paper-plane')
-                  = link_to "メッセージを送る", "/groups/#{@user.id}/create"
+                  = "メッセージを送る"
           - else
             = link_to group_messages_path(@group_id, user_id: @user.id) do
               .White_btn
                 .White_btn__Content
                   = icon('fas', 'paper-plane')
-                  = link_to "メッセージを送る", group_messages_path(@group_id, user_id: @user.id)
+                  = "メッセージを送る"
+      - else
+        .Follow
+          = render "relationships/follow", user: @user
+        = link_to "/groups/#{@user.id}/create" do
+          .White_btn
+            .White_btn__Content
+              = icon('fas', 'paper-plane')
+              = "メッセージを送る"
 
     -# 申込済みユーザー
     .Takers
