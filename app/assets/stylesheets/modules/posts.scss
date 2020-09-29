@@ -434,6 +434,17 @@
       display: inline-block;
       margin-bottom: 3px;
     }
+    .Required {
+      background-color: $orange;
+      color: white;
+      font-weight: bold;
+      font-size: 1.3rem;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+    .Non-required {
+      background-color: $gray1;
+    }
     &__Field {
       height: 45px;
       width: 100%;
@@ -441,11 +452,13 @@
       padding: 5px;
       border: solid 1px $gray1;
       border-radius: 3px;
+      background-color: white;
       &--Large {
         width: 100%;
         padding: 5px;
         border: solid 1px $gray1;
         border-radius: 3px;
+        background-color: white;
       }
     }
     select {
@@ -453,6 +466,7 @@
       height: 45px;
       border: solid 1px $gray1;
       border-radius: 3px;
+      background-color: white;
     }
   }
   &__Btn {
