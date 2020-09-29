@@ -14,7 +14,7 @@ describe Message do
       end
 
       it "テキストが空でも、画像が入力されていれば保存できること" do
-        message = build(:message, text: nil, image: "image.jpg")
+        message = build(:message, text: nil)
         expect(message).to be_valid
       end
     end
