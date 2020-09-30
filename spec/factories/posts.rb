@@ -8,6 +8,7 @@ FactoryBot.define do
     charge       {"10000円"}
     payment      {"現地で手渡し"}
     content      {"トロントの観光案内"}
+    created_at   { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
   end
 
   factory :post_c do
