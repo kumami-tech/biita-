@@ -28,33 +28,31 @@ describe PostsGController do
     # let!(:favorite) { create(:favorite_g, post_g: post, user: current_user) }
     let!(:post_takers) { create_list(:post_g_taker, 3, post_g_id: post.id) }
 
-    it "投稿詳細ページに遷移すること" do
+    before do
       get :show, params: {id: post.id}
+    end
+
+    it "投稿詳細ページに遷移すること" do
       expect(response).to render_template :show
     end
 
     it "HTTPのレスポンスが200であること" do
-      get :show, params: {id: post.id}
       expect(response).to have_http_status "200"
     end
 
     it "適切にインスタンス変数(@post)が取り出されること" do
-      get :show, params: { id: post }
       expect(assigns(:post)).to eq post
     end
 
     it "適切にインスタンス変数(@user)が取り出されること" do
-      get :show, params: { id: post }
       expect(assigns(:user)).to eq giver
     end
 
     it "適切にインスタンス変数(@count)が取り出されること" do
-      get :show, params: { id: post }
       expect(assigns(:count)).to eq giver.reviews.count
     end
 
     # it "適切にインスタンス変数(@favorite)が取り出されること" do
-    #   get :show, params: { id: post }
     #   expect(assigns(:favorite)).to eq post.favorite_gs.where(user: current_user)
     # end
 
@@ -69,28 +67,33 @@ describe PostsGController do
 
     context "ユーザーがログインしている場合" do
       before do
-        sign_in giver
+        login giver
+        get :new
       end
 
       it "新規投稿ページに遷移すること" do
-        get :new
         expect(response).to render_template :new
       end
 
       it "HTTPのレスポンスが200であること" do
-        get :new
         expect(response).to have_http_status "200"
+      end
+
+      it "適切にインスタンス変数(@post)が取り出されること" do
+        expect(assigns(:post)).to be_a_new(PostG)
       end
     end
 
     context "ユーザーがログインしていない場合" do
-      it "ログイン画面にリダイレクトされること" do
+      before do
         get :new
+      end
+
+      it "ログイン画面にリダイレクトされること" do
         expect(response).to redirect_to new_user_session_path
       end
 
       it "HTTPのレスポンスが302であること" do
-        get :new
         expect(response).to have_http_status "302"
       end
     end
@@ -102,33 +105,33 @@ describe PostsGController do
 
     context "ユーザーがログインしている場合" do
       before do
-        sign_in giver
+        login giver
+        get :edit, params: {id: post}
       end
 
       it "投稿編集ページに遷移すること" do
-        get :edit, params: {id: post}
         expect(response).to render_template :edit
       end
 
       it "HTTPのレスポンスが200であること" do
-        get :edit, params: {id: post}
         expect(response).to have_http_status "200"
       end
 
       it "適切にインスタンス変数(@post)が取り出されること" do
-        get :edit, params: { id: post }
         expect(assigns(:post)).to eq post
       end
     end
 
     context "ユーザーがログインしていない場合" do
-      it "ログイン画面にリダイレクトされること" do
+      before do
         get :edit, params: {id: post}
+      end
+
+      it "ログイン画面にリダイレクトされること" do
         expect(response).to redirect_to new_user_session_path
       end
 
       it "HTTPのレスポンスが302であること" do
-        get :edit, params: {id: post}
         expect(response).to have_http_status "302"
       end
     end
