@@ -1,33 +1,33 @@
 require 'rails_helper'
 
 describe PostsGController do
+  let(:giver) { create(:user) }
+  let(:current_user) { create(:user) }
+  let(:post) { create(:post_g, giver: giver) }
+  let(:reviews) { create_list(:review, 3, reviewee: giver) }
+  # let!(:favorite) { create(:favorite_g, post_g: post, user: current_user) }
+
   describe 'GET #index' do
     let(:posts) { create_list(:post_g, 3) }
 
-    it "投稿一覧ページに遷移すること" do
+    before do
       get :index
+    end
+    
+    it "投稿一覧ページに遷移すること" do
       expect(response).to render_template :index
     end
     
     it "HTTPのレスポンスが200であること" do
-      get :index
       expect(response).to have_http_status "200"
     end
 
     it "適切にインスタンス変数(@posts)が取り出されること" do
-      get :index
       expect(assigns(:posts)).to match(posts.sort{ |a, b| b.created_at <=> a.created_at } )
     end
   end
 
   describe 'GET #show' do
-    let(:giver) { create(:user) }
-    let(:current_user) { create(:user) }
-    let(:post) { create(:post_g, giver: giver) }
-    let(:reviews) { create_list(:review, 3, reviewee: giver) }
-    # let!(:favorite) { create(:favorite_g, post_g: post, user: current_user) }
-    let!(:post_takers) { create_list(:post_g_taker, 3, post_g_id: post.id) }
-
     before do
       get :show, params: {id: post.id}
     end
@@ -63,8 +63,6 @@ describe PostsGController do
   end
 
   describe 'GET #new' do
-    let(:giver) { create(:user) }
-
     context "ユーザーがログインしている場合" do
       before do
         login giver
@@ -100,9 +98,6 @@ describe PostsGController do
   end
 
   describe 'GET #edit' do
-    let(:giver) { create(:user) }
-    let(:post) { create(:post_g) }
-
     context "ユーザーがログインしている場合" do
       before do
         login giver
