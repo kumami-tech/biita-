@@ -53,7 +53,7 @@ describe MessagesController do
     end
   end
 
-  describe 'GET #create' do
+  describe 'POST #create' do
     let(:params) { { group_id: group.id, user_id: user.id, message: attributes_for(:message) } }
 
     context "ユーザーがログインしている場合" do
