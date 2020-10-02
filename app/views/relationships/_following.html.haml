@@ -11,6 +11,6 @@
       = link_to @user.name, user_path(@user), class: "Follow_name"
       .Follow_profile
         = simple_format(@user.profile)
-    - if user_signed_in? && @user != current_user
+    - unless user_signed_in? && @user == current_user
       %div{class: "Follow-#{@user.id} Follow_list_btn"}
         = render "relationships/follow", user: @user
