@@ -7,7 +7,7 @@ describe PostsCController do
   let(:post_c_taker) { create(:post_c_taker) }
   let(:reviews) { create_list(:review, 3, reviewee: giver) }
   let(:params) { { giver_id: giver.id, post_c: attributes_for(:post_c) } }
-  # let!(:favorite) { create(:favorite_c, post_c: post, user: current_user) }
+  # let!(:favorite) { create(:favorite_c, post_c_id: post_c.id, user_id: current_user.id) }
 
   describe 'GET #index' do
     let(:posts) { create_list(:post_c, 3) }
@@ -55,7 +55,7 @@ describe PostsCController do
     end
 
     # it "適切にインスタンス変数(@favorite)が取り出されること" do
-    #   expect(assigns(:favorite)).to eq post.favorite_cs.where(user: current_user)
+    #   expect(assigns(:favorite)).to eq post_c.favorite_cs.where(user_id: current_user.id)
     # end
 
     it "適切にインスタンス変数(@takers)が取り出されること" do
@@ -153,10 +153,10 @@ describe PostsCController do
           expect{ subject }.to change(PostC, :count).by(1)
         end
 
-        # it "投稿詳細ページにリダイレクトされること" do
-        #   subject
-        #   expect(response).to redirect_to posts_c_path(params[:post_c])
-        # end
+        it "投稿詳細ページにリダイレクトされること" do
+          subject
+          expect(response).to redirect_to posts_c_path(PostC.last)
+        end
       end
 
       context "投稿が保存できない場合" do
@@ -198,67 +198,69 @@ describe PostsCController do
   end
 
 
-  # describe 'PATCH #update' do 
-  #   context "ユーザーがログインしている場合" do
-  #     before do
-  #       login giver
-  #     end
+  describe 'PATCH #update' do 
+
+    context "ユーザーがログインしている場合" do
+      before do
+        login giver
+      end
       
-  #     context "投稿が保存できる場合" do
-  #       let(:params) { { giver_id: giver.id, post_c: attributes_for(:post_c, title: "新しいタイトル") } }
-  #       subject {
-  #         patch :update,
-  #         params: {id: post_c.id, post_c: params}
-  #       }
-  #       it "投稿が保存されること" do
-  #         subject
-  #         expect(post_c.reload.title).to eq "新しいタイトル"
-  #       end
-  #     end
+      context "投稿が保存できる場合" do
+        let(:params) { { giver_id: giver.id, title: "新しいタイトル" } }
+        subject {
+          patch :update,
+          params: {id: post_c.id, post_c: params}
+        }
+        it "投稿が保存されること" do
+          subject
+          expect(post_c.reload.title).to eq "新しいタイトル"
+        end
+      end
 
-  #     context "投稿が保存できない場合" do
-  #       let(:invalid_params) { { giver_id: giver.id, post_c: attributes_for(:post_c, title: nil) } }
-  #       subject {
-  #         patch :update,
-  #         params: {id: post_c.id, post_c: invalid_params}
-  #       }
-  #       it "投稿が保存されないこと" do
-  #         subject
-  #         expect{ post_c.reload.title }.to eq "トロントの観光案内"
-  #       end
+      context "投稿が保存できない場合" do
+        let(:invalid_params) { { giver_id: giver.id, title: nil } }
+        subject {
+          patch :update,
+          params: {id: post_c.id, post_c: invalid_params}
+        }
+        it "投稿が保存されないこと" do
+          subject
+          expect(post_c.reload.title).to eq "トロントの観光案内"
+        end
 
-  #       it "投稿編集ページにリダイレクトされること" do
-  #         subject
-  #         expect(response).to redirect_to edit_posts_c_path(post_c)
-  #       end
-  #     end
-  #   end
-  # end
+        it "投稿編集ページにリダイレクトされること" do
+          subject
+          expect(response).to redirect_to edit_posts_c_path(post_c)
+        end
+      end
+    end
+  end
 
 
-  # describe 'DELETE #destroy' do
+  describe 'DELETE #destroy' do
+    let!(:post_c) { create(:post_c, giver: giver) }
 
-  #   subject {
-  #     delete :destroy,
-  #     params: {id: post_c.id, post_c: params}
-  #   }
+    subject {
+      delete :destroy,
+      params: {id: post_c.id, post_c: params}
+    }
 
-  #   context "ユーザーがログインしている場合" do
-  #     before do
-  #       login giver
-  #     end
+    context "ユーザーがログインしている場合" do
+      before do
+        login giver
+      end
 
-  #     it "投稿を削除できること" do
-  #       expect{ subject }.to change(PostC, :count).by(-1)
-  #     end
-  #   end
+      it "投稿を削除できること" do
+        expect{ subject }.to change(PostC, :count).by(-1)
+      end
+    end
 
-  #   context "ユーザーがログインしていない場合" do
-  #     it "投稿を削除できないこと" do
-  #       expect{ subject }.not_to change(PostC, :count)
-  #     end
-  #   end
-  # end
+    context "ユーザーがログインしていない場合" do
+      it "投稿を削除できないこと" do
+        expect{ subject }.not_to change(PostC, :count)
+      end
+    end
+  end
 
 
   describe 'GET #take' do
@@ -307,28 +309,28 @@ describe PostsCController do
 
 
   describe 'GET #cancel' do
-    # let(:post_c_taker) { create(:post_c_taker, post_c: post_c, taker: current_user) }
-    let(:params) { { post_c_taker: attributes_for(:post_c_taker) } }
+    let!(:post_c) { create(:post_c, giver: giver) }
+    let!(:post_c_taker) { create(:post_c_taker, taking_post_c: post_c, taker: giver) }
 
-    # context "ユーザーがログインしている場合" do
-    #   before do
-    #     login giver
-    #   end
+    context "ユーザーがログインしている場合" do
+      before do
+        login giver
+      end
 
-    #   subject {
-    #     get :cancel,
-    #     params: {post_c_id: post_c.id, taker_id: current_user.id, post_c_taker: params}
-    #   }
+      subject {
+        get :cancel,
+        params: {id: post_c.id, taker_id: giver.id, post_c_taker: params}
+      }
 
-    #   it "投稿を削除できること" do
-    #     expect{ subject }.to change(PostCTaker, :count).by(-1)
-    #   end
+      it "投稿を削除できること" do
+        expect{ subject }.to change(PostCTaker, :count).by(-1)
+      end
 
-    #   it "投稿詳細ページにリダイレクトされること" do
-    #     subject
-    #     expect(response).to redirect_to posts_c_path(post_c)
-    #   end
-    # end
+      it "投稿詳細ページにリダイレクトされること" do
+        subject
+        expect(response).to redirect_to posts_c_path(post_c)
+      end
+    end
 
     context "ユーザーがログインしていない場合" do
       subject {
