@@ -2,9 +2,10 @@ require 'rails_helper'
 
 describe UsersController do
   let(:user) { create(:user) }
-  let(:reviews) { create_list(:review, 3, reviewee: user) }
-
+  
   describe 'GET #show' do
+    let(:reviews) { create_list(:review, 3, reviewee: user) }
+
     before do
       get :show, params: {id: user}
     end
@@ -73,6 +74,55 @@ describe UsersController do
 
       it "HTTPのレスポンスが302であること" do
         expect(response).to have_http_status "302"
+      end
+    end
+  end
+
+  describe 'PATCH #update' do 
+
+    context "ユーザーがログインしている場合" do
+      before do
+        login user
+      end
+      
+      let(:params) { { user_id: user.id, profile: "新しいプロフィール" } }
+      subject {
+        patch :update,
+        params: {id: user.id, user: params}
+      }
+      
+      it "プロフィールが保存されること" do
+        subject
+        expect(user.reload.profile).to eq "新しいプロフィール"
+      end
+    end
+
+    context "ユーザーがログインしていない場合" do
+      let(:params) { { user_id: user.id, profile: "新しいプロフィール" } }
+      subject {
+        patch :update,
+        params: {id: user.id, user: params}
+      }
+      
+      it "プロフィールが保存されないこと" do
+        subject
+        expect(user.reload.profile).to eq nil
+      end
+    end
+
+    context "他のユーザーの場合" do
+      let(:another_user) { create(:user) }
+      let(:params) { { user_id: user.id, profile: "新しいプロフィール" } }
+
+      subject {
+        patch :update,
+        params: {id: user.id, user: params}
+      }
+      
+      it "プロフィールが保存されないこと" do
+        login another_user
+        subject
+        expect(user.reload.profile).to eq nil
       end
     end
   end
