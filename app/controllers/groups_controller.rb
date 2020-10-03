@@ -15,10 +15,4 @@ class GroupsController < ApplicationController
     @group_id = group_user.group_id
     redirect_to group_messages_path(@group_id, user_id: @user.id)
   end
-
-  private
-  def group_params
-    params.permit(:id, user_ids: [])
-  end
-
 end
