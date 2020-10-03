@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe NotificationsController do
   let(:user) { create(:user) }
-  let(:notification) { create(:notification) }
+  let!(:notification) { create(:notification) }
 
   describe 'GET #index' do
 
@@ -47,9 +47,9 @@ describe NotificationsController do
         login user
       end
 
-      # it "通知を削除できること" do
-      #   expect{ subject }.to change(Notification, :count).by(-1)
-      # end
+      it "通知を削除できること" do
+        expect{ subject }.to change(Notification, :count).by(-1)
+      end
     end
 
     context "ユーザーがログインしていない場合" do 
