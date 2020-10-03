@@ -5,7 +5,7 @@ describe RelationshipsController do
   let(:current_user) { create(:user) }
   let(:following) { create(:user) }
   let(:follower) { create(:user) }
-  let(:relationship) { create(:relationship, following_id: following.id, follower_id: follower.id) }
+  let!(:relationship) { create(:relationship, following_id: following.id, follower_id: follower.id) }
 
   describe 'GET #followings' do
 
@@ -95,10 +95,45 @@ describe RelationshipsController do
     end
   end
 
+  describe 'POST #create' do
+    subject {
+      post :create,
+      params: {id: user.id, follower_id: follower.id},
+      xhr: true
+    }
+
+    context "ユーザーがログインしている場合" do
+      before do
+        login user
+      end
+
+      it "フォローできること" do
+        expect{ subject }.to change(Relationship, :count).by(1)
+      end
+    end
+
+    context "ユーザーがログインしていない場合" do
+      subject {
+        post :create,
+        params: {id: user.id, follower_id: follower.id}
+      }
+      it "ログイン画面にリダイレクトされること" do
+        subject
+        expect(response).to redirect_to new_user_session_path
+      end
+
+      it "HTTPのレスポンスが302であること" do
+        subject
+        expect(response).to have_http_status "302"
+      end
+    end
+  end
+
   describe 'DELETE #destroy' do
     subject {
       delete :destroy,
-      params: {id: user.id, follower_id: follower.id}
+      params: {id: user.id, follower_id: follower.id},
+      xhr: true
     }
 
     context "ユーザーがログインしている場合" do  
@@ -112,6 +147,10 @@ describe RelationshipsController do
     end
 
     context "ユーザーがログインしていない場合" do 
+      subject {
+        post :create,
+        params: {id: user.id, follower_id: follower.id}
+      }
       it "ログイン画面にリダイレクトされること" do
         subject
         expect(response).to redirect_to new_user_session_path
