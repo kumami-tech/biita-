@@ -54,34 +54,32 @@ describe MessagesController do
   end
 
   describe 'POST #create' do
-    let(:params) { { group_id: group.id, user_id: user.id, message: attributes_for(:message) } }
+    let(:group_user) { create(:group_user, group: group) }
+    let(:params) { { group_id: group.id, user_id: group_user.user.id, message: attributes_for(:message) } }
 
     context "ユーザーがログインしている場合" do
       before do
         login user
       end
 
-      # context "投稿が保存できる場合" do
-      #   subject {
-      #     post :create,
-      #     params: params
-      #   }
+      context "投稿が保存できる場合" do
+        subject {
+          post :create,
+          params: params,
+          xhr: true
+        }
 
-      #   it "メッセージが保存されること" do
-      #     expect{ subject }.to change(Message, :count).by(1)
-      #   end
-
-      #   it "メッセージ一覧画面にリダイレクトされること" do
-      #     subject
-      #     expect(response).to redirect_to(group_messages_path(group))
-      #   end
-      # end
+        it "メッセージが非同期で保存されること" do
+          expect{ subject }.to change(Message, :count).by(1)
+        end
+      end
 
       context "投稿が保存できない場合" do
         let(:invalid_params) { { group_id: group.id, user_id: user.id, message: attributes_for(:message, text: nil, image: nil) } }
         subject {
           post :create,
-          params: invalid_params
+          params: invalid_params,
+          xhr: true
         }
 
         it "メッセージが保存されないこと" do
