@@ -106,24 +106,24 @@ URL: http://18.180.76.151
 <br />
 
 ## :blue_book: 使用技術
-**フロントエンド**
+### フロントエンド
 - Haml
 - Sass
 - JavaScript
 - jQuery
 
-**バックエンド**
+### バックエンド
 - Ruby 2.6.5  
 - Rails 6.0.3.2  
 
-**データベース**
+### データベース
 - MySQL2  
 
-**テスト**
+### テスト
 - RSpec
 - FactoryBot
 
-**本番環境**
+### 本番環境
 - AWS(EC2、S3)  
 - Nginx、Puma
 
