@@ -177,9 +177,14 @@
         box-shadow: none;
         padding: 0 5px;
         margin: 0;
+        position: relative;
+        .Back_btn {
+          top: 0;
+          left: 0;
+        }
         .Post_bookmark--Icon {
           top: 0;
-          right: 5px;
+          right: 0;
           font-size: 3.2rem;
         }
         .Post_show_title {

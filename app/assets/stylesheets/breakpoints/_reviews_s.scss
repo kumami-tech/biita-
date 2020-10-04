@@ -27,7 +27,7 @@
         justify-content: space-between;
         &__Name {
           height: 30px;
-          font-size: 1.3rem;
+          font-size: 1.4rem;
           line-height: 30px;
           text-align: center;
           padding: 0;
@@ -124,11 +124,13 @@
   .New_review_wrapper {
     width: $content_width_s;
     .Title {
+      line-height: 40px;
       margin: auto;
       display: flex;
     }
     .Form_review {
       width: 100%;
+      margin: 30px auto;
       &__Text {
         width: 100%;
       }

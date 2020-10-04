@@ -5,7 +5,7 @@ class PostsGController < ApplicationController
 
   def index
     @posts = PostG.includes(:giver)
-    @tags = PostG.all_tags.pluck(:name)
+    @tags = PostG.all_tags.order("taggings_count DESC").pluck(:name)
 
     if params[:keyword]
       @posts = PostG.search(params[:keyword])
