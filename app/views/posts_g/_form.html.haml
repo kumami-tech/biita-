@@ -13,6 +13,13 @@
       %br/
       = f.text_field :tag_list, value: @post.tag_list.join(' '), class: "Post_form__Content__Field"
     .Post_form__Content.Text
+      = f.label "画像"
+      %span.Required.Non-required 任意
+      .Post_image_prev
+        - if @post.image?
+          = image_tag @post.image.url, class: "Post_image"
+      = f.file_field :image, class: "Post_image_input"
+    .Post_form__Content.Text
       = f.label "旅行したい場所"
       %span.Required 必須
       %br/

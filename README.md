@@ -130,4 +130,4 @@ URL: http://18.180.76.151
 <br />
 
 ## :orange_book: ER図
-![スクリーンショット 2020-10-02 21 52 48](https://user-images.githubusercontent.com/67250685/94925111-a6fe8d00-04f9-11eb-9da0-ef6c04d35e64.jpg)
+![スクリーンショット 2020-10-04 17 00 20](https://user-images.githubusercontent.com/67250685/95010314-26f43680-0663-11eb-9024-1498d49dbb39.jpg)

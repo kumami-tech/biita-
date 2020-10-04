@@ -111,6 +111,8 @@
           = link_to posts_c_index_path(tag_name: tag) do
             .tag.Text
               = tag
+      - if @post.image?
+        = image_tag @post.image.url, class: "Post_image"
       .Post_table.Text
         %table
           %tr
