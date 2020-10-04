@@ -356,6 +356,11 @@
           margin-bottom: 5px;
         }
       }
+      .Post_image {
+        width: 100%;
+        margin-top: 10px;
+        object-fit: cover;
+      }
       .Post_table {
         width: 100%;
         margin: 15px 0 20px;
@@ -445,6 +450,9 @@
     }
     .Non-required {
       background-color: $gray1;
+    }
+    .Post_image_input {
+      margin-top: 5px;
     }
     &__Field {
       height: 45px;
