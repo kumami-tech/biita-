@@ -3,15 +3,12 @@ require 'rails_helper'
 describe RelationshipsController do
   let(:user) { create(:user) }
   let(:current_user) { create(:user) }
-  let(:following) { create(:user) }
-  let(:follower) { create(:user) }
-  let!(:relationship) { create(:relationship, following_id: following.id, follower_id: follower.id) }
 
   describe 'GET #followings' do
 
     context "ユーザーがログインしている場合" do
       before do
-        login user
+        login current_user
         get :followings, params: { id: user.id }
       end
       
@@ -96,15 +93,17 @@ describe RelationshipsController do
   end
 
   describe 'POST #create' do
+    
+
     subject {
       post :create,
-      params: {id: user.id, follower_id: follower.id},
+      params: {id: user.id, follower_id: user.id},
       xhr: true
     }
 
     context "ユーザーがログインしている場合" do
       before do
-        login user
+        login current_user
       end
 
       it "フォローできること" do
@@ -130,26 +129,30 @@ describe RelationshipsController do
   end
 
   describe 'DELETE #destroy' do
+    let(:user) { create(:user) }
+    let(:current_user) { create(:user) }
+    let!(:relationship) { create(:relationship, following_id: current_user.id, follower_id: user.id) }
+
     subject {
       delete :destroy,
-      params: {id: user.id, follower_id: follower.id},
+      params: {id: user.id},
       xhr: true
     }
 
     context "ユーザーがログインしている場合" do  
       before do
-        login user
+        login current_user
       end
 
-      # it "フォローを解除できること" do
-      #   expect{ subject }.to change(Relationship, :count).by(-1)
-      # end
+      it "フォローを解除できること" do
+        expect{ subject }.to change(Relationship, :count).by(-1)
+      end
     end
 
     context "ユーザーがログインしていない場合" do 
       subject {
         post :create,
-        params: {id: user.id, follower_id: follower.id}
+        params: {id: user.id, follower_id: user.id}
       }
       it "ログイン画面にリダイレクトされること" do
         subject
