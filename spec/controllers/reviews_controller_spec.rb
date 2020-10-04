@@ -77,8 +77,9 @@ describe ReviewsController do
 
   describe 'POST #create' do
     let(:reviewer) { create(:user) }
+    let(:reviewee) { create(:user) }
     let(:review) { create(:review, reviewee: user) }
-    let(:params) { { user_id: reviewer.id, review: attributes_for(:review) } }
+    let(:params) { { user_id: reviewee.id, review: attributes_for(:review, reviewee_id: reviewee) } }
     let(:user) { create(:user) }
 
     context "ユーザーがログインしている場合" do
@@ -92,14 +93,14 @@ describe ReviewsController do
           params: params
         }
 
-        # it "レビューが保存されること" do
-        #   expect{ subject }.to change(Review, :count).by(1)
-        # end
+        it "レビューが保存されること" do
+          expect{ subject }.to change(Review, :count).by(1)
+        end
 
-        # it "レビュー一覧画面にリダイレクトされること" do
-        #   subject
-        #   expect(response).to redirect_to(user_reviews_path(user))
-        # end
+        it "レビュー一覧画面にリダイレクトされること" do
+          subject
+          expect(response).to redirect_to(user_reviews_path)
+        end
       end
 
       context "投稿が保存できない場合" do
