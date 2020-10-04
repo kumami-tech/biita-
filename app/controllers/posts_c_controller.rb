@@ -42,7 +42,7 @@ class PostsCController < ApplicationController
       redirect_to posts_c_path(@post)
     else
       flash[:alert] = '入力に不備があります。'
-      redirect_to action: "new"
+      render "new"
     end
   end
 
@@ -55,7 +55,7 @@ class PostsCController < ApplicationController
       redirect_to posts_c_path(@post)
     else
       flash[:alert] = '入力に不備があります。'
-      redirect_to action: "edit"
+      render "edit"
     end
   end
 
