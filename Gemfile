@@ -38,7 +38,11 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
-  gem 'rails-erd'
+
+  gem 'rspec-rails', '~> 4.0.0.beta2'
+  gem 'factory_bot_rails'
+  gem 'faker', "~> 2.8"
+  gem 'rails-controller-testing'
 end
 
 group :development do
