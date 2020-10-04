@@ -8,7 +8,7 @@ $(function(){
         zoom: 13
       });
       map.setCenter(results[0].geometry.location);
-      var marker = new google.maps.Marker({
+      const marker = new google.maps.Marker({
           map: map,
           position: results[0].geometry.location
       });
