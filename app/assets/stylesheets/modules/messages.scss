@@ -198,10 +198,12 @@
 }
 
 .My_talkroom{
-  width: 170px;
   font-size: 1.7rem;
   text-align: center;
   margin: auto;
+  img { 
+    width: 170px;
+  }
   &__Text{
     color: $gray1;
     text-align: center;
