@@ -17,6 +17,8 @@ class PostG < ApplicationRecord
   
   acts_as_taggable
 
+  mount_uploader :image, ImageUploader
+
   def self.search(search)
     if search != ""
       PostG.where('title LIKE(?)', "%#{search}%")

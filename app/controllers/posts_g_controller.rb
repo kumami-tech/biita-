@@ -82,7 +82,7 @@ class PostsGController < ApplicationController
 
   private
   def post_params
-    params.require(:post_g).permit(:title, :tag_list, :region, :datetime, :content, :charge, :payment).merge(giver_id: current_user.id)
+    params.require(:post_g).permit(:title, :tag_list, :image, :region, :datetime, :content, :charge, :payment).merge(giver_id: current_user.id)
   end
 
   def set_post
