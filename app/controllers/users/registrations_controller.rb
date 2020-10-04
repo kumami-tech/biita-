@@ -9,14 +9,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.find(current_user.id)
   end
 
-  def update
-    if current_user.update(user_params)
-      redirect_to root_path
-    else
-      render :edit
-    end
-  end
-
   def check_guest
     if resource.email == 'guest@example.com'
       redirect_to edit_user_registration_path, alert: 'ゲストユーザーの変更・削除はできません。'
@@ -24,10 +16,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   private
-
-  def user_params
-    params.require(:user).permit(:name)
-  end
 
   # GET /resource/sign_up
   # def new

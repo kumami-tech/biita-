@@ -42,8 +42,10 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
+      flash[:notice] = 'プロフィールを編集しました。'
       redirect_to user_path(current_user.id)
     else
+      flash.now[:alert] = 'プロフィールを編集できませんでした。'
       render :edit
     end
   end
