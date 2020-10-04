@@ -114,7 +114,7 @@ describe RelationshipsController do
     context "ユーザーがログインしていない場合" do
       subject {
         post :create,
-        params: {id: user.id, follower_id: follower.id}
+        params: {id: user.id, follower_id: user.id}
       }
       it "ログイン画面にリダイレクトされること" do
         subject
