@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Users::RegistrationsController do
-  let(:user) { create(:user, email: "old-address@com") }
+  let(:user) { create(:user, name: "old-name") }
   let(:another_user) { create(:user) }
   let(:params) { { user: attributes_for(:user) } }
 
@@ -38,7 +38,7 @@ describe Users::RegistrationsController do
     end
 
     context "ユーザーが保存できない場合" do
-      let(:invalid_params) { { user: attributes_for(:user, email: nil) } }
+      let(:invalid_params) { { user: attributes_for(:user, name: nil) } }
 
       subject {
         post :create,
@@ -100,49 +100,33 @@ describe Users::RegistrationsController do
         login user
       end
       
-      # context "ユーザーが保存できる場合" do
-      #   let(:params) { { id: user.id, email: "new-address@com" } }
-      #   subject {
-      #     patch :update,
-      #     params: {id: user.id, user: params}
-      #   }
-      #   it "ユーザーが保存されること" do
-      #     subject
-      #     expect(user.reload.email).to eq "new-address@com"
-      #   end
-      # end
+      context "ユーザーが保存できる場合" do
+        let(:params) { { id: user.id, name: "new-name" } }
+        subject {
+          patch :update,
+          params: {id: user.id, user: params}
+        }
+        it "ユーザーが保存されること" do
+          subject
+          expect(user.reload.name).to eq "new-name"
+        end
+      end
 
       context "ユーザーが保存できない場合" do
-        let(:invalid_params) { { id: user.id, email: nil } }
+        let(:invalid_params) { { id: user.id, name: nil } }
         subject {
           patch :update,
           params: {id: user.id, user: invalid_params}
         }
         it "ユーザーが保存されないこと" do
           subject
-          expect(user.reload.email).to eq "old-address@com"
+          expect(user.reload.name).to eq "old-name"
         end
 
-        # it "ユーザー編集ページにリダイレクトされること" do
-        #   subject
-        #   expect(response).to render_template :edit
-        # end
-      end
-
-
-      context "他のユーザーの場合" do
-        before do
-          login another_user
-          get :edit, params: {id: user}
+        it "ユーザー編集ページにリダイレクトされること" do
+          subject
+          expect(response).to render_template :edit
         end
-
-        # it "ログイン画面にリダイレクトされること" do
-        #   expect(response).to redirect_to new_user_session_path
-        # end
-
-        # it "HTTPのレスポンスが302であること" do
-        #   expect(response).to have_http_status "302"
-        # end
       end
     end
   end
