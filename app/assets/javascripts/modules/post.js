@@ -1,26 +1,23 @@
-// $(function(){
-//   $('.Post_bookmark--Icon').click(function() {
-//     $('.Post_bookmark--Icon').toggle();
-//   })
-// })
+$(function(){
+  $('form').on('change', 'input[type="file"]', function(e) {
+    const file = e.target.files[0],
+        reader = new FileReader(),
+        $preview = $(".Post_image_prev");
 
-// $(function(){
-//   $('.Post_bookmark--Icon').click(function() {
-//     if ($('.Post_bookmark--Icon').hasClass('far')) {
-//       $('.Post_bookmark--Icon').removeClass('far').addClass('fas');
-//       let url = $('.Post_bookmark--Icon').parent().attr('href') ;
-//       console.log(url)
-//       $.ajax({
-//         url: url,
-//         type: 'POST',
-//         data: formData,  
-//         dataType: 'json',
-//       })
-//     } else {
-//       $('.Post_bookmark--Icon').removeClass('fas').addClass('far')
-//     }
-    
-//   })
-// })
+    if(file.type.indexOf("image") < 0){
+      return false;
+    }
 
+    reader.onload = (function(file) {
+      return function(e) {
+        $preview.empty();
+        $preview.append($('<img>').attr({
+                  src: e.target.result,
+                  class: "Post_image",
+              }));
+      };
+    })(file);
 
+    reader.readAsDataURL(file);
+  });
+});
