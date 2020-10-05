@@ -22,7 +22,7 @@
         = link_to "メッセージ", group_messages_path(group, user_id: visitor.id)
         = "が届きました。"
         .Notification_time
-          = notification.created_at.strftime("%Y年%-m月%-d日 %-H:%M")
+          = notification.created_at.strftime("%-m月%-d日 %-H:%M")
       = link_to "×", notification_path(notification.id), method: :delete, class: "User_box__Content__Destroy"
       = icon('fas', 'paper-plane', class: "User_box__Content__Icon")
 
@@ -40,7 +40,7 @@
         = link_to "レビュー", user_reviews_path(user_id: current_user.id)
         = "を投稿しました。"
         .Notification_time
-          = notification.created_at.strftime("%Y年%-m月%-d日 %-H:%M")
+          = notification.created_at.strftime("%-m月%-d日 %-H:%M")
       = link_to "×", notification_path(notification.id), method: :delete, class: "User_box__Content__Destroy"
       = icon('fas', 'pen', class: "User_box__Content__Icon")
 
@@ -58,7 +58,7 @@
         = link_to "「#{post_g.title}」", posts_g_path(post_g)
         = "を申し込みました。"
         .Notification_time
-          = notification.created_at.strftime("%Y年%-m月%-d日 %-H:%M")
+          = notification.created_at.strftime("%-m月%-d日 %-H:%M")
       = link_to "×", notification_path(notification.id), method: :delete, class: "User_box__Content__Destroy"
       = icon('fas', 'check-circle', class: "User_box__Content__Icon")
 
@@ -76,7 +76,7 @@
         = link_to "「#{post_c.title}」", posts_c_path(post_c)
         = "を申し込みました。"
         .Notification_time
-          = notification.created_at.strftime("%Y年%-m月%-d日 %-H:%M")
+          = notification.created_at.strftime("%-m月%-d日 %-H:%M")
       = link_to "×", notification_path(notification.id), method: :delete, class: "User_box__Content__Destroy"
       = icon('fas', 'check-circle', class: "User_box__Content__Icon")
 
@@ -94,7 +94,7 @@
         = link_to "「#{post_g.title}」", posts_g_path(post_g)
         = "をキャンセルしました。"
         .Notification_time
-          = notification.created_at.strftime("%Y年%-m月%-d日 %-H:%M")
+          = notification.created_at.strftime("%-m月%-d日 %-H:%M")
       = link_to "×", notification_path(notification.id), method: :delete, class: "User_box__Content__Destroy"
       = icon('fas', 'times-circle', class: "User_box__Content__Icon")
 
@@ -112,7 +112,7 @@
         = link_to "「#{post_c.title}」", posts_c_path(post_c)
         = "をキャンセルしました。"
         .Notification_time
-          = notification.created_at.strftime("%Y年%-m月%-d日 %-H:%M")
+          = notification.created_at.strftime("%-m月%-d日 %-H:%M")
       = link_to "×", notification_path(notification.id), method: :delete, class: "User_box__Content__Destroy"
       = icon('fas', 'times-circle', class: "User_box__Content__Icon")
 
@@ -130,7 +130,7 @@
         = link_to "「#{post_g.title}」", posts_g_path(post_g)
         = "をお気に入りに追加しました。"
         .Notification_time
-          = notification.created_at.strftime("%Y年%-m月%-d日 %-H:%M")
+          = notification.created_at.strftime("%-m月%-d日 %-H:%M")
       = link_to "×", notification_path(notification.id), method: :delete, class: "User_box__Content__Destroy"
       = icon('fas', 'bookmark', class: "User_box__Content__Icon")
 
@@ -148,7 +148,7 @@
         = link_to "「#{post_c.title}」", posts_c_path(post_c)
         = "をお気に入りに追加しました。"
         .Notification_time
-          = notification.created_at.strftime("%Y年%-m月%-d日 %-H:%M")
+          = notification.created_at.strftime("%-m月%-d日 %-H:%M")
       = link_to "×", notification_path(notification.id), method: :delete, class: "User_box__Content__Destroy"
       = icon('fas', 'bookmark', class: "User_box__Content__Icon")
 
@@ -164,6 +164,6 @@
         = link_to visitor.name, user_path(visitor)
         = "さんがあなたをフォローしました。"
         .Notification_time
-          = notification.created_at.strftime("%Y年%-m月%-d日 %-H:%M")
+          = notification.created_at.strftime("%-m月%-d日 %-H:%M")
       = link_to "×", notification_path(notification.id), method: :delete, class: "User_box__Content__Destroy"
       = icon('fas', 'user-plus', class: "User_box__Content__Icon")

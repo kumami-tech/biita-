@@ -9,5 +9,4 @@ class Notification < ApplicationRecord
   belongs_to :visited, class_name: 'User', foreign_key: 'visited_id'
   ACTION_VALUES = ["message", "review", "apply_g", "apply_c", "cancel_g", "cancel_c", "favorite_g", "favorite_c", "follow"]
   validates :action,  presence: true, inclusion: {in: ACTION_VALUES}
-  validates :checked, presence: true, inclusion: {in: [true, false]}
 end
