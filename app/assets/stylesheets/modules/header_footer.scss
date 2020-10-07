@@ -15,12 +15,12 @@
     margin: auto;
     position: relative;
     .Header_title {
-      height: 70px;
-      width: 28%;
+      width: auto;
+      height: 60px;
       color: black;
       font-size: 3.3rem;
       font-weight: bold;
-      line-height: 70px;
+      line-height: 60px;
       display: block;
       @include foot()
     }
