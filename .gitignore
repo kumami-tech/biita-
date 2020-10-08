@@ -31,3 +31,8 @@ public/uploads/*
 yarn-debug.log*
 .yarn-integrity
 .DS_Store
+
+/mysql/data
+!/mysql/data/.gitkeep
+/mysql/log
+!/mysql/log/.gitkeep
