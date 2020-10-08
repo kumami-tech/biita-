@@ -1,0 +1,26 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7.8
+    environment:
+      MYSQL_DATABASE: biita!_development
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+    volumes:
+      - ./mysql/mysql_data:/var/lib/mysql
+    ports:
+      - "4306:3306"
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: /bin/sh -c "rm -f /workdir/tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    tty: true
+    stdin_open: true
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/workdir
