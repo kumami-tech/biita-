@@ -7,7 +7,11 @@ definer_user=mysql.sys
 definer_host=localhost
 suid=0
 with_check_option=0
+<<<<<<< HEAD
 timestamp=2020-10-07 09:19:52
+=======
+timestamp=2020-10-05 10:19:30
+>>>>>>> master
 create-version=1
 source=SELECT IF(host IS NULL, \'background\', host) AS host, SUM(count_star) AS ios, sys.format_time(SUM(sum_timer_wait)) AS io_latency  FROM performance_schema.events_waits_summary_by_host_by_event_name WHERE event_name LIKE \'wait/io/file/%\' GROUP BY IF(host IS NULL, \'background\', host) ORDER BY SUM(sum_timer_wait) DESC
 client_cs_name=utf8

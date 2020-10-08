@@ -7,7 +7,11 @@ definer_user=mysql.sys
 definer_host=localhost
 suid=0
 with_check_option=0
+<<<<<<< HEAD
 timestamp=2020-10-07 09:19:53
+=======
+timestamp=2020-10-05 10:19:30
+>>>>>>> master
 create-version=1
 source=SELECT IF(user IS NULL, \'background\', user) AS user, event_name AS event, count_star AS total, sys.format_time(sum_timer_wait) AS total_latency, sys.format_time(avg_timer_wait) AS avg_latency, sys.format_time(max_timer_wait) AS max_latency FROM performance_schema.events_waits_summary_by_user_by_event_name WHERE event_name != \'idle\' AND user IS NOT NULL AND sum_timer_wait > 0 ORDER BY user, sum_timer_wait DESC
 client_cs_name=utf8

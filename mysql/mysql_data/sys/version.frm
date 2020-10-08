@@ -7,7 +7,11 @@ definer_user=mysql.sys
 definer_host=localhost
 suid=0
 with_check_option=0
+<<<<<<< HEAD
 timestamp=2020-10-07 09:19:51
+=======
+timestamp=2020-10-05 10:19:29
+>>>>>>> master
 create-version=1
 source=SELECT \'1.5.2\' AS sys_version, version() AS mysql_version
 client_cs_name=utf8

@@ -138,6 +138,9 @@ URL: http://18.180.76.151
 - RSpec
 - FactoryBot
 
+### 開発環境
+- Docker
+
 ### 本番環境
 - AWS(EC2、S3)  
 - Nginx、Puma
