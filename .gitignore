@@ -36,3 +36,4 @@ yarn-debug.log*
 !/mysql/data/.gitkeep
 /mysql/log
 !/mysql/log/.gitkeep
+/mysql/mysql_data
