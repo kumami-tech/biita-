@@ -3,15 +3,15 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password:
+  password: password
   socket: /tmp/mysql.sock
+  host: db
 
 development:
   <<: *default
   database: biita!_development
   username: root
   password: password
-  host: db
 
 test:
   <<: *default

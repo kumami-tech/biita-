@@ -7,7 +7,11 @@ definer_user=mysql.sys
 definer_host=localhost
 suid=0
 with_check_option=0
+<<<<<<< HEAD
+timestamp=2020-10-07 09:19:52
+=======
 timestamp=2020-10-05 10:19:29
+>>>>>>> master
 create-version=1
 source=SELECT IF(host IS NULL, \'background\', host) AS host, SUM(current_count_used) AS current_count_used, sys.format_bytes(SUM(current_number_of_bytes_used)) AS current_allocated, sys.format_bytes(IFNULL(SUM(current_number_of_bytes_used) / NULLIF(SUM(current_count_used), 0), 0)) AS current_avg_alloc, sys.format_bytes(MAX(current_number_of_bytes_used)) AS current_max_alloc, sys.format_bytes(SUM(sum_number_of_bytes_alloc)) AS total_allocated FROM performance_schema.memory_summary_by_host_by_event_name GROUP BY IF(host IS NULL, \'background\', host) ORDER BY SUM(current_number_of_bytes_used) DESC
 client_cs_name=utf8

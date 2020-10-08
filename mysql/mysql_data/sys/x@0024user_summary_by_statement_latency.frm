@@ -7,7 +7,11 @@ definer_user=mysql.sys
 definer_host=localhost
 suid=0
 with_check_option=0
+<<<<<<< HEAD
+timestamp=2020-10-07 09:19:52
+=======
 timestamp=2020-10-05 10:19:30
+>>>>>>> master
 create-version=1
 source=SELECT IF(user IS NULL, \'background\', user) AS user, SUM(count_star) AS total, SUM(sum_timer_wait) AS total_latency, SUM(max_timer_wait) AS max_latency, SUM(sum_lock_time) AS lock_latency, SUM(sum_rows_sent) AS rows_sent, SUM(sum_rows_examined) AS rows_examined, SUM(sum_rows_affected) AS rows_affected, SUM(sum_no_index_used) + SUM(sum_no_good_index_used) AS full_scans FROM performance_schema.events_statements_summary_by_user_by_event_name GROUP BY IF(user IS NULL, \'background\', user) ORDER BY SUM(sum_timer_wait) DESC
 client_cs_name=utf8
