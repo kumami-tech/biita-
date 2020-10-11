@@ -7,7 +7,7 @@ Biita!は、海外旅行がしたい日本人〈ツアーゲスト〉と、旅�
 <br />
 
 ## :globe_with_meridians: URL
-URL: http://biita.net
+URL: https://biita.net
 
 ※トップページの右上にあるログインボタンをクリックしログイン画面に遷移した後、  
 「ゲストログイン(閲覧用)」のボタンをクリックすると、フォームに文字を入力せずにログインできます。
@@ -66,7 +66,7 @@ URL: http://biita.net
 
 <br />
 
-## :closed_book: 機能一覧
+## :books: 機能一覧
 
 ### ユーザー機能
 - ユーザー登録・編集・削除（deviseのgemを使用)
@@ -115,12 +115,12 @@ URL: http://biita.net
 
 ### その他
   - レスポンシブ対応
-  - 単体テスト（250 examples）
+  - テスト（250 examples）
 
 
 <br />
 
-## :blue_book: 使用技術
+## :closed_book: 使用技術
 ### フロントエンド
 - Haml
 - Sass
@@ -142,10 +142,13 @@ URL: http://biita.net
 - Docker
 
 ### 本番環境
-- AWS(EC2、S3、Route53)  
-- Nginx、Puma
+- AWS(EC2、S3、Route53、ACM、ALB)  
+- Nginx、Unicorn
 
 <br />
+
+## :blue_book: インフラ構成図
+![スクリーンショット 2020-10-11 21 49 16](https://user-images.githubusercontent.com/67250685/95679116-a8236e80-0c0b-11eb-8de0-1379de3ed5ac.jpg)
 
 ## :orange_book: ER図
 ![スクリーンショット 2020-10-04 17 00 20](https://user-images.githubusercontent.com/67250685/95010314-26f43680-0663-11eb-9024-1498d49dbb39.jpg)
