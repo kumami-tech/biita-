@@ -2,16 +2,19 @@ version: '3'
 services:
   db:
     image: mysql:5.7.8
+    container_name: db
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    # command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     environment:
       MYSQL_DATABASE: biita!_development
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_USER: root
-      MYSQL_PASSWORD: password
     volumes:
       - ./mysql/mysql_data:/var/lib/mysql
+    #   - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     ports:
-      - "4306:3306"
+      - "3306:3306"
   web:
+    container_name: web
     build:
       context: .
       dockerfile: Dockerfile
