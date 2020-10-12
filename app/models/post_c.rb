@@ -53,9 +53,6 @@ class PostC < ApplicationRecord
         visited_id: user.id,
         action: 'favorite_c'
       )
-      if notification.visitor_id == notification.visited_id
-        notification.checked = true
-      end
       notification.save if notification.valid?
     end
   end
