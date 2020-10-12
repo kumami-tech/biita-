@@ -8,9 +8,9 @@
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Layout/CommentIndentation:
-  Exclude:
-    - 'app/uploaders/image_uploader.rb'
+# Layout/CommentIndentation:
+#   Exclude:
+#     - 'app/uploaders/image_uploader.rb'
 
 # Offense count: 29
 # Cop supports --auto-correct.
