@@ -51,15 +51,15 @@ class User < ApplicationRecord
   has_many :followers, through: :follower_relationships, source: :following
 
   def following?(other_user)
-    self.followings.include?(other_user)
+    followings.include?(other_user)
   end
 
   def follow(other_user)
-    self.following_relationships.create(follower_id: other_user.id)
+    following_relationships.create(follower_id: other_user.id)
   end
 
   def unfollow(other_user)
-    self.following_relationships.find_by(follower_id: other_user.id).destroy
+    following_relationships.find_by(follower_id: other_user.id).destroy
   end
 
   def create_notification_follow!(current_user, user)

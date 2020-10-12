@@ -7,7 +7,7 @@ class Review < ApplicationRecord
   has_many :notifications, dependent: :destroy
 
   def display_position
-    if self.position == "guest"
+    if position == "guest"
       "ツアーゲストとしての評価　"
     else
       "ツアーキャストとしての評価　"
