@@ -7,7 +7,7 @@ class Review < ApplicationRecord
   has_many :notifications, dependent: :destroy
 
   def display_position
-    if self.position == "guest"
+    if position == "guest"
       "ツアーゲストとしての評価　"
     else
       "ツアーキャストとしての評価　"
@@ -19,9 +19,7 @@ class Review < ApplicationRecord
       visited_id: user.id,
       action: 'review'
     )
-    if notification.visitor_id == notification.visited_id
-      notification.checked = true
-    end
+    notification.checked = true if notification.visitor_id == notification.visited_id
     notification.save if notification.valid?
   end
 end

@@ -9,11 +9,11 @@ describe GroupsController do
         login user
         get :index
       end
-      
+
       it "トークルームのトップページに遷移すること" do
         expect(response).to render_template :index
       end
-      
+
       it "HTTPのレスポンスが200であること" do
         expect(response).to have_http_status "200"
       end
@@ -23,7 +23,7 @@ describe GroupsController do
       before do
         get :index
       end
-      
+
       it "ログイン画面にリダイレクトされること" do
         expect(response).to redirect_to new_user_session_path
       end

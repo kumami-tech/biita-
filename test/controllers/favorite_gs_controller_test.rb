@@ -10,5 +10,4 @@ class FavoriteGsControllerTest < ActionDispatch::IntegrationTest
     get favorite_gs_destroy_url
     assert_response :success
   end
-
 end

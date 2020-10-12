@@ -12,9 +12,7 @@ class Message < ApplicationRecord
       visited_id: user.id,
       action: 'message'
     )
-    if notification.visitor_id == notification.visited_id
-      notification.checked = true
-    end
+    notification.checked = true if notification.visitor_id == notification.visited_id
     notification.save if notification.valid?
   end
 end

@@ -5,5 +5,4 @@ class MapsControllerTest < ActionDispatch::IntegrationTest
     get maps_index_url
     assert_response :success
   end
-
 end

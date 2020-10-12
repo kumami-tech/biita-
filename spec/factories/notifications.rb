@@ -6,4 +6,3 @@ FactoryBot.define do
     action        { "message" }
   end
 end
-

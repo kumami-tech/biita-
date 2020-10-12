@@ -1,6 +1,6 @@
 class PostsCController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_post, except: [:index, :new, :create]
+  before_action :authenticate_user!, except: %i[index show]
+  before_action :set_post, except: %i[index new create]
   layout 'no_wrapper', only: :index
 
   def index
@@ -10,7 +10,7 @@ class PostsCController < ApplicationController
     if params[:keyword]
       @posts = PostC.search(params[:keyword])
     elsif params[:tag_name]
-      @posts = PostC.tagged_with("#{params[:tag_name]}")
+      @posts = PostC.tagged_with(params[:tag_name].to_s)
     end
   end
 
@@ -46,8 +46,7 @@ class PostsCController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @post.update(post_params)
@@ -81,6 +80,7 @@ class PostsCController < ApplicationController
   end
 
   private
+
   def post_params
     params.require(:post_c).permit(:title, :tag_list, :image, :region, :datetime, :content, :charge, :payment).merge(giver_id: current_user.id)
   end

@@ -5,17 +5,16 @@ describe NotificationsController do
   let!(:notification) { create(:notification) }
 
   describe 'GET #index' do
-
     context "ユーザーがログインしている場合" do
       before do
         login user
         get :index
       end
-      
+
       it "通知一覧ページに遷移すること" do
         expect(response).to render_template :index
       end
-      
+
       it "HTTPのレスポンスが200であること" do
         expect(response).to have_http_status "200"
       end
@@ -25,7 +24,7 @@ describe NotificationsController do
       before do
         get :index
       end
-      
+
       it "ログイン画面にリダイレクトされること" do
         expect(response).to redirect_to new_user_session_path
       end
@@ -37,22 +36,22 @@ describe NotificationsController do
   end
 
   describe 'DELETE #destroy' do
-    subject {
+    subject do
       delete :destroy,
-      params: {id: notification.id}
-    }
+             params: { id: notification.id }
+    end
 
-    context "ユーザーがログインしている場合" do  
+    context "ユーザーがログインしている場合" do
       before do
         login user
       end
 
       it "通知を削除できること" do
-        expect{ subject }.to change(Notification, :count).by(-1)
+        expect { subject }.to change(Notification, :count).by(-1)
       end
     end
 
-    context "ユーザーがログインしていない場合" do 
+    context "ユーザーがログインしていない場合" do
       it "ログイン画面にリダイレクトされること" do
         subject
         expect(response).to redirect_to new_user_session_path
@@ -64,5 +63,4 @@ describe NotificationsController do
       end
     end
   end
-
 end

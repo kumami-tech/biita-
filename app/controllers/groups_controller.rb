@@ -9,7 +9,7 @@ class GroupsController < ApplicationController
 
   def create
     group = Group.create
-    group_user = GroupUser.create(group_id: group.id, user_id: current_user.id)
+    GroupUser.create(group_id: group.id, user_id: current_user.id)
     @user = User.find(params[:id])
     group_user = GroupUser.create(group_id: group.id, user_id: @user.id)
     @group_id = group_user.group_id
