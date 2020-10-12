@@ -6,16 +6,9 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 1
-# Configuration parameters: ContextCreatingMethods, MethodCreatingMethods.
-Lint/UselessAccessModifier:
-  Exclude:
-    - 'app/controllers/users/registrations_controller.rb'
-
 # Offense count: 2
 Lint/UselessAssignment:
   Exclude:
-    - 'app/controllers/groups_controller.rb'
     - 'spec/models/user_spec.rb'
 
 # Offense count: 5
