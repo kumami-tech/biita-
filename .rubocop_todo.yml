@@ -6,23 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 3
-# Cop supports --auto-correct.
-# Configuration parameters: AllowForAlignment, AllowBeforeTrailingComments, ForceEqualSignAlignment.
-Layout/ExtraSpacing:
-  Exclude:
-    - 'app/models/notification.rb'
-    - 'config/deploy.rb'
-    - 'config/initializers/carrierwave.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: normal, indented_internal_methods
-Layout/IndentationConsistency:
-  Exclude:
-    - 'app/uploaders/image_uploader.rb'
-
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: Width, IgnoredPatterns.
