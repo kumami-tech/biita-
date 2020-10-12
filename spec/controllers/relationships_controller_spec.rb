@@ -91,11 +91,11 @@ describe RelationshipsController do
   end
 
   describe 'POST #create' do
-    subject {
+    subject do
       post :create,
            params: { id: user.id, follower_id: user.id },
            xhr: true
-    }
+    end
 
     context "ユーザーがログインしている場合" do
       before do
@@ -108,10 +108,10 @@ describe RelationshipsController do
     end
 
     context "ユーザーがログインしていない場合" do
-      subject {
+      subject do
         post :create,
              params: { id: user.id, follower_id: user.id }
-      }
+      end
       it "ログイン画面にリダイレクトされること" do
         subject
         expect(response).to redirect_to new_user_session_path
@@ -129,11 +129,11 @@ describe RelationshipsController do
     let(:current_user) { create(:user) }
     let!(:relationship) { create(:relationship, following_id: current_user.id, follower_id: user.id) }
 
-    subject {
+    subject do
       delete :destroy,
              params: { id: user.id },
              xhr: true
-    }
+    end
 
     context "ユーザーがログインしている場合" do
       before do
@@ -146,10 +146,10 @@ describe RelationshipsController do
     end
 
     context "ユーザーがログインしていない場合" do
-      subject {
+      subject do
         post :create,
              params: { id: user.id, follower_id: user.id }
-      }
+      end
       it "ログイン画面にリダイレクトされること" do
         subject
         expect(response).to redirect_to new_user_session_path

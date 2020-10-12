@@ -36,10 +36,10 @@ describe NotificationsController do
   end
 
   describe 'DELETE #destroy' do
-    subject {
+    subject do
       delete :destroy,
              params: { id: notification.id }
-    }
+    end
 
     context "ユーザーがログインしている場合" do
       before do

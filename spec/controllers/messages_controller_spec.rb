@@ -62,11 +62,11 @@ describe MessagesController do
       end
 
       context "投稿が保存できる場合" do
-        subject {
+        subject do
           post :create,
                params: params,
                xhr: true
-        }
+        end
 
         it "メッセージが非同期で保存されること" do
           expect { subject }.to change(Message, :count).by(1)
@@ -75,11 +75,11 @@ describe MessagesController do
 
       context "投稿が保存できない場合" do
         let(:invalid_params) { { group_id: group.id, user_id: user.id, message: attributes_for(:message, text: nil, image: nil) } }
-        subject {
+        subject do
           post :create,
                params: invalid_params,
                xhr: true
-        }
+        end
 
         it "メッセージが保存されないこと" do
           expect { subject }.not_to change(Message, :count)
@@ -93,10 +93,10 @@ describe MessagesController do
     end
 
     context "ユーザーがログインしていない場合" do
-      subject {
+      subject do
         post :create,
              params: params
-      }
+      end
 
       it "ログイン画面にリダイレクトされること" do
         subject

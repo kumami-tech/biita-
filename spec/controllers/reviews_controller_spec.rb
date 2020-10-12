@@ -87,10 +87,10 @@ describe ReviewsController do
       end
 
       context "レビューが保存できる場合" do
-        subject {
+        subject do
           post :create,
                params: params
-        }
+        end
 
         it "レビューが保存されること" do
           expect { subject }.to change(Review, :count).by(1)
@@ -105,10 +105,10 @@ describe ReviewsController do
       context "投稿が保存できない場合" do
         let(:invalid_params) { { user_id: user.id, review: attributes_for(:review, content: nil) } }
 
-        subject {
+        subject do
           post :create,
                params: invalid_params
-        }
+        end
 
         it "レビューが保存されないこと" do
           expect { subject }.not_to change(Review, :count)

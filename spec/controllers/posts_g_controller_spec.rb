@@ -141,10 +141,10 @@ describe PostsGController do
       end
 
       context "投稿が保存できる場合" do
-        subject {
+        subject do
           post :create,
                params: params
-        }
+        end
 
         it "投稿が保存されること" do
           expect { subject }.to change(PostG, :count).by(1)
@@ -159,10 +159,10 @@ describe PostsGController do
       context "投稿が保存できない場合" do
         let(:invalid_params) { { giver_id: giver.id, post_g: attributes_for(:post_g, title: nil) } }
 
-        subject {
+        subject do
           post :create,
                params: invalid_params
-        }
+        end
 
         it "投稿が保存されないこと" do
           expect { subject }.not_to change(PostG, :count)
@@ -176,10 +176,10 @@ describe PostsGController do
     end
 
     context "ユーザーがログインしていない場合" do
-      subject {
+      subject do
         post :create,
              params: params
-      }
+      end
 
       it "ログイン画面にリダイレクトされること" do
         subject
@@ -201,10 +201,10 @@ describe PostsGController do
 
       context "投稿が保存できる場合" do
         let(:params) { { giver_id: giver.id, title: "新しいタイトル" } }
-        subject {
+        subject do
           patch :update,
                 params: { id: post_g.id, post_g: params }
-        }
+        end
         it "投稿が保存されること" do
           subject
           expect(post_g.reload.title).to eq "新しいタイトル"
@@ -213,10 +213,10 @@ describe PostsGController do
 
       context "投稿が保存できない場合" do
         let(:invalid_params) { { giver_id: giver.id, title: nil } }
-        subject {
+        subject do
           patch :update,
                 params: { id: post_g.id, post_g: invalid_params }
-        }
+        end
         it "投稿が保存されないこと" do
           subject
           expect(post_g.reload.title).to eq "トロントの観光案内"
@@ -233,10 +233,10 @@ describe PostsGController do
   describe 'DELETE #destroy' do
     let!(:post_g) { create(:post_g, giver: giver) }
 
-    subject {
+    subject do
       delete :destroy,
              params: { id: post_g.id, post_g: params }
-    }
+    end
 
     context "ユーザーがログインしている場合" do
       before do
@@ -261,10 +261,10 @@ describe PostsGController do
         login giver
       end
 
-      subject {
+      subject do
         get :take,
             params: { id: post_g.id, post_g: params }
-      }
+      end
 
       it "投稿に申し込めること" do
         expect { subject }.to change(PostGTaker, :count).by(1)
@@ -277,10 +277,10 @@ describe PostsGController do
     end
 
     context "ユーザーがログインしていない場合" do
-      subject {
+      subject do
         get :take,
             params: { id: post_g.id, post_g: params }
-      }
+      end
 
       it "投稿に申し込めないこと" do
         expect { subject }.not_to change(PostGTaker, :count)
@@ -307,10 +307,10 @@ describe PostsGController do
         login giver
       end
 
-      subject {
+      subject do
         get :cancel,
             params: { id: post_g.id, taker_id: giver.id, post_g_taker: params }
-      }
+      end
 
       it "投稿を削除できること" do
         expect { subject }.to change(PostGTaker, :count).by(-1)
@@ -323,10 +323,10 @@ describe PostsGController do
     end
 
     context "ユーザーがログインしていない場合" do
-      subject {
+      subject do
         get :cancel,
             params: { id: post_g.id, post_g: params }
-      }
+      end
 
       it "投稿を削除できないこと" do
         expect { subject }.not_to change(PostGTaker, :count)

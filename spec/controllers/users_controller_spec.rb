@@ -85,10 +85,10 @@ describe UsersController do
       end
 
       let(:params) { { user_id: user.id, profile: "新しいプロフィール" } }
-      subject {
+      subject do
         patch :update,
               params: { id: user.id, user: params }
-      }
+      end
 
       it "プロフィールが保存されること" do
         subject
@@ -98,10 +98,10 @@ describe UsersController do
 
     context "ユーザーがログインしていない場合" do
       let(:params) { { user_id: user.id, profile: "新しいプロフィール" } }
-      subject {
+      subject do
         patch :update,
               params: { id: user.id, user: params }
-      }
+      end
 
       it "プロフィールが保存されないこと" do
         subject
@@ -113,10 +113,10 @@ describe UsersController do
       let(:another_user) { create(:user) }
       let(:params) { { user_id: user.id, profile: "新しいプロフィール" } }
 
-      subject {
+      subject do
         patch :update,
               params: { id: user.id, user: params }
-      }
+      end
 
       it "プロフィールが保存されないこと" do
         login another_user
