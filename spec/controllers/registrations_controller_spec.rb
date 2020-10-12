@@ -6,18 +6,18 @@ describe Users::RegistrationsController do
   let(:params) { { user: attributes_for(:user) } }
 
   describe 'GET #new' do
-      before do
-        @request.env["devise.mapping"] = Devise.mappings[:user]
-        get :new
-      end
+    before do
+      @request.env["devise.mapping"] = Devise.mappings[:user]
+      get :new
+    end
 
-      it "ユーザー編集ページに遷移すること" do
-        expect(response).to render_template :new
-      end
+    it "ユーザー編集ページに遷移すること" do
+      expect(response).to render_template :new
+    end
 
-      it "HTTPのレスポンスが200であること" do
-        expect(response).to have_http_status "200"
-      end
+    it "HTTPのレスポンスが200であること" do
+      expect(response).to have_http_status "200"
+    end
   end
 
   describe 'POST #create' do
