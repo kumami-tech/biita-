@@ -33,10 +33,10 @@ class User < ApplicationRecord
   has_many :reviews, foreign_key: "reviewee_id", dependent: :destroy
 
   def avg_score
-    unless self.reviews.empty?
-      reviews.average(:score).round(1)
-    else
+    if reviews.empty?
       0.0
+    else
+      reviews.average(:score).round(1)
     end
   end
 
