@@ -10,11 +10,11 @@ describe NotificationsController do
         login user
         get :index
       end
-      
+
       it "通知一覧ページに遷移すること" do
         expect(response).to render_template :index
       end
-      
+
       it "HTTPのレスポンスが200であること" do
         expect(response).to have_http_status "200"
       end
@@ -24,7 +24,7 @@ describe NotificationsController do
       before do
         get :index
       end
-      
+
       it "ログイン画面にリダイレクトされること" do
         expect(response).to redirect_to new_user_session_path
       end
@@ -41,7 +41,7 @@ describe NotificationsController do
              params: { id: notification.id }
     }
 
-    context "ユーザーがログインしている場合" do  
+    context "ユーザーがログインしている場合" do
       before do
         login user
       end
@@ -51,7 +51,7 @@ describe NotificationsController do
       end
     end
 
-    context "ユーザーがログインしていない場合" do 
+    context "ユーザーがログインしていない場合" do
       it "ログイン画面にリダイレクトされること" do
         subject
         expect(response).to redirect_to new_user_session_path

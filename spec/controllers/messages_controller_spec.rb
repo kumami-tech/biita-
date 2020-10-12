@@ -11,11 +11,11 @@ describe MessagesController do
         login user
         get :index, params: { group_id: group.id, user_id: user.id }
       end
-      
+
       it "メッセージ一覧画面に遷移すること" do
         expect(response).to render_template :index
       end
-      
+
       it "HTTPのレスポンスが200であること" do
         expect(response).to have_http_status "200"
       end
@@ -41,7 +41,7 @@ describe MessagesController do
       before do
         get :index, params: { group_id: group.id }
       end
-      
+
       it "ログイン画面にリダイレクトされること" do
         expect(response).to redirect_to new_user_session_path
       end
@@ -106,7 +106,7 @@ describe MessagesController do
       it "HTTPのレスポンスが302であること" do
         subject
         expect(response).to have_http_status "302"
-      end 
+      end
     end
   end
 end

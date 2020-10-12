@@ -15,11 +15,11 @@ describe PostsGController do
     before do
       get :index
     end
-    
+
     it "投稿一覧ページに遷移すること" do
       expect(response).to render_template :index
     end
-    
+
     it "HTTPのレスポンスが200であること" do
       expect(response).to have_http_status "200"
     end
@@ -193,12 +193,12 @@ describe PostsGController do
     end
   end
 
-  describe 'PATCH #update' do 
+  describe 'PATCH #update' do
     context "ユーザーがログインしている場合" do
       before do
         login giver
       end
-      
+
       context "投稿が保存できる場合" do
         let(:params) { { giver_id: giver.id, title: "新しいタイトル" } }
         subject {

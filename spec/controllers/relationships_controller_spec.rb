@@ -10,11 +10,11 @@ describe RelationshipsController do
         login current_user
         get :followings, params: { id: user.id }
       end
-      
+
       it "フォロー中のユーザー一覧ページに遷移すること" do
         expect(response).to render_template :followings
       end
-      
+
       it "HTTPのレスポンスが200であること" do
         expect(response).to have_http_status "200"
       end
@@ -36,11 +36,11 @@ describe RelationshipsController do
       before do
         get :followings, params: { id: user.id }
       end
-      
+
       it "フォロー中のユーザー一覧ページに遷移すること" do
         expect(response).to render_template :followings
       end
-      
+
       it "HTTPのレスポンスが200であること" do
         expect(response).to have_http_status "200"
       end
@@ -53,11 +53,11 @@ describe RelationshipsController do
         login user
         get :followers, params: { id: user.id }
       end
-      
+
       it "フォロワー一覧ページに遷移すること" do
         expect(response).to render_template :followers
       end
-      
+
       it "HTTPのレスポンスが200であること" do
         expect(response).to have_http_status "200"
       end
@@ -79,11 +79,11 @@ describe RelationshipsController do
       before do
         get :followers, params: { id: user.id }
       end
-      
+
       it "フォロワー一覧ページに遷移すること" do
         expect(response).to render_template :followers
       end
-      
+
       it "HTTPのレスポンスが200であること" do
         expect(response).to have_http_status "200"
       end
@@ -91,8 +91,6 @@ describe RelationshipsController do
   end
 
   describe 'POST #create' do
-    
-
     subject {
       post :create,
            params: { id: user.id, follower_id: user.id },
@@ -137,7 +135,7 @@ describe RelationshipsController do
              xhr: true
     }
 
-    context "ユーザーがログインしている場合" do  
+    context "ユーザーがログインしている場合" do
       before do
         login current_user
       end
@@ -147,7 +145,7 @@ describe RelationshipsController do
       end
     end
 
-    context "ユーザーがログインしていない場合" do 
+    context "ユーザーがログインしていない場合" do
       subject {
         post :create,
              params: { id: user.id, follower_id: user.id }

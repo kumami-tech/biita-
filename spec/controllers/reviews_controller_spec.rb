@@ -10,11 +10,11 @@ describe ReviewsController do
         login user
         get :index, params: { user_id: user.id }
       end
-      
+
       it "レビュー一覧ページに遷移すること" do
         expect(response).to render_template :index
       end
-      
+
       it "HTTPのレスポンスが200であること" do
         expect(response).to have_http_status "200"
       end
@@ -28,11 +28,11 @@ describe ReviewsController do
       before do
         get :index, params: { user_id: user.id }
       end
-      
+
       it "レビュー一覧ページに遷移すること" do
         expect(response).to render_template :index
       end
-      
+
       it "HTTPのレスポンスが200であること" do
         expect(response).to have_http_status "200"
       end
@@ -104,7 +104,7 @@ describe ReviewsController do
 
       context "投稿が保存できない場合" do
         let(:invalid_params) { { user_id: user.id, review: attributes_for(:review, content: nil) } }
-        
+
         subject {
           post :create,
                params: invalid_params

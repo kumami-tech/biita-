@@ -84,15 +84,14 @@ describe Users::RegistrationsController do
         expect(response).to have_http_status "302"
       end
     end
-    
   end
 
-  describe 'PATCH #update' do 
+  describe 'PATCH #update' do
     context "ユーザーがログインしている場合" do
       before do
         login user
       end
-      
+
       context "ユーザーが保存できる場合" do
         let(:params) { { id: user.id, name: "new-name" } }
         subject {

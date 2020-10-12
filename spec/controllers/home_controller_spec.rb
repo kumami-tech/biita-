@@ -9,11 +9,11 @@ describe HomeController do
         login user
         get :index
       end
-      
+
       it "トップページに遷移すること" do
         expect(response).to render_template :index
       end
-      
+
       it "HTTPのレスポンスが200であること" do
         expect(response).to have_http_status "200"
       end
@@ -23,7 +23,7 @@ describe HomeController do
       before do
         get :index
       end
-      
+
       it "トップページに遷移すること" do
         expect(response).to render_template :index
       end

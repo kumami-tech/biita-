@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     # 投稿一覧
     @giving_post_gs = @user.giving_post_gs
     @giving_post_cs = @user.giving_post_cs
-    
+
     # 申込あり
     post_g_ids = PostGTaker.pluck(:post_g_id)
     @taken_post_gs = PostG.where(id: post_g_ids).where(giver_id: @user.id)

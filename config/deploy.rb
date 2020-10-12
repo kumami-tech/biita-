@@ -8,7 +8,7 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.6.5'
 
 set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/biita_biita.pem'] 
+                  keys: ['~/.ssh/biita_biita.pem']
 
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }

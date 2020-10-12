@@ -14,7 +14,7 @@ class PostG < ApplicationRecord
 
   has_many :favorite_gs, dependent: :destroy
   has_many :notifications, dependent: :destroy
-  
+
   acts_as_taggable
 
   mount_uploader :image, ImageUploader
