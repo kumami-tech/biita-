@@ -47,13 +47,13 @@ class PostC < ApplicationRecord
 
   def create_notification_favorite_c!(current_user, user, post)
     temp = Notification.where(["visitor_id = ? and visited_id = ? and post_c_id = ? and action = ? ", current_user.id, user.id, post.id, 'favorite'])
-    if temp.blank?
-      notification = current_user.active_notifications.new(
-        post_c_id: post.id,
-        visited_id: user.id,
-        action: 'favorite_c'
-      )
-      notification.save if notification.valid?
-    end
+    return unless temp.blank?
+
+    notification = current_user.active_notifications.new(
+      post_c_id: post.id,
+      visited_id: user.id,
+      action: 'favorite_c'
+    )
+    notification.save if notification.valid?
   end
 end

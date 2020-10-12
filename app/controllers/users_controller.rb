@@ -29,12 +29,12 @@ class UsersController < ApplicationController
     @count = reviews.count
 
     # メッセージ
-    if user_signed_in?
-      group_ids = @user.groups.pluck(:id)
-      group_users = GroupUser.where(group_id: group_ids)
-      group_user = group_users.where(user_id: current_user.id)
-      @group_id = group_user.pluck(:group_id).first
-    end
+    return unless user_signed_in?
+
+    group_ids = @user.groups.pluck(:id)
+    group_users = GroupUser.where(group_id: group_ids)
+    group_user = group_users.where(user_id: current_user.id)
+    @group_id = group_user.pluck(:group_id).first
   end
 
   def edit; end

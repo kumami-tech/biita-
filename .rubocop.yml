@@ -54,3 +54,6 @@ Style/AsciiComments:
 
 Style/ClassAndModuleChildren:
   Enabled: false
+
+GuardClause:
+  MinBodyLength: 4
