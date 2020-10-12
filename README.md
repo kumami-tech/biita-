@@ -140,9 +140,10 @@ URL: https://biita.net
 
 ### 開発環境
 - Docker
+- RuboCop
 
 ### 本番環境
-- AWS(EC2、S3、Route53、ACM、ALB)  
+- AWS(VPC、EC2、S3、Route53、ACM、ALB)  
 - Nginx、Unicorn
 
 <br />
