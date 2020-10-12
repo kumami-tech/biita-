@@ -25,7 +25,7 @@ describe PostsGController do
     end
 
     it "適切にインスタンス変数(@posts)が取り出されること" do
-      expect(assigns(:posts)).to match(posts.sort { |a, b| b.created_at <=> a.created_at } )
+      expect(assigns(:posts)).to match(posts.sort { |a, b| b.created_at <=> a.created_at })
     end
   end
 
