@@ -1,6 +1,6 @@
 class PostsCController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_post, except: [:index, :new, :create]
+  before_action :authenticate_user!, except: %i[index show]
+  before_action :set_post, except: %i[index new create]
   layout 'no_wrapper', only: :index
 
   def index

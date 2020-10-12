@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
   resources :users do
-    resources :reviews, only: [:index, :new, :create]
+    resources :reviews, only: %i[index new create]
     member do
       get 'followings', to: 'relationships#followings'
       get 'followers', to: 'relationships#followers'
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       get 'take'
       get 'cancel'
     end
-    resource :favorite_gs, only: [:create, :destroy]
+    resource :favorite_gs, only: %i[create destroy]
   end
 
   resources :posts_c do
@@ -30,20 +30,20 @@ Rails.application.routes.draw do
       get 'take'
       get 'cancel'
     end
-    resource :favorite_cs, only: [:create, :destroy]
+    resource :favorite_cs, only: %i[create destroy]
   end
 
   resources :groups, only: :index do
-    resources :messages, only: [:index, :create]
+    resources :messages, only: %i[index create]
     namespace :api do
       resources :messages, only: :index, defaults: { format: 'json' }
     end
   end
 
-  resources :notifications, only: [:index, :destroy]
+  resources :notifications, only: %i[index destroy]
   get '/notifications/destroy_all', to: 'notifications#destroy_all'
 
-  resources :relationships, only: [:create, :destroy]
+  resources :relationships, only: %i[create destroy]
 
   get '/posts_g/:id/destroy', to: 'posts_g#destroy'
   get '/posts_c/:id/destroy', to: 'posts_c#destroy'

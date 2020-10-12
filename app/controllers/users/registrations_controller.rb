@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action :check_guest, only: [:update, :destroy]
+  before_action :check_guest, only: %i[update destroy]
 
   def edit
     @user = User.find(current_user.id)
