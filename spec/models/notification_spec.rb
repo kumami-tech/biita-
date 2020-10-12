@@ -50,7 +50,6 @@ describe Notification do
       end
     end
 
-
     context "保存できないこと" do
       it "actionが空の場合は保存されないこと" do
         notification = build(:notification, action: "")

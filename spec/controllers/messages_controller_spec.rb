@@ -93,7 +93,6 @@ describe MessagesController do
       end
     end
 
-
     context "ユーザーがログインしていない場合" do
       subject {
         post :create,

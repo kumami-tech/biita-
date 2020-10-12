@@ -134,8 +134,6 @@ describe PostsCController do
     end
   end
 
-
-
   describe 'POST #create' do
 
     context "ユーザーがログインしている場合" do
@@ -178,7 +176,6 @@ describe PostsCController do
       end
     end
 
-
     context "ユーザーがログインしていない場合" do
       subject {
         post :create,
@@ -196,7 +193,6 @@ describe PostsCController do
       end
     end
   end
-
 
   describe 'PATCH #update' do 
 
@@ -236,7 +232,6 @@ describe PostsCController do
     end
   end
 
-
   describe 'DELETE #destroy' do
     let!(:post_c) { create(:post_c, giver: giver) }
 
@@ -261,7 +256,6 @@ describe PostsCController do
       end
     end
   end
-
 
   describe 'GET #take' do
 
@@ -306,7 +300,6 @@ describe PostsCController do
       end
     end
   end
-
 
   describe 'GET #cancel' do
     let!(:post_c) { create(:post_c, giver: giver) }

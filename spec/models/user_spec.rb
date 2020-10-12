@@ -51,7 +51,6 @@ describe User do
       expect(user.errors[:password]).to include("は6文字以上で入力してください。")
     end
 
-
     it "パスワード再入力が空である場合は登録できないこと" do
       user = build(:user, password_confirmation: "")
       user.valid?

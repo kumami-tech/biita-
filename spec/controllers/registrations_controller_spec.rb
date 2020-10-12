@@ -5,7 +5,6 @@ describe Users::RegistrationsController do
   let(:another_user) { create(:user) }
   let(:params) { { user: attributes_for(:user) } }
 
-
   describe 'GET #new' do
       before do
         @request.env["devise.mapping"] = Devise.mappings[:user]
@@ -57,8 +56,6 @@ describe Users::RegistrationsController do
 
   end
 
-
-
   describe 'GET #edit' do
     context "ユーザーがログインしている場合" do
       before do
@@ -91,7 +88,6 @@ describe Users::RegistrationsController do
     end
     
   end
-
 
   describe 'PATCH #update' do 
 
@@ -130,7 +126,6 @@ describe Users::RegistrationsController do
       end
     end
   end
-
 
   describe 'DELETE #destroy' do
     let!(:user) { create(:user) }
