@@ -1,5 +1,5 @@
 class PostC < ApplicationRecord
-  default_scope->{order(created_at: :desc)}
+  default_scope -> {order(created_at: :desc)}
 
   validates :title, presence: true
   validates :region, presence: true

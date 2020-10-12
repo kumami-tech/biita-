@@ -25,7 +25,7 @@ describe PostsCController do
     end
 
     it "適切にインスタンス変数(@posts)が取り出されること" do
-      expect(assigns(:posts)).to match(posts.sort{ |a, b| b.created_at <=> a.created_at } )
+      expect(assigns(:posts)).to match(posts.sort { |a, b| b.created_at <=> a.created_at } )
     end
   end
 
@@ -147,7 +147,7 @@ describe PostsCController do
         }
 
         it "投稿が保存されること" do
-          expect{ subject }.to change(PostC, :count).by(1)
+          expect { subject }.to change(PostC, :count).by(1)
         end
 
         it "投稿詳細ページにリダイレクトされること" do
@@ -165,7 +165,7 @@ describe PostsCController do
         }
 
         it "投稿が保存されないこと" do
-          expect{ subject }.not_to change(PostC, :count)
+          expect { subject }.not_to change(PostC, :count)
         end
 
         it "新規投稿ページにリダイレクトされること" do
@@ -244,13 +244,13 @@ describe PostsCController do
       end
 
       it "投稿を削除できること" do
-        expect{ subject }.to change(PostC, :count).by(-1)
+        expect { subject }.to change(PostC, :count).by(-1)
       end
     end
 
     context "ユーザーがログインしていない場合" do
       it "投稿を削除できないこと" do
-        expect{ subject }.not_to change(PostC, :count)
+        expect { subject }.not_to change(PostC, :count)
       end
     end
   end
@@ -267,7 +267,7 @@ describe PostsCController do
       }
 
       it "投稿に申し込めること" do
-        expect{ subject }.to change(PostCTaker, :count).by(1)
+        expect { subject }.to change(PostCTaker, :count).by(1)
       end
 
       it "投稿詳細ページにリダイレクトされること" do
@@ -283,7 +283,7 @@ describe PostsCController do
       }
 
       it "投稿に申し込めないこと" do
-        expect{ subject }.not_to change(PostCTaker, :count)
+        expect { subject }.not_to change(PostCTaker, :count)
       end
 
       it "ログイン画面にリダイレクトされること" do
@@ -313,7 +313,7 @@ describe PostsCController do
       }
 
       it "投稿を削除できること" do
-        expect{ subject }.to change(PostCTaker, :count).by(-1)
+        expect { subject }.to change(PostCTaker, :count).by(-1)
       end
 
       it "投稿詳細ページにリダイレクトされること" do
@@ -329,7 +329,7 @@ describe PostsCController do
       }
 
       it "投稿を削除できないこと" do
-        expect{ subject }.not_to change(PostCTaker, :count)
+        expect { subject }.not_to change(PostCTaker, :count)
       end
 
       it "ログイン画面にリダイレクトされること" do

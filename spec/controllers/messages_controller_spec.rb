@@ -69,7 +69,7 @@ describe MessagesController do
         }
 
         it "メッセージが非同期で保存されること" do
-          expect{ subject }.to change(Message, :count).by(1)
+          expect { subject }.to change(Message, :count).by(1)
         end
       end
 
@@ -82,7 +82,7 @@ describe MessagesController do
         }
 
         it "メッセージが保存されないこと" do
-          expect{ subject }.not_to change(Message, :count)
+          expect { subject }.not_to change(Message, :count)
         end
 
         it "メッセージ一覧画面にリダイレクトされること" do

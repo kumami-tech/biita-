@@ -105,7 +105,7 @@ describe RelationshipsController do
       end
 
       it "フォローできること" do
-        expect{ subject }.to change(Relationship, :count).by(1)
+        expect { subject }.to change(Relationship, :count).by(1)
       end
     end
 
@@ -143,7 +143,7 @@ describe RelationshipsController do
       end
 
       it "フォローを解除できること" do
-        expect{ subject }.to change(Relationship, :count).by(-1)
+        expect { subject }.to change(Relationship, :count).by(-1)
       end
     end
 

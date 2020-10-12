@@ -31,7 +31,7 @@ describe Users::RegistrationsController do
              params: params
       }
       it "ユーザーが保存されること" do
-        expect{ subject }.to change(User, :count).by(1)
+        expect { subject }.to change(User, :count).by(1)
       end
     end
 
@@ -44,7 +44,7 @@ describe Users::RegistrationsController do
       }
 
       it "ユーザーが保存されないこと" do
-        expect{ subject }.not_to change(User, :count)
+        expect { subject }.not_to change(User, :count)
       end
 
       it "新規ユーザーページにリダイレクトされること" do
@@ -138,7 +138,7 @@ describe Users::RegistrationsController do
       end
 
       it "ユーザーを削除できること" do
-        expect{ subject }.to change(User, :count).by(-1)
+        expect { subject }.to change(User, :count).by(-1)
       end
     end
 
@@ -148,7 +148,7 @@ describe Users::RegistrationsController do
       end
 
       it "ユーザーを削除できないこと" do
-        expect{ subject }.not_to change(User, :count)
+        expect { subject }.not_to change(User, :count)
       end
     end
   end

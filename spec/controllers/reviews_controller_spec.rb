@@ -93,7 +93,7 @@ describe ReviewsController do
         }
 
         it "レビューが保存されること" do
-          expect{ subject }.to change(Review, :count).by(1)
+          expect { subject }.to change(Review, :count).by(1)
         end
 
         it "レビュー一覧画面にリダイレクトされること" do
@@ -111,7 +111,7 @@ describe ReviewsController do
         }
 
         it "レビューが保存されないこと" do
-          expect{ subject }.not_to change(Review, :count)
+          expect { subject }.not_to change(Review, :count)
         end
 
         it "新規レビュー投稿画面にリダイレクトされること" do

@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     favorite_c_ids = @user.favorite_cs.pluck(:post_c_id)
     @favorite_cs = PostC.where(id: favorite_c_ids)
 
-    #レビュー
+    # レビュー
     reviews = Review.where(reviewee_id: @user.id)
     @count = reviews.count
 
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user =User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def user_params

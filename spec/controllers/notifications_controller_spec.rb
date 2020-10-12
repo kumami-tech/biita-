@@ -47,7 +47,7 @@ describe NotificationsController do
       end
 
       it "通知を削除できること" do
-        expect{ subject }.to change(Notification, :count).by(-1)
+        expect { subject }.to change(Notification, :count).by(-1)
       end
     end
 
