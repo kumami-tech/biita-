@@ -146,7 +146,7 @@ describe PostsGController do
       context "投稿が保存できる場合" do
         subject {
           post :create,
-          params: params
+               params: params
         }
 
         it "投稿が保存されること" do
@@ -164,7 +164,7 @@ describe PostsGController do
 
         subject {
           post :create,
-          params: invalid_params
+               params: invalid_params
         }
 
         it "投稿が保存されないこと" do
@@ -182,7 +182,7 @@ describe PostsGController do
     context "ユーザーがログインしていない場合" do
       subject {
         post :create,
-        params: params
+             params: params
       }
 
       it "ログイン画面にリダイレクトされること" do
@@ -209,7 +209,7 @@ describe PostsGController do
         let(:params) { { giver_id: giver.id, title: "新しいタイトル" } }
         subject {
           patch :update,
-          params: {id: post_g.id, post_g: params}
+                params: {id: post_g.id, post_g: params}
         }
         it "投稿が保存されること" do
           subject
@@ -221,7 +221,7 @@ describe PostsGController do
         let(:invalid_params) { { giver_id: giver.id, title: nil } }
         subject {
           patch :update,
-          params: {id: post_g.id, post_g: invalid_params}
+                params: {id: post_g.id, post_g: invalid_params}
         }
         it "投稿が保存されないこと" do
           subject
@@ -242,7 +242,7 @@ describe PostsGController do
 
     subject {
       delete :destroy,
-      params: {id: post_g.id, post_g: params}
+             params: {id: post_g.id, post_g: params}
     }
 
     context "ユーザーがログインしている場合" do
@@ -272,7 +272,7 @@ describe PostsGController do
 
       subject {
         get :take,
-        params: {id: post_g.id, post_g: params}
+            params: {id: post_g.id, post_g: params}
       }
 
       it "投稿に申し込めること" do
@@ -288,7 +288,7 @@ describe PostsGController do
     context "ユーザーがログインしていない場合" do
       subject {
         get :take,
-        params: {id: post_g.id, post_g: params}
+            params: {id: post_g.id, post_g: params}
       }
 
       it "投稿に申し込めないこと" do
@@ -319,7 +319,7 @@ describe PostsGController do
 
       subject {
         get :cancel,
-        params: {id: post_g.id, taker_id: giver.id, post_g_taker: params}
+            params: {id: post_g.id, taker_id: giver.id, post_g_taker: params}
       }
 
       it "投稿を削除できること" do
@@ -335,7 +335,7 @@ describe PostsGController do
     context "ユーザーがログインしていない場合" do
       subject {
         get :cancel,
-        params: {id: post_g.id, post_g: params}
+            params: {id: post_g.id, post_g: params}
       }
 
       it "投稿を削除できないこと" do

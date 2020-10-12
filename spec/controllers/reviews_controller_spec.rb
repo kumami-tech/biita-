@@ -90,7 +90,7 @@ describe ReviewsController do
       context "レビューが保存できる場合" do
         subject {
           post :create,
-          params: params
+               params: params
         }
 
         it "レビューが保存されること" do
@@ -108,7 +108,7 @@ describe ReviewsController do
         
         subject {
           post :create,
-          params: invalid_params
+               params: invalid_params
         }
 
         it "レビューが保存されないこと" do

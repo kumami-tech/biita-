@@ -88,7 +88,7 @@ describe UsersController do
       let(:params) { { user_id: user.id, profile: "新しいプロフィール" } }
       subject {
         patch :update,
-        params: {id: user.id, user: params}
+              params: {id: user.id, user: params}
       }
       
       it "プロフィールが保存されること" do
@@ -101,7 +101,7 @@ describe UsersController do
       let(:params) { { user_id: user.id, profile: "新しいプロフィール" } }
       subject {
         patch :update,
-        params: {id: user.id, user: params}
+              params: {id: user.id, user: params}
       }
       
       it "プロフィールが保存されないこと" do
@@ -116,7 +116,7 @@ describe UsersController do
 
       subject {
         patch :update,
-        params: {id: user.id, user: params}
+              params: {id: user.id, user: params}
       }
       
       it "プロフィールが保存されないこと" do

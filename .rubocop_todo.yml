@@ -6,21 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 38
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, IndentationWidth.
-# SupportedStyles: with_first_argument, with_fixed_indentation
-Layout/ArgumentAlignment:
-  Exclude:
-    - 'spec/controllers/messages_controller_spec.rb'
-    - 'spec/controllers/notifications_controller_spec.rb'
-    - 'spec/controllers/posts_c_controller_spec.rb'
-    - 'spec/controllers/posts_g_controller_spec.rb'
-    - 'spec/controllers/registrations_controller_spec.rb'
-    - 'spec/controllers/relationships_controller_spec.rb'
-    - 'spec/controllers/reviews_controller_spec.rb'
-    - 'spec/controllers/users_controller_spec.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 Layout/CommentIndentation:

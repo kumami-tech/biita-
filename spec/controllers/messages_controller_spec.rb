@@ -65,8 +65,8 @@ describe MessagesController do
       context "投稿が保存できる場合" do
         subject {
           post :create,
-          params: params,
-          xhr: true
+               params: params,
+               xhr: true
         }
 
         it "メッセージが非同期で保存されること" do
@@ -78,8 +78,8 @@ describe MessagesController do
         let(:invalid_params) { { group_id: group.id, user_id: user.id, message: attributes_for(:message, text: nil, image: nil) } }
         subject {
           post :create,
-          params: invalid_params,
-          xhr: true
+               params: invalid_params,
+               xhr: true
         }
 
         it "メッセージが保存されないこと" do
@@ -97,7 +97,7 @@ describe MessagesController do
     context "ユーザーがログインしていない場合" do
       subject {
         post :create,
-        params: params
+             params: params
       }
 
       it "ログイン画面にリダイレクトされること" do

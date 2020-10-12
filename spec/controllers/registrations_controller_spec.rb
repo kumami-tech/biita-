@@ -30,7 +30,7 @@ describe Users::RegistrationsController do
     context "ユーザーが保存できる場合" do
       subject {
         post :create,
-        params: params
+             params: params
       }
       it "ユーザーが保存されること" do
         expect{ subject }.to change(User, :count).by(1)
@@ -42,7 +42,7 @@ describe Users::RegistrationsController do
 
       subject {
         post :create,
-        params: invalid_params
+             params: invalid_params
       }
 
       it "ユーザーが保存されないこと" do
@@ -104,7 +104,7 @@ describe Users::RegistrationsController do
         let(:params) { { id: user.id, name: "new-name" } }
         subject {
           patch :update,
-          params: {id: user.id, user: params}
+                params: {id: user.id, user: params}
         }
         it "ユーザーが保存されること" do
           subject
@@ -116,7 +116,7 @@ describe Users::RegistrationsController do
         let(:invalid_params) { { id: user.id, name: nil } }
         subject {
           patch :update,
-          params: {id: user.id, user: invalid_params}
+                params: {id: user.id, user: invalid_params}
         }
         it "ユーザーが保存されないこと" do
           subject
@@ -137,7 +137,7 @@ describe Users::RegistrationsController do
 
     subject {
       delete :destroy,
-      params: {id: user.id, user: params}
+             params: {id: user.id, user: params}
     }
 
     context "ユーザーがログインしている場合" do
