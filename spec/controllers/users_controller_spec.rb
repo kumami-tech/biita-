@@ -7,7 +7,7 @@ describe UsersController do
     let(:reviews) { create_list(:review, 3, reviewee: user) }
 
     before do
-      get :show, params: {id: user}
+      get :show, params: { id: user }
     end
 
     it "ユーザー詳細ページに遷移すること" do
@@ -47,7 +47,7 @@ describe UsersController do
     context "ユーザーがログインしている場合" do
       before do
         login user
-        get :edit, params: {id: user}
+        get :edit, params: { id: user }
       end
 
       it "プロフィール編集ページに遷移すること" do
@@ -65,7 +65,7 @@ describe UsersController do
 
     context "ユーザーがログインしていない場合" do
       before do
-        get :edit, params: {id: user}
+        get :edit, params: { id: user }
       end
 
       it "ログイン画面にリダイレクトされること" do
@@ -87,7 +87,7 @@ describe UsersController do
       let(:params) { { user_id: user.id, profile: "新しいプロフィール" } }
       subject {
         patch :update,
-              params: {id: user.id, user: params}
+              params: { id: user.id, user: params }
       }
       
       it "プロフィールが保存されること" do
@@ -100,7 +100,7 @@ describe UsersController do
       let(:params) { { user_id: user.id, profile: "新しいプロフィール" } }
       subject {
         patch :update,
-              params: {id: user.id, user: params}
+              params: { id: user.id, user: params }
       }
       
       it "プロフィールが保存されないこと" do
@@ -115,7 +115,7 @@ describe UsersController do
 
       subject {
         patch :update,
-              params: {id: user.id, user: params}
+              params: { id: user.id, user: params }
       }
       
       it "プロフィールが保存されないこと" do

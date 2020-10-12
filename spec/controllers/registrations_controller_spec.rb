@@ -58,7 +58,7 @@ describe Users::RegistrationsController do
     context "ユーザーがログインしている場合" do
       before do
         login user
-        get :edit, params: {id: user}
+        get :edit, params: { id: user }
       end
 
       it "ユーザー編集ページに遷移すること" do
@@ -73,7 +73,7 @@ describe Users::RegistrationsController do
     context "ユーザーがログインしていない場合" do
       before do
         @request.env["devise.mapping"] = Devise.mappings[:user]
-        get :edit, params: {id: user}
+        get :edit, params: { id: user }
       end
 
       it "ログイン画面にリダイレクトされること" do
@@ -97,7 +97,7 @@ describe Users::RegistrationsController do
         let(:params) { { id: user.id, name: "new-name" } }
         subject {
           patch :update,
-                params: {id: user.id, user: params}
+                params: { id: user.id, user: params }
         }
         it "ユーザーが保存されること" do
           subject
@@ -109,7 +109,7 @@ describe Users::RegistrationsController do
         let(:invalid_params) { { id: user.id, name: nil } }
         subject {
           patch :update,
-                params: {id: user.id, user: invalid_params}
+                params: { id: user.id, user: invalid_params }
         }
         it "ユーザーが保存されないこと" do
           subject
@@ -129,7 +129,7 @@ describe Users::RegistrationsController do
 
     subject {
       delete :destroy,
-             params: {id: user.id, user: params}
+             params: { id: user.id, user: params }
     }
 
     context "ユーザーがログインしている場合" do

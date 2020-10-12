@@ -95,7 +95,7 @@ describe RelationshipsController do
 
     subject {
       post :create,
-           params: {id: user.id, follower_id: user.id},
+           params: { id: user.id, follower_id: user.id },
            xhr: true
     }
 
@@ -112,7 +112,7 @@ describe RelationshipsController do
     context "ユーザーがログインしていない場合" do
       subject {
         post :create,
-             params: {id: user.id, follower_id: user.id}
+             params: { id: user.id, follower_id: user.id }
       }
       it "ログイン画面にリダイレクトされること" do
         subject
@@ -133,7 +133,7 @@ describe RelationshipsController do
 
     subject {
       delete :destroy,
-             params: {id: user.id},
+             params: { id: user.id },
              xhr: true
     }
 
@@ -150,7 +150,7 @@ describe RelationshipsController do
     context "ユーザーがログインしていない場合" do 
       subject {
         post :create,
-             params: {id: user.id, follower_id: user.id}
+             params: { id: user.id, follower_id: user.id }
       }
       it "ログイン画面にリダイレクトされること" do
         subject

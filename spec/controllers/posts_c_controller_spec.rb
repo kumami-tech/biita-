@@ -31,7 +31,7 @@ describe PostsCController do
 
   describe 'GET #show' do
     before do
-      get :show, params: {id: post_c}
+      get :show, params: { id: post_c }
     end
 
     it "投稿詳細ページに遷移すること" do
@@ -103,7 +103,7 @@ describe PostsCController do
     context "ユーザーがログインしている場合" do
       before do
         login giver
-        get :edit, params: {id: post_c}
+        get :edit, params: { id: post_c }
       end
 
       it "投稿編集ページに遷移すること" do
@@ -121,7 +121,7 @@ describe PostsCController do
 
     context "ユーザーがログインしていない場合" do
       before do
-        get :edit, params: {id: post_c}
+        get :edit, params: { id: post_c }
       end
 
       it "ログイン画面にリダイレクトされること" do
@@ -203,7 +203,7 @@ describe PostsCController do
         let(:params) { { giver_id: giver.id, title: "新しいタイトル" } }
         subject {
           patch :update,
-                params: {id: post_c.id, post_c: params}
+                params: { id: post_c.id, post_c: params }
         }
         it "投稿が保存されること" do
           subject
@@ -215,7 +215,7 @@ describe PostsCController do
         let(:invalid_params) { { giver_id: giver.id, title: nil } }
         subject {
           patch :update,
-                params: {id: post_c.id, post_c: invalid_params}
+                params: { id: post_c.id, post_c: invalid_params }
         }
         it "投稿が保存されないこと" do
           subject
@@ -235,7 +235,7 @@ describe PostsCController do
 
     subject {
       delete :destroy,
-             params: {id: post_c.id, post_c: params}
+             params: { id: post_c.id, post_c: params }
     }
 
     context "ユーザーがログインしている場合" do
@@ -263,7 +263,7 @@ describe PostsCController do
 
       subject {
         get :take,
-            params: {id: post_c.id, post_c: params}
+            params: { id: post_c.id, post_c: params }
       }
 
       it "投稿に申し込めること" do
@@ -279,7 +279,7 @@ describe PostsCController do
     context "ユーザーがログインしていない場合" do
       subject {
         get :take,
-            params: {id: post_c.id, post_c: params}
+            params: { id: post_c.id, post_c: params }
       }
 
       it "投稿に申し込めないこと" do
@@ -309,7 +309,7 @@ describe PostsCController do
 
       subject {
         get :cancel,
-            params: {id: post_c.id, taker_id: giver.id, post_c_taker: params}
+            params: { id: post_c.id, taker_id: giver.id, post_c_taker: params }
       }
 
       it "投稿を削除できること" do
@@ -325,7 +325,7 @@ describe PostsCController do
     context "ユーザーがログインしていない場合" do
       subject {
         get :cancel,
-            params: {id: post_c.id, post_c: params}
+            params: { id: post_c.id, post_c: params }
       }
 
       it "投稿を削除できないこと" do
