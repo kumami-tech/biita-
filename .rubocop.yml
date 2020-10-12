@@ -48,3 +48,6 @@ Metrics/MethodLength:
     - 'app/controllers/posts_g_controller.rb'
     - 'app/controllers/posts_c_controller.rb'
     - 'app/controllers/users_controller.rb'
+
+Style/AsciiComments:
+  Enabled: false
