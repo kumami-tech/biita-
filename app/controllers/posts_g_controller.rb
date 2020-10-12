@@ -46,8 +46,7 @@ class PostsGController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @post.update(post_params)
