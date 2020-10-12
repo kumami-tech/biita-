@@ -6,23 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 55
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces, SpaceBeforeBlockParameters.
-# SupportedStyles: space, no_space
-# SupportedStylesForEmptyBraces: space, no_space
-Layout/SpaceInsideBlockBraces:
-  Exclude:
-    - 'app/controllers/relationships_controller.rb'
-    - 'app/models/notification.rb'
-    - 'app/models/post_c.rb'
-    - 'app/models/post_g.rb'
-    - 'spec/controllers/messages_controller_spec.rb'
-    - 'spec/factories/messages.rb'
-    - 'spec/factories/posts.rb'
-    - 'spec/factories/reviews.rb'
-    - 'spec/factories/users.rb'
-
 # Offense count: 76
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces.

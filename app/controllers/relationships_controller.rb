@@ -16,7 +16,7 @@ class RelationshipsController < ApplicationController
     current_user.follow(@user)
     @user.create_notification_follow!(current_user, @user)
     respond_to do |format|
-      format.html {redirect_back(fallback_location: root_url)}
+      format.html { redirect_back(fallback_location: root_url) }
       format.js
     end
   end
@@ -24,7 +24,7 @@ class RelationshipsController < ApplicationController
   def destroy
     current_user.unfollow(@user)
     respond_to do |format|
-      format.html {redirect_back(fallback_location: root_url)}
+      format.html { redirect_back(fallback_location: root_url) }
       format.js
     end
   end

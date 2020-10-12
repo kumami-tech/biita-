@@ -3,7 +3,7 @@ require 'rails_helper'
 describe MessagesController do
   let(:group) { create(:group) }
   let(:user) { create(:user) }
-  let(:messages) { create(:message, 3, group: group, user: user)}
+  let(:messages) { create(:message, 3, group: group, user: user) }
 
   describe 'GET #index' do
     context "ユーザーがログインしている場合" do
