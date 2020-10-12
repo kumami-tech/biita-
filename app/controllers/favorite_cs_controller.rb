@@ -13,6 +13,7 @@ class FavoriteCsController < ApplicationController
   end
 
   private
+
   def set
     @post = PostC.find(params[:posts_c_id])
     @user = @post.giver
