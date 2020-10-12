@@ -135,7 +135,6 @@ describe PostsCController do
   end
 
   describe 'POST #create' do
-
     context "ユーザーがログインしている場合" do
       before do
         login giver
@@ -195,7 +194,6 @@ describe PostsCController do
   end
 
   describe 'PATCH #update' do 
-
     context "ユーザーがログインしている場合" do
       before do
         login giver
@@ -258,7 +256,6 @@ describe PostsCController do
   end
 
   describe 'GET #take' do
-
     context "ユーザーがログインしている場合" do
       before do
         login giver

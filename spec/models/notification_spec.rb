@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe Notification do
   describe '#create' do
-
     context "保存できること" do
       it "メッセージが送信された時に保存されること" do
         notification = build(:notification, action: "message")

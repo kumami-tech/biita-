@@ -5,7 +5,6 @@ describe RelationshipsController do
   let(:current_user) { create(:user) }
 
   describe 'GET #followings' do
-
     context "ユーザーがログインしている場合" do
       before do
         login current_user
@@ -49,7 +48,6 @@ describe RelationshipsController do
   end
 
   describe 'GET #followers' do
-
     context "ユーザーがログインしている場合" do
       before do
         login user
@@ -165,5 +163,4 @@ describe RelationshipsController do
       end
     end
   end
-
 end

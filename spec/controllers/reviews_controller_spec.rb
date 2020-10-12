@@ -5,7 +5,6 @@ describe ReviewsController do
   let(:current_user) { create(:user) }
   let(:review) { create(:review, reviewee: user) }
   describe 'GET #index' do
-
     context "ユーザーがログインしている場合" do
       before do
         login user

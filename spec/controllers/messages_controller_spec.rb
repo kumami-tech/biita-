@@ -6,7 +6,6 @@ describe MessagesController do
   let(:messages) { create(:message, 3, group: group, user: user)}
 
   describe 'GET #index' do
-
     context "ユーザーがログインしている場合" do
       before do
         login user

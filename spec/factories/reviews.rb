@@ -1,5 +1,4 @@
 FactoryBot.define do
-
   factory :review do
     association :reviewee, factory: :user
     association :reviewer, factory: :user
@@ -7,5 +6,4 @@ FactoryBot.define do
     score                    {"5"}
     position                 {"guest"}
   end
-
 end

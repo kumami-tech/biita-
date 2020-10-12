@@ -19,5 +19,4 @@ class FavoriteGsController < ApplicationController
     @user = @post.giver
     @favorite = @post.favorite_gs.where(user_id: current_user.id)
   end
-
 end

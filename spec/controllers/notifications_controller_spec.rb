@@ -5,7 +5,6 @@ describe NotificationsController do
   let!(:notification) { create(:notification) }
 
   describe 'GET #index' do
-
     context "ユーザーがログインしている場合" do
       before do
         login user
@@ -64,5 +63,4 @@ describe NotificationsController do
       end
     end
   end
-
 end

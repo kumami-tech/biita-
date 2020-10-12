@@ -34,5 +34,4 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:position, :score, :content, :reviewee_id).merge(reviewer_id: current_user.id)
   end
-
 end

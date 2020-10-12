@@ -79,7 +79,6 @@ describe UsersController do
   end
 
   describe 'PATCH #update' do 
-
     context "ユーザーがログインしている場合" do
       before do
         login user
@@ -126,5 +125,4 @@ describe UsersController do
       end
     end
   end
-
 end

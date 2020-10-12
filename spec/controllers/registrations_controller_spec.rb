@@ -21,7 +21,6 @@ describe Users::RegistrationsController do
   end
 
   describe 'POST #create' do
-
     before do
       @request.env["devise.mapping"] = Devise.mappings[:user]
     end
@@ -53,7 +52,6 @@ describe Users::RegistrationsController do
         expect(response).to render_template :new
       end
     end
-
   end
 
   describe 'GET #edit' do
@@ -90,7 +88,6 @@ describe Users::RegistrationsController do
   end
 
   describe 'PATCH #update' do 
-
     context "ユーザーがログインしている場合" do
       before do
         login user
@@ -155,5 +152,4 @@ describe Users::RegistrationsController do
       end
     end
   end
-
 end
