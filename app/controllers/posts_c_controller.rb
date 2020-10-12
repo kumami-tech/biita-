@@ -10,7 +10,7 @@ class PostsCController < ApplicationController
     if params[:keyword]
       @posts = PostC.search(params[:keyword])
     elsif params[:tag_name]
-      @posts = PostC.tagged_with("#{params[:tag_name]}")
+      @posts = PostC.tagged_with(params[:tag_name].to_s)
     end
   end
 
