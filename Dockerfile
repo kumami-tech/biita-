@@ -10,9 +10,8 @@ WORKDIR /workdir
 ADD Gemfile /workdir/Gemfile
 ADD Gemfile.lock /workdir/Gemfile.lock
 
-ENV BUNDLER_VERSION 2.0.1
+ENV BUNDLER_VERSION 2.0.2
 RUN gem install bundler
 RUN bundle install
 
 ADD . /workdir
-
