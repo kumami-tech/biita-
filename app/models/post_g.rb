@@ -1,5 +1,5 @@
 class PostG < ApplicationRecord
-  default_scope->{order(created_at: :desc)}
+  default_scope -> { order(created_at: :desc) }
 
   validates :title, presence: true
   validates :region, presence: true
@@ -14,7 +14,7 @@ class PostG < ApplicationRecord
 
   has_many :favorite_gs, dependent: :destroy
   has_many :notifications, dependent: :destroy
-  
+
   acts_as_taggable
 
   mount_uploader :image, ImageUploader
@@ -47,13 +47,13 @@ class PostG < ApplicationRecord
 
   def create_notification_favorite_g!(current_user, user, post)
     temp = Notification.where(["visitor_id = ? and visited_id = ? and post_g_id = ? and action = ? ", current_user.id, user.id, post.id, 'favorite'])
-    if temp.blank?
-      notification = current_user.active_notifications.new(
-        post_g_id: post.id,
-        visited_id: user.id,
-        action: 'favorite_g'
-      )
-      notification.save if notification.valid?
-    end
+    return unless temp.blank?
+
+    notification = current_user.active_notifications.new(
+      post_g_id: post.id,
+      visited_id: user.id,
+      action: 'favorite_g'
+    )
+    notification.save if notification.valid?
   end
 end

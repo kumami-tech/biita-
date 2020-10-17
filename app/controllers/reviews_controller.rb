@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
     @review_gs = Review.where(reviewee_id: @user.id).where(position: "guest").includes(:reviewer).order("reviews.created_at DESC")
     @review_cs = Review.where(reviewee_id: @user.id).where(position: "cast").includes(:reviewer).order("reviews.created_at DESC")
   end
-  
+
   def new
     @review = Review.new
   end
@@ -34,5 +34,4 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:position, :score, :content, :reviewee_id).merge(reviewer_id: current_user.id)
   end
-
 end

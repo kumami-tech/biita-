@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     # 投稿一覧
     @giving_post_gs = @user.giving_post_gs
     @giving_post_cs = @user.giving_post_cs
-    
+
     # 申込あり
     post_g_ids = PostGTaker.pluck(:post_g_id)
     @taken_post_gs = PostG.where(id: post_g_ids).where(giver_id: @user.id)
@@ -24,21 +24,20 @@ class UsersController < ApplicationController
     favorite_c_ids = @user.favorite_cs.pluck(:post_c_id)
     @favorite_cs = PostC.where(id: favorite_c_ids)
 
-    #レビュー
+    # レビュー
     reviews = Review.where(reviewee_id: @user.id)
     @count = reviews.count
 
     # メッセージ
-    if user_signed_in?
-      group_ids = @user.groups.pluck(:id)
-      group_users = GroupUser.where(group_id: group_ids)
-      group_user = group_users.where(user_id: current_user.id)
-      @group_id = group_user.pluck(:group_id).first
-    end
+    return unless user_signed_in?
+
+    group_ids = @user.groups.pluck(:id)
+    group_users = GroupUser.where(group_id: group_ids)
+    group_user = group_users.where(user_id: current_user.id)
+    @group_id = group_user.pluck(:group_id).first
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if current_user.update(user_params)
@@ -53,7 +52,7 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user =User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def user_params

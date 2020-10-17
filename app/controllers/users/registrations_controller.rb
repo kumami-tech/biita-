@@ -1,21 +1,17 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action :check_guest, only: [:update, :destroy]
-  # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
+  before_action :check_guest, only: %i[update destroy]
 
   def edit
     @user = User.find(current_user.id)
   end
 
   def check_guest
-    if resource.email == 'guest@example.com'
-      redirect_to edit_user_registration_path, alert: 'ゲストユーザーの変更・削除はできません。'
-    end
+    redirect_to edit_user_registration_path, alert: 'ゲストユーザーの変更・削除はできません。' if resource.email == 'guest@example.com'
   end
 
-  private
+  # private
 
   # GET /resource/sign_up
   # def new

@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # ユーザー
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  validates :name, presence: true, length: {maximum: 10}
+  validates :name, presence: true, length: { maximum: 10 }
 
   def self.guest
     find_or_create_by!(email: 'guest@example.com', name: "ゲスト") do |user|
@@ -33,10 +33,10 @@ class User < ApplicationRecord
   has_many :reviews, foreign_key: "reviewee_id", dependent: :destroy
 
   def avg_score
-    unless self.reviews.empty?
-      reviews.average(:score).round(1)
-    else
+    if reviews.empty?
       0.0
+    else
+      reviews.average(:score).round(1)
     end
   end
 
@@ -49,17 +49,17 @@ class User < ApplicationRecord
   has_many :followings, through: :following_relationships, source: :follower
   has_many :follower_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
   has_many :followers, through: :follower_relationships, source: :following
- 
+
   def following?(other_user)
-    self.followings.include?(other_user)
+    followings.include?(other_user)
   end
 
   def follow(other_user)
-    self.following_relationships.create(follower_id: other_user.id)
+    following_relationships.create(follower_id: other_user.id)
   end
 
   def unfollow(other_user)
-    self.following_relationships.find_by(follower_id: other_user.id).destroy
+    following_relationships.find_by(follower_id: other_user.id).destroy
   end
 
   def create_notification_follow!(current_user, user)
@@ -67,9 +67,7 @@ class User < ApplicationRecord
       visited_id: user.id,
       action: 'follow'
     )
-    if notification.visitor_id == notification.visited_id
-      notification.checked = true
-    end
+    notification.checked = true if notification.visitor_id == notification.visited_id
     notification.save if notification.valid?
   end
 end

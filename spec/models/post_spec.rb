@@ -56,7 +56,6 @@ describe PostG do
   end
 end
 
-
 describe PostC do
   describe '#create' do
     it "全て入力されていれば登録できること" do

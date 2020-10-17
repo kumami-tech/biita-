@@ -5,17 +5,16 @@ describe RelationshipsController do
   let(:current_user) { create(:user) }
 
   describe 'GET #followings' do
-
     context "ユーザーがログインしている場合" do
       before do
         login current_user
         get :followings, params: { id: user.id }
       end
-      
+
       it "フォロー中のユーザー一覧ページに遷移すること" do
         expect(response).to render_template :followings
       end
-      
+
       it "HTTPのレスポンスが200であること" do
         expect(response).to have_http_status "200"
       end
@@ -37,11 +36,11 @@ describe RelationshipsController do
       before do
         get :followings, params: { id: user.id }
       end
-      
+
       it "フォロー中のユーザー一覧ページに遷移すること" do
         expect(response).to render_template :followings
       end
-      
+
       it "HTTPのレスポンスが200であること" do
         expect(response).to have_http_status "200"
       end
@@ -49,17 +48,16 @@ describe RelationshipsController do
   end
 
   describe 'GET #followers' do
-
     context "ユーザーがログインしている場合" do
       before do
         login user
         get :followers, params: { id: user.id }
       end
-      
+
       it "フォロワー一覧ページに遷移すること" do
         expect(response).to render_template :followers
       end
-      
+
       it "HTTPのレスポンスが200であること" do
         expect(response).to have_http_status "200"
       end
@@ -81,11 +79,11 @@ describe RelationshipsController do
       before do
         get :followers, params: { id: user.id }
       end
-      
+
       it "フォロワー一覧ページに遷移すること" do
         expect(response).to render_template :followers
       end
-      
+
       it "HTTPのレスポンスが200であること" do
         expect(response).to have_http_status "200"
       end
@@ -93,13 +91,11 @@ describe RelationshipsController do
   end
 
   describe 'POST #create' do
-    
-
-    subject {
+    subject do
       post :create,
-      params: {id: user.id, follower_id: user.id},
-      xhr: true
-    }
+           params: { id: user.id, follower_id: user.id },
+           xhr: true
+    end
 
     context "ユーザーがログインしている場合" do
       before do
@@ -107,15 +103,15 @@ describe RelationshipsController do
       end
 
       it "フォローできること" do
-        expect{ subject }.to change(Relationship, :count).by(1)
+        expect { subject }.to change(Relationship, :count).by(1)
       end
     end
 
     context "ユーザーがログインしていない場合" do
-      subject {
+      subject do
         post :create,
-        params: {id: user.id, follower_id: user.id}
-      }
+             params: { id: user.id, follower_id: user.id }
+      end
       it "ログイン画面にリダイレクトされること" do
         subject
         expect(response).to redirect_to new_user_session_path
@@ -133,27 +129,27 @@ describe RelationshipsController do
     let(:current_user) { create(:user) }
     let!(:relationship) { create(:relationship, following_id: current_user.id, follower_id: user.id) }
 
-    subject {
+    subject do
       delete :destroy,
-      params: {id: user.id},
-      xhr: true
-    }
+             params: { id: user.id },
+             xhr: true
+    end
 
-    context "ユーザーがログインしている場合" do  
+    context "ユーザーがログインしている場合" do
       before do
         login current_user
       end
 
       it "フォローを解除できること" do
-        expect{ subject }.to change(Relationship, :count).by(-1)
+        expect { subject }.to change(Relationship, :count).by(-1)
       end
     end
 
-    context "ユーザーがログインしていない場合" do 
-      subject {
+    context "ユーザーがログインしていない場合" do
+      subject do
         post :create,
-        params: {id: user.id, follower_id: user.id}
-      }
+             params: { id: user.id, follower_id: user.id }
+      end
       it "ログイン画面にリダイレクトされること" do
         subject
         expect(response).to redirect_to new_user_session_path
@@ -165,5 +161,4 @@ describe RelationshipsController do
       end
     end
   end
-
 end

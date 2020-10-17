@@ -157,7 +157,7 @@
 }
 
 .Message_box {
-  max-width: 922px;
+  max-width: 920px;
   padding: 10px 30px 20px 0px;
   margin-bottom: 20px;
   display: flex;
@@ -172,6 +172,7 @@
     display: block;
   }
   &__Content {
+    max-width: 830px;
     margin: auto 0;
     &__Info{
       margin: auto 0;

@@ -13,10 +13,10 @@ class FavoriteGsController < ApplicationController
   end
 
   private
+
   def set
     @post = PostG.find(params[:posts_g_id])
     @user = @post.giver
     @favorite = @post.favorite_gs.where(user_id: current_user.id)
   end
-
 end

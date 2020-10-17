@@ -5,17 +5,16 @@ describe ReviewsController do
   let(:current_user) { create(:user) }
   let(:review) { create(:review, reviewee: user) }
   describe 'GET #index' do
-
     context "ユーザーがログインしている場合" do
       before do
         login user
         get :index, params: { user_id: user.id }
       end
-      
+
       it "レビュー一覧ページに遷移すること" do
         expect(response).to render_template :index
       end
-      
+
       it "HTTPのレスポンスが200であること" do
         expect(response).to have_http_status "200"
       end
@@ -29,11 +28,11 @@ describe ReviewsController do
       before do
         get :index, params: { user_id: user.id }
       end
-      
+
       it "レビュー一覧ページに遷移すること" do
         expect(response).to render_template :index
       end
-      
+
       it "HTTPのレスポンスが200であること" do
         expect(response).to have_http_status "200"
       end
@@ -88,13 +87,13 @@ describe ReviewsController do
       end
 
       context "レビューが保存できる場合" do
-        subject {
+        subject do
           post :create,
-          params: params
-        }
+               params: params
+        end
 
         it "レビューが保存されること" do
-          expect{ subject }.to change(Review, :count).by(1)
+          expect { subject }.to change(Review, :count).by(1)
         end
 
         it "レビュー一覧画面にリダイレクトされること" do
@@ -105,14 +104,14 @@ describe ReviewsController do
 
       context "投稿が保存できない場合" do
         let(:invalid_params) { { user_id: user.id, review: attributes_for(:review, content: nil) } }
-        
-        subject {
+
+        subject do
           post :create,
-          params: invalid_params
-        }
+               params: invalid_params
+        end
 
         it "レビューが保存されないこと" do
-          expect{ subject }.not_to change(Review, :count)
+          expect { subject }.not_to change(Review, :count)
         end
 
         it "新規レビュー投稿画面にリダイレクトされること" do
