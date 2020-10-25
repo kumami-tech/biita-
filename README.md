@@ -152,4 +152,4 @@ URL: https://biita.net
 ![スクリーンショット 2020-10-11 21 49 16](https://user-images.githubusercontent.com/67250685/95679116-a8236e80-0c0b-11eb-8de0-1379de3ed5ac.jpg)
 
 ## :orange_book: ER図
-![スクリーンショット 2020-10-04 17 00 20](https://user-images.githubusercontent.com/67250685/95010314-26f43680-0663-11eb-9024-1498d49dbb39.jpg)
+![スクリーンショット 2020-10-25 18 45 11](https://user-images.githubusercontent.com/67250685/97103813-4de9d980-16f2-11eb-80b9-b6fcbaf381a2.jpg)
