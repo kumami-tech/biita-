@@ -1,8 +1,8 @@
-window.addEventListener("load", () => {
+window.addEventListener('DOMContentLoaded', () => {
   const input = document.getElementById('Post_image_input');
   const preview = document.getElementById('Post_image_prev');
 
-  input.addEventListener("change", event => {
+  input.addEventListener('change', event => {
     const file = event.target.files[0];
 
     if (file.type.match(/image\/*/)) {
