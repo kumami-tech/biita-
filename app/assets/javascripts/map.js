@@ -1,9 +1,9 @@
-window.addEventListener("load", function() {
+window.addEventListener("load", () => {
   const inputAddress = document.getElementById('address').textContent;
   const target = document.getElementById('map');
-  geocoder = new google.maps.Geocoder()
+  geocoder = new google.maps.Geocoder();
 
-  geocoder.geocode( { address: inputAddress}, function(results, status) {
+  geocoder.geocode( { address: inputAddress}, (results, status) => {
     if (status == 'OK') {
       const map = new google.maps.Map(target, {
         center: results[0].geometry.location,
