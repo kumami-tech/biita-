@@ -1,23 +1,21 @@
-$(function(){
-  $('form').on('change', 'input[type="file"]', function(e) {
-    const preview = $(".Post_image_prev");
-    const file = e.target.files[0];
-    const reader = new FileReader();
+window.addEventListener("load", () => {
+  const input = document.getElementById('Post_image_input');
+  const preview = document.getElementById('Post_image_prev');
 
-    if(file.type.indexOf("image") < 0){
-      alert("画像ファイルを指定してください。");
-      return;
+  input.addEventListener("change", event => {
+    const file = event.target.files[0];
+
+    if (file.type.match(/image\/*/)) {
+      const reader = new FileReader();
+      reader.addEventListener('load', event => {
+        preview.innerHTML = '<img src="' + event.target.result + '">';
+      });
+      reader.readAsDataURL(file);
     }
-
-    reader.onload = (function(file) {
-      return function(e) {
-        preview.html($('<img>').attr({
-          src: e.target.result,
-          class: "Post_image",
-        }));
-      };
-    })(file);
-
-    reader.readAsDataURL(file);
+    else {
+      alert("画像ファイルを指定してください。");
+      input.value = '';
+      return false;
+    }
   });
 });
