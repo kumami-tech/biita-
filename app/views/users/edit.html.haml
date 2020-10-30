@@ -4,9 +4,9 @@
   = "プロフィールを編集する"
 .Edit_profile_image
   - if current_user.profile_image?
-    = image_tag current_user.profile_image.url, class: "Profile_image Img_prev"
+    = image_tag current_user.profile_image.url, class: "Profile_image", id: "Img_prev"
   - else
-    = image_tag "no-image.jpg", class: "Profile_image Img_prev"
+    = image_tag "no-image.jpg", class: "Profile_image", id: "Img_prev"
 .Edit_profile_form
   = form_for(current_user) do |f|
     = f.label :profile_image, "画像を選択", class: "Edit_profile_form__Btn"

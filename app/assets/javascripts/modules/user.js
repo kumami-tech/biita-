@@ -30,17 +30,23 @@ $(function() {
 
 // プロフィール画像のプレビュー
 
-$(function() {
-  function readURL(input) {
-    if (input.files && input.files[0]) {
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('user_profile_image');
+  const preview = document.getElementById('Img_prev');
+
+  input.addEventListener('change', e => {
+    const file = e.target.files[0];
+
+    if (file.type.match(/image\/*/)) {
       const reader = new FileReader();
-      reader.onload = function (e) {
-        $('.Img_prev').attr('src', e.target.result);
-      }
-      reader.readAsDataURL(input.files[0]);
+      reader.addEventListener('load', e => {
+        preview.setAttribute('src', e.target.result)
+      });
+      reader.readAsDataURL(file);
     }
-  }
-  $("#user_profile_image").change(function(){
-    readURL(this);
+    else {
+      alert("画像ファイルを指定してください。");
+      return false;
+    }
   });
- });
+});
