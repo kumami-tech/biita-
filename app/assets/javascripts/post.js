@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const input = document.getElementById('Post_image_input');
   const preview = document.getElementById('Post_image_prev');
 

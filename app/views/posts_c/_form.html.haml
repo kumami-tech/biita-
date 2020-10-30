@@ -1,3 +1,5 @@
+= javascript_include_tag 'post'
+
 .Post_form
   = form_with(model: @post, url: "/posts_c/#{@post.id}", local: true) do |f|
     .Post_form__Content.Text
@@ -15,10 +17,11 @@
     .Post_form__Content.Text
       = f.label "画像"
       %span.Required.Non-required 任意
-      .Post_image_prev
+      %br/
+      = f.file_field :image, id: "Post_image_input"
+      #Post_image_prev
         - if @post.image?
-          = image_tag @post.image.url, class: "Post_image"
-      = f.file_field :image, class: "Post_image_input"
+          = image_tag @post.image.url
     .Post_form__Content.Text
       = f.label "対応可能な場所"
       %span.Required 必須

@@ -1,3 +1,5 @@
+= javascript_include_tag 'post'
+
 .Post_form
   = form_with(model: @post, url: "/posts_g/#{@post.id}", local: true) do |f|
     .Post_form__Content.Text
