@@ -1,11 +1,17 @@
-$(function() {
-  let tabs = $(".Follow_tab");
+document.addEventListener('DOMContentLoaded', () => {
+  const tabs = document.querySelectorAll('.Follow_tab');
+  const contents = document.querySelectorAll('.Follow_list');
 
-  function tabSwitch() {
-    $(".Active").removeClass("Active");
-    $(this).addClass("Active");
-    const index = tabs.index(this);
-    $(".Follow_list").removeClass("Show").eq(index).addClass("Show");
+  for (let i = 0; i < tabs.length; i++) {
+    tabs[i].addEventListener('click', e => {
+      for (let j = 0; j < tabs.length; j++) {
+        tabs[j].classList.remove('Active')
+      }
+      for (let j = 0; j < contents.length; j++) {
+        contents[j].classList.remove('Show')
+      }
+      tabs[i].classList.add('Active');
+      contents[i].classList.add('Show');
+    });
   }
-  tabs.click(tabSwitch);
 });
