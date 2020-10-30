@@ -1,6 +1,4 @@
-// マイページのタブ切り替え
-
-$(function() {
+document.addEventListener('DOMContentLoaded', () => {
   let btns = $(".Post_type_btn");
 
   function btnSwitch() {
@@ -12,7 +10,7 @@ $(function() {
   btns.click(btnSwitch);
 });
 
-$(function() {
+document.addEventListener('DOMContentLoaded', () => {
   let tabs = $(".User_page_tab");
 
   function tabSwitch() {
@@ -25,28 +23,4 @@ $(function() {
     $(".User_favorite_posts").removeClass("Show2").eq(index).addClass("Show2");
   }
   tabs.click(tabSwitch);
-});
-
-
-// プロフィール画像のプレビュー
-
-document.addEventListener('DOMContentLoaded', () => {
-  const input = document.getElementById('user_profile_image');
-  const preview = document.getElementById('Img_prev');
-
-  input.addEventListener('change', e => {
-    const file = e.target.files[0];
-
-    if (file.type.match(/image\/*/)) {
-      const reader = new FileReader();
-      reader.addEventListener('load', e => {
-        preview.setAttribute('src', e.target.result)
-      });
-      reader.readAsDataURL(file);
-    }
-    else {
-      alert("画像ファイルを指定してください。");
-      return false;
-    }
-  });
 });

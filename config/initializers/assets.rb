@@ -15,4 +15,5 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.precompile += %w[message.js]
 Rails.application.config.assets.precompile += %w[autoReload.js]
 Rails.application.config.assets.precompile += %w[map.js]
-Rails.application.config.assets.precompile += %w[post.js]
+Rails.application.config.assets.precompile += %w[postImage.js]
+Rails.application.config.assets.precompile += %w[userImage.js]
