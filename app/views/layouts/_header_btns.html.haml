@@ -1,7 +1,7 @@
 .Header_btns.Header_btns_l
-  .Header_btn#Post_btn
+  .Header_btn.Menu_btn
     = icon('far', 'edit')
-  .Menu#Post_menu
+  .Menu
     =link_to new_posts_g_path do
       .Menu__Content
         = icon('fas', 'chevron-right')
@@ -22,12 +22,12 @@
             = icon('fas', 'circle',  class: "fa-stack-1x")
         - else
           = icon('far', 'bell', class: "Bell")
-    .Header_btn#Header_user_image
+    .Header_btn.Menu_btn
       - if current_user.profile_image?
         = image_tag current_user.profile_image.url, class: "Header_btn__Image"
       - else
         = image_tag "no-image.jpg", class: "Header_btn__Image"
-    .Menu#User_menu
+    .Menu
       =link_to user_path(current_user.id) do
         .Menu__Content
           = icon('fas', 'user')
