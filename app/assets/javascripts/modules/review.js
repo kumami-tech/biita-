@@ -40,15 +40,19 @@ $(function(){
 
 });
 
+// タブ
+document.addEventListener('DOMContentLoaded', () => {
+	const tabs = document.querySelectorAll('.Position_r__Name');
+	const contents = document.querySelectorAll('.Reviews');
 
-$(function() {
-  let tabs = $(".Position_r__Name");
-
-  function tabSwitch() {
-    $(".Active").removeClass("Active");
-    $(this).addClass("Active");
-    const index = tabs.index(this);
-    $(".Reviews").removeClass("Show").eq(index).addClass("Show");
-  }
-  tabs.click(tabSwitch);
+	for (let i = 0; i < tabs.length; i++) {
+		tabs[i].addEventListener('click', () => {
+			for (let j = 0; j < tabs.length; j++) {
+				tabs[j].classList.remove('Active');
+				contents[j].classList.remove('Show');
+			}
+			tabs[i].classList.add('Active');
+			contents[i].classList.add('Show');
+		})
+	}
 });
