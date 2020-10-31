@@ -19,7 +19,6 @@ class Review < ApplicationRecord
       visited_id: user.id,
       action: 'review'
     )
-    notification.checked = true if notification.visitor_id == notification.visited_id
     notification.save if notification.valid?
   end
 end
