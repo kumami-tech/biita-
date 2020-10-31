@@ -1,43 +1,38 @@
-$(function(){
-
-	const stars = $('.Star');
+// 投稿
+document.addEventListener('DOMContentLoaded', () => {
+	const stars = document.querySelectorAll('.Star');
+	const ratingVal = document.getElementById('rating-value');
+	const ratingValDisplay = document.getElementById('rating-value-display');
 	let index;
 
-	$('.Star').click(function(){
-		index = $('.Star').index($(this));
-		for(let j=0; j<stars.length; j++){
-			stars.eq(j).css('color', 'silver')
-		}
-		for(let j=0; j<=index; j++){
-			stars.eq(j).css('color', 'orange')
-		}
-		$('#rating-value').val(index + 1);
-		$('#rating-value-display').text(index + 1);
-	})
+	for(let i = 0; i < stars.length; i++){
+		stars[i].addEventListener('mouseover', () => {
+			for(let j = 0; j < stars.length; j++){
+				stars[j].style.color = 'silver';
+			}
+			for(let j = 0; j <= i; j++){
+				stars[j].style.color = 'orange';
+			}
+			ratingValDisplay.innerText = i + 1
+		})
 
-	$('.Star').hover(
-		function(){
-			let i = $('.Star').index($(this));
-			for(let j=0; j<stars.length; j++){
-				stars.eq(j).css('color', 'silver')
-			}
-			for(let j=0; j<=i; j++){
-				stars.eq(j).css('color', 'orange')
-			}
-			$('#rating-value-display').text(i + 1);
-		},
-		function(){
-			for(let j=0; j<stars.length; j++){
-				stars.eq(j).css('color', 'silver')
-				$('#rating-value-display').text(0);
-			}
-			for(let j=0; j<=index; j++){
-				stars.eq(j).css('color', 'orange')
-				$('#rating-value-display').text(index + 1);
-			}
-		}
-	)
+		stars[i].addEventListener('click', () => {
+			ratingVal.value = i + 1;
+			ratingValDisplay.innerText = i + 1;
+			index = i;
+		})
 
+		stars[i].addEventListener('mouseout', () => {
+			for(let j = 0; j < stars.length; j++){
+				stars[j].style.color = 'silver';
+				ratingValDisplay.innerText = 0
+			}
+			for(let j = 0; j <= index; j++){
+				stars[j].style.color = 'orange';
+				ratingValDisplay.innerText = index + 1
+			}
+		})
+	}
 });
 
 // タブ
