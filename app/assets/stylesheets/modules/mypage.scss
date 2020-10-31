@@ -214,10 +214,7 @@
           display: none;
           position: sticky;
           top: 30px;
-          .User_giving_posts, 
-          .User_taken_posts,
-          .User_taking_posts,
-          .User_favorite_posts {
+          .Mypage_posts {
             display: none;
           }
           .Show2 {
@@ -229,8 +226,6 @@
         }
       }
     }
-    
-    
   }
 }
 
