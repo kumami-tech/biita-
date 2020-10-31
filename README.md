@@ -124,8 +124,7 @@ URL: https://biita.net
 ### フロントエンド
 - Haml
 - Sass
-- JavaScript
-- jQuery
+- JavaScript（ES6、一部jQuery）
 
 ### バックエンド
 - Ruby 2.6.5  
