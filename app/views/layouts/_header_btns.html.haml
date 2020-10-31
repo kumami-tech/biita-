@@ -54,9 +54,9 @@
 -# ===============レスポンシブ=================
 
 .Header_btns.Header_btns_s
-  .Header_btn.Left#Post_btn_s
+  .Header_btn.Menu_btn.Left
     = icon('fas', 'edit')
-  .Menu#Post_menu_s
+  .Menu
     =link_to new_posts_g_path do
       .Menu__Content
         = icon('fas', 'chevron-right')
@@ -66,9 +66,9 @@
         = icon('fas', 'chevron-right')
         = "ツアーキャストとして投稿する"
 
-  .Header_btn.Left#Search_btn
+  .Header_btn.Menu_btn.Left
     = icon('fas', 'search')
-  .Menu#Search_menu
+  .Menu
     = link_to posts_g_index_path do
       .Menu__Content
         = icon('fas', 'chevron-right')
@@ -79,12 +79,12 @@
         = "ツアーキャストを探す"
 
   - if user_signed_in?
-    .Header_btn.Right#Header_user_image_s
+    .Header_btn.Menu_btn.Right
       - if current_user.profile_image?
         = image_tag current_user.profile_image.url, class: "Header_btn__Image"
       - else
         = image_tag "no-image.jpg", class: "Header_btn__Image"
-    .Menu#Menu_login
+    .Menu
       =link_to user_path(current_user.id) do
         .Menu__Content
           = icon('fas', 'user')
@@ -112,9 +112,9 @@
           = "ログアウト"
 
   - else
-    .Header_btn#Menu_btn
+    .Header_btn.Menu_btn
       = icon('fas', 'bars')
-    .Menu#Menu_logout
+    .Menu
       = link_to new_user_registration_path do
         .Menu__Content
           = icon('fas', 'user-plus')
