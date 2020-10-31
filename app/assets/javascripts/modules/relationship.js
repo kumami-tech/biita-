@@ -6,8 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     tabs[i].addEventListener('click', e => {
       for (let j = 0; j < tabs.length; j++) {
         tabs[j].classList.remove('Active')
-      }
-      for (let j = 0; j < contents.length; j++) {
         contents[j].classList.remove('Show')
       }
       tabs[i].classList.add('Active');
