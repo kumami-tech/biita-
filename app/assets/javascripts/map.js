@@ -1,4 +1,4 @@
-window.addEventListener("load", () => {
+document.addEventListener('DOMContentLoaded', () => {
   const inputAddress = document.getElementById('address').textContent;
   const target = document.getElementById('map');
   geocoder = new google.maps.Geocoder();
